@@ -1,0 +1,253 @@
+<?php
+/*
+	Template Name: Home Page
+*/
+	get_header(); 
+?>
+
+<div class="page-wrap">
+  <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+  <section class="home">
+    <div class="entry">
+        <p class="entry-main-title">Changing Education Mindset</p>
+        <p>The most promising EdTech startups 2013</p>
+      <?php $homeContant=get_the_content(); ?>
+      <?php $pageUrl = get_page_by_title( 'Offer a Startup' ); ?>
+      <a href="<?php echo $pageUrl->guid;?>" id="offerStartUp">Offer a Startup</a> </div>
+      <!----form inventors--->
+    <?php 
+  if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post") {
+	// Do some minor form validation to make sure there is content
+	if (isset ($_POST['title'])) {
+		$title =  $_POST['title'];
+	} else {
+		echo 'Please enter the wine name';
+	}
+	if (isset ($_POST['description'])) {
+		$description = $_POST['description'];
+	} else {
+		echo 'Please enter some notes';
+	}
+	
+	if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+	  $error= "E-mail is not valid";
+	}else{
+	  $email= $_POST['email'];
+	}
+	if(!filter_var($_POST['founderMail'], FILTER_VALIDATE_EMAIL)){
+	 $error= "E-mail Founder is not valid";
+	}else{
+	  $founderMail= $_POST['founderMail'];
+	}
+	if(!filter_var($_POST['site'], FILTER_VALIDATE_URL)){
+	   $error= "URL is not valid";
+	}else{
+	  $site=$_POST['site'];
+	}
+	
+	if(empty($error)){
+			$name=filter_input(INPUT_POST,'invetName',FILTER_SANITIZE_STRING);
+			$founder=filter_input(INPUT_POST,'founder',FILTER_SANITIZE_STRING);
+			
+			// ADD THE FORM INPUT TO $new_post ARRAY
+			$new_post = array(
+			'post_title'	=>	$title,
+			'post_content'	=>	$description,
+			'post_status'	=>	'pending',           // Choose: publish, preview, future, draft, etc.
+			'post_type'	=>	'initiator'  //'post',page' or use a custom post type if you want to
+			);
+		
+			//SAVE THE POST
+			$pid = wp_insert_post($new_post);
+		
+		   //SET OUR CASTUOM FIELDS
+			update_post_meta($pid, 'wpcf-full_name', $name);
+			update_post_meta($pid, 'wpcf-email_up', $email);
+			update_post_meta($pid, 'wpcf-site-url', $site);
+			update_post_meta($pid, 'wpcf-founder', $founder);
+			update_post_meta($pid, 'wpcf-founder-email', $founderMail);
+		   
+			
+			//REDIRECT TO THE NEW POST ON SAVE
+			$link = get_permalink( $pid );
+	}//if empty eprrr
+} // END THE IF STATEMENT THAT STARTED THE WHOLE FORM
+
+//POST THE POST YO
+do_action('wp_insert_post', 'wp_insert_post');
+?>
+    <div class="inventorPopUp">
+    <span class="close">X</span>
+    <form id="new_post" name="new_post" class="popInvent" method="post" action="" class="wpcf7-form" enctype="multipart/form-data">
+        <!-- post name -->
+        <fieldset name="title">
+            <input type="text" id="title" value="" tabindex="5" name="title" placeholder="StartUp Neme" />
+        </fieldset>
+    
+        <!-- post Category -->
+        <fieldset class="formfield">
+            <input type="text" id="invetName" value="" tabindex="10" name="invetName" placeholder="Your Name" />
+        </fieldset>
+    
+        <!-- post Category -->
+        <fieldset class="formfield">
+            <input type="email" id="email" value="" tabindex="15" name="email" placeholder="Your E-Mail"/>
+        </fieldset>
+        
+        <!-- post Category -->
+        <fieldset class="formfield">
+            <input type="url" id="site" value="" tabindex="20" name="site" placeholder="Link To Site"/>
+        </fieldset>
+        
+        <!-- post Category -->
+        <fieldset class="formfield">
+            <input type="text" id="founder" value="" tabindex="25" name="founder" placeholder="Founder" />
+        </fieldset>
+        <!-- post Category -->
+        <fieldset class="formfield">
+            <input type="file" id="founder" value="" tabindex="25" name="founder" placeholder="Founder" />
+        </fieldset>
+        
+         <!-- post Category -->
+        <fieldset class="formfield">
+            <input type="email" id="founderMail" value="" tabindex="30" name="founderMail" placeholder="Founder E-Mail" />
+        </fieldset>
+    
+        <!-- post Content -->
+        <fieldset class="formfield">
+       <textarea id="description" tabindex="35" name="description" cols="30" rows="1" placeholder="About You/Your Startup"></textarea>
+        </fieldset>
+    
+    
+    
+        <fieldset class="submit">
+            <input type="submit" value="Accept" tabindex="40" id="submit" name="submit" />
+        </fieldset>
+    
+        <input type="hidden" name="action" value="new_post" />
+        <?php wp_nonce_field( 'new-post' ); ?>
+    </form>
+    </div>
+      
+      <!-- end form -->
+  </section>
+  <?php endwhile; ?>
+  <?php else : ?>
+  <h2>Not Found</h2>
+  <?php endif; ?>
+</div>
+<div class="middelBanner">
+  <h2>the sturtup</h2>
+</div>
+<nav class="inventorNav">
+           <?php
+		$defaults = array(
+			'menu'            => 'startupMenu',
+			'container'       => 'div',
+			'container_class' => 'inventHome',
+			'menu_class'      => 'menu',
+			'echo'            => true,
+			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+		);
+		
+		wp_nav_menu( $defaults );
+		
+		?>
+           	
+           </nav>
+<div class="page-wrap inventors" >
+    <div class="rightScroll" id="inventScrollR"><div class="rightScroll-arrow"></div></div>
+    <div class="leftScroll" id="inventScrollL"><div class="leftScroll-arrow"></div></div>
+    <?php
+        $args = array(
+        'posts_per_page'   => -1,
+        'orderby'          => 'post_date',
+        'order'            => 'DESC',
+        'post_type'        => 'initiator',
+        'post_status'      => 'publish',
+        );
+    
+    $myposts = get_posts( $args );
+        $caunter=0;
+        echo "<div id='scrollInventorCon'><span class='placholderSlide'></span><ul class='inventList'>";
+        foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+    <?php	if($caunter==12){
+                    echo "</ul><ul class='inventList'>";
+                }else{
+                }
+        ?>
+    <li> <?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?>
+      <h2> <a href="<?php the_permalink(); ?>" id="<?php echo $post->ID;?>">
+        <?php the_title(); ?>
+        </a> </h2>
+    </li>
+    <?php	if($caunter==12){
+                $caunter=0;
+               }?>
+    <?php $caunter++; endforeach; 
+        wp_reset_postdata();?>
+    <?php	if($caunter!=12){
+            echo "</ul><span class='placholderSlide'></span></div>";
+            }
+		?>
+        
+</div>
+<div class="middelBanner">
+  <h2> The judges</h2>
+</div>
+<div class="page-wrap judges">
+	<div class="judgeDescription">
+        <span class="close">x</span>
+
+        <div class="judgeDescriptionLeft">
+            <div class="judgeDescription-img"></div>
+            <a href="" class="contactMe">Contact Me</a>
+        </div>
+        <div class="judgeDescriptionRight">
+            <div class="judgeDescription-name"> title - name</div>
+            <div class="judgeDescription-role"> title - role</div>
+            <div class="judgeDescription-full">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis vidLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eoodem modo typi, qui nunc nobis vid</div>
+        </div>
+    </div>
+
+    <div class="rightScroll" id="judgesR"><div class="rightScroll-arrow"></div></div>
+    <div class="leftScroll" id="judgesL"><div class="leftScroll-arrow"></div></div>
+<div class="judgesContenar" id="judgesCon">
+	
+    <div class="judgesAvantar hide"> </div>
+<?php
+        $args = array(
+        'posts_per_page'   => -1,
+        'orderby'          => 'post_date',
+        'order'            => 'DESC',
+        'post_type'        => 'judges',
+        'post_status'      => 'publish',
+        );
+    
+    $myposts = get_posts( $args );
+        $caunter=0;
+        foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+	
+		
+    <div class="judgesAvantar"> 
+		<?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?>
+      	<h2> <?php the_title(); ?></h2>
+        <div class="judgestext">
+        	<?php the_content();?>
+        </div>
+    </div>
+    
+    <?php endforeach; 
+        wp_reset_postdata();?>
+	<div class="judgesAvantar hide"> </div>
+</div>
+</div>
+<div class="middelBanner">
+  <h2> The Competition</h2>
+</div>
+<div class="page-wrap contect">
+	<article>
+	<?php echo $homeContant ;?>
+	</article>
+</div>
+<?php get_footer(); ?>

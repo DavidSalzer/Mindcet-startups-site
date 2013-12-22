@@ -16,7 +16,7 @@ set_post_thumbnail( 165, 176177178179 );
 <div class="page-wrap">
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     
-  <section class="home">
+  <section  class="home">
     <div class="entry">
         <p class="entry-main-title">Changing</p>
         <p id="entry-main-title-2" class="entry-main-title">Education</p>
@@ -91,7 +91,7 @@ set_post_thumbnail( 165, 176177178179 );
 //POST THE POST YO
 do_action('wp_insert_post', 'wp_insert_post');
 ?>
-    <div class="inventorPopUp">
+    <div id="offer-zone" class="inventorPopUp">
     <span class="close">X</span>
     <span class="triangle"></span>
     <form id="new_post" name="new_post" class="popInvent" method="post" action="" class="wpcf7-form" enctype="multipart/form-data">
@@ -229,8 +229,8 @@ do_action('wp_insert_post', 'wp_insert_post');
     </div>
 
 </div>
-<div class="middelBanner">
-  <h2>the sturtup</h2>
+<div id="startups-banner" class="middelBanner">
+  <h2>The Sturtups</h2>
 </div>
 <nav class="inventorNav">
            <?php
@@ -285,8 +285,8 @@ do_action('wp_insert_post', 'wp_insert_post');
 		?>
         
 </div>
-<div class="middelBanner">
-  <h2> The judges</h2>
+<div id="judges-banner" class="middelBanner">
+  <h2> The Judges</h2>
 </div>
 <div class="page-wrap judges">
 	<div class="judgeDescription">

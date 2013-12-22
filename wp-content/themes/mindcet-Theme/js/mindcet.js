@@ -225,10 +225,10 @@ $(document).ready(function (e) {
         return false;
     });
 
-    $('.judgesAvantar').on('click', this, function () {
-        $('.judgeDescription').fadeIn(600, 'easeInOutBack');
-        return false;
-    });
+    //$('.judgesAvantar').on('click', this, function () {
+    //    $('.judgeDescription').fadeIn(600, 'easeInOutBack');
+    //    return false;
+    //});
 
 
     $('.inventList li').on('click', this, function () {
@@ -242,17 +242,20 @@ $(document).ready(function (e) {
 
         html += '       <div class="socialArea">    ';
         //html += '           <div class="social fb"><div class="fb-share-button" data-href="http://localhost:55898/%D7%90%D7%95%D7%96%D7%A0%D7%99-%D7%A4%D7%99%D7%9C-%D7%A9%D7%95%D7%A7%D7%95%D7%9C%D7%93" data-type="button_count"></div></div>    ';
-        html += '           <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.hubspot.com/software-buyers-guide/" class="social fb" title="(Share on Facebook)" target="_blank">Share on Facebook</a>';
+        //html += '           <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.hubspot.com/software-buyers-guide/" class="social fb" title="(Share on Facebook)" target="_blank">Share on Facebook</a>';
         //html += '           <div class="social twitter"></div>    ';
-        html += '           <a href="http://twitter.com/intent/tweet?text=Learn%20how%20to%20optimize%20your%20calls-to-action%20-%20download%20@HubSpot%27s%20free%20ebook%20on%20mastering%20the%20design%20and%20copy%20of%20CTAs:%20http://bit.ly/LSjMFA%20%20" class="social twitter" title="(Tweet This Link)" target="_blank">Share on Twitter</a>';
+        //html += '           <a href="http://twitter.com/intent/tweet?text=Learn%20how%20to%20optimize%20your%20calls-to-action%20-%20download%20@HubSpot%27s%20free%20ebook%20on%20mastering%20the%20design%20and%20copy%20of%20CTAs:%20http://bit.ly/LSjMFA%20%20" class="social twitter" title="(Tweet This Link)" target="_blank">Share on Twitter</a>';
         //html += '           <div class="social linkedin"></div>    ';
-        html += '           <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://bit.ly/LSjMFA" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on LinkedIn</a>';
-        html += '           <div class="social likes"></div>    ';
+        //html += '           <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://bit.ly/LSjMFA" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on LinkedIn</a>';
+        //html += '           <div class="social likes"></div>    ';
 
         html += '       </div>    ';
 
         html += '       <div class="mainArea">    ';
         //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(allTech[tid].youtube)) + '" /><span class="play_button"></span> ' + '</div>    ';
+        var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube));
+        //if(videoIframe!=undefined)
+        //    html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube)) + '</div>';
         html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube)) +'</div>';
         html += '		    <div class="name ellipsis">' + allTech[tid].name + '</div>';
         html += '		    <div class="description">' + allTech[tid].descript + '</div>';
@@ -261,16 +264,16 @@ $(document).ready(function (e) {
         html += '               <div class="gallery-img"></div>    ';
         html += '               <div class="gallery-img"></div>    ';
         html += '           </div>    ';
-        html += '           <div class="fb-comments"></div>    ';
+        //html += '           <div class="fb-comments"></div>    ';
 
-        html += '            <div id="recipe-facebook-comments" class="text-box" shape-id="0">';
-        html += '               <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="http://localhost:55898/%D7%90%D7%95%D7%96%D7%A0%D7%99-%D7%A4%D7%99%D7%9C-%D7%A9%D7%95%D7%A7%D7%95%D7%9C%D7%93" data-colorscheme="light" data-numposts="5" data-width="488px" shape-id="0" fb-xfbml-state="rendered"> ';   
-        html += '                   <span style="height: 159px;">';
-        html += '                       <iframe id="f1956c9268" name="ff7c6a088" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://m.facebook.com/plugins/comments.php?api_key=162470583945071&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D28%23cb%3Df142527dc8%26domain%3Dlocalhost%26origin%3Dhttp%253A%252F%252Flocalhost%253A55898%252Ff2e22d2284%26relation%3Dparent.parent&amp;colorscheme=light&amp;href=http%3A%2F%2Flocalhost%3A55898%2F%25D7%2590%25D7%2595%25D7%2596%25D7%25A0%25D7%2599-%25D7%25A4%25D7%2599%25D7%259C-%25D7%25A9%25D7%2595%25D7%25A7%25D7%2595%25D7%259C%25D7%2593&amp;locale=en_US&amp;mobile=true&amp;numposts=5&amp;sdk=joey&amp;skin=light" style="border: none; overflow: hidden; height: 159px; width: 100%;">';
-        html += '                       </iframe>';
-        html += '                   </span>';
-        html += '               </div>';
-        html += '           </div>';
+        //html += '            <div id="recipe-facebook-comments" class="text-box" shape-id="0">';
+        //html += '               <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="http://localhost:55898/%D7%90%D7%95%D7%96%D7%A0%D7%99-%D7%A4%D7%99%D7%9C-%D7%A9%D7%95%D7%A7%D7%95%D7%9C%D7%93" data-colorscheme="light" data-numposts="5" data-width="488px" shape-id="0" fb-xfbml-state="rendered"> ';   
+        //html += '                   <span style="height: 159px;">';
+        //html += '                       <iframe id="f1956c9268" name="ff7c6a088" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://m.facebook.com/plugins/comments.php?api_key=162470583945071&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D28%23cb%3Df142527dc8%26domain%3Dlocalhost%26origin%3Dhttp%253A%252F%252Flocalhost%253A55898%252Ff2e22d2284%26relation%3Dparent.parent&amp;colorscheme=light&amp;href=http%3A%2F%2Flocalhost%3A55898%2F%25D7%2590%25D7%2595%25D7%2596%25D7%25A0%25D7%2599-%25D7%25A4%25D7%2599%25D7%259C-%25D7%25A9%25D7%2595%25D7%25A7%25D7%2595%25D7%259C%25D7%2593&amp;locale=en_US&amp;mobile=true&amp;numposts=5&amp;sdk=joey&amp;skin=light" style="border: none; overflow: hidden; height: 159px; width: 100%;">';
+        //html += '                       </iframe>';
+        //html += '                   </span>';
+        //html += '               </div>';
+        //html += '           </div>';
         html += '       </div>    ';
 
 
@@ -296,7 +299,8 @@ $(document).ready(function (e) {
 
 
 
-
+    
+ updateMenuUrl();
 
 
 
@@ -444,4 +448,11 @@ getImgUrl = function (data) {
         else{
             return -1;
         }
+ }
+
+
+ function updateMenuUrl(){
+        var navArray=["#startups-banner","#judges-banner", "#offer-zone"]
+        $(".topMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
+        $(".footerMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
  }

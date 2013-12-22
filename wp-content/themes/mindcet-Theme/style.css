@@ -972,7 +972,7 @@ right: 0;
 margin-top: 55px;
 display: none;
 }
-.inventDescription .topArea{
+#formPart3 .topArea, .inventDescription .topArea{
     width: 74%;
 margin: auto;
 padding: 0 13%;
@@ -980,13 +980,16 @@ height: 100px;
 border-bottom: 3px solid #d1d1d1;
     
 }
-.inventDescription .socialArea{
+#formPart3 .topArea{
+    height: 50px;
+}
+#formPart3 .socialArea, .inventDescription .socialArea{
     width: 93px;
 height: 100%;
 display: inline-block;
 position: absolute;
 }
-.inventDescription .mainArea{
+#formPart3  .mainArea, .inventDescription .mainArea{
     width: 500px;
     margin: auto;
     padding: 0 21px;
@@ -1000,10 +1003,17 @@ position: absolute;
 font-size: 40px;
     display: inline-block;
 }
+#formPart3  .topArea .title {
+    padding-top: 1%;
+}
 .ellipsis{
     white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
+}
+.name {
+font-size: 25px;
+padding-bottom: 10px;
 }
 .topArea .logo, .topArea .wp-post-image{
     width: 124px;
@@ -1036,6 +1046,10 @@ margin-top: 10px;
     height:    215px;
     background-color: #ABADB3;   
 }
+#formPart3 .mainArea .movie {
+    margin: 10px auto;
+}
+
 .mainArea .names{
     width: 100%;
     height: 30px;
@@ -1049,11 +1063,19 @@ height: 120px;
 overflow: hidden;
 font-size: 19px;
 }
+.mainArea .description {
+    height: 100px;
+}
+
 .mainArea .gallery {
     width: 100%;
     height: 90px;   
     margin: 34px auto;
 }
+#formPart3 .mainArea .gallery {
+    margin: 14px auto;
+}
+
 .mainArea .gallery-img{
     width: 32%;
     height: 100%;
@@ -1061,8 +1083,27 @@ font-size: 19px;
     border: 1px solid red;
     display: inline-block;
 }
-.mainArea .fb-comments {
+.mainArea .recipe-facebook-comments{
     width: 100%;
     min-height: 70px;
     border: 1px solid #000;   
+}
+
+
+.play_button {
+width: 50px;
+height: 50px;
+display: inline-block;
+position: absolute;
+right: 182px;
+top: 40%;
+z-index: 1;
+background-image: url("img/play_button.png");
+background-repeat: no-repeat;
+background-size: 100%;
+cursor: pointer;
+}
+
+iframe > .play_button {
+    display: none;
 }

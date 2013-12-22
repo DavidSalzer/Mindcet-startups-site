@@ -102,15 +102,102 @@
 		$founder=get_post_meta($post->ID,'wpcf-founder',true);
 		$founderEmail=get_post_meta($post->ID,'wpcf-founder-email',true);
 		$youtube=get_post_meta($post->ID,'wpcf-youtube-url',true);
-		$startupImg=get_post_meta($post->ID,'wpcf-startup-imges');
+		$startupImg=get_post_meta($post->ID,'wpcf-startup-imges',true);
+		$startupImg1=get_post_meta($post->ID,'wpcf-startup-img-2',true);
+		$startupImg2=get_post_meta($post->ID,'wpcf-startup-img-3',true);
 		
 		$tempArry=array('techId'=>$techId,'title'=>$title,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
-		,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImg);
+		,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImg,'startupImg1'=>$startupImg1,'startupImg2'=>$startupImg2);
         $allTech[$techId]=$tempArry;
 	  endforeach; 
 		return json_encode($allTech);
 	}
 	
+	function getAllJudges(){
+		 $args = array(
+        'posts_per_page'   => -1,
+        'orderby'          => 'post_date',
+        'order'            => 'DESC',
+        'post_type'        => 'judges',
+        'post_status'      => 'publish',
+        );
+
+    
+	$allJudges=array();
+	
+    $myposts = get_posts( $args );
+        $caunter=0;
+        foreach ( $myposts as $post ) : setup_postdata( $post ); 
+    	$judgesId=$post->ID;
+		$title=get_the_title($post->ID);
+		$logo=get_the_post_thumbnail( $post->ID,array(220,155), $attr );   
+		$descript=get_the_content($post->ID);
+		$role=get_post_meta($post->ID,'wpcf-judges_role',true);
+		$email=get_post_meta($post->ID,'wpcf-judges_email',true);
+		
+		$tempArry=array('judgesId'=>$judgesId,'name'=>$title,'imgProfile'=>$logo,'descript'=>$descript,'role'=>$role,'email'=>$email);
+        $allJudges[$judgesId]=$tempArry;
+	  endforeach; 
+		return json_encode($allJudges);
+	}
 	
 	
+	///upload file from frontEnd
+		//Upload Images
+function uploadFile($inputName,$postId){
+	
+	
+								
+   require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+   require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+   require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+		//  foreach($_FILES as $field => $file){
+			  $filename=basename($_FILES[$inputName]["name"]);
+			  $uploadedfile = $_FILES[$inputName];
+				  $upload_overrides = array( 'test_form' => false );
+				  $uploaded_file  = wp_handle_upload( $uploadedfile, $upload_overrides );
+					  if ( $uploaded_file ) {
+						// echo "filetype:". $uploaded_file['url'];
+						// var_dump($uploaded_file);
+						 
+						  $attachment = array(
+						  'post_title' => $filename,
+						  'post_content' => '',
+						  'post_type' => 'attachment',
+						  'post_parent' => $postId,
+						  'post_mime_type' => $_FILES[$inputName]['type'],
+						  'guid' => $uploaded_file['url']
+						  );
+  
+  							
+						$id = wp_insert_attachment( $attachment,$uploaded_file['url'], $postid );
+				
+						if($inputName=='logo'){
+						
+							$metadata = wp_generate_attachment_metadata( $id, $uploaded_file['file']);
+							wp_update_attachment_metadata( $id, $metadata );
+						
+							// Finally! set our post thumbnail
+							update_post_meta( $postId, '_thumbnail_id', $id );
+						}
+						if($inputName=='img-1'){
+							update_post_meta($postId,'wpcf-startup-imges',$uploaded_file['url']);
+						}
+						if($inputName=='img-2'){
+							update_post_meta($postId,'wpcf-startup-img-2',$uploaded_file['url']);
+						}
+						if($inputName=='img-3'){
+							update_post_meta($postId,'wpcf-startup-img-3',$uploaded_file['url']);
+						}
+				
+				//		echo 'inputName id:'+$inputName;
+						//	set_post_thumbnail( $postid, $id );	
+						  	//add_post_meta($postid,'wpcf-user_img', $uploaded_file['url']);
+							  //Remove it from the array to avoid duplicating during autosave/revisions.
+				//			  unset($_FILES[$field]);
+  
+							
+					  }
+		  //}//end foreach
+}
 ?>

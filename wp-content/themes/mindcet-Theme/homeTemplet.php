@@ -3,6 +3,13 @@
 	Template Name: Home Page
 */
 	get_header(); 
+?>  
+<?php 
+//add_post_meta(165,'wpcf-user_img', 
+//	"http://localhost/mindset/wp-content/uploads/2013/12/free-images1-big.jpg"
+//);
+
+set_post_thumbnail( 165, 176177178179 );
 ?>
 
 <div class="page-wrap">
@@ -33,17 +40,17 @@
 	}
 	
 	if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-	  $error= "E-mail is not valid";
+	 // $error= "E-mail is not valid";
 	}else{
 	  $email= $_POST['email'];
 	}
 	if(!filter_var($_POST['founderMail'], FILTER_VALIDATE_EMAIL)){
-	 $error= "E-mail Founder is not valid";
+	 //$error= "E-mail Founder is not valid";
 	}else{
 	  $founderMail= $_POST['founderMail'];
 	}
 	if(!filter_var($_POST['site'], FILTER_VALIDATE_URL)){
-	   $error= "URL is not valid";
+	//   $error= "URL is not valid";
 	}else{
 	  $site=$_POST['site'];
 	}
@@ -70,9 +77,13 @@
 			update_post_meta($pid, 'wpcf-founder', $founder);
 			update_post_meta($pid, 'wpcf-founder-email', $founderMail);
 		   
-			
+		   
+			uploadFile('logo',$pid);
+			uploadFile('img-1',$pid);
+			uploadFile('img-2',$pid);
+			uploadFile('img-3',$pid);
 			//REDIRECT TO THE NEW POST ON SAVE
-			$link = get_permalink( $pid );
+		//	$link = get_permalink( $pid );
 	}//if empty eprrr
 } // END THE IF STATEMENT THAT STARTED THE WHOLE FORM
 
@@ -104,7 +115,7 @@ do_action('wp_insert_post', 'wp_insert_post');
             <span class="title-logo">Logo</span>
             <fieldset class="formfield input-border">
                 <div class="upload">
-                    <input type="file" id="logo" value="Upload" tabindex="25" name="logo" placeholder="" />Select file
+                    <input type="file" id="logo" value="Upload" name="logo" tabindex="25" name="logo" placeholder="" />Select file
                 </div>
             </fieldset>
 
@@ -333,6 +344,8 @@ do_action('wp_insert_post', 'wp_insert_post');
 </div>
 <script>
      allTech=<?php echo getAllStartup(); ?>;
+     allJudges=<?php echo getAllJudges(); ?>;
      popupall(allTech);
+	 popupall(allJudges);
 </script>
 <?php get_footer(); ?>

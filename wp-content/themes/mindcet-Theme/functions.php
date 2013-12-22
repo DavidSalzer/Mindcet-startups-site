@@ -103,12 +103,16 @@
 		$founderEmail=get_post_meta($post->ID,'wpcf-founder-email',true);
 		$youtube=get_post_meta($post->ID,'wpcf-youtube-url',true);
 		$startupImg=get_post_meta($post->ID,'wpcf-startup-imges',true);
-		$startupImg1=get_post_meta($post->ID,'wpcf-startup-img-2',true);
+		$startupImg1=get_post_meta($post->ID,'wpcf-startup-imges-2',true);
 		$startupImg2=get_post_meta($post->ID,'wpcf-startup-img-3',true);
 		
-		$tempArry=array('techId'=>$techId,'title'=>$title,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
-		,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImg,'startupImg1'=>$startupImg,'startupImg2'=>$startupImg);
+        $startupImgArry=array('0'=>$startupImg,'1'=>$startupImg1,'2'=>$startupImg2);
+  $tempArry=array('techId'=>$techId,'title'=>$title,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
+  ,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImgArry);
         $allTech[$techId]=$tempArry;
+		//$tempArry=array('techId'=>$techId,'title'=>$title,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
+		//,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImg,'startupImg1'=>$startupImg,'startupImg2'=>$startupImg);
+  //      $allTech[$techId]=$tempArry;
 	  endforeach; 
 		return json_encode($allTech);
 	}

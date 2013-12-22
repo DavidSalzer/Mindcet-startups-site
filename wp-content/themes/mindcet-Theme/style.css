@@ -415,7 +415,7 @@ font-size: 28px;
 line-height: 33px;
 padding: 55px 20px;
 width: 273px;
-margin-left: 100px;
+margin-left: 65px;
 background-color: rgba(256,256,256, 0.3);
 }
 .home .entry a{
@@ -696,6 +696,7 @@ cursor: pointer;
 
 .judgesAvantar.hide{
 	border:none;
+    width: 68px;
 }
 .judgesAvantar img{
 	width:165px;
@@ -1017,10 +1018,11 @@ border-bottom: 3px solid #d1d1d1;
     height: 50px;
 }
 #formPart3 .socialArea, .inventDescription .socialArea{
-    width: 93px;
-height: 100%;
+    width: 115px;
+height: 80%;
 display: inline-block;
 position: absolute;
+padding-top: 10%;
 }
 #formPart3  .mainArea, .inventDescription .mainArea{
     width: 500px;
@@ -1028,7 +1030,7 @@ position: absolute;
     padding: 0 21px;
 }
 .topArea .title{
-    width: 70%;
+    width: 65%;
     height: 45px;
     line-height: 45px;
     color: #6a6a6a;
@@ -1056,21 +1058,47 @@ padding-bottom: 10px;
     float: right;
 margin-top: 10px;
 }
+.topArea .logo, .topArea .wp-post-image {
+    width: 124px;
+height: 83px;
+display: inline-block;
+right: 0;
+float: right;
+margin-top: 10px;
+}
+#formPart3 .topArea .logo{
+    width: 83px;
+    height: 55px;
+    margin-top: -10px;
+}
 .socialArea .social {
-    width: 45px;
-    height: 85px;
-    border-bottom: 1px solid #6a6a6a;
-    margin: auto;
+    width: 60px;
+height: 41px;
+border-bottom: 1px solid #6a6a6a;
+margin: auto;
+background-repeat: no-repeat;
+background-position-y: -14%;
+text-align: justify;
+font-size: 14px;
+padding-top: 50%;
 }
 .socialArea .fb {
-    background-image: url();
+    background-image: url("img/social_startup_popup.png");
+background-position-x: -6px;
+color: #555ca8;
 }
 .socialArea .twitter {
-    
+    background-image: url("img/social_startup_popup.png");
+    background-position-x: 52%;
+    color: #45b0e4;
 }
 .socialArea .linkedin {
+    background-image: url("img/social_startup_popup.png");
+    background-position-x: 96%;
+    color: #2980b9;
 }
 .socialArea .likes {
+    
 }
 .mainArea .movie{
     width: 342px;
@@ -1098,7 +1126,7 @@ line-height: 23px;
 
 .mainArea .description {
 height: 115px;
-overflow-y: scroll;
+overflow-y: auto;
 }
 
 .mainArea .gallery {

@@ -180,22 +180,22 @@ html[xmlns] .cf {
 /*------------------font face------------------------------*/
 @font-face {
     font-family: 'sans';
-    src: url('sansation_regular-webfont.eot');
-    src: url('sansation_regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('sansation_regular-webfont.woff') format('woff'),
-         url('sansation_regular-webfont.ttf') format('truetype'),
-         url('sansation_regular-webfont.svg#sansationregular') format('svg');
+    src: url('css/font/sansation_regular-webfont.eot');
+    src: url('css/font/sansation_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('css/font/sansation_regular-webfont.woff') format('woff'),
+         url('css/font/sansation_regular-webfont.ttf') format('truetype'),
+         url('css/font/sansation_regular-webfont.svg#sansationregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 @font-face {
     font-family: 'sansbold';
-    src: url('sansation_bold-webfont.eot');
-    src: url('sansation_bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('sansation_bold-webfont.woff') format('woff'),
-         url('sansation_bold-webfont.ttf') format('truetype'),
-         url('sansation_bold-webfont.svg#sansationbold') format('svg');
+    src: url('css/font/sansation_bold-webfont.eot');
+    src: url('css/font/sansation_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('css/font/sansation_bold-webfont.woff') format('woff'),
+         url('css/font/sansation_bold-webfont.ttf') format('truetype'),
+         url('css/font/sansation_bold-webfont.svg#sansationbold') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -206,11 +206,11 @@ html[xmlns] .cf {
 
 @font-face {
     font-family: 'sans_italic';
-    src: url('sansation_bold_italic-webfont.eot');
-    src: url('sansation_bold_italic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('sansation_bold_italic-webfont.woff') format('woff'),
-         url('sansation_bold_italic-webfont.ttf') format('truetype'),
-         url('sansation_bold_italic-webfont.svg#sansationbold_italic') format('svg');
+    src: url('css/font/sansation_bold_italic-webfont.eot');
+    src: url('css/font/sansation_bold_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('css/font/sansation_bold_italic-webfont.woff') format('woff'),
+         url('css/font/sansation_bold_italic-webfont.ttf') format('truetype'),
+         url('css/font/sansation_bold_italic-webfont.svg#sansationbold_italic') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -221,11 +221,11 @@ html[xmlns] .cf {
 
 @font-face {
     font-family: 'sansitalic';
-    src: url('sansation_italic-webfont.eot');
-    src: url('sansation_italic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('sansation_italic-webfont.woff') format('woff'),
-         url('sansation_italic-webfont.ttf') format('truetype'),
-         url('sansation_italic-webfont.svg#sansationitalic') format('svg');
+    src: url('css/font/sansation_italic-webfont.eot');
+    src: url('css/font/sansation_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('css/font/sansation_italic-webfont.woff') format('woff'),
+         url('css/font/sansation_italic-webfont.ttf') format('truetype'),
+         url('css/font/sansation_italic-webfont.svg#sansationitalic') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -266,7 +266,7 @@ body{
 	background-repeat: no-repeat;
 	float: left;
 	background-position: -13px 0;
-	margin-left: 0;
+	margin-left: 10px;
 	z-index: 5;
 }
 footer .tagLogo {
@@ -404,17 +404,19 @@ background-position-y: 80%;
     padding: 0 10%; 
 }
 /*-----------------------home page------------------*/
-.home{
-	min-width: 1024px;
-	margin: 0 auto;
-	position: relative;
+.page-wrap .home {
+min-width: 1024px;
+margin: 0 auto;
+position: relative;
+background-image: url(img/background.jpg);
 }
 .home .entry {
-	font-size: 28px;
-    line-height: 33px;
-	 padding: 55px; 
-     width: 241px;
-     padding-left: 100px;
+font-size: 28px;
+line-height: 33px;
+padding: 55px 20px;
+width: 241px;
+margin-left: 100px;
+background-color: rgba(256,256,256, 0.3);
 }
 .home .entry a{
 	font-size: 1.1em;
@@ -844,7 +846,7 @@ color: #fff;
 height: 43px;
 margin-bottom: 20px;
 }
-.last-page, .next-page, .submit{
+.last-page, .next-page ,.submit input{
     display: inline-block;
     width: 170px;
     height: 43px;
@@ -858,7 +860,25 @@ text-indent: 12%;
 font-size: 25px;
 font-family: sans-serif;
 }
-.submit{
+.submit {
+float: right;
+position: relative;
+right: 218px;
+}
+.submit input{
+    /*width: 170px;
+    height: 43px;
+    border: 2px solid #ABADB3;
+    background-color:   #e76c76;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    line-height: 45px;
+text-indent: 12%;
+font-size: 25px;
+font-family: sans-serif;*/
+}
+.submit input{
     text-indent: 8.5%;
 }
 .last-page {
@@ -868,7 +888,7 @@ font-family: sans-serif;
 .page-2-buttons .next-page{
     display: none;
 }
- .next-page, .submit {
+ .next-page{
     right: 44px;
 }
 .next-page .nav-page-img{
@@ -895,7 +915,8 @@ line-height: 50px;
 #page-number-3, #page-number-2{
     display: none;
 }
-.popInvent input[type="submit"]{
+/*.popInvent input[type="submit"]{*/
+    .submit input{
     width: 175px;
 	height: 45px;
     font-size: 1.8em;
@@ -905,7 +926,19 @@ line-height: 50px;
 	color:#fff;
     margin-right: 45px;
     cursor: pointer;
-    display: none; 
+    display: none;
+    /*width: 170px;
+    height: 43px;
+    border: 2px solid #ABADB3;
+    background-color:   #e76c76;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    line-height: 45px;
+text-indent: 12%;
+font-size: 25px;
+font-family: sans-serif;*/
+ 
 }
 /*----------------footer---*/
 #footer {
@@ -995,7 +1028,7 @@ position: absolute;
     padding: 0 21px;
 }
 .topArea .title{
-    width: 50%;
+    width: 70%;
     height: 45px;
     line-height: 45px;
     color: #6a6a6a;
@@ -1044,7 +1077,6 @@ margin-top: 10px;
     width: 342px;
     margin: 50px auto;
     height:    215px;
-    background-color: #ABADB3;   
 }
 #formPart3 .mainArea .movie {
     margin: 10px auto;
@@ -1080,7 +1112,6 @@ font-size: 19px;
     width: 32%;
     height: 100%;
     margin-right: 0.4%;
-    border: 1px solid red;
     display: inline-block;
 }
 .mainArea .recipe-facebook-comments{

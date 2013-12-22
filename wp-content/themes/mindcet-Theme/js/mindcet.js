@@ -55,19 +55,24 @@ $(document).ready(function (e) {
             $('.next-page').css("display", "none");
             $('#formPart3').show();
             $('#page-number-3').show();
-            $('.submit').css("display", "inline-block");
+            $('.submit input').css("display", "inline-block");
 
             if (document.getElementById("title").value) { var title = document.getElementById("title").value; } else { title = "no title"; }
-            //var logo = document.getElementById("logo").value;
-            //var name = document.getElementById("name").value;
+            //var logo = document.getElementById("logo").addEventListener('change', handleFileSelect, false);
+
+
             var youtubeUrl = document.getElementById("youtubeUrl").value;
             var invetName = document.getElementById("invetName").value;
             var description = document.getElementById("description").value;
-            //var img1 = document.getElementById("img-1").value;
+            //var img1 = document.getElementById("img-1").addEventListener('change', handleFileSelect, false);
+
+
 
             var html = '       <div class="topArea">    '
             html += '		    <div class="title ellipsis">' + title + '</div>';
-            //html +=                 logo;
+           // html +=                 logo;
+            if(logoSrc!=null)
+                html += '       <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">    ';
             html += '       </div>    ';
 
             //html += '       <div class="socialArea">    ';
@@ -83,9 +88,12 @@ $(document).ready(function (e) {
             html += '		    <div class="name ellipsis">' + invetName + '</div>';
             html += '		    <div class="description">' + description + '</div>';
             html += '           <div class="gallery">    ';
-            //html += '               <img class="gallery-img" src="' + img1 + '" alt="' + title + ' img1">    ';
-            html += '               <div class="gallery-img"></div>    ';
-            html += '               <div class="gallery-img"></div>    ';
+            if(ImgSrc1!=null)
+                html += '               <img class="gallery-img" src="' + ImgSrc1 + '" alt="' + title + ' img1">    ';
+            if(ImgSrc2!=null)
+                html += '               <img class="gallery-img" src="' + ImgSrc2 + '" alt="' + title + ' img2">    ';
+            if(ImgSrc3!=null)
+                html += '               <img class="gallery-img" src="' + ImgSrc3 + '" alt="' + title + ' img3">    ';
             html += '           </div>    ';
             //html += '           <div class="fb-comments"></div>    ';
             html += '       </div>    ';
@@ -95,7 +103,7 @@ $(document).ready(function (e) {
         }
 
 
-        return false;
+        return true;
     });
 
     $('.last-page').on('click', this, function () {
@@ -113,18 +121,110 @@ $(document).ready(function (e) {
             $('#formPart3').hide();
             $('#page-number-3').hide();
             $('#page-number-2').show();
-            $('.submit').css("display", "none");
+            $('.submit input').css("display", "none");
             $('#formPart2').show();
             $('.next-page').show();
             $('.next-page').css("display", "inline-block");
         }
 
-        return false;
+        return ;
     });
+      
+    var logoSrc=null;
+    var ImgSrc1=null;
+    var ImgSrc2=null;
+    var ImgSrc3=null;
+    
+    $("#logo").change(function(e) {
+
+        var fileName = $(this).val();
+        if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
+
+            if(this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    console.log(e.target.result);
+                    logoSrc= e.target.result;
+                    smallImgAdded = true;
+                };
+
+                reader.readAsDataURL(this.files[0]);
+            }
+        }
+        else {
+            alert("noValidFile");
+        }
+    });
+    $("#img-1").change(function(e) {
+
+        var fileName = $(this).val();
+        if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
+
+            if(this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    console.log(e.target.result);
+                    ImgSrc1= e.target.result;
+                    smallImgAdded = true;
+                };
+
+                reader.readAsDataURL(this.files[0]);
+            }
+        }
+        else {
+            alert("noValidFile");
+        }
+    });
+    $("#img-2").change(function(e) {
+
+        var fileName = $(this).val();
+        if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
+
+            if(this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    console.log(e.target.result);
+                    ImgSrc2= e.target.result;
+                    smallImgAdded = true;
+                };
+
+                reader.readAsDataURL(this.files[0]);
+            }
+        }
+        else {
+            alert("noValidFile");
+        }
+    });
+    $("#img-3").change(function(e) {
+
+        var fileName = $(this).val();
+        if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
+
+            if(this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    console.log(e.target.result);
+                    ImgSrc3= e.target.result;
+                    smallImgAdded = true;
+                };
+
+                reader.readAsDataURL(this.files[0]);
+            }
+        }
+        else {
+            alert("noValidFile");
+        }
+    });
+    //----------/form
     $('.judgeDescription .close').on('click', this, function () {
         $('.judgeDescription').fadeOut(600, 'easeInOutBack');
         return false;
     });
+
     $('.judgesAvantar').on('click', this, function () {
         $('.judgeDescription').fadeIn(600, 'easeInOutBack');
         return false;
@@ -141,10 +241,14 @@ $(document).ready(function (e) {
         html += '       </div>    ';
 
         html += '       <div class="socialArea">    ';
-        html += '           <div class="social fb"><div class="fb-share-button" data-href="http://localhost:55898/%D7%90%D7%95%D7%96%D7%A0%D7%99-%D7%A4%D7%99%D7%9C-%D7%A9%D7%95%D7%A7%D7%95%D7%9C%D7%93" data-type="button_count"></div></div>    ';
-        html += '           <div class="social twitter"></div>    ';
-        html += '           <div class="social linkedin"></div>    ';
+        //html += '           <div class="social fb"><div class="fb-share-button" data-href="http://localhost:55898/%D7%90%D7%95%D7%96%D7%A0%D7%99-%D7%A4%D7%99%D7%9C-%D7%A9%D7%95%D7%A7%D7%95%D7%9C%D7%93" data-type="button_count"></div></div>    ';
+        html += '           <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.hubspot.com/software-buyers-guide/" class="social fb" title="(Share on Facebook)" target="_blank">Share on Facebook</a>';
+        //html += '           <div class="social twitter"></div>    ';
+        html += '           <a href="http://twitter.com/intent/tweet?text=Learn%20how%20to%20optimize%20your%20calls-to-action%20-%20download%20@HubSpot%27s%20free%20ebook%20on%20mastering%20the%20design%20and%20copy%20of%20CTAs:%20http://bit.ly/LSjMFA%20%20" class="social twitter" title="(Tweet This Link)" target="_blank">Share on Twitter</a>';
+        //html += '           <div class="social linkedin"></div>    ';
+        html += '           <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://bit.ly/LSjMFA" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on LinkedIn</a>';
         html += '           <div class="social likes"></div>    ';
+
         html += '       </div>    ';
 
         html += '       <div class="mainArea">    ';
@@ -215,6 +319,8 @@ getEmbedMovie=function(data,height,width){
 	if(!width) width="342";
 	if(data.movieType=="YouTube")
 		return'<iframe width="'+width+'" height="'+height+'" src="//www.youtube.com/embed/'+data.id+'" frameborder="0" allowfullscreen></iframe>';
+    else if(data.movieType=="Vimeo")
+        return '<iframe width="'+width+'" height="'+height+'" src="//player.vimeo.com/video/'+data.id+'" frameborder="0" allowfullscreen></iframe>';
 	return null;
 }
 getImgUrl = function (data) {
@@ -236,11 +342,24 @@ getImgUrl = function (data) {
         ans.movieType = "YouTube";
         ans.id = tubeId;
         return ans;
-    } else {
-        return "noVideo";
+    } 
+    else {
+          var vimeoId = self.getVimeoId(url);
+          if (vimeoId != -1) {
+              console.log(vimeoId)
+              ans = {};
+        ans.type = "movie";
+        ans.movieType = "Vimeo";
+        ans.id = vimeoId;
+        return ans;
+                    //$(".uploadArea").append('<iframe width="'+100+'" height="'+100+'" src="//player.vimeo.com/video/'+vimeoId+'" ></iframe>');
+          }
+      
+         else {
+            return "noVideo";
+        }
     }
 }
-
 
  this.setMovieDataByURL = function (url) {
         console.log(url);
@@ -282,3 +401,47 @@ getImgUrl = function (data) {
         }
 
     }
+
+    function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
+
+      // Only process image files.
+      if (!f.type.match('image.*')) {
+        continue;
+      }
+
+      var reader = new FileReader();
+
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        return function(e) {
+          // Render thumbnail.
+          var span = document.createElement('span');
+          span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                            '" title="', escape(theFile.name), '"/>'].join('');
+          $('.gallery-img')[0].insertBefore(span, null);
+        };
+      })(f);
+
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(f);
+    }
+  }
+
+   function getVimeoId(url) {
+     // look for a string with 'vimeo', then whatever, then a 
+     // forward slash and a group of digits.
+     var match = /vimeo.*\/(\d+)/i.exec(url);
+
+     // if the match isn't null (i.e. it matched)
+     if (match) {
+         // the grouped/matched digits from the regex
+         return match[1];
+     }
+        else{
+            return -1;
+        }
+ }

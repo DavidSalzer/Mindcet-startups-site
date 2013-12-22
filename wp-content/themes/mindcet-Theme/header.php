@@ -36,6 +36,10 @@
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
     <script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js#xfbml=1&amp;appId=162470583945071"></script>
+    <script src="//platform.linkedin.com/in.js" type="text/javascript">
+        lang: en_US
+    </script>
+    <script type="IN/Share"></script>
 
 	<?php if ( is_singular() ) wp_enqueue_script('comment-reply'); ?>
 

@@ -1,10 +1,13 @@
 		<div id="footer">
             <div class="footerLogos">
-                <a href="<?php echo site_url();?>" class="tagLogo mindcet">
+                <a href="<?php echo site_url();?>" class="mindcet">
                 	<span class="logoMindcet"></span>
                 </a>
-                <a href="" class="tagLogo">
+                <a href="" class="">
                 	<span class="logoCet"></span>
+                </a>
+                <a href="" class="">
+                	<span class="logoMatach"></span>
                 </a>
             </div>
         	<nav class="footerNav">

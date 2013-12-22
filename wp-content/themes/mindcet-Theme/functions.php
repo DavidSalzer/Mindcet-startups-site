@@ -18,6 +18,9 @@
 	    wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
 	   wp_enqueue_script('mindcetjs');
 	   
+
+
+
 	   
 	}
 	
@@ -61,4 +64,53 @@
 		));
 	
 	}
+	
+	
+	
+	//ajax section
+	//wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+	//wp_register_script( 'mindcetAjax', get_template_directory_uri(). '/js/mindcetAjax.js',  array('jquery'), 1.0 );
+	//wp_enqueue_script('mindcetAjax');
+	
+   	//add_action( 'wp_ajax_ getAllStartup', 'getStartup' );
+	//add_action( 'wp_ajax_nopriv_ getAllStartup', 'getStartup' );  
+	//add_action( 'wp_ajax_my_action', 'my_action_callback' );
+	//add_action( 'wp_ajax_nopriv_my_action', 'my_action_callback' );
+	
+	
+	function getAllStartup(){
+		 $args = array(
+        'posts_per_page'   => -1,
+        'orderby'          => 'post_date',
+        'order'            => 'DESC',
+        'post_type'        => 'initiator',
+        'post_status'      => 'publish',
+        );
+    
+	$allTech=array();
+	
+    $myposts = get_posts( $args );
+        $caunter=0;
+        foreach ( $myposts as $post ) : setup_postdata( $post ); 
+    	$techId=$post->ID;
+		$title=get_the_title($post->ID);
+		$logo=get_the_post_thumbnail( $post->ID,array(220,155), $attr );   
+		$descript=get_the_content($post->ID);
+		$name=get_post_meta($post->ID,'wpcf-full_mane',true);
+		$email=get_post_meta($post->ID,'wpcf-invet_email',true);
+		$siteUrl=get_post_meta($post->ID,'wpcf-site-url',true);
+		$founder=get_post_meta($post->ID,'wpcf-founder',true);
+		$founderEmail=get_post_meta($post->ID,'wpcf-founder-email',true);
+		$youtube=get_post_meta($post->ID,'wpcf-youtube-url',true);
+		$startupImg=get_post_meta($post->ID,'wpcf-startup-imges');
+		
+		$tempArry=array('techId'=>$techId,'title'=>$title,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
+		,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImg);
+        $allTech[$techId]=$tempArry;
+	  endforeach; 
+		return json_encode($allTech);
+	}
+	
+	
+	
 ?>

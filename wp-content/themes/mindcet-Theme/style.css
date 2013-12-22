@@ -260,13 +260,13 @@ body{
 .tagLogo{
 	display:block;
 	background-image:url(img/logo_tags.png);
-	width: 88px;
+	width: 83px;
 	height: 145px;
 	position:relative;
 	background-repeat: no-repeat;
 	float: left;
-	background-position: -10px 0;
-	margin-left: 12px;
+	background-position: -13px 0;
+	margin-left: 0;
 	z-index: 5;
 }
 footer .tagLogo {
@@ -274,31 +274,47 @@ footer .tagLogo {
     
 }
 .logoMindcet{
-	background-image:url(img/logo_icons.png);
-	display:block;
-	width: 100%;
-	height: 100%;
-	background-repeat: no-repeat;
-	background-position: -1px bottom;
-	background-size: 195px;
+	background-image: url(img/logo_icons.png);
+display: inline-block;
+width: 94px;
+height: 100%;
+background-repeat: no-repeat;
+background-position: -1px bottom;
+background-size: 195px;
 }
+
 .logoCet{
-	background-image:url(img/logo_icons.png);
-	display:block;
-	width: 100%;
-	height: 100%;
-	background-repeat: no-repeat;
-	background-position: -99px bottom;
-	background-size: 195px;
+	background-image: url(img/logo_icons.png);
+display: inline-block;
+width: 94px;
+height: 100%;
+background-repeat: no-repeat;
+background-position: -99px bottom;
+background-size: 195px;
+}
+.logoMatach{
+   background-image: url(img/logo-matah.png);
+display: inline-block;
+width: 129px;
+height: 100%;
+background-repeat: no-repeat;
+background-position-y: 80%;
+}
+
+.footerLogos .logoCet {
+    background-position: -99px 51%;
+}
+.footerLogos .logoMindcet {
+    background-position: -1px 51%;
 }
 .socialTab{
 	float:right;
 	display:block;
 	background-image:url(img/social_tags.png);
-	width: 48px;
+	width: 44px;
 	height:145px;
-	background-position: -68px 0;
-	margin-right: 10px;
+	background-position: -69px 0;
+	margin-right: 0px;
 	position: relative;
 	z-index: 5;
 }
@@ -310,7 +326,7 @@ footer .tagLogo {
 	width:100%;
 	height:100%;
 	background-image:url(img/social_icons.png);
-	background-size: 165px;
+	background-size: 161px;
 	background-repeat: no-repeat;
 	background-position: -5px 87px;
 }
@@ -328,7 +344,7 @@ footer .tagLogo {
 	margin-top: -38px;
 }
 .topMenu {
-    width: 60%;
+    width: 1024px;
     margin: 0 auto;
 }
 .timer {
@@ -338,8 +354,8 @@ footer .tagLogo {
     text-align: center;
 }
 .topMenu ul{
-	width:100%;
-    margin: 2%;
+	width:60%;
+    margin: auto;
 	position: relative;
 }
 .topMenu ul li{
@@ -381,17 +397,23 @@ footer .tagLogo {
 .footerLogos, .footerNav {
     height: 50%;
 }
+.footerNav {
+    padding-top: 24px;
+    background-color: #313131;
+    width: 80%;
+    padding: 0 10%; 
+}
 /*-----------------------home page------------------*/
 .home{
-	height:495px;
 	min-width: 1024px;
 	margin: 0 auto;
 	position: relative;
 }
 .home .entry {
-	font-size: 29px;
+	font-size: 28px;
+    line-height: 33px;
 	 padding: 55px; 
-     width: 250px;
+     width: 241px;
      padding-left: 100px;
 }
 .home .entry a{
@@ -409,6 +431,14 @@ footer .tagLogo {
 }
 .entry-main-title {
 font-size: 60px;
+    letter-spacing: 1px;
+line-height: 60px;
+}
+#entry-main-title-2{
+    letter-spacing: 0px;
+}
+#entry-main-title-3{
+    letter-spacing: 7px;
 border-bottom: 1px solid #000;
 }
 .home .entry p{
@@ -522,6 +552,8 @@ height: 40px;
 }
 .inventHome {
     height: 54px;
+    width: 80%;
+    margin: auto;
 }
 #scrollInventorCon {
     white-space: nowrap;
@@ -559,12 +591,13 @@ height: 40px;
 	-webkit-transition:all ease-in-out 1s;
 	transition:all ease-in-out 1s;
     height: 100%;
-	
+    padding: 4% 0;	
 }
 .judgeDescriptionLeft {
 width: 34%;
 height: 82%;
 display: inline-block;
+position: absolute;
 padding-top: 5%;
 }
 .judgeDescription-img {
@@ -582,12 +615,18 @@ margin-top: 10px;
 font-size: 25px;
 line-height: 42px;
 text-align: center;
-}   
+}
+.contactMe a {
+    text-decoration: initial;
+    color: #484848;
+}
 .judgeDescriptionRight {
 width: 60%;
 height: 82%;
 display: inline-block;
 padding-top: 5%;
+position: absolute;
+    right: 50px;
 }
 .judgeDescription-name {
 width: 80%;
@@ -600,14 +639,19 @@ padding-bottom: 12px;
 }
 .judgeDescription-full {
 width: 90%;
-height: 180px;
+height: 161px;
 overflow-y: auto;
 font-size: 18px;
 }
 .judgestext {
 background-color: #e6e6e8;
-height: 47px;
+height: 41px;
 color: #909090;
+overflow: hidden;
+white-space: normal;
+line-height: 22px;
+font-size: 19px;
+padding-top: 6px;
 }
 .judgesAvantar{
 	width:165px;
@@ -619,16 +663,19 @@ color: #909090;
     cursor: pointer;
 }
 .judgeDescription{
-    width: 1000px;
+    width: 1024px;
 height: 320px;
 background-color: #fff;
 z-index: 16;
 display: inline-block;
-left: 24px;
+left: 0;
 position: absolute;
 display: none;
+box-shadow: inset 12px 0px 12px rgba(50, 50, 50, 0.6);
+-moz-box-shadow: inset 12px 0px 12px rgba(50, 50, 50, 0.6);
+-webkit-box-shadow: inset 12px 0px 12px rgba(50, 50, 50, 0.6);
 }
-.judgeDescription .close{
+.inventDescription .close, .judgeDescription .close, .inventorPopUp .close{
 	background-color: #616161;
 color: #fff;
 display: inline-block;
@@ -636,8 +683,8 @@ width: 30px;
 height: 30px;
 position: absolute;
 text-align: center;
-line-height: 30px;
-font-size: 26px;
+line-height: 28px;
+font-size: 20px;
 font-family: sans-serif;
 border-radius: 100%;
 right: 14px;
@@ -679,17 +726,27 @@ color: #898989;
 display: inline-block;
 width: 72PX;
 }
+
+/*-----------------------form--------------------*/
 .inventorPopUp{
     position: absolute;
-	display:none;
-    top: -178px;
-    width: 560px;
-    height: 550px;
-    background: #fff;
-    border: solid 20px #fff;
-    left: 310px;
-    z-index: 20;
-    box-shadow: #333 2px 2px 1px -1px;
+display: none;
+top: -178px;
+width: 560px;
+height: 592px;
+background: #fff;
+border: solid 20px #fff;
+left: 388px;
+z-index: 20;
+box-shadow: #333 2px 2px 5px 1px;
+}
+.inventorPopUp .triangle{
+    position: absolute;
+background-image: url(img/triangle.png);
+width: 50px;
+left: -50px;
+top: 520px;
+height: 57px;
 }
 .inventorPopUp .close{
 	background-color:#616161;
@@ -702,18 +759,141 @@ width: 72PX;
 	line-height: 30px;
 	border-radius: 100%;
 	right: -5px;
-	top: -13px;
+	top: -7px;
 	cursor: pointer;
 }
 .popInvent{
 
 }
 .popInvent input{
+    text-indent: 15px;
+}
+.popInvent input, .popInvent textarea{
     width: 512px;
-	
     height: 45px;
     font-size: 1.8em;
     margin-bottom: 20px;
+    font-family: sans-serif;
+vertical-align: middle;
+line-height: 45px;
+}
+.popInvent textarea {
+width: 484px;
+height: 289px;
+max-height: 250px;
+min-height: 250px;
+padding: 0 15px;
+}
+#formPart1 {
+    display: block;
+}
+#formPart2, #formPart3 {
+    display: none;
+}
+#formPart1, #formPart2, #formPart3 {
+    height: 546px;
+}
+.title-logo{
+    display: inline-block;
+    line-height: 45px;
+    font-size: 22px;    
+    position: absolute;
+    text-indent: 15px;
+height: 45px;
+font-size: 1.8em;
+margin-bottom: 20px;
+font-family: sans-serif;
+vertical-align: middle;
+line-height: 45px;
+color: #a9a9a9;
+}
+.popInvent .upload {
+    background-color: #21cb89;
+    background-image: url(img/plus.png);
+background-repeat: no-repeat;
+background-position-y: 50%;
+background-position-x: 5px;
+overflow: hidden;
+border: 1px solid #ABADB3;
+height: 42px;
+width: 167px;
+display: inline-block;
+margin-left: 345px;
+margin-bottom: 19px;
+cursor: pointer;
+text-indent: 47px;
+font-size: 1.7em;
+margin-bottom: 20px;
+font-family: sans-serif;
+vertical-align: middle;
+line-height: 45px;
+color: #fff;
+}
+.popInvent input[type="file"] {
+    display: block !important;
+    width: 157px !important;
+    height: 45px !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    position: absolute;
+    
+}
+.input-border{
+    border: 2px solid #ABADB3;
+    width: 512px;
+height: 43px;
+margin-bottom: 20px;
+}
+.last-page, .next-page, .submit{
+    display: inline-block;
+    width: 170px;
+    height: 43px;
+    border: 2px solid #ABADB3;
+    background-color:   #e76c76;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    line-height: 45px;
+text-indent: 12%;
+font-size: 25px;
+font-family: sans-serif;
+}
+.submit{
+    text-indent: 8.5%;
+}
+.last-page {
+    right: 231px;
+    display: none;
+}
+.page-2-buttons .next-page{
+    display: none;
+}
+ .next-page, .submit {
+    right: 44px;
+}
+.next-page .nav-page-img{
+background-image: url(img/slide-arrows.png);
+background-repeat: no-repeat;
+    background-position: 97%;
+    width: 50px;
+    text-indent: -39%;
+    float: right;
+}
+.last-page .nav-page-img{
+background-image: url(img/slide-arrows.png);
+background-repeat: no-repeat;
+    background-position: 0;
+    width: 50px;
+    text-indent: 35%;
+}
+.page-number {
+color: #ee8484;
+font-size: 27px;
+line-height: 50px;
+}
+
+#page-number-3, #page-number-2{
+    display: none;
 }
 .popInvent input[type="submit"]{
     width: 175px;
@@ -723,16 +903,21 @@ width: 72PX;
 	float:right;
 	background-color:#e76c76;
 	color:#fff;
+    margin-right: 45px;
+    cursor: pointer;
+    display: none; 
 }
 /*----------------footer---*/
 #footer {
-    background: #313131;
+    background: #f5f5f5;
     color: #fff;
     height: 200px;
 }
 .footerLogos{
     background-color: #f5f5f5;
     border-top: 2px solid #b3b3b3;
+    width: 330px;
+    margin: auto;
 }
 .footerMenu ul li{
 	display: inline-block;
@@ -764,4 +949,120 @@ width: 72PX;
 .footerMenu {
     float: left;
     width: 74%;
+}
+
+/*------------Invent----------------*/
+.mask{
+        width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.4);
+position: absolute;
+z-index: 20;
+    display: none;
+}
+.inventDescription{
+    width: 712px;
+height: 854px;
+background-color: #fff;
+position: absolute;
+z-index: 21;
+margin: auto;
+left: 0;
+right: 0;
+margin-top: 55px;
+display: none;
+}
+.inventDescription .topArea{
+    width: 74%;
+margin: auto;
+padding: 0 13%;
+height: 100px;
+border-bottom: 3px solid #d1d1d1;
+    
+}
+.inventDescription .socialArea{
+    width: 93px;
+height: 100%;
+display: inline-block;
+position: absolute;
+}
+.inventDescription .mainArea{
+    width: 500px;
+    margin: auto;
+    padding: 0 21px;
+}
+.topArea .title{
+    width: 50%;
+    height: 45px;
+    line-height: 45px;
+    color: #6a6a6a;
+    padding-top: 10%;
+font-size: 40px;
+    display: inline-block;
+}
+.ellipsis{
+    white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.topArea .logo, .topArea .wp-post-image{
+    width: 124px;
+    height: 83px;
+    display: inline-block;
+    right: 0;
+    float: right;
+border: 1px solid #000;
+margin-top: 10px;
+}
+.socialArea .social {
+    width: 45px;
+    height: 85px;
+    border-bottom: 1px solid #6a6a6a;
+    margin: auto;
+}
+.socialArea .fb {
+    background-image: url();
+}
+.socialArea .twitter {
+    
+}
+.socialArea .linkedin {
+}
+.socialArea .likes {
+}
+.mainArea .movie{
+    width: 342px;
+    margin: 50px auto;
+    height:    215px;
+    background-color: #ABADB3;   
+}
+.mainArea .names{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 32px;
+margin: 15px 0;
+}
+.mainArea .description {
+    width: 100%;
+height: 120px;
+overflow: hidden;
+font-size: 19px;
+}
+.mainArea .gallery {
+    width: 100%;
+    height: 90px;   
+    margin: 34px auto;
+}
+.mainArea .gallery-img{
+    width: 32%;
+    height: 100%;
+    margin-right: 0.4%;
+    border: 1px solid red;
+    display: inline-block;
+}
+.mainArea .fb-comments {
+    width: 100%;
+    min-height: 70px;
+    border: 1px solid #000;   
 }

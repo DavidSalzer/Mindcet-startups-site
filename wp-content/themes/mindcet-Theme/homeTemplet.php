@@ -7,9 +7,12 @@
 
 <div class="page-wrap">
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    
   <section class="home">
     <div class="entry">
-        <p class="entry-main-title">Changing Education Mindset</p>
+        <p class="entry-main-title">Changing</p>
+        <p id="entry-main-title-2" class="entry-main-title">Education</p>
+        <p id="entry-main-title-3" class="entry-main-title">Mindset</p>
         <p>The most promising EdTech startups 2013</p>
       <?php $homeContant=get_the_content(); ?>
       <?php $pageUrl = get_page_by_title( 'Offer a Startup' ); ?>
@@ -78,55 +81,107 @@ do_action('wp_insert_post', 'wp_insert_post');
 ?>
     <div class="inventorPopUp">
     <span class="close">X</span>
+    <span class="triangle"></span>
     <form id="new_post" name="new_post" class="popInvent" method="post" action="" class="wpcf7-form" enctype="multipart/form-data">
-        <!-- post name -->
-        <fieldset name="title">
-            <input type="text" id="title" value="" tabindex="5" name="title" placeholder="StartUp Neme" />
-        </fieldset>
-    
-        <!-- post Category -->
-        <fieldset class="formfield">
-            <input type="text" id="invetName" value="" tabindex="10" name="invetName" placeholder="Your Name" />
-        </fieldset>
-    
-        <!-- post Category -->
-        <fieldset class="formfield">
-            <input type="email" id="email" value="" tabindex="15" name="email" placeholder="Your E-Mail"/>
-        </fieldset>
         
-        <!-- post Category -->
-        <fieldset class="formfield">
-            <input type="url" id="site" value="" tabindex="20" name="site" placeholder="Link To Site"/>
-        </fieldset>
+        <div id="formPart1">
+            <!-- post name -->
+            <fieldset name="title">
+                <input type="text" id="title" value="" tabindex="5" name="title" placeholder="StartUp Name" />
+            </fieldset>
+    
+            <!-- post Category -->
+            <fieldset class="formfield">
+                <input type="text" id="invetName" value="" tabindex="10" name="invetName" placeholder="Your Name" />
+            </fieldset>
+    
+            <!-- post Category -->
+            <fieldset class="formfield">
+                <input type="email" id="email" value="" tabindex="15" name="email" placeholder="Your E-Mail"/>
+            </fieldset>
+
+            <!-- post Category -->
+            <span class="title-logo">Logo</span>
+            <fieldset class="formfield input-border">
+                <div class="upload">
+                    <input type="file" id="logo" value="Upload" tabindex="25" name="logo" placeholder="" />Select file
+                </div>
+            </fieldset>
+
+            <!-- post Content -->
+            <fieldset class="formfield">
+           <textarea id="description" tabindex="35" name="description" cols="30" rows="1" placeholder="About You / Your Startup"></textarea>
+            </fieldset>
+        </div>
         
-        <!-- post Category -->
-        <fieldset class="formfield">
-            <input type="text" id="founder" value="" tabindex="25" name="founder" placeholder="Founder" />
-        </fieldset>
-        <!-- post Category -->
-        <fieldset class="formfield">
-            <input type="file" id="founder" value="" tabindex="25" name="founder" placeholder="Founder" />
-        </fieldset>
+        <div id="formPart2">    
+            <!-- post Category -->
+            <fieldset class="formfield">
+                <input type="text" id="founder" value="" tabindex="25" name="founder" placeholder="Founder" />
+            </fieldset>
         
-         <!-- post Category -->
-        <fieldset class="formfield">
-            <input type="email" id="founderMail" value="" tabindex="30" name="founderMail" placeholder="Founder E-Mail" />
-        </fieldset>
-    
-        <!-- post Content -->
-        <fieldset class="formfield">
-       <textarea id="description" tabindex="35" name="description" cols="30" rows="1" placeholder="About You/Your Startup"></textarea>
-        </fieldset>
-    
-    
+             <!-- post Category -->
+            <fieldset class="formfield">
+                <input type="email" id="founderMail" value="" tabindex="30" name="founderMail" placeholder="Founder E-Mail" />
+            </fieldset>
+
+            <!-- post Category -->
+            <fieldset class="formfield">
+                <input type="url" id="site" value="" tabindex="20" name="site" placeholder="Link to Site"/>
+            </fieldset>
+        
+            <!-- post Category -->
+            <fieldset class="formfield">
+                <input type="url" id="youtubeUrl" value="" tabindex="20" name="youtubeUrl" placeholder="Link to Video"/>
+            </fieldset>
+        
+            <!-- post Category -->
+            <span class="title-logo">Add Your Photo</span>
+            <fieldset class="formfield input-border">
+                <div class="upload">
+                    <input type="file" id="img-1" value="" tabindex="25" name="img-1" placeholder="" />Select file
+                </div>
+            </fieldset>
+
+            <!-- post Category -->
+            <span class="title-logo">Add Your Photo</span>
+            <fieldset class="formfield input-border">
+                <div class="upload">
+                    <input type="file" id="img-2" value="" tabindex="25" name="img-2" placeholder="" />Select file
+                </div>
+            </fieldset>
+
+            <!-- post Category -->
+            <span class="title-logo">Add Your Photo</span>
+            <fieldset class="formfield input-border">
+                <div class="upload">
+                    <input type="file" id="img-3" value="" tabindex="25" name="img-3" placeholder="" />Select file
+                </div>
+            </fieldset>
+
+        </div>
+            
+        <div id="formPart3">
+
+        </div>
+        
     
         <fieldset class="submit">
-            <input type="submit" value="Accept" tabindex="40" id="submit" name="submit" />
+            <input type="submit" value="Accept" tabindex="40" id="submit" name="submit" />Submit
         </fieldset>
     
         <input type="hidden" name="action" value="new_post" />
         <?php wp_nonce_field( 'new-post' ); ?>
     </form>
+    <span id="page-number-1" class="page-number">1/3</span>
+    <span id="page-number-2" class="page-number">2/3</span>
+    <span id="page-number-3" class="page-number">3/3</span>
+    <div class="last-page"><div class="nav-page-img">Back</div></div>
+    <div class="next-page"><div class="nav-page-img">Next</div></div>
+        <!--<div class="page-2-buttons"><div class="last-page"><div class="nav-page-img">Back</div></div></div>
+    <div class="page-3-buttons"><div class="last-page"><div class="nav-page-img">Back</div></div></div>
+    <div class="page-1-buttons"><div class="next-page"><div class="nav-page-img">Next</div></div></div>
+    <div class="page-2-buttons"><div class="next-page"><div class="nav-page-img">Next</div></div></div>-->
     </div>
       
       <!-- end form -->
@@ -135,6 +190,32 @@ do_action('wp_insert_post', 'wp_insert_post');
   <?php else : ?>
   <h2>Not Found</h2>
   <?php endif; ?>
+
+    <div class="inventDescription">
+        <span id="invent-close" class="close">x</span>
+        <!--<div class="topArea">
+            <div class="title ellipsis">Class Dojo</div>
+            <div class="logo"></div>
+        </div>
+        <div class="socialArea">
+            <div class="social fb"></div>
+            <div class="social twitter"></div>
+            <div class="social linkedin"></div>
+            <div class="social likes"></div>
+        </div>
+        <div class="mainArea">
+                <div class="movie"></div>
+                <div class="names ellipsis">Israel Israeli</div>
+                <div class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis vidLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eoodem modo typi, qui nunc nobis vid</div>
+                <div class="gallery">
+                    <div class="gallery-img"></div>
+                    <div class="gallery-img"></div>
+                    <div class="gallery-img"></div>
+                </div>
+                <div class="fb-comments"></div>
+        </div>-->
+    </div>
+
 </div>
 <div class="middelBanner">
   <h2>the sturtup</h2>
@@ -176,7 +257,7 @@ do_action('wp_insert_post', 'wp_insert_post');
                 }else{
                 }
         ?>
-    <li> <?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?>
+    <li  idTec="<?php echo $post->ID;?>"> <?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?>
       <h2> <a href="<?php the_permalink(); ?>" id="<?php echo $post->ID;?>">
         <?php the_title(); ?>
         </a> </h2>
@@ -201,7 +282,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 
         <div class="judgeDescriptionLeft">
             <div class="judgeDescription-img"></div>
-            <a href="" class="contactMe">Contact Me</a>
+            <div class="contactMe"><a href="mailto:email@echoecho.com" >Contact Me</a></div>
         </div>
         <div class="judgeDescriptionRight">
             <div class="judgeDescription-name"> title - name</div>
@@ -250,4 +331,8 @@ do_action('wp_insert_post', 'wp_insert_post');
 	<?php echo $homeContant ;?>
 	</article>
 </div>
+<script>
+     allTech=<?php echo getAllStartup(); ?>;
+     popupall(allTech);
+</script>
 <?php get_footer(); ?>

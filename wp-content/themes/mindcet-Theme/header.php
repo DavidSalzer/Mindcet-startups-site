@@ -41,7 +41,8 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<header>
+	<div class="mask"></div>
+    <header>
     	<div class="header cf">
     		<div class="logoAndSocial">
 				<a href="<?php echo site_url();?>" class="tagLogo mindcet">

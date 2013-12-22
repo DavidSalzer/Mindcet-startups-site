@@ -333,6 +333,8 @@ do_action('wp_insert_post', 'wp_insert_post');
 </div>
 <script>
      allTech=<?php echo getAllStartup(); ?>;
+     allJudges=<?php echo getAllJudges(); ?>;
      popupall(allTech);
+	 popupall(allJudges);
 </script>
 <?php get_footer(); ?>

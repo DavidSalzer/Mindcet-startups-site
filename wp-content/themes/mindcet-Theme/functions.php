@@ -111,6 +111,33 @@
 		return json_encode($allTech);
 	}
 	
+	function getAllJudges(){
+		 $args = array(
+        'posts_per_page'   => -1,
+        'orderby'          => 'post_date',
+        'order'            => 'DESC',
+        'post_type'        => 'judges',
+        'post_status'      => 'publish',
+        );
+    
+	$allJudges=array();
+	
+    $myposts = get_posts( $args );
+        $caunter=0;
+        foreach ( $myposts as $post ) : setup_postdata( $post ); 
+    	$judgesId=$post->ID;
+		$title=get_the_title($post->ID);
+		$logo=get_the_post_thumbnail( $post->ID,array(220,155), $attr );   
+		$descript=get_the_content($post->ID);
+		$role=get_post_meta($post->ID,'wpcf-judges_role',true);
+		$email=get_post_meta($post->ID,'wpcf-judges_email',true);
+		
+		$tempArry=array('judgesId'=>$judgesId,'name'=>$title,'imgProfile'=>$logo,'descript'=>$descript,'role'=>$role,'email'=>$email);
+        $allJudges[$judgesId]=$tempArry;
+	  endforeach; 
+		return json_encode($allJudges);
+	}
+	
 	
 	
 ?>

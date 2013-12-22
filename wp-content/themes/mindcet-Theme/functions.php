@@ -107,7 +107,7 @@
 		$startupImg2=get_post_meta($post->ID,'wpcf-startup-img-3',true);
 		
 		$tempArry=array('techId'=>$techId,'title'=>$title,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
-		,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImg,'startupImg1'=>$startupImg1,'startupImg2'=>$startupImg2);
+		,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImg,'startupImg1'=>$startupImg,'startupImg2'=>$startupImg);
         $allTech[$techId]=$tempArry;
 	  endforeach; 
 		return json_encode($allTech);

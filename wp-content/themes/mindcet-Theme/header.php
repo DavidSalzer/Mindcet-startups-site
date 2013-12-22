@@ -56,13 +56,20 @@
                 <div class="timer">
                 <?php get_sidebar('countdown');?>
                 </div>
-                <a href="" class="socialTab">
+                <?php 
+				
+					$mach=get_option('ye_plugin_options');
+	 				$face=$mach['ye_face'];
+					$linkin=$mach['ye_linkin'];
+					$twitter=$mach['ye_twitter'];
+				?>
+                <a href="<?php echo $linkin; ?>" class="socialTab">
                 	<span class="linkin"></span>
                 </a>
-                <a href="" class="socialTab">
+                <a href="<?php echo $twitter; ?>" class="socialTab">
                 	<span class="twitter"></span>
                 </a>
-                <a href="" class="socialTab">
+                <a href="<?php echo $face; ?>" class="socialTab">
                 	<span class="facebook"></span>
                 </a>			
 			</div>

@@ -491,24 +491,30 @@ border-bottom: 1px solid #000;
 }
 .inventList li{
 	width: 207px;
-	height:200px;
-	border-top:solid 2px #676767;
-	border-bottom:solid 2px #676767;
-	border-left:solid 2px #676767;
-	border-right:solid 2px #676767;
-	display: block;
-	position:relative;
-	float: left;
-    cursor: pointer;
+height: 200px;
+border-top: solid 2px #676767;
+border-bottom: solid 2px #676767;
+border-left: solid 2px #676767;
+border-right: solid 2px #676767;
+display: block;
+position: relative;
+float: left;
+cursor: pointer;
+line-height: 200px;
+overflow: hidden;
 }
 .inventList li img{
-    width: 207px;
-	 height: 155px;
-    display: block;
-    float: left;
-    margin: 0 auto;
-    vertical-align: top;
+  width: 100%;
+	margin-top: -40px;
+	vertical-align: middle;
+	height: auto;
+	opacity:.5;
+	transition:all ease-in-out 0.3s;
 }
+.inventList li:hover,.inventList li img:hover{
+ opacity:1;
+}
+
 .inventList li h2{
 	position:absolute;
 	bottom:0;
@@ -842,6 +848,9 @@ font-family: sans-serif;
 vertical-align: middle;
 line-height: 45px;
 color: #a9a9a9;
+    overflow: hidden;
+    width: 340px;
+    text-overflow: ellipsis;
 }
 .popInvent .upload {
     background-color: #21cb89;

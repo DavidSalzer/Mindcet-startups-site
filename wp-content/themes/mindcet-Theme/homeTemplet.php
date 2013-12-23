@@ -113,7 +113,7 @@ do_action('wp_insert_post', 'wp_insert_post');
             </fieldset>
 
             <!-- post Category -->
-            <span class="title-logo">Logo</span>
+            <span class="title-logo logoimg">Logo</span>
             <fieldset class="formfield input-border">
                 <div class="upload">
                     <input type="file" id="logo" value="Upload" name="logo" tabindex="25" name="logo" placeholder="" />Select file
@@ -148,7 +148,7 @@ do_action('wp_insert_post', 'wp_insert_post');
             </fieldset>
         
             <!-- post Category -->
-            <span class="title-logo">Add Your Photo</span>
+            <span class="title-logo img1">Add Your Photo</span>
             <fieldset class="formfield input-border">
                 <div class="upload">
                     <input type="file" id="img-1" value="" tabindex="25" name="img-1" placeholder="" />Select file
@@ -156,7 +156,7 @@ do_action('wp_insert_post', 'wp_insert_post');
             </fieldset>
 
             <!-- post Category -->
-            <span class="title-logo">Add Your Photo</span>
+            <span class="title-logo img2">Add Your Photo</span>
             <fieldset class="formfield input-border">
                 <div class="upload">
                     <input type="file" id="img-2" value="" tabindex="25" name="img-2" placeholder="" />Select file
@@ -164,7 +164,7 @@ do_action('wp_insert_post', 'wp_insert_post');
             </fieldset>
 
             <!-- post Category -->
-            <span class="title-logo">Add Your Photo</span>
+            <span class="title-logo img3">Add Your Photo</span>
             <fieldset class="formfield input-border">
                 <div class="upload">
                     <input type="file" id="img-3" value="" tabindex="25" name="img-3" placeholder="" />Select file
@@ -232,6 +232,8 @@ do_action('wp_insert_post', 'wp_insert_post');
 <div id="startups-banner" class="middelBanner">
   <h2>The Startups</h2>
 </div>
+<?php if ( has_nav_menu( 'startupMenu') ):?>
+
 <nav class="inventorNav">
            <?php
 		$defaults = array(
@@ -248,7 +250,8 @@ do_action('wp_insert_post', 'wp_insert_post');
 		
 		?>
            	
-           </nav>
+ </nav>
+ <?php endif;?>
 <div class="page-wrap inventors" >
     <div class="rightScroll" id="inventScrollR"><div class="rightScroll-arrow"></div></div>
     <div class="leftScroll" id="inventScrollL"><div class="leftScroll-arrow"></div></div>

@@ -1,3 +1,4 @@
+
 // JavaScript Document
 $(document).ready(function (e) {
     $('#inventScrollR').on('click', this, function () {
@@ -21,12 +22,10 @@ $(document).ready(function (e) {
 
     //-------form------
 
-    $('#offerStartUp').on('click', this, function () {
-        $('.inventorPopUp').fadeIn(600, 'easeInOutBack');
-        $('html, body').animate({
-            scrollTop: $("#offer-zone").offset().top -25
-        }, 2000);
-        return false;
+    $('#offerStartUp').on('click', this, function (e) {
+        openOfferPopUp();
+		e.preventDefault();
+       
     });
 
     $('.inventorPopUp .close').on('click', this, function () {
@@ -134,7 +133,10 @@ $(document).ready(function (e) {
     $("#logo").change(function(e) {
 
         var fileName = $(this).val();
-        if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
+		
+		$('.title-logo.logoimg').text(fileName);
+    
+	    if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
             if(this.files && this.files[0]) {
                 var reader = new FileReader();
@@ -155,6 +157,7 @@ $(document).ready(function (e) {
     $("#img-1").change(function(e) {
 
         var fileName = $(this).val();
+		$('.title-logo.img1').text(fileName);
         if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
             if(this.files && this.files[0]) {
@@ -176,6 +179,7 @@ $(document).ready(function (e) {
     $("#img-2").change(function(e) {
 
         var fileName = $(this).val();
+		$('.title-logo.img2').text(fileName);
         if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
             if(this.files && this.files[0]) {
@@ -197,6 +201,7 @@ $(document).ready(function (e) {
     $("#img-3").change(function(e) {
 
         var fileName = $(this).val();
+		$('.title-logo.img3').text(fileName);
         if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
             if(this.files && this.files[0]) {
@@ -302,12 +307,7 @@ $(document).ready(function (e) {
 
         return false;
     });
-
-
-
-
-
-    
+        
  updateMenuUrl();
 
 
@@ -316,6 +316,13 @@ $(document).ready(function (e) {
 });
 
 
+function openOfferPopUp(){
+     $('.inventorPopUp').fadeIn(600, 'easeInOutBack');
+        $('html, body').animate({
+            scrollTop: $("#offer-zone").offset().top -25
+        }, 2000);
+        return false;
+}
 
 function popupall(allTech){
  console.log(allTech);
@@ -460,7 +467,19 @@ getImgUrl = function (data) {
 
 
  function updateMenuUrl(){
+        //update the menu links to croll to sections in home page
         var navArray=["#startups-banner","#judges-banner", "#offer-zone"]
         $(".topMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
         $(".footerMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
+
+        //add event to offer menu to open the offer popup
+        $('a[href^="#offer-zone"]').on("click",openOfferPopUp);
+        
+        //scroll smooth
+        $('a[href^="#"]').click(function() {    // Change to needed selector
+        $("html, body").animate({    // Need both for full browser support
+            scrollTop: $( $(this).attr("href") ).offset().top - 160 // Extra 100px
+        }, 500);    // Change to desired scroll time in ms
+        return false;    // Prevents the dreaded jump/flash
+    });
  }

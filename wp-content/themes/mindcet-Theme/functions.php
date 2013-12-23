@@ -102,8 +102,8 @@
 		$founder=get_post_meta($post->ID,'wpcf-founder',true);
 		$founderEmail=get_post_meta($post->ID,'wpcf-founder-email',true);
 		$youtube=get_post_meta($post->ID,'wpcf-youtube-url',true);
-		$startupImg=get_post_meta($post->ID,'wpcf-startup-imges',true);
-		$startupImg1=get_post_meta($post->ID,'wpcf-startup-imges-2',true);
+		$startupImg=get_post_meta($post->ID,'wpcf-startup-img',true);
+		$startupImg1=get_post_meta($post->ID,'wpcf-startup-img-2',true);
 		$startupImg2=get_post_meta($post->ID,'wpcf-startup-img-3',true);
 		
         $startupImgArry=array('0'=>$startupImg,'1'=>$startupImg1,'2'=>$startupImg2);
@@ -185,7 +185,7 @@ function uploadFile($inputName,$postId){
 							update_post_meta( $postId, '_thumbnail_id', $id );
 						}
 						if($inputName=='img-1'){
-							update_post_meta($postId,'wpcf-startup-imges',$uploaded_file['url']);
+							update_post_meta($postId,'wpcf-startup-img',$uploaded_file['url']);
 						}
 						if($inputName=='img-2'){
 							update_post_meta($postId,'wpcf-startup-img-2',$uploaded_file['url']);

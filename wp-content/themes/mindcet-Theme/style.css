@@ -699,7 +699,7 @@ text-indent: 10px;
 	text-align:center;
 	display: inline-block;
     margin-top: 0px;
-    cursor: pointer;
+    /*cursor: pointer;*/
     margin-right: 5px;
 }
 .judgeDescription{

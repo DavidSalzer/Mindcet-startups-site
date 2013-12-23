@@ -267,7 +267,7 @@ $(document).ready(function (e) {
 
 
     $('.inventList li').on('click', this, function () {
-
+        $('.inventorPopUp .close').click();
         tid = $(this).attr('idtec');
 
         var html = '       <div class="topArea">    '

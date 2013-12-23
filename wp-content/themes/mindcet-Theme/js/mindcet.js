@@ -221,18 +221,18 @@ $(document).ready(function (e) {
         }
     });
 
-    $('.submit input').on('click', this, function () {
-            $('#formPart3').hide();
-            $('#formPart4').show();
-            $('.last-page').css("display", "none");
-            $('#page-number-3').hide();
-            $('.submit input').css("display", "none");
-            var html = '        <div class="form-end-message">Registration is pending approval. <br><br>Thank you!</div>';
-            var $formEndMessage = $(html);
-            $('#formPart4').append($formEndMessage);
+    //$('.submit input').on('click', this, function () {
+    //        $('#formPart3').hide();
+    //        $('#formPart4').show();
+    //        $('.last-page').css("display", "none");
+    //        $('#page-number-3').hide();
+    //        $('.submit input').css("display", "none");
+    //        var html = '        <div class="form-end-message">Registration is pending approval. <br><br>Thank you!</div>';
+    //        var $formEndMessage = $(html);
+    //        $('#formPart4').append($formEndMessage);
 
-        return false;
-    });
+    //    return false;
+    //});
 
 //----------/end of form
 
@@ -272,7 +272,7 @@ $(document).ready(function (e) {
 
         var html = '       <div class="topArea">    '
         html += '		    <div class="title ellipsis">' + allTech[tid].title + '</div>';
-        html += allTech[tid].logo;
+        html += '<div class="startup-popup-logo">'+allTech[tid].logo+'</div>';
         html += '       </div>    ';
 
         html += '       <div class="socialArea">    ';

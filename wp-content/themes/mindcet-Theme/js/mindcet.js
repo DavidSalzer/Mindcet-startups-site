@@ -272,7 +272,7 @@ $(document).ready(function (e) {
 
         var html = '       <div class="topArea">    '
         html += '		    <div class="title ellipsis">' + allTech[tid].title + '</div>';
-        html += '<div class="startup-popup-logo">'+allTech[tid].logo+'</div>';
+        html += '<div class="startup-popup-logo"><img class="wp-post-image" src="'+allTech[tid].logo[0]+'" alt="'+allTech[tid].title+'" ></div>';
         html += '       </div>    ';
 
         html += '       <div class="socialArea">    ';

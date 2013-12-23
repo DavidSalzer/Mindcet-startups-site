@@ -285,7 +285,7 @@ display: inline-block;
 width: 100px;
 height: 100%;
 background-repeat: no-repeat;
-background-position: -1px bottom;
+background-position: -4px bottom;
 background-size: 195px;
 }
 
@@ -295,7 +295,7 @@ display: inline-block;
 width: 94px;
 height: 100%;
 background-repeat: no-repeat;
-background-position: -99px bottom;
+background-position: -103px bottom;
 background-size: 195px;
 }
 .logoMatach{
@@ -1046,7 +1046,7 @@ line-height: 40px;
 border-right: solid 1px #6a6a6a;
 margin-top: 6px;
 padding: 0 15px;
-min-width: 23%;
+width: 20%;
 }
 
 .footerMenu ul  li a{
@@ -1062,13 +1062,13 @@ min-width: 23%;
    display: inline-block;
 height: 41px;
 line-height: 17px;
-padding: 0 60px;
+padding: 0 50px;
 font-size: 0.8em;
 vertical-align: middle;
 }
 .footerMenu {
 display: inline;
-margin-left: 16%;
+margin-left: 5.4%;
 }
 .footerMenu ul{
     display: inline;
@@ -1167,6 +1167,7 @@ right: 54px;
 position: absolute;
 top: 12px;
 overflow: hidden;
+text-align: center;
 }
 #formPart3 .topArea .logo{
     width: 83px;

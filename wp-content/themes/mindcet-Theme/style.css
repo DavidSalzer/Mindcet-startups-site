@@ -339,9 +339,11 @@ background-position-y: 80%;
 .topNav {
 	width: 100%;
 	background-color: #f2f2f3;
-	height: 70px;
+	height: 42px;
 	position: relative;
 	margin-top: -38px;
+    border-bottom: 1px solid #a6af9d;
+    box-shadow: 1px 1px 2px #000;
 }
 .topMenu {
     width: 1024px;
@@ -359,13 +361,13 @@ background-position-y: 80%;
 	position: relative;
 }
 .topMenu ul li{
-	display:inline-block;
-	width:32%;
-	height:50px;
-	text-align:center;
-	line-height: 50px;
-	border-right: solid 1px #6a6a6a;
-    margin-top: 9px;
+	display: inline-block;
+width: 32%;
+height: 34px;
+text-align: center;
+line-height: 34px;
+border-right: solid 1px #6a6a6a;
+margin-top: 4px;
 }
 .topMenu ul li:last-child{
 	border-right:none;
@@ -400,8 +402,7 @@ background-position-y: 80%;
 .footerNav {
     padding-top: 24px;
     background-color: #313131;
-    width: 80%;
-    padding: 0 10%; 
+    width: 100%;
 }
 /*-----------------------home page------------------*/
 .page-wrap .home {
@@ -409,6 +410,7 @@ min-width: 1024px;
 margin: 0 auto;
 position: relative;
 background-image: url(img/background.jpg);
+margin-top: 1px;
 }
 .home .entry {
 font-size: 28px;
@@ -678,16 +680,15 @@ box-shadow: inset 12px 0px 12px rgba(50, 50, 50, 0.6);
 -webkit-box-shadow: inset 12px 0px 12px rgba(50, 50, 50, 0.6);
 }
 .inventDescription .close, .judgeDescription .close, .inventorPopUp .close{
-	background-color: #616161;
+background-color: #616161;
 color: #fff;
 display: inline-block;
 width: 30px;
 height: 30px;
 position: absolute;
 text-align: center;
-line-height: 28px;
-font-size: 20px;
-font-family: sans-serif;
+line-height: 26px;
+font-size: 28px;
 border-radius: 100%;
 right: 14px;
 top: 11px;
@@ -842,7 +843,7 @@ color: #fff;
     
 }
 .input-border{
-    border: 2px solid #ABADB3;
+    border: 1px solid #ABADB3;
     width: 512px;
 height: 43px;
 margin-bottom: 20px;
@@ -977,22 +978,34 @@ font-family: sans-serif;*/
     display: block;
     height: 50px;
     line-height: 44px;
-    padding: 5px;
+    padding: 0 60px;
     font-size: 1.25em;
 }
 .footerMenu {
-    float: left;
-    width: 74%;
+    width: 880px;
+display: inline;
 }
-
+.footerMenu ul{
+    display: inline;
+}
+.unitedNav {
+width: 1024px;
+margin: auto;
+right: 0;
+left: 0;
+}
 /*------------Invent----------------*/
 .mask{
-        width: 100%;
-height: 100%;
-background: rgba(0,0,0,0.4);
-position: absolute;
-z-index: 20;
+    position: fixed;
+    z-index: 1;
     display: none;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    background-size: cover;
+    background-position: inherit;
 }
 .inventDescription{
     width: 712px;
@@ -1011,7 +1024,7 @@ display: none;
 margin: auto;
 padding: 0 13%;
 height: 100px;
-border-bottom: 3px solid #d1d1d1;
+border-bottom: 2px solid #d1d1d1;
     
 }
 #formPart3 .topArea{
@@ -1034,8 +1047,8 @@ padding-top: 10%;
     height: 45px;
     line-height: 45px;
     color: #6a6a6a;
-    padding-top: 10%;
-font-size: 40px;
+    padding-top: 9%;
+    font-size: 40px;
     display: inline-block;
 }
 #formPart3  .topArea .title {
@@ -1072,15 +1085,19 @@ margin-top: 10px;
     margin-top: -10px;
 }
 .socialArea .social {
-    width: 60px;
-height: 41px;
+    width: 42px;
+height: 25px;
 border-bottom: 1px solid #6a6a6a;
 margin: auto;
 background-repeat: no-repeat;
 background-position-y: -14%;
+background-size: 155px;
 text-align: justify;
-font-size: 14px;
-padding-top: 50%;
+font-size: 10px;
+padding-top: 40%;
+margin-top: 5px;
+margin-bottom: 10px;
+font-family: sans-serif;
 }
 .socialArea .fb {
     background-image: url("img/social_startup_popup.png");
@@ -1100,6 +1117,12 @@ color: #555ca8;
 .socialArea .likes {
     
 }
+.socialArea .fb .letter-space, .socialArea .linkedin .letter-space{
+    letter-spacing: .4px;
+}
+.socialArea .twitter .letter-space{
+    letter-spacing: 2.1px;
+}
 .mainArea .movie{
     width: 342px;
     margin: 50px auto;
@@ -1118,14 +1141,13 @@ margin: 15px 0;
 }
 .mainArea .description {
 width: 100%;
-height: 120px;
 overflow: hidden;
-font-size: 19px;
-line-height: 23px;
+font-size: 15px;
+line-height: 18px;
 }
 
 .mainArea .description {
-height: 115px;
+height: 123px;
 overflow-y: auto;
 }
 

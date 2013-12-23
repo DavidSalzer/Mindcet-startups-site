@@ -59,7 +59,7 @@ set_post_thumbnail( 165, 176177178179 );
 	if(empty($error)){
 			$name=filter_input(INPUT_POST,'invetName',FILTER_SANITIZE_STRING);
 			$founder=filter_input(INPUT_POST,'founder',FILTER_SANITIZE_STRING);
-			
+			$youtubeUrl=filter_input(INPUT_POST,'youtubeUrl',FILTER_SANITIZE_STRING);
 			// ADD THE FORM INPUT TO $new_post ARRAY
 			$new_post = array(
 			'post_title'	=>	$title,
@@ -78,7 +78,7 @@ set_post_thumbnail( 165, 176177178179 );
 			update_post_meta($pid, 'wpcf-founder', $founder);
 			update_post_meta($pid, 'wpcf-founder-email', $founderMail);
 		   
-		   
+		   update_post_meta($pid, 'wpcf-youtube-url', $youtubeUrl);
 			uploadFile('logo',$pid);
 			uploadFile('img-1',$pid);
 			uploadFile('img-2',$pid);
@@ -203,7 +203,7 @@ do_action('wp_insert_post', 'wp_insert_post');
   <h2>Not Found</h2>
   <?php endif; ?>
 
-    <div class="inventDescription">
+    <div id="single-startup-zone"class="inventDescription">
         <span id="invent-close" class="close">x</span>
         <!--<div class="topArea">
             <div class="title ellipsis">Class Dojo</div>
@@ -230,7 +230,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 
 </div>
 <div id="startups-banner" class="middelBanner">
-  <h2>The Sturtups</h2>
+  <h2>The Startups</h2>
 </div>
 <nav class="inventorNav">
            <?php

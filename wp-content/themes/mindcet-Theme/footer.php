@@ -11,6 +11,7 @@
                 </a>
             </div>
         	<nav class="footerNav">
+                <div class="unitedNav">
 			   <?php
             $defaults = array(
                 'menu'            => 'footerMenu',
@@ -25,7 +26,7 @@
             wp_nav_menu( $defaults );
             
             ?>
-           	<span class="copyr">&copy;<?php echo date("Y"); echo " "; bloginfo('name'); ?></span>
+           	<span class="copyr">&copy;<?php echo date("Y"); echo " "; bloginfo('name'); ?></span></div>
            </nav>
         
         

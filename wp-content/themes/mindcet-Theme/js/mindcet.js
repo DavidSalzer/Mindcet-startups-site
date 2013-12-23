@@ -79,6 +79,8 @@ $(document).ready(function (e) {
 
             html += '       <div class="mainArea">    ';
             //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(youtubeUrl)) + '" /><span class="play_button"></span> ' + '</div>    ';
+            var videoIframe = getEmbedMovie(getMovieDataByURL(youtubeUrl));
+            if(videoIframe!=undefined)
             html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(youtubeUrl)) +'</div>';
             html += '		    <div class="name ellipsis">' + invetName + '</div>';
             html += '		    <div class="description">' + description + '</div>';

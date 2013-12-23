@@ -67,15 +67,17 @@
 					$linkin=$mach['ye_linkin'];
 					$twitter=$mach['ye_twitter'];
 				?>
-                <a href="<?php echo $linkin; ?>" class="socialTab">
-                	<span class="linkin"></span>
-                </a>
-                <a href="<?php echo $twitter; ?>" class="socialTab">
-                	<span class="twitter"></span>
-                </a>
-                <a href="<?php echo $face; ?>" class="socialTab">
-                	<span class="facebook"></span>
-                </a>			
+                <div class="socialTabs">
+                    <a href="<?php echo $linkin; ?>" class="socialTab">
+                	    <span class="linkin"></span>
+                    </a>
+                    <a href="<?php echo $twitter; ?>" class="socialTab">
+                	    <span class="twitter"></span>
+                    </a>
+                    <a href="<?php echo $face; ?>" class="socialTab">
+                	    <span class="facebook"></span>
+                    </a>			
+                </div>
 			</div>
           </div>
 		<nav class="topNav">

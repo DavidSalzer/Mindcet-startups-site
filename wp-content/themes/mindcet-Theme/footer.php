@@ -1,14 +1,15 @@
 		<div id="footer">
             <div class="footerLogos">
+                <a href="http://www3.cet.ac.il/" class="">
+                	<span class="logoMatach"></span>
+                </a>
                 <a href="<?php echo site_url();?>" class="mindcet">
                 	<span class="logoMindcet"></span>
                 </a>
                 <a href="" class="">
                 	<span class="logoCet"></span>
                 </a>
-                <a href="" class="">
-                	<span class="logoMatach"></span>
-                </a>
+                
             </div>
         	<nav class="footerNav">
                 <div class="unitedNav">

@@ -1,12 +1,14 @@
             <div id="footer">
             <div class="footerLogos">
-                <a href="http://www3.cet.ac.il/" class="">
+                <a href="http://www3.cet.ac.il/" target="_blank" class="">
                 	<span class="logoMatach"></span>
                 </a>
-                <a href="<?php echo site_url();?>" class="mindcet">
+                <!--<a href="<?php echo site_url();?>" target="_blank" class="mindcet">-->
+                <a href="http://www.mindcet.org/" target="_blank" class="mindcet">
+                
                 	<span class="logoMindcet"></span>
                 </a>
-                <a href="" class="">
+                <a href="https://angel.co/socraticlabs" class="" target="_blank">
                 	<span class="logoCet"></span>
                 </a>
                 

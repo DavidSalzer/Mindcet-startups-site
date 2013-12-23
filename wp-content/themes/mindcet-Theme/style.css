@@ -504,9 +504,10 @@ float: left;
 cursor: pointer;
 line-height: 200px;
 overflow: hidden;
+text-align: center;
 }
 .inventList li img{
-  width: 100%;
+  width: 95%;
 	margin-top: -40px;
 	vertical-align: middle;
 	height: auto;
@@ -699,7 +700,7 @@ text-indent: 10px;
 	text-align:center;
 	display: inline-block;
     margin-top: 0px;
-    cursor: pointer;
+    /*cursor: pointer;*/
     margin-right: 5px;
 }
 .judgeDescription{
@@ -1086,9 +1087,9 @@ margin-top: 55px;
 display: none;
 }
 #formPart3 .topArea, .inventDescription .topArea{
-    width: 74%;
+    width: 500px;
 margin: auto;
-padding: 0 13%;
+padding: 0 106px;
 height: 100px;
 border-bottom: 2px solid #fafafa;
     
@@ -1099,14 +1100,14 @@ border-bottom: 2px solid #fafafa;
 #formPart3 .socialArea, .inventDescription .socialArea{
     width: 115px;
 height: 80%;
-display: inline-block;
+display: none;
 position: absolute;
 padding-top: 28px;
 }
 #formPart3  .mainArea, .inventDescription .mainArea{
     width: 500px;
     margin: auto;
-    padding: 0 21px;
+    /*padding: 0 21px;*/
 }
 .topArea .title{
     width: 65%;
@@ -1130,20 +1131,25 @@ font-size: 25px;
 padding-bottom: 10px;
 }
 .topArea .logo, .topArea .wp-post-image{
-    width: 124px;
-    height: 83px;
-    display: inline-block;
-    right: 0;
-    float: right;
-margin-top: 10px;
+    width: 100%;
+height: auto;
+vertical-align: middle;
 }
-.topArea .logo, .topArea .wp-post-image {
+/*.topArea .logo, .topArea .wp-post-image {
     width: 124px;
 height: 83px;
 display: inline-block;
 right: 0;
 float: right;
 margin-top: 10px;
+}*/
+.startup-popup-logo{
+    width: 124px;
+height: 83px;
+right: 54px;
+position: absolute;
+top: 12px;
+overflow: hidden;
 }
 #formPart3 .topArea .logo{
     width: 83px;

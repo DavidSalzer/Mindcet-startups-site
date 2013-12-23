@@ -22,8 +22,9 @@ $(document).ready(function (e) {
 
     //-------form------
 
-    $('#offerStartUp').on('click', this, function () {
+    $('#offerStartUp').on('click', this, function (e) {
         openOfferPopUp();
+		e.preventDefault();
        
     });
 

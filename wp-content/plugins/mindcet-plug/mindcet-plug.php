@@ -45,6 +45,7 @@ class MindCet_Option{
 		add_settings_field('ye_face','לינק פייסבוק :',array($this,'ye_down_pace'),__FILE__,'ye_main_section');
 		add_settings_field('ye_linkin','לינק לינקין :',array($this,'ye_down_linkin'),__FILE__,'ye_main_section');
 		add_settings_field('ye_twitter','לינק טוויטר :',array($this,'ye_down_twitter'),__FILE__,'ye_main_section');
+		add_settings_field('ye_tech','לינק ליד לוגו מינדסט :',array($this,'ye_down_tech'),__FILE__,'ye_main_section');
 		
 	}
 	
@@ -65,7 +66,10 @@ class MindCet_Option{
 	public function ye_down_twitter(){
 		echo "<input type='text' name='ye_plugin_options[ye_twitter]' value='".$this->options['ye_twitter']."'/>";	
 		}
-
+	
+	public function ye_down_tech(){
+			echo "<input type='text' name='ye_plugin_options[ye_tech]' value='".$this->options['ye_tech']."'/>";	
+			}
 	
 }
 

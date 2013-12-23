@@ -50,23 +50,25 @@
 	<div class="mask"></div>
     <header>
     	<div class="header cf">
-    		<div class="logoAndSocial">
-				<a href="<?php echo site_url();?>" class="tagLogo mindcet">
-                	<span class="logoMindcet"></span>
-                </a>
-                <a href="" class="tagLogo">
-                	<span class="logoCet"></span>
-                </a>
-                <div class="timer">
-                <?php get_sidebar('countdown');?>
-                </div>
-                <?php 
+		<?php 
 				
 					$mach=get_option('ye_plugin_options');
 	 				$face=$mach['ye_face'];
 					$linkin=$mach['ye_linkin'];
 					$twitter=$mach['ye_twitter'];
+					$ye_tech=$mach['ye_tech'];
 				?>
+    		<div class="logoAndSocial">
+				<a href="<?php echo site_url();?>" class="tagLogo mindcet">
+                	<span class="logoMindcet"></span>
+                </a>
+                <a href="<?php echo  $ye_tech;?>" class="tagLogo">
+<!--                	<span class="logoCet"></span>
+-->                </a>
+                <div class="timer">
+                <?php get_sidebar('countdown');?>
+                </div>
+                
                 <a href="<?php echo $linkin; ?>" class="socialTab">
                 	<span class="linkin"></span>
                 </a>

@@ -95,7 +95,7 @@
     	$techId=$post->ID;
 		$title=get_the_title($post->ID);
 		$logo=get_the_post_thumbnail( $post->ID,array(220,155), $attr );   
-		$descript=get_the_content($post->ID);
+		$descript=apply_filters ("the_content", $post->post_content);//get_the_content($post->ID);
 		$name=get_post_meta($post->ID,'wpcf-full_mane',true);
 		$email=get_post_meta($post->ID,'wpcf-invet_email',true);
 		$siteUrl=get_post_meta($post->ID,'wpcf-site-url',true);

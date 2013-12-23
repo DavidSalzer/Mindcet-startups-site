@@ -471,7 +471,7 @@ border-bottom: 1px solid #000;
 	background-color: #21cb89;	
 }
 .middelBanner h2{
-	width:77%;
+	width:84%;
 	margin:0 auto;
 	height:45px;
 	text-align:left;
@@ -487,7 +487,8 @@ border-bottom: 1px solid #000;
 }
 .inventList{
 	width: 845px;
-	display: inline-block;
+display: inline-block;
+vertical-align: top;
 	vertical-align:top;
 }
 .inventList li{
@@ -674,7 +675,7 @@ font-size: 18px;
 }
 .judgestext {
 background-color: #e6e6e8;
-height: 41px;
+height: 39px;
 color: #909090;
 overflow: hidden;
 white-space: normal;
@@ -692,6 +693,7 @@ text-indent: 10px;
 	display: inline-block;
     margin-top: 0px;
     cursor: pointer;
+    margin-right: 5px;
 }
 .judgeDescription{
     width: 1024px;
@@ -729,7 +731,7 @@ cursor: pointer;
 .judgesAvantar img{
 	width:165px;
 	height:163px;
-	border-bottom:solid 4px #fff;
+	border-bottom:solid 6px #fff;
 }
 .judgesAvantar h2{
 	background:#3f3f3f;
@@ -921,7 +923,8 @@ text-indent: 12%;
 font-size: 25px;
 font-family: sans-serif;*/
 }
-.submit input{
+.submit input {
+text-indent: 0;
 }
 .last-page {
     right: 231px;
@@ -1018,11 +1021,12 @@ font-family: sans-serif;*/
 }
 
 .copyr {
-    display: inline;
-    height: 50px;
-    line-height: 44px;
-    padding: 0 60px;
-    font-size: 1.25em;
+   display: inline-block;
+height: 41px;
+line-height: 17px;
+padding: 0 60px;
+font-size: 0.8em;
+vertical-align: middle;
 }
 .footerMenu {
 display: inline;

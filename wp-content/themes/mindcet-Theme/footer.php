@@ -29,7 +29,12 @@
             wp_nav_menu( $defaults );
             
             ?>
-           	<span class="copyr">&copy;<?php echo date("Y"); echo " "; bloginfo('name'); ?></span></div>
+           	<!--<span class="copyr">&copy;<?php echo date("Y"); echo " "; bloginfo('name'); ?></span></div>-->
+                    <div class="copyr">
+                        <div>&copy;<?php echo "  " ;echo date("Y"); echo " MindCET."; ?></div>
+                        <div>All rights reserved</div>
+                    </div>
+                </div>
            </nav>
         
         

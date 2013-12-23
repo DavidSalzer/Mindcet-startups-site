@@ -235,6 +235,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 <nav class="inventorNav">
            <?php
 		$defaults = array(
+			'theme_location'  =>'startupMenu',
 			'menu'            => 'startupMenu',
 			'container'       => 'div',
 			'container_class' => 'inventHome',

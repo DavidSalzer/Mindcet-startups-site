@@ -224,7 +224,10 @@ $(document).ready(function (e) {
     $('.submit input').on('click', this, function () {
             $('#formPart3').hide();
             $('#formPart4').show();
-            var html = '        <div class="form-end-message">Registration is pending approval <br>Thank you!</div>';
+            $('.last-page').css("display", "none");
+            $('#page-number-3').hide();
+            $('.submit input').css("display", "none");
+            var html = '        <div class="form-end-message">Registration is pending approval. <br><br>Thank you!</div>';
             var $formEndMessage = $(html);
             $('#formPart4').append($formEndMessage);
 

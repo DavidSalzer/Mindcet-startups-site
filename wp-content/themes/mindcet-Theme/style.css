@@ -939,9 +939,10 @@ height: 400px;
 margin: auto;
 font-size: 36px;
 vertical-align: middle;
-margin-top: 20px;
+margin-top: 120px;
 left: 0;
 right: 0;  
+text-align: center;
 }
 .last-page {
     right: 231px;

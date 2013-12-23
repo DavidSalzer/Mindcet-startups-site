@@ -478,7 +478,7 @@ getImgUrl = function (data) {
         //scroll smooth
         $('a[href^="#"]').click(function() {    // Change to needed selector
         $("html, body").animate({    // Need both for full browser support
-            scrollTop: $( $(this).attr("href") ).offset().top - 160 // Extra 100px
+            scrollTop: $( $(this).attr("href") ).offset().top - 154 // Extra 100px
         }, 500);    // Change to desired scroll time in ms
         return false;    // Prevents the dreaded jump/flash
     });

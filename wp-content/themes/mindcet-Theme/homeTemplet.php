@@ -329,7 +329,7 @@ do_action('wp_insert_post', 'wp_insert_post');
     <div class="judgesAvantar"> 
 		<?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?>
       	<h2> <?php the_title(); ?></h2>
-        <div class="judgestext">
+        <div class="judgestext">           
         	<?php the_content();?>
         </div>
     </div>

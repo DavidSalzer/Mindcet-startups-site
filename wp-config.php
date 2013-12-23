@@ -19,13 +19,13 @@
 define('DB_NAME', 'mindset_wp');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'mindcetTest');
 
 /** MySQL database password */
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'mindcetTest');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'mindcettest.co.il.tigris.nethost.co.il');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');

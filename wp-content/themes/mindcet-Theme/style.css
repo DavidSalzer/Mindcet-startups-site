@@ -1131,7 +1131,7 @@ margin-top: 10px;
     margin-top: -10px;
 }
 .socialArea .social {
-    width: 42px;
+   width: 42px;
 height: 25px;
 border-bottom: 1px solid #6a6a6a;
 margin: auto;
@@ -1139,11 +1139,12 @@ background-repeat: no-repeat;
 background-position-y: -14%;
 background-size: 155px;
 text-align: justify;
-font-size: 10px;
-padding-top: 40%;
-margin-top: 5px;
-margin-bottom: 10px;
+font-size: 9px;
+padding-top: 37%;
+margin-top: 4px;
+margin-bottom: 12px;
 font-family: sans-serif;
+padding-bottom: 8px;
 }
 .socialArea .fb {
     background-image: url("img/social_startup_popup.png");

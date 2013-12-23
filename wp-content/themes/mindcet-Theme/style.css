@@ -491,23 +491,21 @@ border-bottom: 1px solid #000;
 }
 .inventList li{
 	width: 207px;
-	height:200px;
-	border-top:solid 2px #676767;
-	border-bottom:solid 2px #676767;
-	border-left:solid 2px #676767;
-	border-right:solid 2px #676767;
+	height: 200px;
+	border-top: solid 2px #676767;
+	border-bottom: solid 2px #676767;
+	border-left: solid 2px #676767;
+	border-right: solid 2px #676767;
 	display: block;
-	position:relative;
+	position: relative;
 	float: left;
-    cursor: pointer;
+	cursor: pointer;
+	line-height: 200px;
 }
 .inventList li img{
-    width: 207px;
-	 height: 155px;
-    display: block;
-    float: left;
-    margin: 0 auto;
-    vertical-align: top;
+   width: 207px;
+	margin-top: -40px;
+	vertical-align: middle;
 }
 .inventList li h2{
 	position:absolute;

@@ -232,6 +232,8 @@ do_action('wp_insert_post', 'wp_insert_post');
 <div id="startups-banner" class="middelBanner">
   <h2>The Startups</h2>
 </div>
+<?php if ( has_nav_menu( 'startupMenu') ):?>
+
 <nav class="inventorNav">
            <?php
 		$defaults = array(
@@ -248,7 +250,8 @@ do_action('wp_insert_post', 'wp_insert_post');
 		
 		?>
            	
-           </nav>
+ </nav>
+ <?php endif;?>
 <div class="page-wrap inventors" >
     <div class="rightScroll" id="inventScrollR"><div class="rightScroll-arrow"></div></div>
     <div class="leftScroll" id="inventScrollL"><div class="leftScroll-arrow"></div></div>

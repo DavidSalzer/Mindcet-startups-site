@@ -1,4 +1,4 @@
-		<div id="footer">
+            <div id="footer">
             <div class="footerLogos">
                 <a href="http://www3.cet.ac.il/" class="">
                 	<span class="logoMatach"></span>
@@ -15,7 +15,6 @@
                 <div class="unitedNav">
 			   <?php
             $defaults = array(
-				'theme_location'  =>'footerMenu',
                 'menu'            => 'footerMenu',
                 'container'       => 'div',
                 'container_class' => 'footerMenu',
@@ -24,6 +23,7 @@
 				
                 'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
             );
+            
             wp_nav_menu( $defaults );
             
             ?>

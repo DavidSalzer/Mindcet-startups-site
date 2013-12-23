@@ -179,7 +179,7 @@ do_action('wp_insert_post', 'wp_insert_post');
         
     
         <fieldset class="submit">
-            <input type="submit" value="Submit" tabindex="40" id="submit" name="submit" />
+            <input type="submit" value="Sign" tabindex="40" id="submit" name="submit" />
         </fieldset>
     
         <input type="hidden" name="action" value="new_post" />
@@ -286,7 +286,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 		?>
         
 </div>
-<div id="judges-banner" class="middelBanner">
+<div  class="middelBanner">
   <h2> The Judges</h2>
 </div>
 <div class="page-wrap judges">
@@ -336,7 +336,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 	<div class="judgesAvantar hide"> </div>
 </div>
 </div>
-<div class="middelBanner">
+<div id="judges-banner" class="middelBanner">
   <h2> The Competition</h2>
 </div>
 <div class="page-wrap contect">

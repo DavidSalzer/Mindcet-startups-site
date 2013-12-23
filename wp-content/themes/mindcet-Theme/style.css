@@ -240,6 +240,12 @@ body{
 *{
 	outline:none;
 }
+header {
+position: fixed;
+z-index: 50;
+width: 100%;
+top: 0;
+}
 .header{
 	background-color: #484848;
 	height: 115px;
@@ -317,10 +323,11 @@ background-position-y: 80%;
 	margin-right: 0px;
 	position: relative;
 	z-index: 5;
+    margin-left: 13px;
 }
 .socialTabs{
     float: right;
-    margin-right: 20px;
+    margin-right: 34px;
 }
 .socialTab:hover{
 	background-position: -10px 0;
@@ -346,7 +353,6 @@ background-position-y: 80%;
 	height: 42px;
 	position: relative;
 	margin-top: -38px;
-    border-bottom: 1px solid #a6af9d;
     box-shadow: 1px 1px 2px #000;
 }
 .topMenu {
@@ -419,7 +425,7 @@ min-width: 1024px;
 margin: 0 auto;
 position: relative;
 background-image: url(img/background.jpg);
-margin-top: 1px;
+margin-top: 157px;
 }
 .home .entry {
 font-size: 28px;
@@ -561,7 +567,9 @@ height: 40px;
 }
 .inventorNav {
     height: 54px;
-    width: 1024px;
+    width: 1022px;
+    border-left: 1px solid #969696;
+    border-right: 1px solid #969696;
 }
 .inventHome {
     height: 54px;
@@ -733,7 +741,9 @@ margin-top: -2px;
 	top:122px;
 }
 .page-wrap.contect{
-	width: 1024px;
+	width: 1022px;
+    border-left: 1px solid #969696;
+    border-right: 1px solid #969696;
     position: relative;
 }
 .page-wrap.contect p {
@@ -753,13 +763,13 @@ width: 72PX;
 .inventorPopUp{
     position: absolute;
 display: none;
-top: -178px;
+top: -151px;
 width: 560px;
 height: 592px;
 background: #fff;
 border: solid 20px #fff;
 left: 388px;
-z-index: 20;
+z-index: 51;
 box-shadow: #333 2px 2px 5px 1px;
 }
 .inventorPopUp .triangle{
@@ -767,7 +777,7 @@ box-shadow: #333 2px 2px 5px 1px;
 background-image: url(img/triangle.png);
 width: 50px;
 left: -50px;
-top: 520px;
+top: 502px;
 height: 57px;
 }
 .inventorPopUp .close{
@@ -814,6 +824,9 @@ padding: 0 15px;
 }
 #formPart1, #formPart2, #formPart3 {
     height: 546px;
+}
+#formPart3 {
+width: 92.4%;
 }
 .title-logo{
     display: inline-block;
@@ -870,7 +883,7 @@ margin-bottom: 20px;
     display: inline-block;
     width: 170px;
     height: 43px;
-    border: 2px solid #ABADB3;
+    border: 2px solid #e8e8e8;
     background-color:   #e76c76;
     color: white;
     cursor: pointer;
@@ -899,7 +912,6 @@ font-size: 25px;
 font-family: sans-serif;*/
 }
 .submit input{
-    text-indent: 8.5%;
 }
 .last-page {
     right: 231px;
@@ -914,6 +926,7 @@ font-family: sans-serif;*/
 .next-page .nav-page-img{
 background-image: url(img/slide-arrows.png);
 background-repeat: no-repeat;
+background-size: 77px;
     background-position: 97%;
     width: 50px;
     text-indent: -39%;
@@ -922,9 +935,11 @@ background-repeat: no-repeat;
 .last-page .nav-page-img{
 background-image: url(img/slide-arrows.png);
 background-repeat: no-repeat;
+background-size: 77px;
     background-position: 0;
     width: 50px;
     text-indent: 35%;
+    
 }
 .page-number {
 color: #ee8484;
@@ -938,7 +953,7 @@ line-height: 50px;
 /*.popInvent input[type="submit"]{*/
     .submit input{
     width: 175px;
-	height: 45px;
+	height: 47px;
     font-size: 1.8em;
     margin-bottom: 20px;
 	float:right;
@@ -1015,7 +1030,7 @@ left: 0;
 /*------------Invent----------------*/
 .mask{
     position: fixed;
-    z-index: 1;
+    z-index: 51;
     display: none;
     top: 0px;
     left: 0px;
@@ -1030,7 +1045,7 @@ left: 0;
 height: 854px;
 background-color: #fff;
 position: absolute;
-z-index: 21;
+z-index: 51;
 margin: auto;
 left: 0;
 right: 0;

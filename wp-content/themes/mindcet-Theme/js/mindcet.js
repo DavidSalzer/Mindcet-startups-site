@@ -22,8 +22,9 @@ $(document).ready(function (e) {
 
     //-------form------
 
-    $('#offerStartUp').on('click', this, function () {
+    $('#offerStartUp').on('click', this, function (e) {
         openOfferPopUp();
+		e.preventDefault();
        
     });
 
@@ -132,7 +133,10 @@ $(document).ready(function (e) {
     $("#logo").change(function(e) {
 
         var fileName = $(this).val();
-        if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
+		
+		$('.title-logo.logoimg').text(fileName);
+    
+	    if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
             if(this.files && this.files[0]) {
                 var reader = new FileReader();
@@ -153,6 +157,7 @@ $(document).ready(function (e) {
     $("#img-1").change(function(e) {
 
         var fileName = $(this).val();
+		$('.title-logo.img1').text(fileName);
         if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
             if(this.files && this.files[0]) {
@@ -174,6 +179,7 @@ $(document).ready(function (e) {
     $("#img-2").change(function(e) {
 
         var fileName = $(this).val();
+		$('.title-logo.img2').text(fileName);
         if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
             if(this.files && this.files[0]) {
@@ -195,6 +201,7 @@ $(document).ready(function (e) {
     $("#img-3").change(function(e) {
 
         var fileName = $(this).val();
+		$('.title-logo.img3').text(fileName);
         if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
             if(this.files && this.files[0]) {

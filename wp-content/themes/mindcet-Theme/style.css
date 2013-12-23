@@ -841,6 +841,9 @@ font-family: sans-serif;
 vertical-align: middle;
 line-height: 45px;
 color: #a9a9a9;
+    overflow: hidden;
+    width: 340px;
+    text-overflow: ellipsis;
 }
 .popInvent .upload {
     background-color: #21cb89;

@@ -505,10 +505,16 @@ overflow: hidden;
 }
 .inventList li img{
   width: 100%;
-margin-top: -40px;
-vertical-align: middle;
-height: auto;
+	margin-top: -40px;
+	vertical-align: middle;
+	height: auto;
+	opacity:.5;
+	transition:all ease-in-out 0.3s;
 }
+.inventList li:hover,.inventList li img:hover{
+ opacity:1;
+}
+
 .inventList li h2{
 	position:absolute;
 	bottom:0;

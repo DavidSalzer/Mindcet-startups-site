@@ -221,6 +221,16 @@ $(document).ready(function (e) {
         }
     });
 
+    $('.submit input').on('click', this, function () {
+            $('#formPart3').hide();
+            $('#formPart4').show();
+            var html = '        <div class="form-end-message">Registration is pending approval <br>Thank you!</div>';
+            var $formEndMessage = $(html);
+            $('#formPart4').append($formEndMessage);
+
+        return false;
+    });
+
 //----------/end of form
 
 
@@ -231,6 +241,24 @@ $(document).ready(function (e) {
 
     //$('.judgesAvantar').on('click', this, function () {
     //    $('.judgeDescription').fadeIn(600, 'easeInOutBack');
+
+    //var html = '       <div class="judgeDescriptionLeft">';
+    //html = '               <div class="judgeDescription-img"></div>';
+    //html = '               <div class="contactMe"><a ' + + '" >Contact Me</a></div>';
+    //html = '           </div>';
+    //html = '           <div class="judgeDescriptionRight">';
+    //html = '                <div class="judgeDescription-name">' +  title - name + '</div>';
+    //html = '               <div class="judgeDescription-role">' + title - role + '</div>';
+    //html = '               <div class="judgeDescription-full">' +  + '</div>';
+    //html = '           </div>';
+
+    //$('html, body').animate({
+    //    scrollTop: $("#judges-banner").offset().top - 25
+    //}, 2000);
+
+    //var $judgeDescription = $(html);
+    //$('.judgeDescription').append($judgeDescription);
+
     //    return false;
     //});
 

@@ -510,7 +510,14 @@ overflow: hidden;
 	height: auto;
 	opacity:.5;
 	transition:all ease-in-out 0.3s;
+    /*filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+    /*filter: gray; /* IE6-9 */
+    /*-webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
 }
+/*.inventList li img:hover{
+    filter: none;
+    -webkit-filter: grayscale(0);
+}*/
 .inventList li:hover,.inventList li img:hover{
  opacity:1;
 }
@@ -826,10 +833,10 @@ padding: 0 15px;
 #formPart1 {
     display: block;
 }
-#formPart2, #formPart3 {
+#formPart2, #formPart3, #formPart4 {
     display: none;
 }
-#formPart1, #formPart2, #formPart3 {
+#formPart1, #formPart2, #formPart3, #formPart4 {
     height: 546px;
 }
 #formPart3 {
@@ -923,6 +930,16 @@ font-family: sans-serif;*/
 }
 .submit input {
 text-indent: 0;
+}
+.form-end-message{
+    width: 412px;
+height: 400px;
+margin: auto;
+font-size: 36px;
+vertical-align: middle;
+margin-top: 20px;
+left: 0;
+right: 0;  
 }
 .last-page {
     right: 231px;

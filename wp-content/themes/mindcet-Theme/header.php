@@ -81,6 +81,7 @@
 		<nav class="topNav">
            <?php
 		$defaults = array(
+			'theme_location'  =>'topMenu',
 			'menu'            => 'topMenu',
 			'container'       => 'div',
 			'container_class' => 'topMenu',

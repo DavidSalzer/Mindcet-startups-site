@@ -15,7 +15,7 @@
 	    wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
 	   wp_enqueue_script('mindcetjs');
 	  
-	   wp_register_script('deep', ("http://malsup.github.io/deeplink.js"), false);
+	   wp_register_script('deep', (get_template_directory_uri()."/js/deeplink.js"), false);
 	   wp_enqueue_script('deep');
 	  
 

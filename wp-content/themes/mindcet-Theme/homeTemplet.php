@@ -103,14 +103,14 @@ do_action('wp_insert_post', 'wp_insert_post');
         
         <div id="formPart1">
             <!-- post name -->
-            <fieldset name="title">
+            <!--<fieldset name="title">-->
                 <input type="text" id="title" value="" tabindex="5" name="title" placeholder="StartUp Name" />
-            </fieldset>
+            <!--</fieldset>-->
     
             <!-- post Category -->
-            <fieldset class="formfield">
+            <!--<fieldset class="formfield">-->
                 <input type="text" id="invetName" value="" tabindex="10" name="invetName" placeholder="Your Name" />
-            </fieldset>
+            <!--</fieldset>-->
     
             <!-- post Category -->
             <fieldset class="formfield">
@@ -118,34 +118,35 @@ do_action('wp_insert_post', 'wp_insert_post');
             </fieldset>
 
             <!-- post Category -->
-            <span class="title-logo logoimg">Logo</span>
+            
             <fieldset class="formfield input-border">
+                <span class="title-logo logoimg">Logo</span>
                 <div class="upload">
                     <input type="file" id="logo" value="Upload" name="logo" tabindex="25" name="logo" placeholder="" />Select file
                 </div>
             </fieldset>
 
             <!-- post Content -->
-            <fieldset class="formfield">
-           <textarea id="description" tabindex="35" name="description" cols="30" rows="1" placeholder="About You / Your Startup"></textarea>
-            </fieldset>
+            <!--<fieldset class="formfield">-->
+           <textarea id="description" tabindex="35" name="description" cols="30" rows="1" placeholder="About You/Your Startup"></textarea>
+            <!--</fieldset>-->
         </div>
         
         <div id="formPart2">    
             <!-- post Category -->
-            <fieldset class="formfield">
+            <!--<fieldset class="formfield">-->
                 <input type="text" id="founder" value="" tabindex="25" name="founder" placeholder="Founder" />
-            </fieldset>
+            <!--</fieldset>-->
         
              <!-- post Category -->
-            <fieldset class="formfield">
+            <!--<fieldset class="formfield">-->
                 <input type="email" id="founderMail" value="" tabindex="30" name="founderMail" placeholder="Founder E-Mail" />
-            </fieldset>
+            <!--</fieldset>-->
 
             <!-- post Category -->
-            <fieldset class="formfield">
+            <!--<fieldset class="formfield">-->
                 <input type="url" id="site" value="" tabindex="20" name="site" placeholder="Link to Site"/>
-            </fieldset>
+            <!--</fieldset>-->
         
             <!-- post Category -->
             <fieldset class="formfield">
@@ -153,24 +154,27 @@ do_action('wp_insert_post', 'wp_insert_post');
             </fieldset>
         
             <!-- post Category -->
-            <span class="title-logo img1">Add Your Photo</span>
+            
             <fieldset class="formfield input-border">
+                <span class="title-logo img1">Add Your Photo</span>
                 <div class="upload">
                     <input type="file" id="img-1" value="" tabindex="25" name="img-1" placeholder="" />Select file
                 </div>
             </fieldset>
 
             <!-- post Category -->
-            <span class="title-logo img2">Add Your Photo</span>
+            
             <fieldset class="formfield input-border">
+                <span class="title-logo img2">Add Your Photo</span>
                 <div class="upload">
                     <input type="file" id="img-2" value="" tabindex="25" name="img-2" placeholder="" />Select file
                 </div>
             </fieldset>
 
             <!-- post Category -->
-            <span class="title-logo img3">Add Your Photo</span>
+            
             <fieldset class="formfield input-border">
+                <span class="title-logo img3">Add Your Photo</span>
                 <div class="upload">
                     <input type="file" id="img-3" value="" tabindex="25" name="img-3" placeholder="" />Select file
                 </div>

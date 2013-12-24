@@ -84,11 +84,11 @@ $(document).ready(function (e) {
             html += '		    <div class="description">' + description + '</div>';
             html += '           <div class="gallery">    ';
             if(ImgSrc1!=null)
-                html += '               <img class="gallery-img" src="' + ImgSrc1 + '" alt="' + title + ' img1">    ';
+                html += '           <div>    <img class="gallery-img" src="' + ImgSrc1 + '" alt="' + title + ' img1">  </div>  ';
             if(ImgSrc2!=null)
-                html += '               <img class="gallery-img" src="' + ImgSrc2 + '" alt="' + title + ' img2">    ';
+                html += '           <div>    <img class="gallery-img" src="' + ImgSrc2 + '" alt="' + title + ' img2">  </div>   ';
             if(ImgSrc3!=null)
-                html += '               <img class="gallery-img" src="' + ImgSrc3 + '" alt="' + title + ' img3">    ';
+                html += '           <div>    <img class="gallery-img" src="' + ImgSrc3 + '" alt="' + title + ' img3"> </div>    ';
             html += '           </div>    ';
             //html += '           <div class="fb-comments"></div>    ';
             html += '       </div>    ';
@@ -298,7 +298,7 @@ $(document).ready(function (e) {
         html += '           <div class="gallery">    ';
         allTech[tid].startupImg.forEach(function(img){
             if(img!=""){
-                html += '<img class="gallery-img" src="' + img + '" alt="' + allTech[tid].title + '">    ';
+                html += '<div><img class="gallery-img" src="' + img + '" alt="' + allTech[tid].title + '"> </div>   ';
             }
         });
         //html += '               <img class="gallery-img" src="' + allTech[tid].startupImg[0] + '" alt="' + allTech[tid].title + ' img1">    ';

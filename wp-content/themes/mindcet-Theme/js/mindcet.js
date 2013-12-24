@@ -600,6 +600,7 @@ function enable_scroll() {
     $('.inventDescription .close').on('click', this, function () {
         $('.inventDescription').empty().append('<span id="invent-close" class="close">x</span>');
         $('.inventDescription').fadeOut(600, 'easeInOutBack');
+		window.location.hash='';
         $('.mask').fadeOut(600, 'easeInOutBack');
         return false;
     });

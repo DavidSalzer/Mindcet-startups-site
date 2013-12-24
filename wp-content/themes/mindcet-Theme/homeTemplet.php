@@ -301,7 +301,7 @@ do_action('wp_insert_post', 'wp_insert_post');
   <h2> The Judges</h2>
 </div>
 <div class="page-wrap judges">
-	<div class="judgeDescription">
+	<div id="judgeDescription" class="judgeDescription">
         <span class="close">x</span>
 
         <!--<div class="judgeDescriptionLeft">
@@ -334,7 +334,7 @@ do_action('wp_insert_post', 'wp_insert_post');
         foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 	
 		
-    <div class="judgesAvantar"> 
+    <div class="judgesAvantar" judgeId="<?php echo $post->ID;?>"> 
 		<?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?>
       	<h2> <?php the_title(); ?></h2>
         <div class="judgestext">           
@@ -359,9 +359,9 @@ do_action('wp_insert_post', 'wp_insert_post');
      allTech=<?php echo getAllStartup(); ?>;
      allJudges=<?php echo getAllJudges(); ?>;
      popupall(allTech);
-	 
+     popupallJ(allJudges);
+    	 
 </script>
 <?php get_footer(); ?>
 
 
-     <!--popupallJ(allJudges);-->

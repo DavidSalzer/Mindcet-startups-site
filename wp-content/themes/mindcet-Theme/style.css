@@ -432,7 +432,7 @@ font-size: 28px;
 line-height: 33px;
 padding: 55px 20px;
 width: 273px;
-margin-left: 65px;
+margin-left: 72px;
 background-color: rgba(256,256,256, 0.3);
 }
 .home .entry a{
@@ -1114,6 +1114,7 @@ border-bottom: 2px solid #fafafa;
 }
 #formPart3 .topArea{
     height: 50px;
+    position: relative;
 }
 #formPart3 .socialArea, .inventDescription .socialArea{
     width: 115px;
@@ -1152,6 +1153,18 @@ padding-bottom: 10px;
     max-width: 100%;
 max-height: 100%;
 }
+.startup-logo-form{
+    width: 83px;
+height: 55px;
+right: 80px;
+position: absolute;
+top: -13px;
+overflow: hidden;
+text-align: center;
+line-height: 55px;
+margin-right: 112px;
+}
+
 /*.topArea .logo, .topArea .wp-post-image {
     width: 124px;
 height: 83px;
@@ -1171,9 +1184,11 @@ text-align: center;
 line-height: 83px;
 }
 #formPart3 .topArea .logo{
-    width: 83px;
+    /*width: 83px;
     height: 55px;
-    margin-top: -10px;
+    margin-top: -10px;*/
+    max-width: 100%;
+    max-height:100%;
 }
 .socialArea .social {
    width: 42px;

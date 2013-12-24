@@ -67,7 +67,7 @@ $(document).ready(function (e) {
             html += '		    <div class="title ellipsis">' + title + '</div>';
            // html +=                 logo;
             if(logoSrc!=null)
-                html += '       <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">    ';
+                html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
             html += '       </div>    ';
 
             //html += '       <div class="socialArea">    ';

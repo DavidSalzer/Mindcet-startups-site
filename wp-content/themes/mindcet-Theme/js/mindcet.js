@@ -342,17 +342,28 @@ $(document).ready(function (e) {
  updateMenuUrl();
 
 
-
-
+//hide popup when scrolling down
+$(document).on('scroll',this,function(){
+	if($(document).scrollTop()>350){
+		$('#offer-zone').fadeOut("slow");
+	}
+	
 });
 
 
+});//dom ready
+
+
 function openOfferPopUp(){
+	disable_scroll();
      $('.inventorPopUp').fadeIn(600, 'easeInOutBack');
         $('html, body').animate({
-            scrollTop: $("#offer-zone").offset().top -25
-        }, 2000);
+            scrollTop:$("#offer-zone").offset().top -25
+        }, 2000,function(){enable_scroll()});
+		
+		
         return false;
+	
 }
 
 function popupall(allTech){
@@ -500,7 +511,7 @@ getImgUrl = function (data) {
  function updateMenuUrl(){
         //update the menu links to croll to sections in home page
         var navArray=["#startups-banner","#judges-banner", "#offer-zone"]
-        $(".topMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
+       // $(".topMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
         //$(".footerMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
 
         //add event to offer menu to open the offer popup
@@ -514,3 +525,43 @@ getImgUrl = function (data) {
         return false;    // Prevents the dreaded jump/flash
     });
  }
+
+
+//function to disable scrolling
+var keys = [37, 38, 39, 40];
+
+function preventDefault(e) {
+  e = e || window.event;
+  if (e.preventDefault)
+      e.preventDefault();
+  e.returnValue = false;  
+}
+
+function keydown(e) {
+    for (var i = keys.length; i--;) {
+        if (e.keyCode === keys[i]) {
+            preventDefault(e);
+            return;
+        }
+    }
+}
+
+function wheel(e) {
+  preventDefault(e);
+}
+
+function disable_scroll() {
+  if (window.addEventListener) {
+      window.addEventListener('DOMMouseScroll', wheel, false);
+  }
+  window.onmousewheel = document.onmousewheel = wheel;
+  document.onkeydown = keydown;
+}
+
+function enable_scroll() {
+    if (window.removeEventListener) {
+        window.removeEventListener('DOMMouseScroll', wheel, false);
+    }
+    window.onmousewheel = document.onmousewheel = document.onkeydown = null;  
+}
+

@@ -299,7 +299,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 	<div class="judgeDescription">
         <span class="close">x</span>
 
-        <div class="judgeDescriptionLeft">
+        <!--<div class="judgeDescriptionLeft">
             <div class="judgeDescription-img"></div>
             <div class="contactMe"><a href="mailto:email@echoecho.com" >Contact Me</a></div>
         </div>
@@ -307,7 +307,7 @@ do_action('wp_insert_post', 'wp_insert_post');
             <div class="judgeDescription-name"> title - name</div>
             <div class="judgeDescription-role"> title - role</div>
             <div class="judgeDescription-full">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis vidLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eoodem modo typi, qui nunc nobis vid</div>
-        </div>
+        </div>-->
     </div>
 
     <div class="rightScroll" id="judgesR"><div class="rightScroll-arrow"></div></div>
@@ -354,6 +354,9 @@ do_action('wp_insert_post', 'wp_insert_post');
      allTech=<?php echo getAllStartup(); ?>;
      allJudges=<?php echo getAllJudges(); ?>;
      popupall(allTech);
-	 popupall(allJudges);
+	 
 </script>
 <?php get_footer(); ?>
+
+
+     <!--popupallJ(allJudges);-->

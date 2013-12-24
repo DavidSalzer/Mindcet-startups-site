@@ -511,19 +511,19 @@ text-align: center;
 	margin-top: -40px;
 	vertical-align: middle;
 	height: auto;
-	opacity:.5;
+	/*opacity:.5;*/
 	transition:all ease-in-out 0.3s;
-    /*filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
-    /*filter: gray; /* IE6-9 */
-    /*-webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
 }
-/*.inventList li img:hover{
+.inventList li img:hover{
     filter: none;
     -webkit-filter: grayscale(0);
-}*/
-.inventList li:hover,.inventList li img:hover{
- opacity:1;
 }
+/*.inventList li:hover,.inventList li img:hover{
+ opacity:1;
+}*/
 
 .inventList li h2{
 	position:absolute;
@@ -700,7 +700,7 @@ text-indent: 10px;
 	text-align:center;
 	display: inline-block;
     margin-top: 0px;
-    /*cursor: pointer;*/
+    cursor: pointer;
     margin-right: 5px;
 }
 .judgeDescription{
@@ -1094,8 +1094,11 @@ height: 100px;
 border-bottom: 2px solid #fafafa;
     
 }
-#formPart3 .topArea{
-    height: 50px;
+#formPart3 .topArea {
+height: 50px;
+width: 497px;
+padding: 0;
+padding-left: 13px;
 }
 #formPart3 .socialArea, .inventDescription .socialArea{
     width: 115px;
@@ -1153,8 +1156,9 @@ overflow: hidden;
 }
 #formPart3 .topArea .logo{
     width: 83px;
-    height: 55px;
-    margin-top: -10px;
+height: 55px;
+margin-top: -10px;
+float: right;
 }
 .socialArea .social {
    width: 42px;
@@ -1222,8 +1226,9 @@ line-height: 18px;
 }
 
 .mainArea .description {
-height: 123px;
+height: 111px;
 overflow-y: auto;
+margin-bottom: 10px;
 }
 
 .mainArea .gallery {

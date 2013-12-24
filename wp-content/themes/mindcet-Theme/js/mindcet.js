@@ -245,16 +245,23 @@ $(document).ready(function (e) {
     });
 
     //$('.judgesAvantar').on('click', this, function () {
+    //    $('.inventorPopUp .close').click();
+    //    tid = $(this).attr('idtec');
     //    $('.judgeDescription').fadeIn(600, 'easeInOutBack');
+    //    //judgeImg = allJudges[tid].imgProfile;
 
     //var html = '       <div class="judgeDescriptionLeft">';
-    //html = '               <div class="judgeDescription-img"></div>';
-    //html = '               <div class="contactMe"><a ' + + '" >Contact Me</a></div>';
+    ////allJudges[tid].judgeImg.forEach(function(img){
+    ////    if(img!=""){
+    ////        html += '       <img class="judgeDescription-img" src="' + img + '" alt="' + allJudges[tid].title + '">    ';
+    ////    }
+    //});
+    //html = '               <div class="contactMe"><a ' + allJudges[tid] + '" >Contact Me</a></div>';
     //html = '           </div>';
     //html = '           <div class="judgeDescriptionRight">';
-    //html = '                <div class="judgeDescription-name">' +  title - name + '</div>';
-    //html = '               <div class="judgeDescription-role">' + title - role + '</div>';
-    //html = '               <div class="judgeDescription-full">' +  + '</div>';
+    //html = '                <div class="judgeDescription-name">' +  allJudges[tid].name + '</div>';
+    //html = '               <div class="judgeDescription-role">' + allJudges[tid].role + '</div>';
+    //html = '               <div class="judgeDescription-full">' + allJudges[tid].descript + '</div>';
     //html = '           </div>';
 
     //$('html, body').animate({
@@ -360,6 +367,9 @@ function openOfferPopUp(){
 function popupall(allTech){
  console.log(allTech);
 }
+//function popupallJ(allJudges){
+// console.log(allJudges);
+//}
 
 function facebookCommentsLink() {
     $("#recipe-facebook-comments .fb-comments").attr("data-href", window.location.href );

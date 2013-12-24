@@ -35,7 +35,7 @@ set_post_thumbnail( 165, 176177178179 );
 		echo 'Please enter the wine name';
 	}
 	if (isset ($_POST['description'])) {
-		$description = $_POST['description'];
+		$description = nl2br($_POST['description']);
 	} else {
 		echo 'Please enter some notes';
 	}

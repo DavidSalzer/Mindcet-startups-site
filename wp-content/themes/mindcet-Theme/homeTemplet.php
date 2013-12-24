@@ -197,6 +197,7 @@ do_action('wp_insert_post', 'wp_insert_post');
         <input type="hidden" name="action" value="new_post" />
         <?php wp_nonce_field( 'new-post' ); ?>
     </form>
+    <div id="validate-error">please insert a valid text </div>
     <span id="page-number-1" class="page-number">1/3</span>
     <span id="page-number-2" class="page-number">2/3</span>
     <span id="page-number-3" class="page-number">3/3</span>

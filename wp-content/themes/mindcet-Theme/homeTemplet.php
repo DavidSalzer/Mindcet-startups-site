@@ -87,13 +87,13 @@ set_post_thumbnail( 165, 176177178179 );
 		   
 		   update_post_meta($pid, 'wpcf-youtube-url', $youtubeUrl);
 			$file1=uploadFile('logo',$pid);
-			if($file1) $fileError['logo']='logo faild';
+			//if($file1) $fileError['logo']='logo faild';
 			$file2=uploadFile('img-1',$pid);
-			if($file1) $fileError['img1']='img1 faild';
+			//if($file1) $fileError['img1']='img1 faild';
 			$file3=uploadFile('img-2',$pid);
-			if($file1) $fileError['img2']='img2 faild';
+			//if($file1) $fileError['img2']='img2 faild';
 			$file4=uploadFile('img-3',$pid);
-			if($file1) $fileError['img3']='img3 faild';
+			//if($file1) $fileError['img3']='img3 faild';
 			
 			
 			//REDIRECT TO THE NEW POST ON SAVE
@@ -195,10 +195,20 @@ do_action('wp_insert_post', 'wp_insert_post');
         <div id="formPart3">
 
         </div>
-        
-        <div id="formPart4">
-
+        <?php /* 
+			//echo "yanai".$error;
+		if(!empty($error) || !empty($fileError)):?>
+        <div id="formPart4" class="form4Error">
+            <?php foreach($error as $error){
+						echo $error."<br>";
+					}
+				
+				foreach($fileError as $errorFile){
+						echo $errorFile."<br>";
+					}
+			?>	
         </div>
+        <?php endif; */?>
         
     
         <fieldset class="submit">

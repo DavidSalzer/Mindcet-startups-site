@@ -216,9 +216,9 @@ function uploadFile($inputName,$postId){
 				//			  unset($_FILES[$field]);
   
 					  }
-					  }else{
-						  $fileEroor='file upload eroor';
-						return $fileEroor; 	 
+					 // }else{
+						//  $fileEroor='file upload eroor';
+						//return $fileEroor; 	 
 					}
 		  //}//end foreach
 }

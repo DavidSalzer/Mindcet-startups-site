@@ -501,7 +501,7 @@ getImgUrl = function (data) {
         //update the menu links to croll to sections in home page
         var navArray=["#startups-banner","#judges-banner", "#offer-zone"]
         $(".topMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
-        $(".footerMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
+        //$(".footerMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
 
         //add event to offer menu to open the offer popup
         $('a[href^="#offer-zone"]').on("click",openOfferPopUp);

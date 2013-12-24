@@ -8,7 +8,8 @@
 //add_post_meta(165,'wpcf-user_img', 
 //	"http://localhost/mindset/wp-content/uploads/2013/12/free-images1-big.jpg"
 //);
-
+?> 
+<?
 set_post_thumbnail( 165, 176177178179 );
 ?>
 
@@ -27,7 +28,7 @@ set_post_thumbnail( 165, 176177178179 );
       <a href="<?php echo $pageUrl->guid;?>" id="offerStartUp">Offer a Startup</a> </div>
       <!----form inventors--->
     <?php 
-  if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post") {
+  if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post"&& isset($_POST['submit'])) {
 	// Do some minor form validation to make sure there is content
 	if (isset ($_POST['title'])) {
 		$title =  $_POST['title'];
@@ -35,7 +36,7 @@ set_post_thumbnail( 165, 176177178179 );
 		echo 'Please enter the wine name';
 	}
 	if (isset ($_POST['description'])) {
-		$description = $_POST['description'];
+		$description = nl2br($_POST['description']);
 	} else {
 		echo 'Please enter some notes';
 	}
@@ -55,8 +56,10 @@ set_post_thumbnail( 165, 176177178179 );
 	}else{
 	  $site=$_POST['site'];
 	}
-	
-	if(empty($error)){
+	if( $my_post=get_page_by_title( $title, 'OBJECT', 'initiator' )){
+		 $error= "initiator title is already exists";	
+	}else{
+		if(empty($error)){
 			$name=filter_input(INPUT_POST,'invetName',FILTER_SANITIZE_STRING);
 			$founder=filter_input(INPUT_POST,'founder',FILTER_SANITIZE_STRING);
 			$youtubeUrl=filter_input(INPUT_POST,'youtubeUrl',FILTER_SANITIZE_STRING);
@@ -85,7 +88,9 @@ set_post_thumbnail( 165, 176177178179 );
 			uploadFile('img-3',$pid);
 			//REDIRECT TO THE NEW POST ON SAVE
 		//	$link = get_permalink( $pid );
-	}//if empty eprrr
+		}//if empty eprrr
+	}//if post is not there...
+	
 } // END THE IF STATEMENT THAT STARTED THE WHOLE FORM
 
 //POST THE POST YO

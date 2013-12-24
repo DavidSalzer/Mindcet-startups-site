@@ -771,6 +771,7 @@ border-radius: 100%;
 right: 14px;
 top: 11px;
 cursor: pointer;
+z-index: 100;
 }
 
 .judgesAvantar.hide{
@@ -1214,7 +1215,7 @@ right: 0;
 margin-top: 55px;
 display: none;
 }
-#formPart3 .topArea, .inventDescription .topArea{
+#formPart3 .topArea{
     width: 327px;
 margin: auto;
 
@@ -1230,20 +1231,20 @@ height: 100px;
     height: 30px;
     position: relative;
 }
-#formPart3 .socialArea, .inventDescription .socialArea{
+#formPart3 .socialArea{
     width: 115px;
 height: 80%;
 display: none;
 position: absolute;
 padding-top: 28px;
 }
-#formPart3  .mainArea, .inventDescription .mainArea{
+#formPart3  .mainArea{
     width: 100%;
     margin: 0 auto;
     padding: 0 0;
     clear: both;
 }
-.topArea .title{
+#formPart3 .topArea .title{
     width: 65%;
     height: 30px;
     line-height: 30px;
@@ -1266,11 +1267,11 @@ clear: both;
 float: right;
 width: 370px;
 }
-.topArea .logo, .topArea .wp-post-image{
+#formPart3 .topArea .logo, .topArea .wp-post-image{
     max-width: 100%;
 max-height: 100%;
 }
-.startup-logo-form{
+#formPart3 .startup-logo-form{
     /* width: 50px; */
 
     height: 81px;
@@ -1294,7 +1295,7 @@ right: 0;
 float: right;
 margin-top: 10px;
 }*/
-.startup-popup-logo{
+#formPart3 .startup-popup-logo{
     width: 124px;
 height: 83px;
 right: 54px;
@@ -1312,34 +1313,47 @@ line-height: 83px;
 }
 .socialArea .social {
    width: 42px;
-height: 25px;
+
+   height: 22px;
 border-bottom: 1px solid #6a6a6a;
 margin: auto;
-background-repeat: no-repeat;
+
+   background-repeat: no-repeat;
 background-position-y: -14%;
-background-size: 155px;
+
+   background-size: 147px;
 text-align: justify;
 font-size: 9px;
-padding-top: 37%;
+
+   padding-top: 37%;
 margin-top: 4px;
 margin-bottom: 12px;
 font-family: sans-serif;
 padding-bottom: 8px;
+   text-decoration: none;
 }
 .socialArea .fb {
     background-image: url("img/social_startup_popup.png");
 background-position-x: -6px;
 color: #555ca8;
+    margin: 25px 0 0 58px;
+    display: block;
 }
 .socialArea .twitter {
     background-image: url("img/social_startup_popup.png");
     background-position-x: 52%;
     color: #45b0e4;
+    margin: 0 0 0 58px;
+    display: block;
+    /* width: 44px; */
+    /* background-repeat: no-repeat; */
 }
 .socialArea .linkedin {
     background-image: url("img/social_startup_popup.png");
-    background-position-x: 96%;
+    background-position-x: 100%;
     color: #2980b9;
+    margin: 11px 0 0 56px;
+    display: block;
 }
 .socialArea .likes {
     
@@ -1350,7 +1364,7 @@ color: #555ca8;
 .socialArea .twitter .letter-space{
     letter-spacing: 2.1px;
 }
-.mainArea .movie{
+#formPart3 .mainArea .movie{
     width: 221px;
 
     margin-right: 102px;
@@ -1384,7 +1398,9 @@ margin-right: 56px;
 }
 
 .mainArea .description {
+
 height: 60px;
+
 overflow-y: auto;
 margin-bottom: 10px;
 }
@@ -1423,7 +1439,8 @@ max-height: 100%;
 display: inline-block;
 border: 1px solid #cfcfcf;
 border-radius: 2px;*/
-   /* display: inline-block; */
+   display: inline-block;
+   vertical-align: middle;
 }
 .mainArea .recipe-facebook-comments{
     width: 100%;
@@ -1448,4 +1465,63 @@ cursor: pointer;
 
 iframe > .play_button {
     display: none;
+}
+.inventDescription .topArea {
+    width: 100%;
+    height: 98px;
+    border-bottom: solid 1px #636363;
+    position: relative;
+}
+.inventDescription .title.ellipsis {
+    float: left;
+    margin-top: 54px;
+    margin-left: 144px;
+    font-size: 35px;
+    width: 320px;
+}
+.inventDescription .startup-popup-logo {
+    width: 140px;
+    height: auto;
+    float: right;
+    position: relative;
+    margin: 30px 100px 0 0;
+}
+.inventDescription .socialArea {
+    float: left;
+    width: 124px;
+}
+.inventDescription .mainArea {
+    float: left;
+    width: 480px;
+}
+.inventDescription .mainArea .movie {
+    width: 340px;
+    margin: 60px 0 0 80px;
+}
+.inventDescription .mainArea .name.ellipsis {
+    clear: both;
+    margin: 56px 0 0 20px;
+    float: left;
+}
+.inventDescription .mainArea .description {
+    float: left;
+    width: 465px;
+    height: 108px;
+    margin-left: 15px;
+    line-height: 17px;
+}
+.inventDescription .mainArea .gallery {
+    width: 460px;
+    float: left;
+    margin-left: 60px;
+    margin-top: 24px;
+    height: 91px;
+}
+.inventDescription .mainArea .gallery div {
+    width: 146px;
+    height: 89px;
+    margin-left: 0;
+    float: left;
+    margin-right: 4px;
+    border: solid  1px #666;
 }

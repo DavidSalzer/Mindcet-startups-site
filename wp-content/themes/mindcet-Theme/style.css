@@ -285,7 +285,7 @@ display: inline-block;
 width: 100px;
 height: 100%;
 background-repeat: no-repeat;
-background-position: -1px bottom;
+background-position: -4px bottom;
 background-size: 195px;
 }
 
@@ -295,7 +295,7 @@ display: inline-block;
 width: 94px;
 height: 100%;
 background-repeat: no-repeat;
-background-position: -99px bottom;
+background-position: -103px bottom;
 background-size: 195px;
 }
 .logoMatach{
@@ -432,7 +432,7 @@ font-size: 28px;
 line-height: 33px;
 padding: 55px 20px;
 width: 273px;
-margin-left: 65px;
+margin-left: 72px;
 background-color: rgba(256,256,256, 0.3);
 }
 .home .entry a{
@@ -507,12 +507,12 @@ overflow: hidden;
 text-align: center;
 }
 .inventList li img{
-  width: 95%;
-	margin-top: -40px;
-	vertical-align: middle;
-	height: auto;
-	/*opacity:.5;*/
-	transition:all ease-in-out 0.3s;
+  max-width: 95%;
+ margin-top: -40px;
+ vertical-align: middle;
+ max-height: 100%;
+ /*opacity:.5;*/
+ /*transition:all ease-in-out 0.3s;*/
     filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
     filter: gray; /* IE6-9 */
     -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
@@ -521,6 +521,28 @@ text-align: center;
     filter: none;
     -webkit-filter: grayscale(0);
 }
+/*.inventList li:hover,.inventList li img:hover{
+ opacity:1;
+}*/
+
+.inventList li img{
+  /*width: 95%;
+	margin-top: -40px;
+	vertical-align: middle;
+	height: auto;
+	/*opacity:.5;*/
+	transition:all ease-in-out 0.3s;*/
+    filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+}
+.inventList li img:hover{
+    filter: none;
+    -webkit-filter: grayscale(0);
+}
+/*.inventList li:hover,.inventList li img:hover{
+ opacity:1;
+}*/
 /*.inventList li:hover,.inventList li img:hover{
  opacity:1;
 }*/
@@ -702,6 +724,7 @@ text-indent: 10px;
     margin-top: 0px;
     cursor: pointer;
     margin-right: 5px;
+	box-shadow: #333 2px 1px 1px 0px;
 }
 .judgeDescription{
     width: 1024px;
@@ -1023,12 +1046,12 @@ font-family: sans-serif;*/
 }
 .footerMenu ul li{
 	display: inline-block;
-	text-align:center;
-	line-height: 40px;
-	border-right: solid 1px #6a6a6a;
-	margin-top: 6px;
-	padding: 0 15px;
-    width: 15%;
+text-align: center;
+line-height: 40px;
+border-right: solid 1px #6a6a6a;
+margin-top: 6px;
+padding: 0 15px;
+width: 20%;
 }
 
 .footerMenu ul  li a{
@@ -1044,13 +1067,13 @@ font-family: sans-serif;*/
    display: inline-block;
 height: 41px;
 line-height: 17px;
-padding: 0 60px;
+padding: 0 50px;
 font-size: 0.8em;
 vertical-align: middle;
 }
 .footerMenu {
 display: inline;
-margin-left: 16%;
+margin-left: 5.4%;
 }
 .footerMenu ul{
     display: inline;
@@ -1099,6 +1122,7 @@ height: 50px;
 width: 497px;
 padding: 0;
 padding-left: 13px;
+    position: relative;
 }
 #formPart3 .socialArea, .inventDescription .socialArea{
     width: 115px;
@@ -1134,10 +1158,21 @@ font-size: 25px;
 padding-bottom: 10px;
 }
 .topArea .logo, .topArea .wp-post-image{
-    width: 100%;
-height: auto;
-vertical-align: middle;
+    max-width: 100%;
+max-height: 100%;
 }
+.startup-logo-form{
+    width: 83px;
+height: 55px;
+right: 80px;
+position: absolute;
+top: -13px;
+overflow: hidden;
+text-align: center;
+line-height: 55px;
+margin-right: 112px;
+}
+
 /*.topArea .logo, .topArea .wp-post-image {
     width: 124px;
 height: 83px;
@@ -1153,12 +1188,15 @@ right: 54px;
 position: absolute;
 top: 12px;
 overflow: hidden;
+text-align: center;
+line-height: 83px;
 }
 #formPart3 .topArea .logo{
-    width: 83px;
-height: 55px;
-margin-top: -10px;
-float: right;
+    /*width: 83px;
+    height: 55px;
+    margin-top: -10px;*/
+    max-width: 100%;
+    max-height:100%;
 }
 .socialArea .social {
    width: 42px;
@@ -1236,17 +1274,26 @@ margin-bottom: 10px;
     height: 90px;   
     margin: 34px auto;
 }
+
+.mainArea .gallery div {
+    width: 32%;
+height: 100%;
+display: inline-block;
+border: 1px solid #cfcfcf;
+border-radius: 2px;
+text-align: center;
+}
 #formPart3 .mainArea .gallery {
     margin: 6px auto;
 }
 
 .mainArea .gallery-img{
-   width: 32%;
-height: 100%;
-margin-right: 0.4%;
+   max-width: 100%;
+max-height: 100%;
+/*margin-right: 0.4%;
 display: inline-block;
 border: 1px solid #cfcfcf;
-border-radius: 2px;
+border-radius: 2px;*/
 }
 .mainArea .recipe-facebook-comments{
     width: 100%;

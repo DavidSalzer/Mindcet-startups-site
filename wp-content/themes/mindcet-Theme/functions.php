@@ -94,8 +94,13 @@
         foreach ( $myposts as $post ) : setup_postdata( $post ); 
     	$techId=$post->ID;
 		$title=get_the_title($post->ID);
-		$logo=get_the_post_thumbnail( $post->ID,array(220,155), $attr );   
-		$descript=apply_filters ("the_content", $post->post_content);//get_the_content($post->ID);
+		//$logo=get_the_post_thumbnail( $post->ID,array(220,155), $attr ); 
+       // $thumbnail_id = get_post_thumbnail_id($post->ID);
+        //$logo = get_post($thumbail_id);  
+		      //  wp_get_attachment_image_src
+        $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array(220,155), false, '' );
+        $logo= $src;
+        $descript=apply_filters ("the_content", $post->post_content);//get_the_content($post->ID);
 		$name=get_post_meta($post->ID,'wpcf-full_name',true);
 		$email=get_post_meta($post->ID,'wpcf-invet_email',true);
 		$siteUrl=get_post_meta($post->ID,'wpcf-site-url',true);

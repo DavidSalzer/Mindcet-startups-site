@@ -226,7 +226,6 @@ function fileUp($postid){
     		$fileEr=array();
 			$okfile=array('image/gif','image/jpeg','image/jpg','image/pjpeg','image/png','image/x-png');
 			$postid=$postid;
-			$MAXFILE=1000;	
 			
 	        require_once(ABSPATH . "wp-admin" . '/includes/image.php');
             require_once(ABSPATH . "wp-admin" . '/includes/file.php');

@@ -50,13 +50,13 @@ set_post_thumbnail( 165, 176177178179 );
 	  $email= $_POST['email'];
 	}
 	if(!filter_var($_POST['founderMail'], FILTER_VALIDATE_EMAIL)){
-	  $error['email']= "E-mail Founder is not valid";
+	 // $error['email']= "E-mail Founder is not valid";
 	  
 	}else{
 	  $founderMail= $_POST['founderMail'];
 	}
 	if(!filter_var($_POST['site'], FILTER_VALIDATE_URL)){
-	   $error['url']= "URL is not valid";
+	 //  $error['url']= "URL is not valid";
 	}else{
 	  $site=$_POST['site'];
 	}
@@ -87,7 +87,7 @@ set_post_thumbnail( 165, 176177178179 );
 		   
 		   update_post_meta($pid, 'wpcf-youtube-url', $youtubeUrl);
 			//uploadFile($pid);
-			fileUp($pid);
+			$fileEr=fileUp($pid);
 			
 			
 			//REDIRECT TO THE NEW POST ON SAVE
@@ -189,20 +189,10 @@ do_action('wp_insert_post', 'wp_insert_post');
         <div id="formPart3">
 
         </div>
-        <?php /* 
-			//echo "yanai".$error;
-		if(!empty($error) || !empty($fileError)):?>
-        <div id="formPart4" class="form4Error">
-            <?php foreach($error as $error){
-						echo $error."<br>";
-					}
-				
-				foreach($fileError as $errorFile){
-						echo $errorFile."<br>";
-					}
-			?>	
+        <?php  $res=(empty($fileEr))?'good':'bad';?>
+        <div id="formPart4" class="<?php echo $res;?>">
+            	
         </div>
-        <?php endif; */?>
         
     
         <fieldset class="submit">

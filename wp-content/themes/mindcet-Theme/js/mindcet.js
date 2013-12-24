@@ -518,22 +518,25 @@ function enable_scroll() {
 //////////////////////////
   function popuopInvent (tid) {
         $('.inventorPopUp .close').click();
-		window.location.hash=tid;
-
+		if(tid)window.location.hash=tid;
+		domUrl=document.URL;
+		
         var html = '       <div class="topArea">    '
         html += '		    <div class="title ellipsis">' + allTech[tid].title + '</div>';
         html += '<div class="startup-popup-logo"><img class="wp-post-image" src="'+allTech[tid].logo[0]+'" alt="'+allTech[tid].title+'" ></div>';
         html += '       </div>    ';
 
         html += '       <div class="socialArea">    ';
-        html += '           <div class="social fb">Share on <span class="letter-space">Facbook</span></div>    ';
-        //html += '           <div class="social fb"><div class="fb-share-button" data-href="http://localhost:55898/%D7%90%D7%95%D7%96%D7%A0%D7%99-%D7%A4%D7%99%D7%9C-%D7%A9%D7%95%D7%A7%D7%95%D7%9C%D7%93" data-type="button_count"></div></div>    ';
-        //html += '           <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.hubspot.com/software-buyers-guide/" class="social fb" title="(Share on Facebook)" target="_blank">Share on Facebook</a>';
-        html += '           <div class="social twitter">Share on <span class="letter-space">Twitter</span></div>    ';
-        //html += '           <a href="http://twitter.com/intent/tweet?text=Learn%20how%20to%20optimize%20your%20calls-to-action%20-%20download%20@HubSpot%27s%20free%20ebook%20on%20mastering%20the%20design%20and%20copy%20of%20CTAs:%20http://bit.ly/LSjMFA%20%20" class="social twitter" title="(Tweet This Link)" target="_blank">Share on Twitter</a>';
-        html += '           <div class="social linkedin">Share on <span class="letter-space">Linkedin</span></div>    ';
-        //html += '           <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://bit.ly/LSjMFA" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on LinkedIn</a>';
-        //html += '           <div class="social likes"></div>    ';
+        //html += '           <div class="social fb">Share on <span class="letter-space">Facbook</span></div>    ';
+       // html += '           <div class="social fb"><div class="fb-share-button" data-href="'+domUrl+'" data-type="button_count"></div></div>    ';
+       
+	   html+='<a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]=&p[summary]=" class="social fb" title="(Share on Facebook)" target="_blank">Share on Facebook</a>';
+	   // html += '           <a href="http://www.facebook.com/sharer/sharer.php?u='+domUrl+'" class="social fb" title="(Share on Facebook)" target="_blank">Share on Facebook</a>';
+        //html += '           <div class="social twitter">Share on <span class="letter-space">Twitter</span></div>    ';
+        html += '           <a href="http://twitter.com/intent/tweet?text='+domUrl+'" class="social twitter" title="(Tweet This Link)" target="_blank">Share on Twitter</a>';
+        //html += '           <div class="social linkedin">Share on <span class="letter-space">Linkedin</span></div>    ';
+        html += '           <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url='+domUrl+'" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on LinkedIn</a>';
+       //html += '           <div class="social likes"></div>    ';
 
         html += '       </div>    ';
 

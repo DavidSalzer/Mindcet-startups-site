@@ -24,8 +24,8 @@ $(document).ready(function (e) {
 
     $('#offerStartUp').on('click', this, function (e) {
         openOfferPopUp();
-		e.preventDefault();
-       
+        e.preventDefault();
+
     });
 
     $('.inventorPopUp .close').on('click', this, function () {
@@ -65,8 +65,8 @@ $(document).ready(function (e) {
 
             var html = '       <div class="topArea">    '
             html += '		    <div class="title ellipsis">' + title + '</div>';
-           // html +=                 logo;
-            if(logoSrc!=null)
+            // html +=                 logo;
+            if (logoSrc != null)
                 html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
             html += '       </div>    ';
 
@@ -79,15 +79,15 @@ $(document).ready(function (e) {
 
             html += '       <div class="mainArea">    ';
             //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(youtubeUrl)) + '" /><span class="play_button"></span> ' + '</div>    ';
-            html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(youtubeUrl)) +'</div>';
+            html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(youtubeUrl)) + '</div>';
             html += '		    <div class="name ellipsis">' + invetName + '</div>';
             html += '		    <div class="description">' + description + '</div>';
             html += '           <div class="gallery">    ';
-            if(ImgSrc1!=null)
+            if (ImgSrc1 != null)
                 html += '           <div>    <img class="gallery-img" src="' + ImgSrc1 + '" alt="' + title + ' img1">  </div>  ';
-            if(ImgSrc2!=null)
+            if (ImgSrc2 != null)
                 html += '           <div>    <img class="gallery-img" src="' + ImgSrc2 + '" alt="' + title + ' img2">  </div>   ';
-            if(ImgSrc3!=null)
+            if (ImgSrc3 != null)
                 html += '           <div>    <img class="gallery-img" src="' + ImgSrc3 + '" alt="' + title + ' img3"> </div>    ';
             html += '           </div>    ';
             //html += '           <div class="fb-comments"></div>    ';
@@ -122,28 +122,28 @@ $(document).ready(function (e) {
             $('.next-page').css("display", "inline-block");
         }
 
-        return ;
+        return;
     });
-      
-    var logoSrc=null;
-    var ImgSrc1=null;
-    var ImgSrc2=null;
-    var ImgSrc3=null;
-    
-    $("#logo").change(function(e) {
+
+    var logoSrc = null;
+    var ImgSrc1 = null;
+    var ImgSrc2 = null;
+    var ImgSrc3 = null;
+
+    $("#logo").change(function (e) {
 
         var fileName = $(this).val();
-		
-		$('.title-logo.logoimg').text(fileName);
-    
-	    if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
-            if(this.files && this.files[0]) {
+        $('.title-logo.logoimg').text(fileName);
+
+        if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
+
+            if (this.files && this.files[0]) {
                 var reader = new FileReader();
 
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     console.log(e.target.result);
-                    logoSrc= e.target.result;
+                    logoSrc = e.target.result;
                     smallImgAdded = true;
                 };
 
@@ -154,18 +154,18 @@ $(document).ready(function (e) {
             alert("noValidFile");
         }
     });
-    $("#img-1").change(function(e) {
+    $("#img-1").change(function (e) {
 
         var fileName = $(this).val();
-		$('.title-logo.img1').text(fileName);
-        if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
+        $('.title-logo.img1').text(fileName);
+        if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
-            if(this.files && this.files[0]) {
+            if (this.files && this.files[0]) {
                 var reader = new FileReader();
 
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     console.log(e.target.result);
-                    ImgSrc1= e.target.result;
+                    ImgSrc1 = e.target.result;
                     smallImgAdded = true;
                 };
 
@@ -176,18 +176,18 @@ $(document).ready(function (e) {
             alert("noValidFile");
         }
     });
-    $("#img-2").change(function(e) {
+    $("#img-2").change(function (e) {
 
         var fileName = $(this).val();
-		$('.title-logo.img2').text(fileName);
-        if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
+        $('.title-logo.img2').text(fileName);
+        if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
-            if(this.files && this.files[0]) {
+            if (this.files && this.files[0]) {
                 var reader = new FileReader();
 
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     console.log(e.target.result);
-                    ImgSrc2= e.target.result;
+                    ImgSrc2 = e.target.result;
                     smallImgAdded = true;
                 };
 
@@ -198,18 +198,18 @@ $(document).ready(function (e) {
             alert("noValidFile");
         }
     });
-    $("#img-3").change(function(e) {
+    $("#img-3").change(function (e) {
 
         var fileName = $(this).val();
-		$('.title-logo.img3').text(fileName);
-        if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
+        $('.title-logo.img3').text(fileName);
+        if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
-            if(this.files && this.files[0]) {
+            if (this.files && this.files[0]) {
                 var reader = new FileReader();
 
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     console.log(e.target.result);
-                    ImgSrc3= e.target.result;
+                    ImgSrc3 = e.target.result;
                     smallImgAdded = true;
                 };
 
@@ -234,7 +234,7 @@ $(document).ready(function (e) {
     //    return false;
     //});
 
-//----------/end of form
+    //----------/end of form
 
 
     $('.judgeDescription .close').on('click', this, function () {
@@ -272,7 +272,7 @@ $(document).ready(function (e) {
 
         var html = '       <div class="topArea">    '
         html += '		    <div class="title ellipsis">' + allTech[tid].title + '</div>';
-        html += '<div class="startup-popup-logo"><img class="wp-post-image" src="'+allTech[tid].logo[0]+'" alt="'+allTech[tid].title+'" ></div>';
+        html += '<div class="startup-popup-logo"><img class="wp-post-image" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
         html += '       </div>    ';
 
         html += '       <div class="socialArea">    ';
@@ -290,14 +290,14 @@ $(document).ready(function (e) {
         html += '       <div class="mainArea">    ';
         //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(allTech[tid].youtube)) + '" /><span class="play_button"></span> ' + '</div>    ';
         var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube));
-        if(videoIframe!=undefined)
+        if (videoIframe != undefined)
             html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube)) + '</div>';
         //html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube)) +'</div>';
         html += '		    <div class="name ellipsis">' + allTech[tid].name + '</div>';
         html += '		    <div class="description">' + allTech[tid].descript + '</div>';
         html += '           <div class="gallery">    ';
-        allTech[tid].startupImg.forEach(function(img){
-            if(img!=""){
+        allTech[tid].startupImg.forEach(function (img) {
+            if (img != "") {
                 html += '<div><img class="gallery-img" src="' + img + '" alt="' + allTech[tid].title + '"> </div>   ';
             }
         });
@@ -338,61 +338,61 @@ $(document).ready(function (e) {
 
         return false;
     });
-        
- updateMenuUrl();
+
+    updateMenuUrl();
 
 
-//hide popup when scrolling down
-$(document).on('scroll',this,function(){
-	if($(document).scrollTop()>350){
-		$('#offer-zone').fadeOut("slow");
-	}
-	
-});
+    //hide popup when scrolling down
+    $(document).on('scroll', this, function () {
+        if ($(document).scrollTop() > 350) {
+            $('#offer-zone').fadeOut("slow");
+        }
+
+    });
 
 
-});//dom ready
+}); //dom ready
 
 
-function openOfferPopUp(){
-	disable_scroll();
-     $('.inventorPopUp').fadeIn(600, 'easeInOutBack');
-        $('html, body').animate({
-            scrollTop:$("#offer-zone").offset().top -25
-        }, 2000,function(){enable_scroll()});
-		
-		
-        return false;
-	
+function openOfferPopUp() {
+    disable_scroll();
+    $('.inventorPopUp').fadeIn(600, 'easeInOutBack');
+    $('html, body').animate({
+        scrollTop: $("#offer-zone").offset().top - 25
+    }, 2000, function () { enable_scroll() });
+
+
+    return false;
+
 }
 
-function popupall(allTech){
- console.log(allTech);
+function popupall(allTech) {
+    console.log(allTech);
 }
 
 function facebookCommentsLink() {
-    $("#recipe-facebook-comments .fb-comments").attr("data-href", window.location.href );
+    $("#recipe-facebook-comments .fb-comments").attr("data-href", window.location.href);
 }
 
-getEmbedMovie=function(data,height,width){
-	if (data==null || data.type!="movie") return;
-	if(!height) height="215";
-	if(!width) width="342";
-	if(data.movieType=="YouTube")
-		return'<iframe width="'+width+'" height="'+height+'" src="//www.youtube.com/embed/'+data.id+'" frameborder="0" allowfullscreen></iframe>';
-    else if(data.movieType=="Vimeo")
-        return '<iframe width="'+width+'" height="'+height+'" src="//player.vimeo.com/video/'+data.id+'" frameborder="0" allowfullscreen></iframe>';
-	return null;
+getEmbedMovie = function (data, height, width) {
+    if (data == null || data.type != "movie") return;
+    if (!height) height = "215";
+    if (!width) width = "342";
+    if (data.movieType == "YouTube")
+        return '<iframe width="' + width + '" height="' + height + '" src="//www.youtube.com/embed/' + data.id + '" frameborder="0" allowfullscreen></iframe>';
+    else if (data.movieType == "Vimeo")
+        return '<iframe width="' + width + '" height="' + height + '" src="//player.vimeo.com/video/' + data.id + '" frameborder="0" allowfullscreen></iframe>';
+    return null;
 }
 getImgUrl = function (data) {
-        //if (data==null || data.type!="movie") return;
-        if (data == null) return;
-        //if(data.movieType=="YouTube")
-        return "http://img.youtube.com/vi/" + data.id + "/hqdefault.jpg"
-        return null;
- }
+    //if (data==null || data.type!="movie") return;
+    if (data == null) return;
+    //if(data.movieType=="YouTube")
+    return "http://img.youtube.com/vi/" + data.id + "/hqdefault.jpg"
+    return null;
+}
 
- getMovieDataByURL = function (url) {
+getMovieDataByURL = function (url) {
 
     if (url.indexOf('youtu.be') > 0 || url.indexOf('?v=') > 0 || url.indexOf('iframe') > 0 && url.indexOf('youtu') > 0) {
 
@@ -403,142 +403,143 @@ getImgUrl = function (data) {
         ans.movieType = "YouTube";
         ans.id = tubeId;
         return ans;
-    } 
+    }
     else {
-          var vimeoId = self.getVimeoId(url);
-          if (vimeoId != -1) {
-              console.log(vimeoId)
-              ans = {};
-        ans.type = "movie";
-        ans.movieType = "Vimeo";
-        ans.id = vimeoId;
-        return ans;
-                    //$(".uploadArea").append('<iframe width="'+100+'" height="'+100+'" src="//player.vimeo.com/video/'+vimeoId+'" ></iframe>');
-          }
-      
-         else {
+        var vimeoId = self.getVimeoId(url);
+        if (vimeoId != -1) {
+            console.log(vimeoId)
+            ans = {};
+            ans.type = "movie";
+            ans.movieType = "Vimeo";
+            ans.id = vimeoId;
+            return ans;
+            //$(".uploadArea").append('<iframe width="'+100+'" height="'+100+'" src="//player.vimeo.com/video/'+vimeoId+'" ></iframe>');
+        }
+
+        else {
+            alert("noVideo");
             return "noVideo";
         }
     }
 }
 
- this.setMovieDataByURL = function (url) {
-        console.log(url);
-        if (url.indexOf('youtu.be') > 0 || url.indexOf('?v=') > 0 || url.indexOf('iframe') > 0 && url.indexOf('youtu') > 0) {
-            var reg = new RegExp('(?:https?://)?(?:www\\.)?(?:youtu\\.be/|youtube\\.com(?:/embed/|/v/|/watch\\?v=))([\\w-]{10,12})', 'g');
-            var tubeId = reg.exec(url)[1];
+this.setMovieDataByURL = function (url) {
+    console.log(url);
+    if (url.indexOf('youtu.be') > 0 || url.indexOf('?v=') > 0 || url.indexOf('iframe') > 0 && url.indexOf('youtu') > 0) {
+        var reg = new RegExp('(?:https?://)?(?:www\\.)?(?:youtu\\.be/|youtube\\.com(?:/embed/|/v/|/watch\\?v=))([\\w-]{10,12})', 'g');
+        var tubeId = reg.exec(url)[1];
 
 
-            $.ajax({
-                url: "http://gdata.youtube.com/feeds/api/videos/" + tubeId + "?v=2&alt=jsonc",
-                success: function (data) {
-                    if (url.indexOf('youtu.be') > 0 || url.indexOf('?v=') > 0 || url.indexOf('iframe') > 0 && url.indexOf('youtu') > 0) {
-                        //var reg = new RegExp('(?:https?://)?(?:www\\.)?(?:youtu\\.be/|youtube\\.com(?:/embed/|/v/|/watch\\?v=))([\\w-]{10,12})', 'g');
-                        // var tubeId = reg.exec(url)[1];
-                        ans = {};
-                        ans.type = "movie";
-                        ans.movieType = "YouTube";
-                        ans.id = tubeId;
+        $.ajax({
+            url: "http://gdata.youtube.com/feeds/api/videos/" + tubeId + "?v=2&alt=jsonc",
+            success: function (data) {
+                if (url.indexOf('youtu.be') > 0 || url.indexOf('?v=') > 0 || url.indexOf('iframe') > 0 && url.indexOf('youtu') > 0) {
+                    //var reg = new RegExp('(?:https?://)?(?:www\\.)?(?:youtu\\.be/|youtube\\.com(?:/embed/|/v/|/watch\\?v=))([\\w-]{10,12})', 'g');
+                    // var tubeId = reg.exec(url)[1];
+                    ans = {};
+                    ans.type = "movie";
+                    ans.movieType = "YouTube";
+                    ans.id = tubeId;
 
-                        var imgUrl = self.getImgUrl(data.data);
-                        titleUrl = data.data.title;
-                        $('.moviePic').show();
-                        $('.movieDetails').show();
-                        $('.uploadArea-img').hide();
-                        $(".uploadArea-movie").show();
+                    var imgUrl = self.getImgUrl(data.data);
+                    titleUrl = data.data.title;
+                    $('.moviePic').show();
+                    $('.movieDetails').show();
+                    $('.uploadArea-img').hide();
+                    $(".uploadArea-movie").show();
 
-                        $("figure.moviePic img").attr('src', imgUrl);
+                    $("figure.moviePic img").attr('src', imgUrl);
 
-                        feedsController.changeInnerClass("movieTitle", titleUrl);
+                    feedsController.changeInnerClass("movieTitle", titleUrl);
 
-                        feedsController.changeInnerClass("movieKind", ans.movieType + " Movie");
-                        feedsController.changeInnerClass("movieLink", url);
-
-                    }
-
+                    feedsController.changeInnerClass("movieKind", ans.movieType + " Movie");
+                    feedsController.changeInnerClass("movieLink", url);
 
                 }
-            });
-        }
 
+
+            }
+        });
     }
 
-    function handleFileSelect(evt) {
+}
+
+function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
 
     // Loop through the FileList and render image files as thumbnails.
     for (var i = 0, f; f = files[i]; i++) {
 
-      // Only process image files.
-      if (!f.type.match('image.*')) {
-        continue;
-      }
-
-      var reader = new FileReader();
-
-      // Closure to capture the file information.
-      reader.onload = (function(theFile) {
-        return function(e) {
-          // Render thumbnail.
-          var span = document.createElement('span');
-          span.innerHTML = ['<img class="thumb" src="', e.target.result,
-                            '" title="', escape(theFile.name), '"/>'].join('');
-          $('.gallery-img')[0].insertBefore(span, null);
-        };
-      })(f);
-
-      // Read in the image file as a data URL.
-      reader.readAsDataURL(f);
-    }
-  }
-
-   function getVimeoId(url) {
-     // look for a string with 'vimeo', then whatever, then a 
-     // forward slash and a group of digits.
-     var match = /vimeo.*\/(\d+)/i.exec(url);
-
-     // if the match isn't null (i.e. it matched)
-     if (match) {
-         // the grouped/matched digits from the regex
-         return match[1];
-     }
-        else{
-            return -1;
+        // Only process image files.
+        if (!f.type.match('image.*')) {
+            continue;
         }
- }
+
+        var reader = new FileReader();
+
+        // Closure to capture the file information.
+        reader.onload = (function (theFile) {
+            return function (e) {
+                // Render thumbnail.
+                var span = document.createElement('span');
+                span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                            '" title="', escape(theFile.name), '"/>'].join('');
+                $('.gallery-img')[0].insertBefore(span, null);
+            };
+        })(f);
+
+        // Read in the image file as a data URL.
+        reader.readAsDataURL(f);
+    }
+}
+
+function getVimeoId(url) {
+    // look for a string with 'vimeo', then whatever, then a 
+    // forward slash and a group of digits.
+    var match = /vimeo.*\/(\d+)/i.exec(url);
+
+    // if the match isn't null (i.e. it matched)
+    if (match) {
+        // the grouped/matched digits from the regex
+        return match[1];
+    }
+    else {
+        return -1;
+    }
+}
 
 
- function updateMenuUrl(){
-        //update the menu links to croll to sections in home page
-        var navArray=["#startups-banner","#judges-banner", "#offer-zone"]
-       // $(".topMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
-        //$(".footerMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
+function updateMenuUrl() {
+    //update the menu links to croll to sections in home page
+    var navArray = ["#startups-banner", "#judges-banner", "#offer-zone"]
+    // $(".topMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
+    //$(".footerMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
 
-        //add event to offer menu to open the offer popup
-        $('a[href^="#offer-zone"]').on("click",openOfferPopUp);
-        
-        //scroll smooth
-        $('a[href^="#"]').click(function() {    // Change to needed selector
+    //add event to offer menu to open the offer popup
+    $('a[href^="#offer-zone"]').on("click", openOfferPopUp);
+
+    //scroll smooth
+    $('a[href^="#"]').click(function () {    // Change to needed selector
         $("html, body").animate({    // Need both for full browser support
-            scrollTop: $( $(this).attr("href") ).offset().top - 154 // Extra 100px
+            scrollTop: $($(this).attr("href")).offset().top - 154 // Extra 100px
         }, 500);    // Change to desired scroll time in ms
         return false;    // Prevents the dreaded jump/flash
     });
- }
+}
 
 
 //function to disable scrolling
 var keys = [37, 38, 39, 40];
 
 function preventDefault(e) {
-  e = e || window.event;
-  if (e.preventDefault)
-      e.preventDefault();
-  e.returnValue = false;  
+    e = e || window.event;
+    if (e.preventDefault)
+        e.preventDefault();
+    e.returnValue = false;
 }
 
 function keydown(e) {
-    for (var i = keys.length; i--;) {
+    for (var i = keys.length; i--; ) {
         if (e.keyCode === keys[i]) {
             preventDefault(e);
             return;
@@ -547,21 +548,83 @@ function keydown(e) {
 }
 
 function wheel(e) {
-  preventDefault(e);
+    preventDefault(e);
 }
 
 function disable_scroll() {
-  if (window.addEventListener) {
-      window.addEventListener('DOMMouseScroll', wheel, false);
-  }
-  window.onmousewheel = document.onmousewheel = wheel;
-  document.onkeydown = keydown;
+    if (window.addEventListener) {
+        window.addEventListener('DOMMouseScroll', wheel, false);
+    }
+    window.onmousewheel = document.onmousewheel = wheel;
+    document.onkeydown = keydown;
 }
 
 function enable_scroll() {
     if (window.removeEventListener) {
         window.removeEventListener('DOMMouseScroll', wheel, false);
     }
-    window.onmousewheel = document.onmousewheel = document.onkeydown = null;  
+    window.onmousewheel = document.onmousewheel = document.onkeydown = null;
 }
 
+//validate on all form's inputs
+function generalValidate() {
+    //StartUp Name
+    validateEmptyInput($("#title"));
+
+    //Invet Name
+    validateEmptyInput($("#invetName"));
+
+    //email
+    emailValidate($("#email"));
+
+    //logo
+    validateImag($(".title-logo.logoimg"));
+
+    //Founder Mail
+    emailValidate($("#founderMail"));
+
+    //site
+    validateSite($("#site"));
+}
+
+//validate empty field
+function validateEmptyInput(input) {
+    if (input.val() == "") {
+        input.addClass("error");
+        //alert(input.attr("id") + " is empty");
+    }
+    else{
+        input.removeClass("error");
+    }
+}
+//validate email field
+function emailValidate(input) {
+    var email = input.val();
+    if (email != "") {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!re.test(email)) {
+            input.addClass("error");
+            //alert("email is not validate");
+        }
+        else{
+            input.removeClass("error");
+        }
+    }
+}
+//validate webSite field
+function validateSite(input) {   
+    //if there is not http
+    if(input.val().indexOf("http")==-1){
+        input.val("http://"+input.val());
+    } 
+    var regexp = /^([a-z]([a-z]|\d|\+|-|\.)*):(\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?((\[(|(v[\da-f]{1,}\.(([a-z]|\d|-|\.|_|~)|[!\$&'\(\)\*\+,;=]|:)+))\])|((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=])*)(:\d*)?)(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*|(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)){0})(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
+      if(! regexp.test(input.val())){
+          alert("site no validate");
+      }
+}
+
+function validateImag(img) {
+    if(img.text()=="Logo"){
+        alert("no logo");
+    }
+}

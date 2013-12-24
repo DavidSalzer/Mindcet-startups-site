@@ -834,6 +834,27 @@ height: 57px;
 .popInvent{
 
 }
+/***************************** error input **************************************/
+input.error{
+    border: 1px solid #e76c76;
+    color: #e76c76;
+}
+
+.error::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #e76c76;
+}
+.error:-moz-placeholder.error { /* Mozilla Firefox 4 to 18 */
+    color:    #e76c76;
+}
+.error::-moz-placeholder.error { /* Mozilla Firefox 19+ */
+    color:    #e76c76;
+}
+.error:-ms-input-placeholder.error { /* Internet Explorer 10+ */
+    color:    #e76c76;
+}
+
+/***************************** error input **************************************/
+
 .popInvent input{
     text-indent: 15px;
 }

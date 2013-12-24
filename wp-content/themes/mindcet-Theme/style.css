@@ -801,8 +801,10 @@ width: 72PX;
     position: absolute;
 display: none;
 top: -151px;
-width: 560px;
-height: 592px;
+
+    width: 549px;
+
+    height: 560px;
 background: #fff;
 border: solid 20px #fff;
 left: 388px;
@@ -821,15 +823,17 @@ height: 57px;
 	background-color:#616161;
 	color:#fff;
 	display:block;
-	width:30px;
-	height:30px;
+	width: 25px;
+	height: 25px;
 	position:absolute;
 	text-align: center;
-	line-height: 30px;
+	line-height: 25px;
 	border-radius: 100%;
-	right: -5px;
-	top: -7px;
+	right: -16px;
+	top: -16px;
 	cursor: pointer;
+	z-index: 100;
+	font-size: 18px;
 }
 .popInvent{
 
@@ -863,7 +867,7 @@ padding: 0 15px;
     height: 546px;
 }
 #formPart3 {
-width: 92.4%;
+width: 100%;
 }
 .title-logo{
     display: inline-block;
@@ -932,11 +936,17 @@ margin-bottom: 20px;
 text-indent: 12%;
 font-size: 25px;
 font-family: sans-serif;
+    bottom: -15px;
 }
 .submit {
 float: right;
 position: relative;
-right: 218px;
+right: 41px;
+width: 175px;
+height: 75px;
+margin: 0;
+padding: 0;
+bottom: 1px;
 }
 .submit input{
     /*width: 170px;
@@ -997,20 +1007,24 @@ background-size: 77px;
 color: #ee8484;
 font-size: 27px;
 line-height: 50px;
+position: absolute;
+bottom: -20px;
 }
 
 #page-number-3, #page-number-2{
     display: none;
 }
-/*.popInvent input[type="submit"]{*/
-    .submit input{
+.popInvent input[type="submit"]{
     width: 175px;
 	height: 47px;
     font-size: 1.8em;
     margin-bottom: 20px;
-	float:right;
-	background-color:#e76c76;
-	color:#fff;
+	
+    float:right;
+	
+    background-color:#e76c76;
+	
+    color:#fff;
     margin-right: 45px;
     cursor: pointer;
     display: none;
@@ -1026,6 +1040,8 @@ text-indent: 12%;
 font-size: 25px;
 font-family: sans-serif;*/
  
+    position: absolute;
+    bottom: 25px;
 }
 /*----------------footer---*/
 #footer {
@@ -1106,15 +1122,19 @@ margin-top: 55px;
 display: none;
 }
 #formPart3 .topArea, .inventDescription .topArea{
-    width: 500px;
+    width: 327px;
 margin: auto;
-padding: 0 106px;
+
 height: 100px;
-border-bottom: 2px solid #fafafa;
+
+    border-bottom: 2px solid #6a6a6a;
     
+    float: right;
+    margin-top: 34px;
+    margin-right: 50px;
 }
 #formPart3 .topArea{
-    height: 50px;
+    height: 30px;
     position: relative;
 }
 #formPart3 .socialArea, .inventDescription .socialArea{
@@ -1125,21 +1145,21 @@ position: absolute;
 padding-top: 28px;
 }
 #formPart3  .mainArea, .inventDescription .mainArea{
-    width: 500px;
-    margin: auto;
-    /*padding: 0 21px;*/
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 0;
+    clear: both;
 }
 .topArea .title{
     width: 65%;
-    height: 45px;
-    line-height: 45px;
+    height: 30px;
+    line-height: 30px;
     color: #6a6a6a;
     padding-top: 9%;
-    font-size: 40px;
-    display: inline-block;
+    font-size: 21px;
 }
 #formPart3  .topArea .title {
-    padding-top: 1%;
+    padding-top: 0;
 }
 .ellipsis{
     white-space: nowrap;
@@ -1147,23 +1167,30 @@ overflow: hidden;
 text-overflow: ellipsis;
 }
 .name {
-font-size: 25px;
+font-size: 20px;
 padding-bottom: 10px;
+clear: both;
+float: right;
+width: 370px;
 }
 .topArea .logo, .topArea .wp-post-image{
     max-width: 100%;
 max-height: 100%;
 }
 .startup-logo-form{
-    width: 83px;
-height: 55px;
-right: 80px;
-position: absolute;
-top: -13px;
+    /* width: 50px; */
+
+    height: 81px;
+
+    position: absolute;
+
+    right: 0;
+
+    top: -28px;
 overflow: hidden;
 text-align: center;
 line-height: 55px;
-margin-right: 112px;
+
 }
 
 /*.topArea .logo, .topArea .wp-post-image {
@@ -1188,8 +1215,7 @@ line-height: 83px;
     /*width: 83px;
     height: 55px;
     margin-top: -10px;*/
-    max-width: 100%;
-    max-height:100%;
+    height: 55px;
 }
 .socialArea .social {
    width: 42px;
@@ -1232,14 +1258,19 @@ color: #555ca8;
     letter-spacing: 2.1px;
 }
 .mainArea .movie{
-    width: 342px;
-margin: 50px auto;
-height: 215px;
-border: 1px solid #cfcfcf;
+    width: 221px;
+
+    margin-right: 102px;
+
+    height: 215px;
+
 border-radius: 2px;
+    position: relative;
+    top: 44px;
+    float: right;
 }
 #formPart3 .mainArea .movie {
-    margin: 10px auto;
+    /* margin: 0 auto 10px auto; */
 }
 
 .mainArea .names{
@@ -1250,33 +1281,45 @@ border-radius: 2px;
 margin: 15px 0;
 }
 .mainArea .description {
-width: 100%;
+width: 312px;
 overflow: hidden;
-font-size: 15px;
+font-size: 11px;
 line-height: 18px;
+float: right;
+clear: right;
+margin-right: 56px;
 }
 
 .mainArea .description {
-height: 123px;
+height: 60px;
 overflow-y: auto;
 }
 
 .mainArea .gallery {
-    width: 100%;
+    width: 343px;
     height: 90px;   
     margin: 34px auto;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    clear: right;
+    float: right;
+    position: relative;
+    right: 28px;
 }
 
 .mainArea .gallery div {
-    width: 32%;
-height: 100%;
+    width: 106px;
+
+    height: 65px;
 display: inline-block;
 border: 1px solid #cfcfcf;
 border-radius: 2px;
 text-align: center;
+    margin-left: 3px;
 }
 #formPart3 .mainArea .gallery {
-    margin: 6px auto;
+    margin: 10px auto;
 }
 
 .mainArea .gallery-img{
@@ -1286,6 +1329,7 @@ max-height: 100%;
 display: inline-block;
 border: 1px solid #cfcfcf;
 border-radius: 2px;*/
+   /* display: inline-block; */
 }
 .mainArea .recipe-facebook-comments{
     width: 100%;

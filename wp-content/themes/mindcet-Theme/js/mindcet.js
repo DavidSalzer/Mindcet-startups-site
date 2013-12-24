@@ -79,8 +79,10 @@ $(document).ready(function (e) {
 
             html += '       <div class="mainArea">    ';
             //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(youtubeUrl)) + '" /><span class="play_button"></span> ' + '</div>    ';
-            html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(youtubeUrl)) +'</div>';
-            html += '		    <div class="name ellipsis">' + invetName + '</div>';
+			if(getEmbedMovie(getMovieDataByURL(youtubeUrl)))
+			html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(youtubeUrl)) +'</div>';
+            
+			html += '		    <div class="name ellipsis">' + invetName + '</div>';
             html += '		    <div class="description">' + description + '</div>';
             html += '           <div class="gallery">    ';
             if(ImgSrc1!=null)

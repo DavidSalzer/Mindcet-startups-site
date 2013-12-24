@@ -79,10 +79,10 @@ $(document).ready(function (e) {
 
             html += '       <div class="mainArea">    ';
             //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(youtubeUrl)) + '" /><span class="play_button"></span> ' + '</div>    ';
-			if(getEmbedMovie(getMovieDataByURL(youtubeUrl)))
-			html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(youtubeUrl)) +'</div>';
-            
-			html += '		    <div class="name ellipsis">' + invetName + '</div>';
+            var videoIframe = getEmbedMovie(getMovieDataByURL(youtubeUrl), 140, 225);
+            if(videoIframe!=undefined)
+            html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(youtubeUrl), 140, 225) +'</div>';
+            html += '		    <div class="name ellipsis">' + invetName + '</div>';
             html += '		    <div class="description">' + description + '</div>';
             html += '           <div class="gallery">    ';
             if(ImgSrc1!=null)
@@ -240,32 +240,43 @@ $(document).ready(function (e) {
 
 
     $('.judgeDescription .close').on('click', this, function () {
+        $('.judgeDescription').empty().append('<span class="close">x</span>');
         $('.judgeDescription').fadeOut(600, 'easeInOutBack');
         return false;
     });
 
-    //$('.judgesAvantar').on('click', this, function () {
-    //    $('.judgeDescription').fadeIn(600, 'easeInOutBack');
+    $('.judgesAvantar').on('click', this, function () {
+        //$('.judgeDescription .close').click();
+        tid = $(this).attr('judgeId');
+        
 
-    //var html = '       <div class="judgeDescriptionLeft">';
-    //html = '               <div class="judgeDescription-img"></div>';
-    //html = '               <div class="contactMe"><a ' + + '" >Contact Me</a></div>';
-    //html = '           </div>';
-    //html = '           <div class="judgeDescriptionRight">';
-    //html = '                <div class="judgeDescription-name">' +  title - name + '</div>';
-    //html = '               <div class="judgeDescription-role">' + title - role + '</div>';
-    //html = '               <div class="judgeDescription-full">' +  + '</div>';
-    //html = '           </div>';
+        $('.judgeDescription').fadeIn(600, 'easeInOutBack');
+        //judgeImg = allJudges[tid].imgProfile;
 
-    //$('html, body').animate({
-    //    scrollTop: $("#judges-banner").offset().top - 25
-    //}, 2000);
+        var html = '       <div class="judgeDescriptionLeft">';
+        //allJudges[tid].judgeImg.forEach(function(img){
+        //    if(img!=""){
+        //        html += '       <img class="judgeDescription-img" src="' + img + '" alt="' + allJudges[tid].title + '">    ';
+        //    }
+        html = '               <div class="contactMe"><a ' + allJudges[tid] + '" >Contact Me</a></div>';
+        html = '           </div>';
+        html = '           <div class="judgeDescriptionRight">';
+        html = '                <div class="judgeDescription-name">' +  allJudges[tid].name + '</div>';
+        html = '               <div class="judgeDescription-role">' + allJudges[tid].role + '</div>';
+        html = '               <div class="judgeDescription-full">' + allJudges[tid].descript + '</div>';
+        html = '           </div>';
 
-    //var $judgeDescription = $(html);
-    //$('.judgeDescription').append($judgeDescription);
+        $('html, body').animate({
+            scrollTop: $("#judgesCon").offset().top - 25
+        }, 2000);
 
-    //    return false;
-    //});
+        var $judgeDescription = $(html);
+        
+
+        $('.judgeDescription').append($judgeDescription);
+
+            return false;
+        });
 
 
     $('.inventList li').on('click', this, function () {
@@ -370,6 +381,9 @@ function openOfferPopUp(){
 
 function popupall(allTech){
  console.log(allTech);
+}
+function popupallJ(allJudges){
+ console.log(allJudges);
 }
 
 function facebookCommentsLink() {

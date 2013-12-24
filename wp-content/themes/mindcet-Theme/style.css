@@ -530,15 +530,18 @@ text-align: center;
 	margin-top: -40px;
 	vertical-align: middle;
 	height: auto;
-	opacity:.5;
-	transition:all ease-in-out 0.3s;*/
-    /*filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
-    /*filter: gray; /* IE6-9 */
-    /*-webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+	/*opacity:.5;*/
+	transition:all ease-in-out 0.3s;
+    filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
 }
-/*.inventList li img:hover{
+.inventList li img:hover{
     filter: none;
     -webkit-filter: grayscale(0);
+}
+/*.inventList li:hover,.inventList li img:hover{
+ opacity:1;
 }*/
 /*.inventList li:hover,.inventList li img:hover{
  opacity:1;
@@ -719,7 +722,7 @@ text-indent: 10px;
 	text-align:center;
 	display: inline-block;
     margin-top: 0px;
-    /*cursor: pointer;*/
+    cursor: pointer;
     margin-right: 5px;
 	box-shadow: #333 2px 1px 1px 0px;
 }
@@ -1293,6 +1296,7 @@ margin-right: 56px;
 .mainArea .description {
 height: 60px;
 overflow-y: auto;
+margin-bottom: 10px;
 }
 
 .mainArea .gallery {

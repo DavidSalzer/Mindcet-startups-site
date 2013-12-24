@@ -92,52 +92,52 @@ get_header(); ?>
 <div class="wpcf7">
 <form id="new_post" name="new_post" method="post" action="" class="wpcf7-form" enctype="multipart/form-data">
 	<!-- post name -->
-	<fieldset name="title">
+	<!--<fieldset name="title">-->
 		<label for="title">כותרת מיזם:</label>
 		<input type="text" id="title" value="" tabindex="5" name="title" />
-	</fieldset>
+	<!--</fieldset>-->
 
 	<!-- post Category -->
-	<fieldset class="formfield">
+	<!--<fieldset class="formfield">-->
 		<label for="invetName">שם יזם:</label>
 		<input type="text" id="invetName" value="" tabindex="10" name="invetName" />
-	</fieldset>
+	<!--</fieldset>-->
 
 	<!-- post Category -->
-	<fieldset class="formfield">
+	<!--<fieldset class="formfield">-->
 		<label for="email">מייל יזם:</label>
 		<input type="email" id="email" value="" tabindex="15" name="email" />
-	</fieldset>
+	<!--</fieldset>-->
     
     <!-- post Category -->
-	<fieldset class="formfield">
+	<!--<fieldset class="formfield">-->
 		<label for="site">Site URL:</label>
 		<input type="url" id="site" value="" tabindex="20" name="site" />
-	</fieldset>
+	<!--</fieldset>-->
     
     <!-- post Category -->
-	<fieldset class="formfield">
+	<!--<fieldset class="formfield">-->
 		<label for="founder">founder:</label>
 		<input type="text" id="founder" value="" tabindex="25" name="founder" />
-	</fieldset>
+	<!--</fieldset>-->
     
      <!-- post Category -->
-	<fieldset class="formfield">
+	<!--<fieldset class="formfield">-->
 		<label for="founderMail">founder mail:</label>
 		<input type="email" id="founderMail" value="" tabindex="30" name="founderMail" />
-	</fieldset>
+	<!--</fieldset>-->
 
 	<!-- post Content -->
-	<fieldset class="formfield">
+	<!--<fieldset class="formfield">-->
 		<label for="description">תיאור קצר</label>
 		<textarea id="description" tabindex="35" name="description" cols="80" rows="10"></textarea>
-	</fieldset>
+	<!--</fieldset>-->
 
 
 
-	<fieldset class="submit">
+	<!--<fieldset class="submit">-->
 		<input type="submit" value="Post Review" tabindex="40" id="submit" name="submit" />
-	</fieldset>
+	<!--</fieldset>-->
 
 	<input type="hidden" name="action" value="new_post" />
 	<?php wp_nonce_field( 'new-post' ); ?>

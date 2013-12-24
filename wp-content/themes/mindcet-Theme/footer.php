@@ -17,6 +17,7 @@
                 <div class="unitedNav">
 			   <?php
             $defaults = array(
+                 'theme_location'  =>'footerMenu',
                 'menu'            => 'footerMenu',
                 'container'       => 'div',
                 'container_class' => 'footerMenu',

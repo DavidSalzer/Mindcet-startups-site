@@ -176,6 +176,9 @@ do_action('wp_insert_post', 'wp_insert_post');
         <div id="formPart3">
 
         </div>
+        <div id="formPart4">
+            
+        </div>
         
     
         <fieldset class="submit">

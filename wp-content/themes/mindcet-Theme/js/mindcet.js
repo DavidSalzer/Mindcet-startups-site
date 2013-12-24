@@ -221,6 +221,19 @@ $(document).ready(function (e) {
         }
     });
 
+    //$('.submit input').on('click', this, function () {
+    //        $('#formPart3').hide();
+    //        $('#formPart4').show();
+    //        $('.last-page').css("display", "none");
+    //        $('#page-number-3').hide();
+    //        $('.submit input').css("display", "none");
+    //        var html = '        <div class="form-end-message">Registration is pending approval. <br><br>Thank you!</div>';
+    //        var $formEndMessage = $(html);
+    //        $('#formPart4').append($formEndMessage);
+
+    //    return false;
+    //});
+
 //----------/end of form
 
 
@@ -231,17 +244,35 @@ $(document).ready(function (e) {
 
     //$('.judgesAvantar').on('click', this, function () {
     //    $('.judgeDescription').fadeIn(600, 'easeInOutBack');
+
+    //var html = '       <div class="judgeDescriptionLeft">';
+    //html = '               <div class="judgeDescription-img"></div>';
+    //html = '               <div class="contactMe"><a ' + + '" >Contact Me</a></div>';
+    //html = '           </div>';
+    //html = '           <div class="judgeDescriptionRight">';
+    //html = '                <div class="judgeDescription-name">' +  title - name + '</div>';
+    //html = '               <div class="judgeDescription-role">' + title - role + '</div>';
+    //html = '               <div class="judgeDescription-full">' +  + '</div>';
+    //html = '           </div>';
+
+    //$('html, body').animate({
+    //    scrollTop: $("#judges-banner").offset().top - 25
+    //}, 2000);
+
+    //var $judgeDescription = $(html);
+    //$('.judgeDescription').append($judgeDescription);
+
     //    return false;
     //});
 
 
     $('.inventList li').on('click', this, function () {
-
+        $('.inventorPopUp .close').click();
         tid = $(this).attr('idtec');
 
         var html = '       <div class="topArea">    '
         html += '		    <div class="title ellipsis">' + allTech[tid].title + '</div>';
-        html += allTech[tid].logo;
+        html += '<div class="startup-popup-logo"><img class="wp-post-image" src="'+allTech[tid].logo[0]+'" alt="'+allTech[tid].title+'" ></div>';
         html += '       </div>    ';
 
         html += '       <div class="socialArea">    ';
@@ -470,7 +501,7 @@ getImgUrl = function (data) {
         //update the menu links to croll to sections in home page
         var navArray=["#startups-banner","#judges-banner", "#offer-zone"]
         $(".topMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
-        $(".footerMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
+        //$(".footerMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
 
         //add event to offer menu to open the offer popup
         $('a[href^="#offer-zone"]').on("click",openOfferPopUp);

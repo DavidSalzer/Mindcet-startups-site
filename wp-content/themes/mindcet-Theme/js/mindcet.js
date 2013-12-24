@@ -279,89 +279,20 @@ $(document).ready(function (e) {
         });
 
 
-    $('.inventList li').on('click', this, function () {
-        $('.inventorPopUp .close').click();
-        tid = $(this).attr('idtec');
-
-        var html = '       <div class="topArea">    '
-        html += '		    <div class="title ellipsis">' + allTech[tid].title + '</div>';
-        html += '<div class="startup-popup-logo"><img class="wp-post-image" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
-        html += '       </div>    ';
-
-        html += '       <div class="socialArea">    ';
-        html += '           <div class="social fb">Share on <span class="letter-space">Facbook</span></div>    ';
-        //html += '           <div class="social fb"><div class="fb-share-button" data-href="http://localhost:55898/%D7%90%D7%95%D7%96%D7%A0%D7%99-%D7%A4%D7%99%D7%9C-%D7%A9%D7%95%D7%A7%D7%95%D7%9C%D7%93" data-type="button_count"></div></div>    ';
-        //html += '           <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.hubspot.com/software-buyers-guide/" class="social fb" title="(Share on Facebook)" target="_blank">Share on Facebook</a>';
-        html += '           <div class="social twitter">Share on <span class="letter-space">Twitter</span></div>    ';
-        //html += '           <a href="http://twitter.com/intent/tweet?text=Learn%20how%20to%20optimize%20your%20calls-to-action%20-%20download%20@HubSpot%27s%20free%20ebook%20on%20mastering%20the%20design%20and%20copy%20of%20CTAs:%20http://bit.ly/LSjMFA%20%20" class="social twitter" title="(Tweet This Link)" target="_blank">Share on Twitter</a>';
-        html += '           <div class="social linkedin">Share on <span class="letter-space">Linkedin</span></div>    ';
-        //html += '           <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://bit.ly/LSjMFA" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on LinkedIn</a>';
-        //html += '           <div class="social likes"></div>    ';
-
-        html += '       </div>    ';
-
-        html += '       <div class="mainArea">    ';
-        //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(allTech[tid].youtube)) + '" /><span class="play_button"></span> ' + '</div>    ';
-        var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube));
-        if (videoIframe != undefined)
-            html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube)) + '</div>';
-        //html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube)) +'</div>';
-        html += '		    <div class="name ellipsis">' + allTech[tid].name + '</div>';
-        html += '		    <div class="description">' + allTech[tid].descript + '</div>';
-        html += '           <div class="gallery">    ';
-        allTech[tid].startupImg.forEach(function (img) {
-            if (img != "") {
-                html += '<div><img class="gallery-img" src="' + img + '" alt="' + allTech[tid].title + '"> </div>   ';
-            }
-        });
-        //html += '               <img class="gallery-img" src="' + allTech[tid].startupImg[0] + '" alt="' + allTech[tid].title + ' img1">    ';
-        //html += '               <div class="gallery-img"></div>    ';
-        //html += '               <div class="gallery-img"></div>    ';
-        html += '           </div>    ';
-        //html += '           <div class="fb-comments"></div>    ';
-
-        //html += '            <div id="recipe-facebook-comments" class="text-box" shape-id="0">';
-        //html += '               <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="http://localhost:55898/%D7%90%D7%95%D7%96%D7%A0%D7%99-%D7%A4%D7%99%D7%9C-%D7%A9%D7%95%D7%A7%D7%95%D7%9C%D7%93" data-colorscheme="light" data-numposts="5" data-width="488px" shape-id="0" fb-xfbml-state="rendered"> ';   
-        //html += '                   <span style="height: 159px;">';
-        //html += '                       <iframe id="f1956c9268" name="ff7c6a088" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://m.facebook.com/plugins/comments.php?api_key=162470583945071&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D28%23cb%3Df142527dc8%26domain%3Dlocalhost%26origin%3Dhttp%253A%252F%252Flocalhost%253A55898%252Ff2e22d2284%26relation%3Dparent.parent&amp;colorscheme=light&amp;href=http%3A%2F%2Flocalhost%3A55898%2F%25D7%2590%25D7%2595%25D7%2596%25D7%25A0%25D7%2599-%25D7%25A4%25D7%2599%25D7%259C-%25D7%25A9%25D7%2595%25D7%25A7%25D7%2595%25D7%259C%25D7%2593&amp;locale=en_US&amp;mobile=true&amp;numposts=5&amp;sdk=joey&amp;skin=light" style="border: none; overflow: hidden; height: 159px; width: 100%;">';
-        //html += '                       </iframe>';
-        //html += '                   </span>';
-        //html += '               </div>';
-        //html += '           </div>';
-        html += '       </div>    ';
-
-        youtube = allTech[tid].youtube;
-        startupImg = allTech[tid].startupImg;
-        $('.inventDescription').fadeIn(600, 'easeInOutBack');
-        $('.mask').fadeIn(600, 'easeInOutBack');
-
-        $('html, body').animate({
-            scrollTop: $("#single-startup-zone").offset().top - 25
-        }, 2000);
-
-        var $inventDescription = $(html);
-        $('.inventDescription').append($inventDescription);
-
-        $('.inventDescription .close').on('click', this, function () {
-            $('.inventDescription').empty().append('<span id="invent-close" class="close">x</span>');
-            $('.inventDescription').fadeOut(600, 'easeInOutBack');
-            $('.mask').fadeOut(600, 'easeInOutBack');
-            return false;
-        });
-
-        return false;
-    });
-
     updateMenuUrl();
+	//hide popup when scrolling down
+	$(document).on('scroll',this,function(){
+		if($(document).scrollTop()>350){
+			$('#offer-zone').fadeOut("slow");
+		}
+		
+	});
+	$('.inventList li').on('click', this,function(){
+			tid=$(this).attr('idtec');
+			popuopInvent(tid);
+	});
 
-
-    //hide popup when scrolling down
-    $(document).on('scroll', this, function () {
-        if ($(document).scrollTop() > 350) {
-            $('#offer-zone').fadeOut("slow");
-        }
-
-    });
+  
 
 
 }); //dom ready
@@ -582,65 +513,78 @@ function enable_scroll() {
     window.onmousewheel = document.onmousewheel = document.onkeydown = null;
 }
 
-//validate on all form's inputs
-function generalValidate() {
-    //StartUp Name
-    validateEmptyInput($("#title"));
 
-    //Invet Name
-    validateEmptyInput($("#invetName"));
 
-    //email
-    emailValidate($("#email"));
+//////////////////////////
+  function popuopInvent (tid) {
+        $('.inventorPopUp .close').click();
+		window.location.hash=tid;
 
-    //logo
-    validateImag($(".title-logo.logoimg"));
+        var html = '       <div class="topArea">    '
+        html += '		    <div class="title ellipsis">' + allTech[tid].title + '</div>';
+        html += '<div class="startup-popup-logo"><img class="wp-post-image" src="'+allTech[tid].logo[0]+'" alt="'+allTech[tid].title+'" ></div>';
+        html += '       </div>    ';
 
-    //Founder Mail
-    emailValidate($("#founderMail"));
+        html += '       <div class="socialArea">    ';
+        html += '           <div class="social fb">Share on <span class="letter-space">Facbook</span></div>    ';
+        //html += '           <div class="social fb"><div class="fb-share-button" data-href="http://localhost:55898/%D7%90%D7%95%D7%96%D7%A0%D7%99-%D7%A4%D7%99%D7%9C-%D7%A9%D7%95%D7%A7%D7%95%D7%9C%D7%93" data-type="button_count"></div></div>    ';
+        //html += '           <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.hubspot.com/software-buyers-guide/" class="social fb" title="(Share on Facebook)" target="_blank">Share on Facebook</a>';
+        html += '           <div class="social twitter">Share on <span class="letter-space">Twitter</span></div>    ';
+        //html += '           <a href="http://twitter.com/intent/tweet?text=Learn%20how%20to%20optimize%20your%20calls-to-action%20-%20download%20@HubSpot%27s%20free%20ebook%20on%20mastering%20the%20design%20and%20copy%20of%20CTAs:%20http://bit.ly/LSjMFA%20%20" class="social twitter" title="(Tweet This Link)" target="_blank">Share on Twitter</a>';
+        html += '           <div class="social linkedin">Share on <span class="letter-space">Linkedin</span></div>    ';
+        //html += '           <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://bit.ly/LSjMFA" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on LinkedIn</a>';
+        //html += '           <div class="social likes"></div>    ';
 
-    //site
-    validateSite($("#site"));
-}
+        html += '       </div>    ';
 
-//validate empty field
-function validateEmptyInput(input) {
-    if (input.val() == "") {
-        input.addClass("error");
-        //alert(input.attr("id") + " is empty");
-    }
-    else{
-        input.removeClass("error");
-    }
-}
-//validate email field
-function emailValidate(input) {
-    var email = input.val();
-    if (email != "") {
-        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if (!re.test(email)) {
-            input.addClass("error");
-            //alert("email is not validate");
-        }
-        else{
-            input.removeClass("error");
-        }
-    }
-}
-//validate webSite field
-function validateSite(input) {   
-    //if there is not http
-    if(input.val().indexOf("http")==-1){
-        input.val("http://"+input.val());
-    } 
-    var regexp = /^([a-z]([a-z]|\d|\+|-|\.)*):(\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?((\[(|(v[\da-f]{1,}\.(([a-z]|\d|-|\.|_|~)|[!\$&'\(\)\*\+,;=]|:)+))\])|((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=])*)(:\d*)?)(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*|(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)){0})(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
-      if(! regexp.test(input.val())){
-          alert("site no validate");
-      }
-}
+        html += '       <div class="mainArea">    ';
+        //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(allTech[tid].youtube)) + '" /><span class="play_button"></span> ' + '</div>    ';
+        var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube));
+        if(videoIframe!=undefined)
+            html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube)) + '</div>';
+        //html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube)) +'</div>';
+        html += '		    <div class="name ellipsis">' + allTech[tid].name + '</div>';
+        html += '		    <div class="description">' + allTech[tid].descript + '</div>';
+        html += '           <div class="gallery">    ';
+        allTech[tid].startupImg.forEach(function(img){
+            if(img!=""){
+                html += '<div><img class="gallery-img" src="' + img + '" alt="' + allTech[tid].title + '"> </div>   ';
+            }
+        });
+        //html += '               <img class="gallery-img" src="' + allTech[tid].startupImg[0] + '" alt="' + allTech[tid].title + ' img1">    ';
+        //html += '               <div class="gallery-img"></div>    ';
+        //html += '               <div class="gallery-img"></div>    ';
+        html += '           </div>    ';
+        //html += '           <div class="fb-comments"></div>    ';
 
-function validateImag(img) {
-    if(img.text()=="Logo"){
-        alert("no logo");
-    }
-}
+        //html += '            <div id="recipe-facebook-comments" class="text-box" shape-id="0">';
+        //html += '               <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="http://localhost:55898/%D7%90%D7%95%D7%96%D7%A0%D7%99-%D7%A4%D7%99%D7%9C-%D7%A9%D7%95%D7%A7%D7%95%D7%9C%D7%93" data-colorscheme="light" data-numposts="5" data-width="488px" shape-id="0" fb-xfbml-state="rendered"> ';   
+        //html += '                   <span style="height: 159px;">';
+        //html += '                       <iframe id="f1956c9268" name="ff7c6a088" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://m.facebook.com/plugins/comments.php?api_key=162470583945071&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D28%23cb%3Df142527dc8%26domain%3Dlocalhost%26origin%3Dhttp%253A%252F%252Flocalhost%253A55898%252Ff2e22d2284%26relation%3Dparent.parent&amp;colorscheme=light&amp;href=http%3A%2F%2Flocalhost%3A55898%2F%25D7%2590%25D7%2595%25D7%2596%25D7%25A0%25D7%2599-%25D7%25A4%25D7%2599%25D7%259C-%25D7%25A9%25D7%2595%25D7%25A7%25D7%2595%25D7%259C%25D7%2593&amp;locale=en_US&amp;mobile=true&amp;numposts=5&amp;sdk=joey&amp;skin=light" style="border: none; overflow: hidden; height: 159px; width: 100%;">';
+        //html += '                       </iframe>';
+        //html += '                   </span>';
+        //html += '               </div>';
+        //html += '           </div>';
+        html += '       </div>    ';
+
+        youtube = allTech[tid].youtube;
+        startupImg = allTech[tid].startupImg;
+        $('.inventDescription').fadeIn(600, 'easeInOutBack');
+        $('.mask').fadeIn(600, 'easeInOutBack');
+
+        $('html, body').animate({
+            scrollTop: $("#single-startup-zone").offset().top - 25
+        }, 2000);
+
+        var $inventDescription = $(html);
+        $('.inventDescription').append($inventDescription);
+
+        $('.inventDescription .close').on('click', this, function () {
+            $('.inventDescription').empty().append('<span id="invent-close" class="close">x</span>');
+            $('.inventDescription').fadeOut(600, 'easeInOutBack');
+            $('.mask').fadeOut(600, 'easeInOutBack');
+            return false;
+        });
+
+        return false;
+    };

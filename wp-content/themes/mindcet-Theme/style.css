@@ -822,11 +822,11 @@ width: 72PX;
 .inventorPopUp{
     position: absolute;
 display: none;
-top: -151px;
+top: -140px;
 width: 590px;
 height: 573px;
 background: #fff;
-left: 388px;
+left: 405px;
 z-index: 51;
 box-shadow: #333 2px 2px 5px 1px;
 }
@@ -834,8 +834,8 @@ box-shadow: #333 2px 2px 5px 1px;
     position: absolute;
 background-image: url(img/triangle.png);
 width: 50px;
-left: -50px;
-top: 502px;
+left: -35px;
+bottom: 11px;
 height: 57px;
 }
 .inventorPopUp .close{

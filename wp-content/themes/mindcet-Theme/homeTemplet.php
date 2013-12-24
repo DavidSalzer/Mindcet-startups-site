@@ -191,9 +191,9 @@ do_action('wp_insert_post', 'wp_insert_post');
         </div>
         <?php  $res=(empty($fileEr))?'good':'bad';?>
         <div id="formPart4" class="<?php echo $res;?>">
-            	
+            	<?php if(!empty($error['initiator']))echo $error['initiator'];?>
         </div>
-        
+    
     
         <fieldset class="submit">
             <input type="submit" value="Sign" tabindex="40" id="submit" name="submit" />

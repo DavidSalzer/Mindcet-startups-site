@@ -272,7 +272,7 @@ function fileUp($postid){
 						if($file=='img-1'){
 							update_post_meta($postid,'wpcf-startup-img',$uploaded_file['url']);
 						}
-						if($inputName=='img-2'){
+						if($file=='img-2'){
 							update_post_meta($postid,'wpcf-startup-img-2',$uploaded_file['url']);
 						}
 						if($file=='img-3'){

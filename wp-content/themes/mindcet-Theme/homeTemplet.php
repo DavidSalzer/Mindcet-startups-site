@@ -86,14 +86,8 @@ set_post_thumbnail( 165, 176177178179 );
 			update_post_meta($pid, 'wpcf-founder-email', $founderMail);
 		   
 		   update_post_meta($pid, 'wpcf-youtube-url', $youtubeUrl);
-			$file1=uploadFile('logo',$pid);
-			//if($file1) $fileError['logo']='logo faild';
-			$file2=uploadFile('img-1',$pid);
-			//if($file1) $fileError['img1']='img1 faild';
-			$file3=uploadFile('img-2',$pid);
-			//if($file1) $fileError['img2']='img2 faild';
-			$file4=uploadFile('img-3',$pid);
-			//if($file1) $fileError['img3']='img3 faild';
+			//uploadFile($pid);
+			fileUp($pid);
 			
 			
 			//REDIRECT TO THE NEW POST ON SAVE

@@ -244,8 +244,8 @@ $(document).ready(function (e) {
     //----------/end of form
 
 
-    $('.judgeDescription .close').on('click', this, function () {
-        $('.judgeDescription').empty().append('<span id="judge-close" class="close">x</span>');
+    $('.judgeDescription').on('click','.close', this, function () {
+        $('.judgeDescription').empty().append('<span class="close">x</span>');
         $('.judgeDescription').fadeOut(600, 'easeInOutBack');
         return false;
     });

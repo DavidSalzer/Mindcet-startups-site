@@ -9,15 +9,15 @@
 	   wp_register_script('jquery', ("http://code.jquery.com/jquery-1.10.1.min.js"), false);
 	   wp_enqueue_script('jquery');
 	  
-	   wp_register_script('cycle', ("http://malsup.github.io/jquery.cycle.all.js"), false);
-	   wp_enqueue_script('cycle');
-	 
 	  wp_register_script('easing', ("http://malsup.github.io/jquery.easing.1.3.js"), false);
 	   wp_enqueue_script('easing');
 	 
 	    wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
 	   wp_enqueue_script('mindcetjs');
-	   
+	  
+	   wp_register_script('deep', ("http://malsup.github.io/deeplink.js"), false);
+	   wp_enqueue_script('deep');
+	  
 
 
 

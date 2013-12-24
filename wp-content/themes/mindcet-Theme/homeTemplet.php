@@ -301,10 +301,10 @@ do_action('wp_insert_post', 'wp_insert_post');
   <h2> The Judges</h2>
 </div>
 <div class="page-wrap judges">
-	<div class="judgeDescription">
+	<div id="judgeDescription" class="judgeDescription">
         <span class="close">x</span>
 
-        <div class="judgeDescriptionLeft">
+        <!--<div class="judgeDescriptionLeft">
             <div class="judgeDescription-img"></div>
             <div class="contactMe"><a href="mailto:email@echoecho.com" >Contact Me</a></div>
         </div>
@@ -312,7 +312,7 @@ do_action('wp_insert_post', 'wp_insert_post');
             <div class="judgeDescription-name"> title - name</div>
             <div class="judgeDescription-role"> title - role</div>
             <div class="judgeDescription-full">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis vidLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eoodem modo typi, qui nunc nobis vid</div>
-        </div>
+        </div>-->
     </div>
 
     <div class="rightScroll" id="judgesR"><div class="rightScroll-arrow"></div></div>
@@ -334,7 +334,7 @@ do_action('wp_insert_post', 'wp_insert_post');
         foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 	
 		
-    <div class="judgesAvantar"> 
+    <div class="judgesAvantar" judgeId="<?php echo $post->ID;?>"> 
 		<?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?>
       	<h2> <?php the_title(); ?></h2>
         <div class="judgestext">           
@@ -359,6 +359,9 @@ do_action('wp_insert_post', 'wp_insert_post');
      allTech=<?php echo getAllStartup(); ?>;
      allJudges=<?php echo getAllJudges(); ?>;
      popupall(allTech);
-	 popupall(allJudges);
+     popupallJ(allJudges);
+    	 
 </script>
 <?php get_footer(); ?>
+
+

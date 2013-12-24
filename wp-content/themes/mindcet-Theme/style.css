@@ -425,7 +425,8 @@ min-width: 1024px;
 margin: 0 auto;
 position: relative;
 background-image: url(img/background.jpg);
-margin-top: 157px;
+background-repeat: no-repeat;
+margin-top: 130px;
 }
 .home .entry {
 font-size: 28px;
@@ -437,7 +438,7 @@ margin-left: 72px;
 .entry-design{
     background-color: rgba(256,256,256, 0.3);
     width: 100%;
-height: 100%;
+height: 380px;
 padding: 25px;
 border-radius: 40px;
 }
@@ -495,7 +496,7 @@ border-bottom: 1px solid #000;
 	width: 844px;
 }
 .inventList{
-	width: 211px;
+	width: 210px;
 display: inline-block;
 vertical-align: top;
 	vertical-align:top;
@@ -627,7 +628,7 @@ height: 40px;
     white-space: nowrap;
     overflow: hidden;
     vertical-align: middle;
-    height: 606px;
+    height: 605px;
 }
 .inventHome ul li{
 	display: inline-block;
@@ -1217,6 +1218,7 @@ left: 0;
 right: 0;
 margin-top: 55px;
 display: none;
+overflow-y: auto;
 }
 #formPart3 .topArea{
     width: 327px;
@@ -1410,8 +1412,8 @@ margin-bottom: 10px;
 }
 
 .mainArea .gallery {
-    width: 343px;
-    height: 90px;   
+    /*width: 343px;
+    height: 90px;*/   
     margin: 34px auto;
     display: flex;
     flex-wrap: wrap-reverse;
@@ -1471,10 +1473,15 @@ iframe > .play_button {
     display: none;
 }
 .inventDescription .topArea {
-    width: 100%;
+    /*width: 100%;
     height: 98px;
     border-bottom: solid 1px #636363;
-    position: relative;
+    position: relative;*/
+    width: 711px;
+height: 98px;
+border-bottom: solid 1px #636363;
+position: fixed;
+top: 30px;
 }
 .inventDescription .title.ellipsis {
     float: left;
@@ -1491,12 +1498,15 @@ iframe > .play_button {
     margin: 30px 100px 0 0;
 }
 .inventDescription .socialArea {
-    float: left;
     width: 124px;
+position: fixed;
+top: 138px;
 }
 .inventDescription .mainArea {
     float: left;
     width: 480px;
+    margin-top: 138px;
+    margin-left: 115px;
 }
 .inventDescription .mainArea .movie {
     width: 340px;
@@ -1510,16 +1520,16 @@ iframe > .play_button {
 .inventDescription .mainArea .description {
     float: left;
     width: 465px;
-    height: 108px;
+    height: inherit;
     margin-left: 15px;
     line-height: 17px;
 }
 .inventDescription .mainArea .gallery {
-    width: 460px;
+    max-width: 460px;
     float: left;
     margin-left: 60px;
     margin-top: 24px;
-    height: 91px;
+    max-height: 91px;
 }
 .inventDescription .mainArea .gallery div {
     width: 146px;

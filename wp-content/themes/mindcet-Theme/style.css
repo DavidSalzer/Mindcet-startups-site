@@ -1067,7 +1067,8 @@ font-size: 15px;
 font-family: sans-serif;
 position: absolute;
 width: 500px;
-text-align: center;
+text-align: left;
+text-indent: 6px;
 bottom: 65px;
 left: 34px;
 display: none;
@@ -1278,15 +1279,10 @@ width: 370px;
     max-height: 100%;
 }
 #formPart3 .startup-logo-form{
-    width: 50px;
-
-    height: 56px;
-
-    position: absolute;
-
-    right: 0;
-
-    top: -28px;
+    height: 46px;
+position: absolute;
+right: 0;
+top: -23px;
 overflow: hidden;
 text-align: center;
 line-height: 55px;
@@ -1403,9 +1399,9 @@ clear: right;
 margin-right: 56px;
 }
 
-.mainArea .description {
+#formPart3 .mainArea .description {
 
-height: 60px;
+/*height: 60px;*/
 
 overflow-y: auto;
 margin-bottom: 10px;
@@ -1473,15 +1469,15 @@ iframe > .play_button {
     display: none;
 }
 .inventDescription .topArea {
-    /*width: 100%;
+    width: 100%;
     height: 98px;
     border-bottom: solid 1px #636363;
-    position: relative;*/
-    width: 711px;
+    position: relative;
+    /*width: 711px;
 height: 98px;
 border-bottom: solid 1px #636363;
 position: fixed;
-top: 30px;
+top: 30px;*/
 }
 .inventDescription .title.ellipsis {
     float: left;
@@ -1499,14 +1495,20 @@ top: 30px;
 }
 .inventDescription .socialArea {
     width: 124px;
-position: fixed;
-top: 138px;
+position: absolute;
 }
 .inventDescription .mainArea {
-    float: left;
-    width: 480px;
-    margin-top: 138px;
-    margin-left: 115px;
+    /*float: left;
+width: 480px;
+height: 755px;
+margin-left: 135px;*/
+float: left;
+width: 480px;
+height: 730px;
+margin-left: 135px;
+overflow-y: auto;
+overflow-x: hidden;
+padding-bottom: 25px;
 }
 .inventDescription .mainArea .movie {
     width: 340px;
@@ -1520,7 +1522,6 @@ top: 138px;
 .inventDescription .mainArea .description {
     float: left;
     width: 465px;
-    height: inherit;
     margin-left: 15px;
     line-height: 17px;
 }

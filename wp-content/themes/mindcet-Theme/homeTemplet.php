@@ -195,20 +195,10 @@ do_action('wp_insert_post', 'wp_insert_post');
         <div id="formPart3">
 
         </div>
-        <?php 
-			//echo "yanai".$error;
-		if(!empty($error) || !empty($fileError)):?>
-        <div id="formPart4" class="form4Error">
-            <?php foreach($error as $error){
-						echo $error."<br>";
-					}
-				
-				foreach($fileError as $errorFile){
-						echo $errorFile."<br>";
-					}
-			?>	
+        
+        <div id="formPart4">
+
         </div>
-        <?php endif;?>
         
     
         <fieldset class="submit">
@@ -218,7 +208,7 @@ do_action('wp_insert_post', 'wp_insert_post');
         <input type="hidden" name="action" value="new_post" />
         <?php wp_nonce_field( 'new-post' ); ?>
     </form>
-    <div id="validate-error">please insert a valid text </div>
+    <div id="validate-error">* please insert a valid text </div>
     <span id="page-number-1" class="page-number">1/3</span>
     <span id="page-number-2" class="page-number">2/3</span>
     <span id="page-number-3" class="page-number">3/3</span>
@@ -327,6 +317,7 @@ do_action('wp_insert_post', 'wp_insert_post');
   <h2> The Judges</h2>
 </div>
 <div class="page-wrap judges">
+
 	<div id="judgeDescription" class="judgeDescription">
         <span class="close">x</span>
 
@@ -344,8 +335,7 @@ do_action('wp_insert_post', 'wp_insert_post');
     <div class="rightScroll" id="judgesR"><div class="rightScroll-arrow"></div></div>
     <div class="leftScroll" id="judgesL"><div class="leftScroll-arrow"></div></div>
 <div class="judgesContenar" id="judgesCon">
-	
-    <div class="judgesAvantar hide"> </div>
+	<span class="placholderSlide"></span>
 <?php
         $args = array(
         'posts_per_page'   => -1,

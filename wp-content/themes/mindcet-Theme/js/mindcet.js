@@ -573,16 +573,16 @@ function enable_scroll() {
     //html += '               <div class="gallery-img"></div>    ';
     //html += '               <div class="gallery-img"></div>    ';
     html += '           </div>    ';
-    html += '           <div class="fb-comments"></div>    ';
+    //html += '           <div class="fb-comments"></div>    ';
 
-    html += '            <div id="recipe-facebook-comments" class="text-box" shape-id="0">';
-    html += '               <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="http://localhost:55898/%D7%90%D7%95%D7%96%D7%A0%D7%99-%D7%A4%D7%99%D7%9C-%D7%A9%D7%95%D7%A7%D7%95%D7%9C%D7%93" data-colorscheme="light" data-numposts="5" data-width="488px" shape-id="0" fb-xfbml-state="rendered"> ';   
-    html += '                   <span style="height: 159px;">';
-    html += '                       <iframe id="f1956c9268" name="ff7c6a088" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://m.facebook.com/plugins/comments.php?api_key=162470583945071&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D28%23cb%3Df142527dc8%26domain%3Dlocalhost%26origin%3Dhttp%253A%252F%252Flocalhost%253A55898%252Ff2e22d2284%26relation%3Dparent.parent&amp;colorscheme=light&amp;href=http%3A%2F%2Flocalhost%3A55898%2F%25D7%2590%25D7%2595%25D7%2596%25D7%25A0%25D7%2599-%25D7%25A4%25D7%2599%25D7%259C-%25D7%25A9%25D7%2595%25D7%25A7%25D7%2595%25D7%259C%25D7%2593&amp;locale=en_US&amp;mobile=true&amp;numposts=5&amp;sdk=joey&amp;skin=light" style="border: none; overflow: hidden; height: 159px; width: 100%;">';
-    html += '                       </iframe>';
-    html += '                   </span>';
-    html += '               </div>';
-    html += '           </div>';
+    //html += '            <div id="recipe-facebook-comments" class="text-box" shape-id="0">';
+    //html += '               <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="http://localhost:55898/%D7%90%D7%95%D7%96%D7%A0%D7%99-%D7%A4%D7%99%D7%9C-%D7%A9%D7%95%D7%A7%D7%95%D7%9C%D7%93" data-colorscheme="light" data-numposts="5" data-width="488px" shape-id="0" fb-xfbml-state="rendered"> ';   
+    //html += '                   <span style="height: 159px;">';
+    //html += '                       <iframe id="f1956c9268" name="ff7c6a088" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://m.facebook.com/plugins/comments.php?api_key=162470583945071&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D28%23cb%3Df142527dc8%26domain%3Dlocalhost%26origin%3Dhttp%253A%252F%252Flocalhost%253A55898%252Ff2e22d2284%26relation%3Dparent.parent&amp;colorscheme=light&amp;href=http%3A%2F%2Flocalhost%3A55898%2F%25D7%2590%25D7%2595%25D7%2596%25D7%25A0%25D7%2599-%25D7%25A4%25D7%2599%25D7%259C-%25D7%25A9%25D7%2595%25D7%25A7%25D7%2595%25D7%259C%25D7%2593&amp;locale=en_US&amp;mobile=true&amp;numposts=5&amp;sdk=joey&amp;skin=light" style="border: none; overflow: hidden; height: 159px; width: 100%;">';
+    //html += '                       </iframe>';
+    //html += '                   </span>';
+    //html += '               </div>';
+    //html += '           </div>';
     html += '       </div>    ';
 
     youtube = allTech[tid].youtube;

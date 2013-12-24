@@ -430,10 +430,16 @@ margin-top: 157px;
 .home .entry {
 font-size: 28px;
 line-height: 33px;
-padding: 55px 20px;
+padding: 25px 0;
 width: 273px;
 margin-left: 72px;
-background-color: rgba(256,256,256, 0.3);
+}
+.entry-design{
+    background-color: rgba(256,256,256, 0.3);
+    width: 100%;
+height: 100%;
+padding: 25px;
+border-radius: 40px;
 }
 .home .entry a{
 	font-size: 1.1em;
@@ -485,8 +491,11 @@ border-bottom: 1px solid #000;
 	width: 1024px;
 	position: relative;
 }
+.inventList:first-child{
+	width: 844px;
+}
 .inventList{
-	width: 845px;
+	width: 211px;
 display: inline-block;
 vertical-align: top;
 	vertical-align:top;
@@ -494,7 +503,7 @@ vertical-align: top;
 .inventList li{
 	width: 207px;
 height: 200px;
-border-top: solid 2px #676767;
+/*border-top: solid 2px #676767;*/
 border-bottom: solid 2px #676767;
 border-left: solid 2px #676767;
 border-right: solid 2px #676767;
@@ -658,13 +667,19 @@ width: 34%;
 height: 82%;
 display: inline-block;
 position: absolute;
-padding-top: 5%;
+padding-top: 64px;
 }
 .judgeDescription-img {
 width: 165px;
 height: 170px;
 margin: auto;
-    background-color: #e76c76;
+    position: absolute;
+bottom: 82px;
+left: 114px;
+}
+.judgeDescription-img img {
+width: 165px;
+height: 165px;
 }
 .contactMe {
 width: 164px;
@@ -675,6 +690,9 @@ margin-top: 10px;
 font-size: 25px;
 line-height: 42px;
 text-align: center;
+position: absolute;
+bottom: 40px;
+left: 114px;
 }
 .contactMe a {
     text-decoration: initial;
@@ -684,7 +702,7 @@ text-align: center;
 width: 60%;
 height: 82%;
 display: inline-block;
-padding-top: 5%;
+padding-top: 64px;
 position: absolute;
     right: 50px;
 }
@@ -795,6 +813,7 @@ padding: 20px 110px;
 color: #898989;
 }
 .placholderSlide {
+/*#scrollInventorCon:before {*/
 display: inline-block;
 width: 72PX;
 }

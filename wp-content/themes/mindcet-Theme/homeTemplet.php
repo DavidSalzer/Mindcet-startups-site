@@ -19,13 +19,14 @@ set_post_thumbnail( 165, 176177178179 );
     
   <section  class="home">
     <div class="entry">
-        <p class="entry-main-title">Changing</p>
-        <p id="entry-main-title-2" class="entry-main-title">Education</p>
-        <p id="entry-main-title-3" class="entry-main-title">Mindset</p>
-        <p>The most promising EdTech startups 2013</p>
-      <?php $homeContant=get_the_content(); ?>
-      <?php $pageUrl = get_page_by_title( 'Offer a Startup' ); ?>
-      <a href="<?php echo $pageUrl->guid;?>" id="offerStartUp">Offer a Startup</a> </div>
+        <div class="entry-design">
+            <p class="entry-main-title">Changing</p>
+            <p id="entry-main-title-2" class="entry-main-title">Education</p>
+            <p id="entry-main-title-3" class="entry-main-title">Mindset</p>
+            <p>The most promising EdTech startups 2013</p>
+          <?php $homeContant=get_the_content(); ?>
+          <?php $pageUrl = get_page_by_title( 'Offer a Startup' ); ?>
+          <a href="<?php echo $pageUrl->guid;?>" id="offerStartUp">Offer a Startup</a> </div> </div>
       <!----form inventors--->
     <?php 
   if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post"&& isset($_POST['submit'])) {
@@ -276,7 +277,7 @@ do_action('wp_insert_post', 'wp_insert_post');
         $caunter=0;
         echo "<div id='scrollInventorCon'><span class='placholderSlide'></span><ul class='inventList'>";
         foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
-    <?php	if($caunter==12){
+    <?php	if($caunter==3){
                     echo "</ul><ul class='inventList'>";
                 }else{
                 }
@@ -286,12 +287,12 @@ do_action('wp_insert_post', 'wp_insert_post');
         <?php the_title(); ?>
         </a> </h2>
     </li>
-    <?php	if($caunter==12){
+    <?php	if($caunter==3){
                 $caunter=0;
                }?>
     <?php $caunter++; endforeach; 
         wp_reset_postdata();?>
-    <?php	if($caunter!=12){
+    <?php	if($caunter!=3){
             echo "</ul><span class='placholderSlide'></span></div>";
             }
 		?>

@@ -33,6 +33,8 @@ $(document).ready(function (e) {
         return false;
     });
 
+
+
     $('.next-page').on('click', this, function () {
         if ($('#formPart1').is(":visible")) {
             $('#formPart1').hide();
@@ -153,7 +155,7 @@ $(document).ready(function (e) {
             }
         }
         else {
-            alert("noValidFile");
+            console.log("noValidFile");
         }
     });
     $("#img-1").change(function(e) {
@@ -175,7 +177,7 @@ $(document).ready(function (e) {
             }
         }
         else {
-            alert("noValidFile");
+            console.log("noValidFile");
         }
     });
     $("#img-2").change(function(e) {
@@ -197,7 +199,7 @@ $(document).ready(function (e) {
             }
         }
         else {
-            alert("noValidFile");
+            console.log("noValidFile");
         }
     });
     $("#img-3").change(function(e) {
@@ -219,7 +221,7 @@ $(document).ready(function (e) {
             }
         }
         else {
-            alert("noValidFile");
+            console.log("noValidFile");
         }
     });
 
@@ -240,38 +242,41 @@ $(document).ready(function (e) {
 
 
     $('.judgeDescription .close').on('click', this, function () {
-        $('.judgeDescription').empty().append('<span class="close">x</span>');
+        $('.judgeDescription').empty().append('<span id="judge-close" class="close">x</span>');
         $('.judgeDescription').fadeOut(600, 'easeInOutBack');
         return false;
     });
 
     $('.judgesAvantar').on('click', this, function () {
-        //$('.judgeDescription .close').click();
+        $('.inventorPopUp .close').click();
         tid = $(this).attr('judgeId');
         
 
         $('.judgeDescription').fadeIn(600, 'easeInOutBack');
-        //judgeImg = allJudges[tid].imgProfile;
+        //imgProfile = allJudges[tid].imgProfile;
 
+        //var html = '    <span class="close">x</span>';
         var html = '       <div class="judgeDescriptionLeft">';
-        //allJudges[tid].judgeImg.forEach(function(img){
-        //    if(img!=""){
-        //        html += '       <img class="judgeDescription-img" src="' + img + '" alt="' + allJudges[tid].title + '">    ';
+        //allJudges[tid].imgProfile.forEach(function(imgProfile){
+        //    if(imgProfile!=""){
+                html += '       <div class="judgeDescription-img">'+ allJudges[tid].imgProfile + '</div>    ';
         //    }
-        html = '               <div class="contactMe"><a ' + allJudges[tid] + '" >Contact Me</a></div>';
-        html = '           </div>';
-        html = '           <div class="judgeDescriptionRight">';
-        html = '                <div class="judgeDescription-name">' +  allJudges[tid].name + '</div>';
-        html = '               <div class="judgeDescription-role">' + allJudges[tid].role + '</div>';
-        html = '               <div class="judgeDescription-full">' + allJudges[tid].descript + '</div>';
-        html = '           </div>';
+        //});
+        html += '               <div class="contactMe"><a href="mailto:' + allJudges[tid].email + '" >Contact Me</a></div>';
+        html += '           </div>';
+        html += '           <div class="judgeDescriptionRight">';
+        html += '                <div class="judgeDescription-name">' +  allJudges[tid].name + '</div>';
+        html += '               <div class="judgeDescription-role">' + allJudges[tid].role + '</div>';
+        html += '               <div class="judgeDescription-full">' + allJudges[tid].descript + '</div>';
+        html += '           </div>';
 
         $('html, body').animate({
-            scrollTop: $("#judgesCon").offset().top - 25
+            scrollTop: $("#judgesCon").offset().top - 200
         }, 2000);
 
         var $judgeDescription = $(html);
         
+        console.log(html);
 
         $('.judgeDescription').append($judgeDescription);
 

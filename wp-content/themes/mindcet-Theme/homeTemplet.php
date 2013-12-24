@@ -31,6 +31,8 @@ set_post_thumbnail( 165, 176177178179 );
     <?php 
   if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post"&& isset($_POST['submit'])) {
 	// Do some minor form validation to make sure there is content
+	$error=array();
+	$fileError=array();
 	if (isset ($_POST['title'])) {
 		$title =  $_POST['title'];
 	} else {
@@ -48,17 +50,18 @@ set_post_thumbnail( 165, 176177178179 );
 	  $email= $_POST['email'];
 	}
 	if(!filter_var($_POST['founderMail'], FILTER_VALIDATE_EMAIL)){
-	 //$error= "E-mail Founder is not valid";
+	  $error['email']= "E-mail Founder is not valid";
+	  
 	}else{
 	  $founderMail= $_POST['founderMail'];
 	}
 	if(!filter_var($_POST['site'], FILTER_VALIDATE_URL)){
-	//   $error= "URL is not valid";
+	   $error['url']= "URL is not valid";
 	}else{
 	  $site=$_POST['site'];
 	}
 	if( $my_post=get_page_by_title( $title, 'OBJECT', 'initiator' )){
-		 $error= "initiator title is already exists";	
+		 $error['initiator']= "initiator title is already exists";	
 	}else{
 		if(empty($error)){
 			$name=filter_input(INPUT_POST,'invetName',FILTER_SANITIZE_STRING);
@@ -83,10 +86,16 @@ set_post_thumbnail( 165, 176177178179 );
 			update_post_meta($pid, 'wpcf-founder-email', $founderMail);
 		   
 		   update_post_meta($pid, 'wpcf-youtube-url', $youtubeUrl);
-			uploadFile('logo',$pid);
-			uploadFile('img-1',$pid);
-			uploadFile('img-2',$pid);
-			uploadFile('img-3',$pid);
+			$file1=uploadFile('logo',$pid);
+			if($file1) $fileError['logo']='logo faild';
+			$file2=uploadFile('img-1',$pid);
+			if($file1) $fileError['img1']='img1 faild';
+			$file3=uploadFile('img-2',$pid);
+			if($file1) $fileError['img2']='img2 faild';
+			$file4=uploadFile('img-3',$pid);
+			if($file1) $fileError['img3']='img3 faild';
+			
+			
 			//REDIRECT TO THE NEW POST ON SAVE
 		//	$link = get_permalink( $pid );
 		}//if empty eprrr
@@ -186,9 +195,20 @@ do_action('wp_insert_post', 'wp_insert_post');
         <div id="formPart3">
 
         </div>
-        <div id="formPart4">
-            
+        <?php 
+			//echo "yanai".$error;
+		if(!empty($error) || !empty($fileError)):?>
+        <div id="formPart4" class="form4Error">
+            <?php foreach($error as $error){
+						echo $error."<br>";
+					}
+				
+				foreach($fileError as $errorFile){
+						echo $errorFile."<br>";
+					}
+			?>	
         </div>
+        <?php endif;?>
         
     
         <fieldset class="submit">

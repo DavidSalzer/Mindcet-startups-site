@@ -161,6 +161,16 @@ function uploadFile($inputName,$postId){
    require_once(ABSPATH . "wp-admin" . '/includes/file.php');
    require_once(ABSPATH . "wp-admin" . '/includes/media.php');
 		//  foreach($_FILES as $field => $file){
+			
+		$allowedExts = array("gif", "jpeg", "jpg", "png");
+		$temp = explode(".", $_FILES[$inputName]["name"]);
+		$extension = end($temp);
+		if ((($_FILES[$inputName]["type"] == "image/gif")|| ($_FILES[$inputName]["type"] == "image/jpeg")
+			  || ($_FILES[$inputName]["type"] == "image/jpg")|| ($_FILES[$inputName]["type"] == "image/pjpeg")
+		      || ($_FILES[$inputName]["type"] == "image/x-png")|| ($_FILES[$inputName]["type"] == "image/png"))
+		&& ($_FILES[$inputName]["size"] < 20000)){
+			
+		
 			  $filename=basename($_FILES[$inputName]["name"]);
 			  $uploadedfile = $_FILES[$inputName];
 				  $upload_overrides = array( 'test_form' => false );
@@ -205,8 +215,11 @@ function uploadFile($inputName,$postId){
 							  //Remove it from the array to avoid duplicating during autosave/revisions.
 				//			  unset($_FILES[$field]);
   
-							
 					  }
+					  }else{
+						  $fileEroor='file upload eroor';
+						return $fileEroor; 	 
+					}
 		  //}//end foreach
 }
 ?>

@@ -1,9 +1,11 @@
    var maxSize=2;//mb
-   var fileMesg='file is 2 big';
+   var fileMesg='file is too big, Please ensure that file size is less than 2Mb.';
 // JavaScript Document
 $(document).ready(function (e) {
     
     showForm4();    
+    showArrowsStartups();
+    showArrowsJudges();
     
     $('#inventScrollR').on('click', this, function () {
         scrollVal = $('#scrollInventorCon').scrollLeft() + 500;
@@ -148,11 +150,15 @@ $(document).ready(function (e) {
 
     $("#logo").change(function (e) {
 		
+        //input.removeClass("error");
+        $("#validate-img-error").hide();
 		var size = document.getElementById("logo").files[0].size;
 		size=size/1024/1024;
 		if(size>maxSize){
-			alert(fileMesg);
-			return;
+			$("#validate-img-error").show();
+            //alert(fileMesg);
+            input.addClass("error");
+			return false;
 		}
 		
 		
@@ -179,11 +185,12 @@ $(document).ready(function (e) {
         }
     });
     $("#img-1").change(function (e) {
-		
+		//input.removeClass("error");
 		var size = document.getElementById("img-1").files[0].size;
 		size=size/1024/1024;
 		if(size>maxSize){
 			alert(fileMesg);
+            input.addClass("error");
 			return;
 		}
 		
@@ -208,7 +215,7 @@ $(document).ready(function (e) {
         }
     });
     $("#img-2").change(function (e) {
-		
+		input.removeClass("error");
 		var size = document.getElementById("img-2").files[0].size;
 		size=size/1024/1024;
 		if(size>maxSize){
@@ -237,7 +244,7 @@ $(document).ready(function (e) {
         }
     });
     $("#img-3").change(function (e) {
-		
+		input.removeClass("error");
 		var size = document.getElementById("img-3").files[0].size;
 		size=size/1024/1024;
 		if(size>maxSize){
@@ -265,19 +272,6 @@ $(document).ready(function (e) {
             console.log("noValidFile");
         }
     });
-
-    //$('.submit').on('click', this, function () {
-    //        $('#formPart3').hide();
-    //        $('#formPart4').show();
-    //        $('.last-page').css("display", "none");
-    //        $('#page-number-3').hide();
-    //        $('.submit input').css("display", "none");
-    //        var html = '        <div class="form-end-message">Yippee! The startup you added submitted for approval and will be uploaded in a few minutes.<br> You\'re more than welcome to share the competition with your friends! <br></div>';
-    //        var $formEndMessage = $(html);
-    //        $('#formPart4').append($formEndMessage);
-
-    //    return false;
-    //});
 
     //----------/end of form
 
@@ -345,11 +339,11 @@ $(document).ready(function (e) {
 
 
 function openOfferPopUp() {
-    disable_scroll();
+    //disable_scroll();
     $('.inventorPopUp').fadeIn(600, 'easeInOutBack');
-    $('html, body').animate({
-        scrollTop: $("#offer-zone").offset().top - 25
-    }, 1000, function () { enable_scroll() });
+    //$('html, body').animate({
+    //    scrollTop: $("#offer-zone").offset().top - 25
+    //}, 1000, function () { enable_scroll() });
 
 
     return false;
@@ -387,7 +381,7 @@ getImgUrl = function (data) {
 
 getMovieDataByURL = function (url) {
     $("#youtubeUrl").removeClass("error");
-    $("#validate-error").hide();
+    $(".validate-error").hide();
     if (url.indexOf('youtu.be') > 0 || url.indexOf('?v=') > 0 || url.indexOf('iframe') > 0 && url.indexOf('youtu') > 0) {
 
         var reg = new RegExp('(?:https?://)?(?:www\\.)?(?:youtu\\.be/|youtube\\.com(?:/embed/|/v/|/watch\\?v=))([\\w-]{10,12})', 'g');
@@ -413,7 +407,7 @@ getMovieDataByURL = function (url) {
         else {
             if (url != "") {
                 $("#youtubeUrl").addClass("error");
-                $("#validate-error").show();
+                $("#validate-general-error").show();
                 return null;
             }
             else {
@@ -424,7 +418,7 @@ getMovieDataByURL = function (url) {
 }
 
 this.setMovieDataByURL = function (url) {
-    console.log(url);
+    console.log(url);   
     if (url.indexOf('youtu.be') > 0 || url.indexOf('?v=') > 0 || url.indexOf('iframe') > 0 && url.indexOf('youtu') > 0) {
         var reg = new RegExp('(?:https?://)?(?:www\\.)?(?:youtu\\.be/|youtube\\.com(?:/embed/|/v/|/watch\\?v=))([\\w-]{10,12})', 'g');
         var tubeId = reg.exec(url)[1];
@@ -575,6 +569,7 @@ function enable_scroll() {
         }
 		if(tid){window.location.hash=tid;}
 		domUrl=document.URL;
+        domUrlTweet=domUrl.replace('#','%23');
         console.log(tid);
 		console.log(allTech[tid]);
     var html = '       <div class="topArea">    '
@@ -589,12 +584,20 @@ function enable_scroll() {
 	   html+='<a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]=&p[summary]=" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>';
 	   // html += '           <a href="http://www.facebook.com/sharer/sharer.php?u='+domUrl+'" class="social fb" title="(Share on Facebook)" target="_blank">Share on Facebook</a>';
         //html += '           <div class="social twitter">Share on <span class="letter-space">Twitter</span></div>    ';
-        html += '           <a href="http://twitter.com/intent/tweet?text='+domUrl+'" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>';
+        html += '           <a href="http://twitter.com/intent/tweet?text='+domUrlTweet+'" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>';
         //html += '           <div class="social linkedin">Share on <span class="letter-space">Linkedin</span></div>    ';
         html += '           <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url='+domUrl+'" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>';
-       //html += '           <div class="social likes"></div>    ';
+       //html += '           <div class="social likes"><!-- AddThis Button BEGIN -->';
 
-    html += '       </div>    ';
+       //html += '               <div class="addthis_toolbox addthis_floating_style addthis_counter_style" url=" " style="left:50px;top:50px;">';
+       //html += '                   <a class="addthis_button_facebook_like" fb:like:layout="box_count"></a>';
+       //
+       //html += '                </div>';
+       //html += '                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-52bab90d488ccc3b"></script>';
+       //html += '               <!-- AddThis Button END --></div>    ';
+       html += '          </div>    ';
+
+
 
     html += '       <div class="mainArea">    ';
     //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(allTech[tid].youtube)) + '" /><span class="play_button"></span> ' + '</div>    ';
@@ -616,14 +619,14 @@ function enable_scroll() {
     html += '           </div>    ';
     //html += '           <div class="fb-comments"></div>    ';
 
-    html += '            <div id="facebook-comments" class="text-box" shape-id="0">';
-    html += '               <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-colorscheme="light" data-numposts="10" data-width="488px" shape-id="0" fb-xfbml-state="rendered"> ';   
-    html += '                   <span style="">';
-    html += '                       <iframe id="f1956c9268" data-href="' + domUrl + '" name="ff7c6a088" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://m.facebook.com/plugins/comments.php?api_key=162470583945071&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D28%23cb%3Df142527dc8%26domain%3Dlocalhost%26origin%3Dhttp%253A%252F%252Flocalhost%253A55898%252Ff2e22d2284%26relation%3Dparent.parent&amp;colorscheme=light&amp;href=http%3A%2F%2Flocalhost%3A55898%2F%25D7%2590%25D7%2595%25D7%2596%25D7%25A0%25D7%2599-%25D7%25A4%25D7%2599%25D7%259C-%25D7%25A9%25D7%2595%25D7%25A7%25D7%2595%25D7%259C%25D7%2593&amp;locale=en_US&amp;mobile=true&amp;numposts=5&amp;sdk=joey&amp;skin=light" style="border: none; overflow: hidden; min-height: 492px;  width: 100%;">';
-    html += '                       </iframe>';
-    html += '                   </span>';
-    html += '               </div>';
-    html += '           </div>';
+    //html += '            <div id="facebook-comments" class="text-box" shape-id="0">';
+    //html += '               <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-colorscheme="light" data-numposts="10" data-width="488px" shape-id="0" fb-xfbml-state="rendered"> ';   
+    //html += '                   <span style="">';
+    //html += '                       <iframe id="f1956c9268" data-href="' + domUrl + '" name="ff7c6a088" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://m.facebook.com/plugins/comments.php?api_key=162470583945071&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D28%23cb%3Df142527dc8%26domain%3Dlocalhost%26origin%3Dhttp%253A%252F%252Flocalhost%253A55898%252Ff2e22d2284%26relation%3Dparent.parent&amp;colorscheme=light&amp;href=http%3A%2F%2Flocalhost%3A55898%2F%25D7%2590%25D7%2595%25D7%2596%25D7%25A0%25D7%2599-%25D7%25A4%25D7%2599%25D7%259C-%25D7%25A9%25D7%2595%25D7%25A7%25D7%2595%25D7%259C%25D7%2593&amp;locale=en_US&amp;mobile=true&amp;numposts=5&amp;sdk=joey&amp;skin=light" style="border: none; overflow: hidden; min-height: 492px;  width: 100%;">';
+    //html += '                       </iframe>';
+    //html += '                   </span>';
+    //html += '               </div>';
+    //html += '           </div>';
     html += '       </div>    ';
 
     youtube = allTech[tid].youtube;
@@ -680,10 +683,14 @@ function form1Validate() {
     //email
     var email = emailValidate($("#email"));
 
+    //description
+    var descript = descriptionValidate($("#description"));
+    
+
     //logo
     var logo = validateLogo($(".title-logo.logoimg"));
 
-    if (title & invetName & (email == undefined || email) & logo)
+    if (title & invetName & (email == undefined || email) & logo & descript)
         return true;
     return false;
 }
@@ -709,13 +716,13 @@ function form2Validate() {
 function validateEmptyInput(input) {
     if (input.val() == "") {
         input.addClass("error");
-        $("#validate-error").show();
+        $("#validate-general-error").show();
         return false;
         //alert(input.attr("id") + " is empty");
     }
     else {
         input.removeClass("error");
-        $("#validate-error").hide();
+        $("#validate-general-error").hide();
         return true;
     }
 }
@@ -727,16 +734,33 @@ function emailValidate(input) {
         if (!re.test(email)) {
             input.addClass("error");
             //alert("email is not validate");
-            $("#validate-error").show();
+            $("#validate-general-error").show();
             return false;
         }
         else {
             input.removeClass("error");
-            $("#validate-error").hide();
+            $("#validate-general-error").hide();
             return true;
         }
     }
 }
+//validate description field
+function descriptionValidate(input){
+    var words = $('#description').val().split(' ');
+    //alert(words.length);
+    if (words.length>200) {
+        input.addClass("error");
+            //alert("description is not validate");
+            $("#validate-description-error").show();
+            return false;
+    }
+    else{
+        input.removeClass("error");
+            $("#validate-description-error").hide();
+            return true;
+    }
+}
+
 //validate webSite field
 function validateSite(input) {
     //if there is not http
@@ -754,12 +778,25 @@ function validateSite(input) {
 function validateLogo(img) {
     if (img.text() == "Logo") {
         $(".formfield.input-border").addClass("error");
-        $("#validate-error").show();
+        $("#validate-general-error").show();
         return false;
     }
     $(".formfield.input-border").removeClass("error");
-    $("#validate-error").hide();
+    $("#validate-general-error").hide();
     return true;
+}
+
+function showArrowsStartups(){
+ if ($(".inventors .inventList li").length > 12){
+     $("#inventScrollR .rightScroll-arrow").show();
+     $("#inventScrollL .leftScroll-arrow").show();
+ }   
+}
+function showArrowsJudges(){
+ if ($(".judgesContenar .judgesAvantar").length > 5){
+     $("#judgesR .rightScroll-arrow").show();
+     $("#judgesL .leftScroll-arrow").show();
+ }   
 }
 
 function showForm4(){

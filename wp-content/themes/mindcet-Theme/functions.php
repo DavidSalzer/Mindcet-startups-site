@@ -297,10 +297,10 @@ function fileUp($postid){
 						//is ok ...
 						break;
 					case 1:
-						$fileEr[$file]='file 2 big...';
+						$fileEr[$file]='file is too big...';
 						break;
 					case 2:
-						$fileEr[$file]='file 2 big...';
+						$fileEr[$file]='file is too big...';
 						break;
 					case 3:
 						$fileEr[$file]='somthing happen...';

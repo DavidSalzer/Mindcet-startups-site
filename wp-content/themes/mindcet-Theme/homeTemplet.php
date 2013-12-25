@@ -190,7 +190,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 
         </div>
         <?php  $res=(empty($fileEr))?'good':'bad';?>
-        <div id="formPart4" class="<?php echo $res.' show';?>">
+        <div id="formPart4" class="<?php echo $res;if(isset($_POST['submit']))echo ' show'?>">
             	<?php if(!empty($error['initiator'])){echo $error['initiator'];}else{?>
         
             <div class="form-end-message">
@@ -210,7 +210,9 @@ do_action('wp_insert_post', 'wp_insert_post');
         <input type="hidden" name="action" value="new_post" />
         <?php wp_nonce_field( 'new-post' ); ?>
     </form>
-    <div id="validate-error">* please insert a valid text </div>
+    <div id="validate-general-error" class="validate-error">* please insert a valid text </div>
+    <div id="validate-description-error" class="validate-error">* please insert less than 200 words to description field </div>
+    <div id="validate-img-error" class="validate-error">* file is too big, Please ensure that file size is less than 2Mb </div>
     <span id="page-number-1" class="page-number">1/3</span>
     <span id="page-number-2" class="page-number">2/3</span>
     <span id="page-number-3" class="page-number">3/3</span>
@@ -336,8 +338,8 @@ do_action('wp_insert_post', 'wp_insert_post');
     <div class="rightScroll" id="judgesR"><div class="rightScroll-arrow"></div></div>
     <div class="leftScroll" id="judgesL"><div class="leftScroll-arrow"></div></div>
 <div class="judgesContenar" id="judgesCon">
-	
-    <div class="judgesAvantar hide"> </div>
+	<span class="placholderSlide"></span>
+    <!--<div class="judgesAvantar hide"> </div>-->
 <?php
         $args = array(
         'posts_per_page'   => -1,
@@ -362,7 +364,7 @@ do_action('wp_insert_post', 'wp_insert_post');
     
     <?php endforeach; 
         wp_reset_postdata();?>
-	<div class="judgesAvantar hide"> </div>
+	<!--<div class="judgesAvantar hide"> </div>-->
 </div>
 </div>
 <div id="judges-banner" class="middelBanner">

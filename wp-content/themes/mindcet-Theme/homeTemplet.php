@@ -59,7 +59,8 @@ set_post_thumbnail( 165, 176177178179 );
 	  $site=$_POST['site'];
 	}
 	if( $my_post=get_page_by_title( $title, 'OBJECT', 'initiator' )){
-		 $error['initiator']= "initiator title is already exists";	
+		 $error['initiator']= "<div class='form-end-message'>Sorry, initiator title is already exists</div>";	
+		 $error['initiator'] = "<div class='form-end-message'>Sorry, initiator title is already exists<div>";	
 	}else{
 		if(empty($error['initiator'])){
 			$name=filter_input(INPUT_POST,'invetName',FILTER_SANITIZE_STRING);

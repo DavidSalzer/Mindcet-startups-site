@@ -31,8 +31,6 @@ set_post_thumbnail( 165, 176177178179 );
     <?php 
   if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post"&& isset($_POST['submit'])) {
 	// Do some minor form validation to make sure there is content
-	$error=array();
-	$fileError=array();
 	if (isset ($_POST['title'])) {
 		$title =  $_POST['title'];
 	} else {
@@ -61,7 +59,7 @@ set_post_thumbnail( 165, 176177178179 );
 	  $site=$_POST['site'];
 	}
 	if( $my_post=get_page_by_title( $title, 'OBJECT', 'initiator' )){
-		 $error['initiator']= "initiator title is already exists";	
+		 $error= "initiator title is already exists";	
 	}else{
 		if(empty($error)){
 			$name=filter_input(INPUT_POST,'invetName',FILTER_SANITIZE_STRING);
@@ -203,7 +201,7 @@ do_action('wp_insert_post', 'wp_insert_post');
         <input type="hidden" name="action" value="new_post" />
         <?php wp_nonce_field( 'new-post' ); ?>
     </form>
-    <div id="validate-error">please insert a valid text </div>
+    <div id="validate-error">* please insert a valid text </div>
     <span id="page-number-1" class="page-number">1/3</span>
     <span id="page-number-2" class="page-number">2/3</span>
     <span id="page-number-3" class="page-number">3/3</span>

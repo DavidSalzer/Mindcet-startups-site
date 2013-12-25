@@ -259,6 +259,8 @@ function fileUp($postid){
 						  );
   
   						//echo ;	
+						
+						//$fileEr['fileUp']='ok';
 							
 						$id = wp_insert_attachment( $attachment,$uploaded_file['file'], $postid );
 						if($file=='logo'){
@@ -283,7 +285,7 @@ function fileUp($postid){
 			
 			 /////
 			    if ($_FILES[$file]['error'] !== UPLOAD_ERR_OK) {
-                    return "upload error : " . $_FILES[$file]['error'];
+                  //  return "upload error : " . $_FILES[$file]['error'];
                 }else{
 					//$attach_id = media_handle_upload( $file, $new_post );
 				//	echo "file ok<br>";
@@ -311,7 +313,9 @@ function fileUp($postid){
 				 	}
 				 
 					return $fileEr;
-				}//TYPE...      
+				}//TYPE... 
+				
+				     
             }//end forech
 			
         //return $fileEr;

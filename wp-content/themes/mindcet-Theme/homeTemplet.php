@@ -59,6 +59,7 @@ set_post_thumbnail( 165, 176177178179 );
 	  $site=$_POST['site'];
 	}
 	if( $my_post=get_page_by_title( $title, 'OBJECT', 'initiator' )){
+		 $error['initiator']= "initiator title is already exists";	
 		 $error['initiator'] = "initiator title is already exists";	
 	}else{
 		if(empty($error['initiator'])){
@@ -190,7 +191,15 @@ do_action('wp_insert_post', 'wp_insert_post');
         </div>
         <?php  $res=(empty($fileEr))?'good':'bad';?>
         <div id="formPart4" class="<?php echo $res;?>">
-            	<?php if(!empty($error['initiator']))echo $error['initiator'];?>
+            	<?php if(!empty($error['initiator'])){echo $error['initiator'];}else{?>
+        
+            <div class="form-end-message">
+                Yippee! The startup you added submitted for approval and will be uploaded in a few minutes.<br>
+                You're more than welcome to share the competition with your friends! <br>
+            </div>
+        
+        
+        		<?php }?>	
         </div>
     
     

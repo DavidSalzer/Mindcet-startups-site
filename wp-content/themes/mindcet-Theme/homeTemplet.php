@@ -59,9 +59,9 @@ set_post_thumbnail( 165, 176177178179 );
 	  $site=$_POST['site'];
 	}
 	if( $my_post=get_page_by_title( $title, 'OBJECT', 'initiator' )){
-		 $error= "initiator title is already exists";	
+		 $error['initiator'] = "initiator title is already exists";	
 	}else{
-		if(empty($error)){
+		if(empty($error['initiator'])){
 			$name=filter_input(INPUT_POST,'invetName',FILTER_SANITIZE_STRING);
 			$founder=filter_input(INPUT_POST,'founder',FILTER_SANITIZE_STRING);
 			$youtubeUrl=filter_input(INPUT_POST,'youtubeUrl',FILTER_SANITIZE_STRING);

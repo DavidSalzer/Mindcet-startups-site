@@ -1,6 +1,22 @@
         
 // JavaScript Document
 $(document).ready(function (e) {
+    
+    //if ($('#formPart4').hasClass(good)){
+    //    #offer-zone
+    //    $('#offer-zone').show();
+    //    $('#formPart2').show();
+    //    $('.next-page').css("display", "none");
+    //    $('.last-page').css("display", "none");
+    //    $('.last-page').css("display", "inline-block");
+    //}
+    //else if ($('#formPart4').hasClass(good)){
+    //    
+    //}
+    //else{
+    //    
+    //}
+    
     $('#inventScrollR').on('click', this, function () {
         scrollVal = $('#scrollInventorCon').scrollLeft() + 500;
         $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');

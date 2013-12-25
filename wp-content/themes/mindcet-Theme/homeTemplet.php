@@ -59,8 +59,8 @@ set_post_thumbnail( 165, 176177178179 );
 	  $site=$_POST['site'];
 	}
 	if( $my_post=get_page_by_title( $title, 'OBJECT', 'initiator' )){
-		 $error['initiator']= "initiator title is already exists";	
-		 $error['initiator'] = "initiator title is already exists";	
+		 $error['initiator']= "<div class='form-end-message'>Sorry, initiator title is already exists</div>";	
+		 $error['initiator'] = "<div class='form-end-message'>Sorry, initiator title is already exists<div>";	
 	}else{
 		if(empty($error['initiator'])){
 			$name=filter_input(INPUT_POST,'invetName',FILTER_SANITIZE_STRING);
@@ -190,7 +190,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 
         </div>
         <?php  $res=(empty($fileEr))?'good':'bad';?>
-        <div id="formPart4" class="<?php echo $res;?>">
+        <div id="formPart4" class="<?php echo $res.' show';?>">
             	<?php if(!empty($error['initiator'])){echo $error['initiator'];}else{?>
         
             <div class="form-end-message">

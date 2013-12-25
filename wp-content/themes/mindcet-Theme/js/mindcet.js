@@ -2,20 +2,7 @@
 // JavaScript Document
 $(document).ready(function (e) {
     
-    //if ($('#formPart4').hasClass(good)){
-    //    #offer-zone
-    //    $('#offer-zone').show();
-    //    $('#formPart2').show();
-    //    $('.next-page').css("display", "none");
-    //    $('.last-page').css("display", "none");
-    //    $('.last-page').css("display", "inline-block");
-    //}
-    //else if ($('#formPart4').hasClass(good)){
-    //    
-    //}
-    //else{
-    //    
-    //}
+    showForm4();    
     
     $('#inventScrollR').on('click', this, function () {
         scrollVal = $('#scrollInventorCon').scrollLeft() + 500;
@@ -39,6 +26,11 @@ $(document).ready(function (e) {
     //-------form------
 
     $('#offerStartUp').on('click', this, function (e) {
+        $('#formPart4').removeClass('show');
+        $('#formPart4').hide();
+        $('#formPart1').show();
+        $('.next-page').css("display", "inline-block");
+        $('#page-number-1').show();
         openOfferPopUp();
         e.preventDefault();
 
@@ -548,7 +540,9 @@ function enable_scroll() {
 
 //////////////////////////
   function popuopInvent (tid) {
-        $('.inventorPopUp .close').click();
+        if ($('#formPart4').is(":hidden")){
+            $('.inventorPopUp .close').click();
+        }
 		if(tid){window.location.hash=tid;}
 		domUrl=document.URL;
         console.log(tid);
@@ -736,6 +730,23 @@ function validateLogo(img) {
     $(".formfield.input-border").removeClass("error");
     $("#validate-error").hide();
     return true;
+}
+
+function showForm4(){
+    if ($('#formPart4').hasClass('show')){
+        $('#offer-zone').show();
+        $('.next-page').css("display", "none");
+        $('.last-page').css("display", "none");
+        $('.submit input').css("display", "none");
+        $('.last-page').css("display", "none");
+        $('#formPart1').hide();
+        $('#page-number-1').hide();
+        $('#formPart4').show();
+        //$('#formPart4').css("display", "inline-block");
+    }
+    else{
+         $('#offer-zone').hide();
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////end validation

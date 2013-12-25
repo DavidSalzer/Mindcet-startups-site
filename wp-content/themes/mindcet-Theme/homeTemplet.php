@@ -86,9 +86,10 @@ set_post_thumbnail( 165, 176177178179 );
 			update_post_meta($pid, 'wpcf-founder-email', $founderMail);
 		   
 		   update_post_meta($pid, 'wpcf-youtube-url', $youtubeUrl);
-			//uploadFile($pid);
-			$fileEr=fileUp($pid);
 			
+		
+		//uploadFile($pid);
+			$fileEr=fileUp($pid);	
 			
 			//REDIRECT TO THE NEW POST ON SAVE
 		//	$link = get_permalink( $pid );

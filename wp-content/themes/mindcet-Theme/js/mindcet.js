@@ -1,4 +1,4 @@
-
+        
 // JavaScript Document
 $(document).ready(function (e) {
     $('#inventScrollR').on('click', this, function () {
@@ -228,13 +228,13 @@ $(document).ready(function (e) {
         }
     });
 
-    //$('.submit input').on('click', this, function () {
+    //$('.submit').on('click', this, function () {
     //        $('#formPart3').hide();
     //        $('#formPart4').show();
     //        $('.last-page').css("display", "none");
     //        $('#page-number-3').hide();
     //        $('.submit input').css("display", "none");
-    //        var html = '        <div class="form-end-message">Registration is pending approval. <br><br>Thank you!</div>';
+    //        var html = '        <div class="form-end-message">Yippee! The startup you added submitted for approval and will be uploaded in a few minutes.<br> You\'re more than welcome to share the competition with your friends! <br></div>';
     //        var $formEndMessage = $(html);
     //        $('#formPart4').append($formEndMessage);
 
@@ -533,9 +533,10 @@ function enable_scroll() {
 //////////////////////////
   function popuopInvent (tid) {
         $('.inventorPopUp .close').click();
-		if(tid)window.location.hash=tid;
+		if(tid){window.location.hash=tid;}
 		domUrl=document.URL;
-		
+        console.log(tid);
+		console.log(allTech[tid]);
     var html = '       <div class="topArea">    '
     html += '		    <div class="title ellipsis">' + allTech[tid].title + '</div>';
     html += '<div class="startup-popup-logo"><img class="wp-post-image" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
@@ -545,12 +546,12 @@ function enable_scroll() {
         //html += '           <div class="social fb">Share on <span class="letter-space">Facbook</span></div>    ';
        // html += '           <div class="social fb"><div class="fb-share-button" data-href="'+domUrl+'" data-type="button_count"></div></div>    ';
        
-	   html+='<a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]=&p[summary]=" class="social fb" title="(Share on Facebook)" target="_blank">Share on Facebook</a>';
+	   html+='<a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]=&p[summary]=" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>';
 	   // html += '           <a href="http://www.facebook.com/sharer/sharer.php?u='+domUrl+'" class="social fb" title="(Share on Facebook)" target="_blank">Share on Facebook</a>';
         //html += '           <div class="social twitter">Share on <span class="letter-space">Twitter</span></div>    ';
-        html += '           <a href="http://twitter.com/intent/tweet?text='+domUrl+'" class="social twitter" title="(Tweet This Link)" target="_blank">Share on Twitter</a>';
+        html += '           <a href="http://twitter.com/intent/tweet?text='+domUrl+'" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>';
         //html += '           <div class="social linkedin">Share on <span class="letter-space">Linkedin</span></div>    ';
-        html += '           <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url='+domUrl+'" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on LinkedIn</a>';
+        html += '           <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url='+domUrl+'" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>';
        //html += '           <div class="social likes"></div>    ';
 
     html += '       </div>    ';
@@ -575,14 +576,14 @@ function enable_scroll() {
     html += '           </div>    ';
     //html += '           <div class="fb-comments"></div>    ';
 
-    //html += '            <div id="recipe-facebook-comments" class="text-box" shape-id="0">';
-    //html += '               <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="http://localhost:55898/%D7%90%D7%95%D7%96%D7%A0%D7%99-%D7%A4%D7%99%D7%9C-%D7%A9%D7%95%D7%A7%D7%95%D7%9C%D7%93" data-colorscheme="light" data-numposts="5" data-width="488px" shape-id="0" fb-xfbml-state="rendered"> ';   
-    //html += '                   <span style="height: 159px;">';
-    //html += '                       <iframe id="f1956c9268" name="ff7c6a088" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://m.facebook.com/plugins/comments.php?api_key=162470583945071&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D28%23cb%3Df142527dc8%26domain%3Dlocalhost%26origin%3Dhttp%253A%252F%252Flocalhost%253A55898%252Ff2e22d2284%26relation%3Dparent.parent&amp;colorscheme=light&amp;href=http%3A%2F%2Flocalhost%3A55898%2F%25D7%2590%25D7%2595%25D7%2596%25D7%25A0%25D7%2599-%25D7%25A4%25D7%2599%25D7%259C-%25D7%25A9%25D7%2595%25D7%25A7%25D7%2595%25D7%259C%25D7%2593&amp;locale=en_US&amp;mobile=true&amp;numposts=5&amp;sdk=joey&amp;skin=light" style="border: none; overflow: hidden; height: 159px; width: 100%;">';
-    //html += '                       </iframe>';
-    //html += '                   </span>';
-    //html += '               </div>';
-    //html += '           </div>';
+    html += '            <div id="recipe-facebook-comments" class="text-box" shape-id="0">';
+    html += '               <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="' + domUrl + '" data-colorscheme="light" data-numposts="5" data-width="488px" shape-id="0" fb-xfbml-state="rendered"> ';   
+    html += '                   <span style="height: 159px;">';
+    html += '                       <iframe id="f1956c9268" name="ff7c6a088" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://m.facebook.com/plugins/comments.php?api_key=162470583945071&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D28%23cb%3Df142527dc8%26domain%3Dlocalhost%26origin%3Dhttp%253A%252F%252Flocalhost%253A55898%252Ff2e22d2284%26relation%3Dparent.parent&amp;colorscheme=light&amp;href=http%3A%2F%2Flocalhost%3A55898%2F%25D7%2590%25D7%2595%25D7%2596%25D7%25A0%25D7%2599-%25D7%25A4%25D7%2599%25D7%259C-%25D7%25A9%25D7%2595%25D7%25A7%25D7%2595%25D7%259C%25D7%2593&amp;locale=en_US&amp;mobile=true&amp;numposts=5&amp;sdk=joey&amp;skin=light" style="border: none; overflow: hidden; height: 159px; width: 100%;">';
+    html += '                       </iframe>';
+    html += '                   </span>';
+    html += '               </div>';
+    html += '           </div>';
     html += '       </div>    ';
 
     youtube = allTech[tid].youtube;
@@ -722,3 +723,4 @@ function validateLogo(img) {
 }
 
 /////////////////////////////////////////////////////////////////////////end validation
+

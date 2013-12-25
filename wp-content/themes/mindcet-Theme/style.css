@@ -1314,7 +1314,7 @@ line-height: 83px;
     /* height: 55px; */
 }
 .socialArea .social {
-   width: 42px;
+   width: 38px;
 
    height: 22px;
 border-bottom: 1px solid #6a6a6a;
@@ -1352,7 +1352,7 @@ color: #555ca8;
 }
 .socialArea .linkedin {
     background-image: url("img/social_startup_popup.png");
-    background-position-x: 100%;
+    background-position-x: 93%;
     color: #2980b9;
     margin: 11px 0 0 56px;
     display: block;
@@ -1361,10 +1361,10 @@ color: #555ca8;
     
 }
 .socialArea .fb .letter-space, .socialArea .linkedin .letter-space{
-    letter-spacing: .4px;
+    letter-spacing: .3px;
 }
 .socialArea .twitter .letter-space{
-    letter-spacing: 2.1px;
+    letter-spacing: 1.9px;
 }
 #formPart3 .mainArea .movie{
     width: 221px;
@@ -1401,7 +1401,7 @@ margin-right: 56px;
 
 #formPart3 .mainArea .description {
 
-/*height: 60px;*/
+height: 60px;
 
 overflow-y: auto;
 margin-bottom: 10px;
@@ -1487,7 +1487,7 @@ top: 30px;*/
     width: 320px;
 }
 .inventDescription .startup-popup-logo {
-    width: 106px;
+    /*width: 106px;*/
     height: 60px;
     float: right;
     position: relative;

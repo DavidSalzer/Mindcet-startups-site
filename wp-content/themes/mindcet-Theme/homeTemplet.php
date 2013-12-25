@@ -189,7 +189,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 
         </div>
         <?php  $res=(empty($fileEr))?'good':'bad';?>
-        <div id="formPart4" class="<?php echo $res.' show';?>">
+        <div id="formPart4" class="<?php echo $res;if(isset($_POST['submit']))echo ' show'?>">
             	<?php if(!empty($error['initiator'])){echo $error['initiator'];}else{?>
         
             <div class="form-end-message">

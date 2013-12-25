@@ -320,9 +320,12 @@ $(document).ready(function (e) {
     updateMenuUrl();
     //hide popup when scrolling down
     $(document).on('scroll', this, function () {
-        if ($(document).scrollTop() > 350) {
-            $('#offer-zone').fadeOut("slow");
+		console.log($(document).scrollTop());
+        setTimeout(function(){
+		if ($(document).scrollTop() > 550) {
+           $('#offer-zone').fadeOut("slow");
         }
+		},500);
 
     });
     $('.inventList li').on('click', this, function () {
@@ -338,10 +341,10 @@ $(document).ready(function (e) {
 
 function openOfferPopUp() {
     disable_scroll();
-    $('.inventorPopUp').fadeIn(600, 'easeInOutBack');
+    $('.inventorPopUp').fadeIn(1500, 'easeInOutBack');
     $('html, body').animate({
         scrollTop: $("#offer-zone").offset().top - 25
-    }, 1000, function () { enable_scroll() });
+    }, 500, function () { enable_scroll() });
 
 
     return false;
@@ -753,4 +756,3 @@ function validateLogo(img) {
 }
 
 /////////////////////////////////////////////////////////////////////////end validation
-

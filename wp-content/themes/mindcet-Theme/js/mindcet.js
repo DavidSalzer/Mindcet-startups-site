@@ -1,4 +1,5 @@
-        
+   var maxSize=2;//mb
+   var fileMesg='file is 2 big';
 // JavaScript Document
 $(document).ready(function (e) {
     $('#inventScrollR').on('click', this, function () {
@@ -138,7 +139,15 @@ $(document).ready(function (e) {
     var ImgSrc3 = null;
 
     $("#logo").change(function (e) {
-
+		
+		var size = document.getElementById("logo").files[0].size;
+		size=size/1024/1024;
+		if(size>maxSize){
+			alert(fileMesg);
+			return;
+		}
+		
+		
         var fileName = $(this).val();
 
         $('.title-logo.logoimg').text(fileName);
@@ -162,7 +171,14 @@ $(document).ready(function (e) {
         }
     });
     $("#img-1").change(function (e) {
-
+		
+		var size = document.getElementById("img-1").files[0].size;
+		size=size/1024/1024;
+		if(size>maxSize){
+			alert(fileMesg);
+			return;
+		}
+		
         var fileName = $(this).val();
         $('.title-logo.img1').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
@@ -184,6 +200,13 @@ $(document).ready(function (e) {
         }
     });
     $("#img-2").change(function (e) {
+		
+		var size = document.getElementById("img-2").files[0].size;
+		size=size/1024/1024;
+		if(size>maxSize){
+			alert(fileMesg);
+			return;
+		}
 
         var fileName = $(this).val();
         $('.title-logo.img2').text(fileName);
@@ -206,6 +229,13 @@ $(document).ready(function (e) {
         }
     });
     $("#img-3").change(function (e) {
+		
+		var size = document.getElementById("img-3").files[0].size;
+		size=size/1024/1024;
+		if(size>maxSize){
+			alert(fileMesg);
+			return;
+		}
 
         var fileName = $(this).val();
         $('.title-logo.img3').text(fileName);

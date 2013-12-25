@@ -59,8 +59,7 @@ set_post_thumbnail( 165, 176177178179 );
 	  $site=$_POST['site'];
 	}
 	if( $my_post=get_page_by_title( $title, 'OBJECT', 'initiator' )){
-		 $error['initiator']= "<div class='form-end-message'>Sorry, initiator title is already exists</div>";	
-		 $error['initiator'] = "<div class='form-end-message'>Sorry, initiator title is already exists<div>";	
+		 $error['initiator']= "<div class='form-end-message'>Oops!<br><br> Something got wrong, please try again</div>";	
 	}else{
 		if(empty($error['initiator'])){
 			$name=filter_input(INPUT_POST,'invetName',FILTER_SANITIZE_STRING);
@@ -194,7 +193,7 @@ do_action('wp_insert_post', 'wp_insert_post');
             	<?php if(!empty($error['initiator'])){echo $error['initiator'];}else{?>
         
             <div class="form-end-message">
-                Yippee! The startup you added submitted for approval and will be uploaded in a few minutes.<br>
+                Yippee! <br><br>The startup you added submitted for approval and will be uploaded in a few minutes. 
                 You're more than welcome to share the competition with your friends! <br>
             </div>
         

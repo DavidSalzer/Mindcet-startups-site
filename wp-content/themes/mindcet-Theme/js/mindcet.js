@@ -29,12 +29,13 @@ $(document).ready(function (e) {
     //-------form------
 
     $('#offerStartUp').on('click', this, function (e) {
+        openOfferPopUp();
         $('#formPart4').removeClass('show');
         $('#formPart4').hide();
         $('#formPart1').show();
         $('.next-page').css("display", "inline-block");
         $('#page-number-1').show();
-        openOfferPopUp();
+        //openOfferPopUp();
         e.preventDefault();
 
     });
@@ -157,7 +158,7 @@ $(document).ready(function (e) {
 		if(size>maxSize){
 			$("#validate-img-error").show();
             //alert(fileMesg);
-            input.addClass("error");
+            //input.addClass("error");
 			return false;
 		}
 		
@@ -345,7 +346,7 @@ function openOfferPopUp() {
     //disable_scroll();
     $('.inventorPopUp').fadeIn(1500, 'easeInOutBack');
     $('html, body').animate({
-        scrollTop: $("#offer-zone").offset().top - 25
+        scrollTop: $("#offer-zone").offset().top -25
     }, 500, function () { enable_scroll() });
 
 
@@ -518,7 +519,7 @@ function updateMenuUrl() {
     //scroll smooth
     $('a[href^="#"]').click(function () {    // Change to needed selector
         $("html, body").animate({    // Need both for full browser support
-            scrollTop: $($(this).attr("href")).offset().top - 154 // Extra 100px
+            scrollTop: $($(this).attr("href")).offset().top - 25 // Extra 100px
         }, 500);    // Change to desired scroll time in ms
         return false;    // Prevents the dreaded jump/flash
     });
@@ -604,9 +605,9 @@ function enable_scroll() {
 
     html += '       <div class="mainArea">    ';
     //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(allTech[tid].youtube)) + '" /><span class="play_button"></span> ' + '</div>    ';
-    var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube));
+    var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480);
     if (videoIframe != undefined)
-        html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube)) + '</div>';
+        html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480) + '</div>';
     //html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube)) +'</div>';
     html += '		    <div class="name ellipsis">' + allTech[tid].name + '</div>';
     html += '		    <div class="description">' + allTech[tid].descript + '</div>';
@@ -638,7 +639,7 @@ function enable_scroll() {
     $('.mask').fadeIn(600, 'easeInOutBack');
 
     $('html, body').animate({
-        scrollTop: $("#single-startup-zone").offset().top - 25
+        scrollTop: $("#invent-close").offset().top - 25
     }, 1000);
 
     var $inventDescription = $(html);
@@ -648,6 +649,9 @@ function enable_scroll() {
         $('.inventDescription').empty().append('<span id="invent-close" class="close">x</span>');
         $('.inventDescription').fadeOut(600, 'easeInOutBack');
 		window.location.hash='';
+        $('html, body').animate({
+            scrollTop: "550px"
+        }, 1);
         $('.mask').fadeOut(600, 'easeInOutBack');
         return false;
     });

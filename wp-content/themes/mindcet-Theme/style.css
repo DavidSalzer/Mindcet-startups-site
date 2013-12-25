@@ -1054,12 +1054,23 @@ text-indent: 0;
     width: 412px;
 height: 400px;
 margin: auto;
-font-size: 36px;
+font-size: 25px;
+font-family: sans;
 vertical-align: middle;
 margin-top: 120px;
 left: 0;
 right: 0;  
 text-align: center;
+}
+.form-end-message:first-line{
+    font-size: 40px;
+    font-family: sansbold;
+}
+.bad .form-end-message:first-line{
+    color: #e76c76;
+}
+.good .form-end-message:first-line{
+    color: #21cb89;
 }
 
 /*.validate-error{*/
@@ -1088,6 +1099,7 @@ display: none;
 .page-2-buttons .next-page{
     display: none;
 }
+
  .next-page{
     right: 44px;
 }
@@ -1521,7 +1533,7 @@ padding-right: 30px;
 }
 .inventDescription .mainArea .movie {
     width: 340px;
-    margin: 60px 0 0 80px;
+    margin: 30px 0 0 18px;
 }
 .inventDescription .mainArea .name.ellipsis {
     clear: both;

@@ -48,12 +48,13 @@ set_post_thumbnail( 165, 176177178179 );
 	  $email= $_POST['email'];
 	}
 	if(!filter_var($_POST['founderMail'], FILTER_VALIDATE_EMAIL)){
-	 //$error= "E-mail Founder is not valid";
+	 // $error['email']= "E-mail Founder is not valid";
+	  
 	}else{
 	  $founderMail= $_POST['founderMail'];
 	}
 	if(!filter_var($_POST['site'], FILTER_VALIDATE_URL)){
-	//   $error= "URL is not valid";
+	 //  $error['url']= "URL is not valid";
 	}else{
 	  $site=$_POST['site'];
 	}
@@ -83,10 +84,10 @@ set_post_thumbnail( 165, 176177178179 );
 			update_post_meta($pid, 'wpcf-founder-email', $founderMail);
 		   
 		   update_post_meta($pid, 'wpcf-youtube-url', $youtubeUrl);
-			uploadFile('logo',$pid);
-			uploadFile('img-1',$pid);
-			uploadFile('img-2',$pid);
-			uploadFile('img-3',$pid);
+			//uploadFile($pid);
+			$fileEr=fileUp($pid);
+			
+			
 			//REDIRECT TO THE NEW POST ON SAVE
 		//	$link = get_permalink( $pid );
 		}//if empty eprrr
@@ -186,10 +187,11 @@ do_action('wp_insert_post', 'wp_insert_post');
         <div id="formPart3">
 
         </div>
-        <div id="formPart4">
-            
+        <?php  $res=(empty($fileEr))?'good':'bad';?>
+        <div id="formPart4" class="<?php echo $res;?>">
+            	<?php if(!empty($error['initiator']))echo $error['initiator'];?>
         </div>
-        
+    
     
         <fieldset class="submit">
             <input type="submit" value="Sign" tabindex="40" id="submit" name="submit" />

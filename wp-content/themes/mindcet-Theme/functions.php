@@ -153,26 +153,24 @@
 	
 	///upload file from frontEnd
 		//Upload Images
-function uploadFile($inputName,$postId){
+function uploadFile($postId){
 	
-	
+	$okfile=array('image/gif','image/jpeg','image/jpg','image/pjpeg','image/png','image/x-png');
 								
    require_once(ABSPATH . "wp-admin" . '/includes/image.php');
    require_once(ABSPATH . "wp-admin" . '/includes/file.php');
    require_once(ABSPATH . "wp-admin" . '/includes/media.php');
-		//  foreach($_FILES as $field => $file){
+	foreach($_FILES as $field => $file){
+			
+		if(in_array($_FILES[$file]["type"],$okfile)):
+
 			
 		$allowedExts = array("gif", "jpeg", "jpg", "png");
-		$temp = explode(".", $_FILES[$inputName]["name"]);
+		$temp = explode(".", $_FILES[$file]["name"]);
 		$extension = end($temp);
-		if ((($_FILES[$inputName]["type"] == "image/gif")|| ($_FILES[$inputName]["type"] == "image/jpeg")
-			  || ($_FILES[$inputName]["type"] == "image/jpg")|| ($_FILES[$inputName]["type"] == "image/pjpeg")
-		      || ($_FILES[$inputName]["type"] == "image/x-png")|| ($_FILES[$inputName]["type"] == "image/png"))
-		&& ($_FILES[$inputName]["size"] < 20000)){
-			
 		
-			  $filename=basename($_FILES[$inputName]["name"]);
-			  $uploadedfile = $_FILES[$inputName];
+			  $filename=basename($_FILES[$file]["name"]);
+			  $uploadedfile = $_FILES[$file];
 				  $upload_overrides = array( 'test_form' => false );
 				  $uploaded_file  = wp_handle_upload( $uploadedfile, $upload_overrides );
 					  if ( $uploaded_file ) {
@@ -184,28 +182,27 @@ function uploadFile($inputName,$postId){
 						  'post_content' => '',
 						  'post_type' => 'attachment',
 						  'post_parent' => $postId,
-						  'post_mime_type' => $_FILES[$inputName]['type'],
+						  'post_mime_type' => $_FILES[$file]['type'],
 						  'guid' => $uploaded_file['url']
 						  );
   
   							
 						$id = wp_insert_attachment( $attachment,$uploaded_file['url'], $postid );
 				
-						if($inputName=='logo'){
-						
+						if($file=='logo'){
 							$metadata = wp_generate_attachment_metadata( $id, $uploaded_file['file']);
 							wp_update_attachment_metadata( $id, $metadata );
 						
 							// Finally! set our post thumbnail
 							update_post_meta( $postId, '_thumbnail_id', $id );
 						}
-						if($inputName=='img-1'){
+						if($file=='img-1'){
 							update_post_meta($postId,'wpcf-startup-img',$uploaded_file['url']);
 						}
-						if($inputName=='img-2'){
+						if($file=='img-2'){
 							update_post_meta($postId,'wpcf-startup-img-2',$uploaded_file['url']);
 						}
-						if($inputName=='img-3'){
+						if($file=='img-3'){
 							update_post_meta($postId,'wpcf-startup-img-3',$uploaded_file['url']);
 						}
 				
@@ -215,11 +212,112 @@ function uploadFile($inputName,$postId){
 							  //Remove it from the array to avoid duplicating during autosave/revisions.
 				//			  unset($_FILES[$field]);
   
-					  }
 					 // }else{
 						//  $fileEroor='file upload eroor';
 						//return $fileEroor; 	 
 					}
-		  //}//end foreach
+				endif;	
+		  }//end foreach
 }
+
+function fileUp($postid){
+		if ($_FILES) { //if there is any file
+			
+    		$fileEr=array();
+			$okfile=array('image/gif','image/jpeg','image/jpg','image/pjpeg','image/png','image/x-png');
+			$postid=$postid;
+			
+	        require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+            require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+            require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+
+			
+			
+	        foreach ($_FILES as $file => $array) {
+             //////check file types
+			 if(in_array($_FILES[$file]["type"],$okfile)){ //TYPE...
+			 
+			 $filename=basename($_FILES[$file]["name"]);
+			
+			 $uploadedfile = $_FILES[$file];
+				  $upload_overrides = array( 'test_form' => false );
+				 				 //echo "<pre>".print_r($uploadedfile,1)."</pre>";
+
+				  $uploaded_file  = wp_handle_upload( $uploadedfile, $upload_overrides );
+					//	echo "<pre>".print_r($uploaded_file,1)."</pre>";
+					  if ( $uploaded_file ) {
+						// echo "filetype:". $uploaded_file['url'];
+						// var_dump($uploaded_file);
+						 
+						  $attachment = array(
+						  'post_title' => $filename,
+						  'post_content' => '',
+						  'post_type' => 'attachment',
+						  'post_parent' => $postid,
+						  'post_mime_type' => $_FILES[$file]['type'],
+						  'guid' => $uploaded_file['file']
+						  );
+  
+  						//echo ;	
+							
+						$id = wp_insert_attachment( $attachment,$uploaded_file['file'], $postid );
+						if($file=='logo'){
+							$metadata = wp_generate_attachment_metadata( $id, $uploaded_file['file']);
+							wp_update_attachment_metadata( $id, $metadata );
+						
+							// Finally! set our post thumbnail
+							update_post_meta( $postid, '_thumbnail_id', $id );
+						}
+				
+						if($file=='img-1'){
+							update_post_meta($postid,'wpcf-startup-img',$uploaded_file['url']);
+						}
+						if($file=='img-2'){
+							update_post_meta($postid,'wpcf-startup-img-2',$uploaded_file['url']);
+						}
+						if($file=='img-3'){
+							update_post_meta($postid,'wpcf-startup-img-3',$uploaded_file['url']);
+						}
+			  
+					  }
+			
+			 /////
+			    if ($_FILES[$file]['error'] !== UPLOAD_ERR_OK) {
+                    return "upload error : " . $_FILES[$file]['error'];
+                }else{
+					//$attach_id = media_handle_upload( $file, $new_post );
+				//	echo "file ok<br>";
+
+				}
+			 }else{
+					switch ($_FILES[$file]["error"]) {
+					case 0:
+						//is ok ...
+						break;
+					case 1:
+						$fileEr[$file]='file 2 big...';
+						break;
+					case 2:
+						$fileEr[$file]='file 2 big...';
+						break;
+					case 3:
+						$fileEr[$file]='somthing happen...';
+						break;
+					case 4:
+						$fileEr[$file]='no file...';
+						break;
+					default:
+					$fileEr[$file]='no file...';
+				 	}
+				 
+					return $fileEr;
+				}//TYPE...      
+            }//end forech
+			
+        //return $fileEr;
+		 }
+
+
+}
+
 ?>

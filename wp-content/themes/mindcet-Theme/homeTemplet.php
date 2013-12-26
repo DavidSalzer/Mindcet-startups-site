@@ -59,7 +59,7 @@ set_post_thumbnail( 165, 176177178179 );
 	  $site=$_POST['site'];
 	}
 	if( $my_post=get_page_by_title( $title, 'OBJECT', 'initiator' )){
-		 $error['initiator']= "<div class='form-end-message'>Oops!<br><br> Something got wrong, please try again</div>";	
+		 $error['initiator']= "<div class='form-end-message'>Oops!<br><br> Something got wrong, please try again</div><div class='planes'></div>";	
 	}else{
 		if(empty($error['initiator'])){
 			$name=filter_input(INPUT_POST,'invetName',FILTER_SANITIZE_STRING);
@@ -198,6 +198,15 @@ do_action('wp_insert_post', 'wp_insert_post');
             <div class="form-end-message">
                 Yippee! <br><br>The startup you added submitted for approval and will be uploaded in a few minutes. 
                 You're more than welcome to share the competition with your friends! <br>
+                <div class="planes"></div>
+                
+                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url();?>&p[images][0]=&p[title]=&p[summary]=" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
+
+                <a href="http://twitter.com/intent/tweet?text=<?php echo site_url();?>" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>
+
+                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url();?>" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
+                
+
             </div>
         
         
@@ -303,8 +312,8 @@ do_action('wp_insert_post', 'wp_insert_post');
                 }else{
                 }
         ?>
-    <li  idTec="<?php echo $post->ID;?>"> <?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?>
-      <h2> <a href="<?php the_permalink(); ?>" id="<?php echo $post->ID;?>">
+    <li  idTec="<?php echo $post->ID;?>"><div class="img-wrap"> <?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?></div>
+        <h2> <a href="<?php the_permalink(); ?>" id="<?php echo $post->ID;?>">
         <?php the_title(); ?>
         </a> </h2>
     </li>

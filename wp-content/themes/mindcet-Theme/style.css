@@ -319,7 +319,7 @@ background-position-y: 80%;
 	background-image:url(img/social_tags.png);
 	width: 44px;
 	height:145px;
-	background-position: -69px 0;
+	background-position: -75px 0;
 	margin-right: 0px;
 	position: relative;
 	z-index: 5;
@@ -430,7 +430,7 @@ margin-top: 157px;
 height: 528px;
 }
 .home .entry {
-font-size: 28px;
+font-size: 27px;
 line-height: 33px;
 padding: 52px 0;
 width: 273px;
@@ -504,7 +504,6 @@ vertical-align: top;
 .inventList li{
 	width: 218px;
 height: 200px;
-/*border-top: solid 2px #676767;*/
 border-bottom: solid 2px #676767;
 border-left: solid 2px #676767;
 border-right: solid 2px #676767;
@@ -516,6 +515,13 @@ line-height: 200px;
 overflow: hidden;
 text-align: center;
 }
+/*.inventList li .img-wrap{
+    	width: 100%;
+height: 160px;
+border-bottom: solid 2px #676767;
+border-left: solid 2px #676767;
+border-right: solid 2px #676767;
+}*/
 .inventList li img{
   max-width: 95%;
  margin-top: -40px;
@@ -576,7 +582,7 @@ width: 217px;
 height: 40px;
 line-height: 40px;
 text-align: center;
-border-right: solid 1px #999;
+/*border-right: solid 1px #999;*/
 }
 .leftScroll {
     width: 72px;
@@ -1074,6 +1080,18 @@ text-align: center;
 .good .form-end-message:first-line{
     color: #21cb89;
 }
+.planes {
+background-repeat: no-repeat;
+width: 175px;
+height: 62px;
+margin: 20px auto;
+}
+.good .planes{
+    background-image: url(img/airplane-greeen.png);
+}
+.bad .planes{
+    background-image: url(img/airplane-red.png);
+}
 
 /*.validate-error{*/
 #validate-general-error, #validate-description-error, #validate-img-error{
@@ -1335,7 +1353,7 @@ line-height: 83px;
     margin-top: -10px;*/
     /* height: 55px; */
 }
-.socialArea .social {
+.socialArea .social , .form-end-message .social{
    width: 38px;
 
    height: 22px;
@@ -1356,14 +1374,26 @@ font-family: sans-serif;
 padding-bottom: 8px;
    text-decoration: none;
 }
-.socialArea .fb {
+.form-end-message .social {
+float: left;
+border: 0;
+padding-top: 12%;
+margin-top: 4px;
+margin-bottom: 12px;
+}
+
+.form-end-message .social {
+    border: 0;
+}
+.socialArea .fb , .form-end-message .fb{
     background-image: url("img/social_startup_popup.png");
 background-position-x: -6px;
 color: #555ca8;
     margin: 25px 0 0 58px;
     display: block;
 }
-.socialArea .twitter {
+ 
+.socialArea .twitter , .form-end-message .twitter{
     background-image: url("img/social_startup_popup.png");
     background-position-x: 52%;
     color: #45b0e4;
@@ -1372,7 +1402,7 @@ color: #555ca8;
     /* width: 44px; */
     /* background-repeat: no-repeat; */
 }
-.socialArea .linkedin {
+.socialArea .linkedin , .form-end-message .linkedin{
     background-image: url("img/social_startup_popup.png");
     background-position-x: 93%;
     color: #2980b9;
@@ -1380,12 +1410,24 @@ color: #555ca8;
     display: block;
 }
 .socialArea .likes {
-    
+    border: 0;
 }
-.socialArea .fb .letter-space, .socialArea .linkedin .letter-space{
+.form-end-message .fb , .form-end-message .twitter{
+margin: 0 0 0 114px;
+border-right: 2px solid #c0c0c0;
+padding-right: 13px;
+}
+.form-end-message .twitter{
+    margin: 0;
+}
+.form-end-message .linkedin{
+    margin: 0;
+    border: 0;
+}
+.fb .letter-space, .linkedin .letter-space{
     letter-spacing: .3px;
 }
-.socialArea .twitter .letter-space{
+.twitter .letter-space{
     letter-spacing: 1.9px;
 }
 #formPart3 .mainArea .movie{

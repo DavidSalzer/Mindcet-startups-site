@@ -186,19 +186,17 @@ $(document).ready(function (e) {
         }
     });
     $("#img-1").change(function (e) {
-		//input.removeClass("error");
+		$("#img-1").removeClass("error");
 		var size = document.getElementById("img-1").files[0].size;
 		size=size/1024/1024;
 		if(size>maxSize){
-			alert(fileMesg);
-            input.addClass("error");
+            $("#img-1").addClass("error");
 			return;
 		}
 		
         var fileName = $(this).val();
         $('.title-logo.img1').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
-
             if (this.files && this.files[0]) {
                 var reader = new FileReader();
 
@@ -216,18 +214,17 @@ $(document).ready(function (e) {
         }
     });
     $("#img-2").change(function (e) {
-		input.removeClass("error");
+		$("#img-2").removeClass("error");
 		var size = document.getElementById("img-2").files[0].size;
 		size=size/1024/1024;
 		if(size>maxSize){
-			alert(fileMesg);
-			return;
+			$("#img-2").addClass("error");
+            return;
 		}
 
         var fileName = $(this).val();
         $('.title-logo.img2').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
-
             if (this.files && this.files[0]) {
                 var reader = new FileReader();
 
@@ -237,7 +234,7 @@ $(document).ready(function (e) {
                     smallImgAdded = true;
                 };
 
-                reader.readAsDataURL(this.files[0]);
+                reader.readAsDataURL(this.files[1]);
             }
         }
         else {
@@ -245,11 +242,11 @@ $(document).ready(function (e) {
         }
     });
     $("#img-3").change(function (e) {
-		input.removeClass("error");
+        $("#img-3").removeClass("error");
 		var size = document.getElementById("img-3").files[0].size;
 		size=size/1024/1024;
 		if(size>maxSize){
-			alert(fileMesg);
+			$("#img-3").addClass("error");
 			return;
 		}
 
@@ -346,7 +343,7 @@ function openOfferPopUp() {
     //disable_scroll();
     $('.inventorPopUp').fadeIn(1500, 'easeInOutBack');
     $('html, body').animate({
-        scrollTop: $("#offer-zone").offset().top -25
+        scrollTop: $("#offer-zone").offset().top - 160
     }, 500, function () { enable_scroll() });
 
 
@@ -519,7 +516,7 @@ function updateMenuUrl() {
     //scroll smooth
     $('a[href^="#"]').click(function () {    // Change to needed selector
         $("html, body").animate({    // Need both for full browser support
-            scrollTop: $($(this).attr("href")).offset().top - 25 // Extra 100px
+            scrollTop: $($(this).attr("href")).offset().top - 160 // Extra 100px
         }, 500);    // Change to desired scroll time in ms
         return false;    // Prevents the dreaded jump/flash
     });

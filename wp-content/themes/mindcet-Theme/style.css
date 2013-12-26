@@ -1553,6 +1553,17 @@ padding-right: 30px;
     margin-top: 24px;
     max-height: 91px;
 }
+.inventDescription .mainArea .gallery img {
+ 	transition:all ease-in-out 0.4s;
+ 	position:relative;
+ }
+.inventDescription .mainArea .gallery img:hover {
+	-webkit-transform:scale(2,2);
+ 	transform:scale(2,2);
+	z-index:15;
+	box-shadow:rgba(0,0,0,0.63) 2px 2px 1px 0px;
+ }
+
 .inventDescription .mainArea .gallery div {
     width: 146px;
     height: 89px;

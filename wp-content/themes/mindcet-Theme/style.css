@@ -521,37 +521,39 @@ text-align: center;
  margin-top: -40px;
  vertical-align: middle;
  max-height: 100%;
- /*opacity:.5;*/
- /*transition:all ease-in-out 0.3s;*/
-    filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
-    filter: gray; /* IE6-9 */
+ opacity:.5;
+ transition:all ease-in-out 0.3s;
+   /* filter: url(filters.svg#grayscale); 
+    filter: gray; /* IE6-9 */*/
     -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
 }
 .inventList li img:hover{
-    filter: none;
+/*    filter: none;*/
     -webkit-filter: grayscale(0);
+	 opacity:1;
 }
-/*.inventList li:hover,.inventList li img:hover{
- opacity:1;
-}*/
 
 .inventList li img{
   /*width: 95%;
 	margin-top: -40px;
 	vertical-align: middle;
-	height: auto;
-	/*opacity:.5;*/
+	height: auto;*/
+	-ms-opacity:0.5;
+	opacity:.5;
+	-webkit-transition:all ease-in-out 0.3s;
 	transition:all ease-in-out 0.3s;
-    filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
-    filter: gray; /* IE6-9 */
-    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+/*    filter: url(filters.svg#grayscale);
+    filter: gray;
+*/    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
 }
 .inventList li img:hover{
     filter: none;
+	-ms-opacity:1;
+	 opacity:1;
     -webkit-filter: grayscale(0);
 }
 /*.inventList li:hover,.inventList li img:hover{
- opacity:1;
+
 }*/
 /*.inventList li:hover,.inventList li img:hover{
  opacity:1;
@@ -1610,3 +1612,27 @@ padding-right: 30px;
     margin-right: 4px;
     border: solid  1px #666;
 }
+/*::-webkit-scrollbar {  
+    width: 22px;  
+}  
+::-webkit-scrollbar-track {  
+    background-color: #E8BEBF;  
+    border-left: 1px solid #ccc;  
+	
+}  
+::-webkit-scrollbar-thumb {  
+    background-color: #6F6868; 
+	border-radius:100%; 
+}  
+::-webkit-scrollbar-thumb:hover {  
+    background-color: #2F28DB;  
+} 
+body {  
+    scrollbar-face-color: #000000;  
+    scrollbar-shadow-color: #2D2C4D;  
+    scrollbar-highlight-color:#7D7E94;  
+    scrollbar-3dlight-color: #7D7E94;  
+    scrollbar-darkshadow-color: #2D2C4D;  
+    scrollbar-track-color: #7D7E94;  
+    scrollbar-arrow-color: #C1C1D1;   
+}*/

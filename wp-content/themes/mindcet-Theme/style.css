@@ -454,7 +454,7 @@ z-index: 5;
     position: absolute;
 }
 .entry-design{
-    background-color: rgba(256,256,256, 0.3);
+    /*background-color: rgba(256,256,256, 0.3);*/
     width: 100%;
 height: 384px;
 padding: 29px 25px 2px 25px;
@@ -473,6 +473,9 @@ text-decoration: none;
 color: #fff;
 text-align: center;
 margin-top: 12px;
+position: absolute;
+bottom: 92px;
+left: 29px;
 }
 .entry-main-title {
 font-size: 56px;
@@ -543,7 +546,7 @@ text-align: center;
  opacity:.5;
  transition:all ease-in-out 0.3s;
    /* filter: url(filters.svg#grayscale); 
-    filter: gray; /* IE6-9 */*/
+    filter: gray; /* IE6-9 */
     -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
 }
 .inventList li img:hover{
@@ -753,11 +756,12 @@ height: 39px;
 color: #909090;
 overflow: hidden;
 white-space: normal;
-line-height: 22px;
-font-size: 16px;
-padding-top: 6px;
+line-height: 14px;
+font-size: 14px;
+padding-top: 7px;
 text-align: left;
-text-indent: 10px;
+padding-left: 10px;
+padding-right: 2px;
 }
 .judgesAvantar{
 	width:165px;
@@ -861,8 +865,8 @@ box-shadow: #333 2px 2px 5px 1px;
     position: absolute;
 background-image: url(img/triangle.png);
 width: 50px;
-left: -35px;
-bottom: 11px;
+left: -32px;
+bottom: 35px;
 height: 57px;
 }
 .inventorPopUp .close{
@@ -1100,7 +1104,7 @@ height: 62px;
 margin: 20px auto;
 }
 .good .planes{
-    background-image: url(img/airplane-greeen.png);
+    background-image: url(img/airplane-green.png);
 }
 .bad .planes{
     background-image: url(img/airplane-red.png);
@@ -1563,6 +1567,11 @@ top: 30px;*/
     margin-left: 144px;
     font-size: 35px;
     width: 270px;
+    text-decoration: none;
+color: #000;
+}
+.inventDescription a.title.ellipsis:hover {
+    color: #6a6a6a;
 }
 .inventDescription .startup-popup-logo {
     /*width: 106px;*/

@@ -70,7 +70,7 @@ $(document).ready(function (e) {
 
                 if (document.getElementById("title").value) { var title = document.getElementById("title").value; } else { title = "no title"; }
                 //var logo = document.getElementById("logo").addEventListener('change', handleFileSelect, false);
-
+                
 
                 var youtubeUrl = document.getElementById("youtubeUrl").value;
                 var invetName = document.getElementById("invetName").value;
@@ -164,7 +164,7 @@ $(document).ready(function (e) {
 		
 		
         var fileName = $(this).val();
-
+        var fileName = $(this).val().replace("C:\\fakepath\\","..");
         $('.title-logo.logoimg').text(fileName);
 
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
@@ -195,6 +195,7 @@ $(document).ready(function (e) {
 		}
 		
         var fileName = $(this).val();
+        var fileName = $(this).val().replace("C:\\fakepath\\","..");
         $('.title-logo.img1').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
             if (this.files && this.files[0]) {
@@ -222,7 +223,7 @@ $(document).ready(function (e) {
             return;
 		}
 
-        var fileName = $(this).val();
+        var fileName = $(this).val().replace("C:\\fakepath\\","..");
         $('.title-logo.img2').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
             if (this.files && this.files[0]) {
@@ -234,7 +235,7 @@ $(document).ready(function (e) {
                     smallImgAdded = true;
                 };
 
-                reader.readAsDataURL(this.files[1]);
+                reader.readAsDataURL(this.files[0]);
             }
         }
         else {
@@ -251,6 +252,7 @@ $(document).ready(function (e) {
 		}
 
         var fileName = $(this).val();
+        var fileName = $(this).val().replace("C:\\fakepath\\","..");
         $('.title-logo.img3').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
@@ -574,7 +576,12 @@ function enable_scroll() {
         console.log(tid);
 		console.log(allTech[tid]);
     var html = '       <div class="topArea">    '
-    html += '		    <div class="title ellipsis"><a herf="' + allTech[tid].siteUrl + '">' + allTech[tid].title + '</a></div>';
+    if (allTech[tid].siteUrl.length > 0){
+        html += '		        <a href="' + allTech[tid].siteUrl + '" class="title ellipsis">' + allTech[tid].title + '</a>';
+        }
+    else {
+        html += '		        <div class="title ellipsis">' + allTech[tid].title + '</div>';
+    }
     html += '<div class="startup-popup-logo"><img class="wp-post-image" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
     html += '       </div>    ';
 
@@ -664,6 +671,9 @@ function generalValidate() {
     //Invet Name
     validateEmptyInput($("#invetName"));
 
+    //Invet Name
+    validateEmptyInput($("#slogen"));
+
     //email
     emailValidate($("#email"));
 
@@ -684,6 +694,9 @@ function form1Validate() {
     //Invet Name
     var invetName = validateEmptyInput($("#invetName"));
 
+    //Invet Name
+    var slogen = validateEmptyInput($("#slogen"));
+
     //email
     var email = emailValidate($("#email"));
 
@@ -692,9 +705,9 @@ function form1Validate() {
     
 
     //logo
-    var logo = validateLogo($(".title-logo.logoimg"));
+    //var logo = validateLogo($(".title-logo.logoimg"));
 
-    if (title & invetName & (email == undefined || email) & logo & descript)
+    if (title & invetName & (email == undefined || email) & slogen & descript)
         return true;
     return false;
 }

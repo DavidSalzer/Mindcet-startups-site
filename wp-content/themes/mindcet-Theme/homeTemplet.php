@@ -89,6 +89,8 @@ set_post_thumbnail( 165, 176177178179 );
 		//uploadFile($pid);
 			$fileEr=fileUp($pid);	
 			
+			do_action('post_mindeset_uplode');
+			
 			//REDIRECT TO THE NEW POST ON SAVE
 		//	$link = get_permalink( $pid );
 		}//if empty eprrr
@@ -98,6 +100,7 @@ set_post_thumbnail( 165, 176177178179 );
 
 //POST THE POST YO
 do_action('wp_insert_post', 'wp_insert_post');
+
 ?>
     <div id="offer-zone" class="inventorPopUp">
     <span class="close">X</span>

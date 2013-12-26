@@ -7,6 +7,10 @@ Author: yanai edri
 Author URI:cambium.co.il
 Version:1.0*/
 
+//more extentions
+require_once('email2post.php');
+
+///
 class MindCet_Option{
 	public $options;
 	

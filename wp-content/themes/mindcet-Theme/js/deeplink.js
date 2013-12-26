@@ -5,5 +5,14 @@ $(document).ready(function(e) {
 	tid=deep.split('#')
 	popuopInvent(tid[1]);
 	
+	$("#inventpop").mCustomScrollbar();
+	
 });
 
+//scroll for tal
+(function(){
+	$(window).load(function(){
+		$("#inventpop").mCustomScrollbar();
+	});
+})();
+	

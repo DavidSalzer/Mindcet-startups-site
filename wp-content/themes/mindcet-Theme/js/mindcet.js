@@ -603,7 +603,7 @@ function enable_scroll() {
 
 
 
-    html += '       <div class="mainArea">    ';
+    html += '       <div class="mainArea" id="inventpop">    ';
     //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(allTech[tid].youtube)) + '" /><span class="play_button"></span> ' + '</div>    ';
     var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480);
     if (videoIframe != undefined)

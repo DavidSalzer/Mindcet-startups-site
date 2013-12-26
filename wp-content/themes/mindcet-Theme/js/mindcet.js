@@ -574,7 +574,7 @@ function enable_scroll() {
         console.log(tid);
 		console.log(allTech[tid]);
     var html = '       <div class="topArea">    '
-    html += '		    <div class="title ellipsis">' + allTech[tid].title + '</div>';
+    html += '		    <div class="title ellipsis"><a herf="' + allTech[tid].siteUrl + '">' + allTech[tid].title + '</a></div>';
     html += '<div class="startup-popup-logo"><img class="wp-post-image" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
     html += '       </div>    ';
 
@@ -668,7 +668,7 @@ function generalValidate() {
     emailValidate($("#email"));
 
     //logo
-    validateLogo($(".title-logo.logoimg"));
+    //validateLogo($(".title-logo.logoimg"));
 
     //Founder Mail
     emailValidate($("#founderMail"));

@@ -15,12 +15,6 @@
 	    wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
 	   wp_enqueue_script('mindcetjs');
 	  
-	   	  
-	   wp_register_script('talScroll', (get_template_directory_uri()."/scroll/jquery.mCustomScrollbar.concat.min.js"), false);
-	   wp_enqueue_script('talScroll');
-
-	   wp_enqueue_style( 'style-talScroll', get_template_directory_uri()."/scroll/jquery.mCustomScrollbar.css" );
-	   
 		wp_register_script('deep', (get_template_directory_uri()."/js/deeplink.js"), false);
 	   wp_enqueue_script('deep');
 	

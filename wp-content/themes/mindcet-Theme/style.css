@@ -1554,8 +1554,10 @@ padding-right: 30px;
     max-height: 91px;
 }
 .inventDescription .mainArea .gallery img {
+	-webkit-transition:all ease-in-out 0.4s;
  	transition:all ease-in-out 0.4s;
  	position:relative;
+	cursor:pointer;
  }
 .inventDescription .mainArea .gallery img:hover {
 	-webkit-transform:scale(2,2);

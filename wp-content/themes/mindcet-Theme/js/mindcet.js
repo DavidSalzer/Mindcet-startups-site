@@ -276,7 +276,7 @@ $(document).ready(function (e) {
 
     $('.judgeDescription').on('click','.close', this, function () {
         $('.judgeDescription').empty().append('<span class="close">x</span>');
-        $('.judgeDescription').fadeOut(600, 'easeInOutBack');
+        $('.judgeDescription').slideUp(1000, 'easeInOutBack');
         return false;
     });
 
@@ -285,7 +285,7 @@ $(document).ready(function (e) {
         tid = $(this).attr('judgeId');
 
 
-        $('.judgeDescription').fadeIn(600, 'easeInOutBack');
+        $('.judgeDescription').slideDown(1000, 'easeInOutBack');
         //imgProfile = allJudges[tid].imgProfile;
 
         //var html = '    <span class="close">x</span>';

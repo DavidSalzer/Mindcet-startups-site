@@ -312,8 +312,8 @@ do_action('wp_insert_post', 'wp_insert_post');
                 }else{
                 }
         ?>
-    <li  idTec="<?php echo $post->ID;?>"> <?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?>
-      <h2> <a href="<?php the_permalink(); ?>" id="<?php echo $post->ID;?>">
+    <li  idTec="<?php echo $post->ID;?>"><div class="img-wrap"> <?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?></div>
+        <h2> <a href="<?php the_permalink(); ?>" id="<?php echo $post->ID;?>">
         <?php the_title(); ?>
         </a> </h2>
     </li>

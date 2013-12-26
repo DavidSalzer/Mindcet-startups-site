@@ -319,7 +319,7 @@ background-position-y: 80%;
 	background-image:url(img/social_tags.png);
 	width: 44px;
 	height:145px;
-	background-position: -69px 0;
+	background-position: -75px 0;
 	margin-right: 0px;
 	position: relative;
 	z-index: 5;
@@ -504,7 +504,6 @@ vertical-align: top;
 .inventList li{
 	width: 218px;
 height: 200px;
-/*border-top: solid 2px #676767;*/
 border-bottom: solid 2px #676767;
 border-left: solid 2px #676767;
 border-right: solid 2px #676767;
@@ -516,6 +515,13 @@ line-height: 200px;
 overflow: hidden;
 text-align: center;
 }
+/*.inventList li .img-wrap{
+    	width: 100%;
+height: 160px;
+border-bottom: solid 2px #676767;
+border-left: solid 2px #676767;
+border-right: solid 2px #676767;
+}*/
 .inventList li img{
   max-width: 95%;
  margin-top: -40px;
@@ -576,7 +582,7 @@ width: 217px;
 height: 40px;
 line-height: 40px;
 text-align: center;
-border-right: solid 1px #999;
+/*border-right: solid 1px #999;*/
 }
 .leftScroll {
     width: 72px;

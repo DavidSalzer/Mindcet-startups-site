@@ -2,17 +2,11 @@
 $(document).ready(function(e) {
     
 	deep=window.location.hash;
-	tid=deep.split('#')
-	popuopInvent(tid[1]);
-	
-	$("#inventpop").mCustomScrollbar();
+	if(deep.length>0){
+		tid=deep.split('#')
+		popuopInvent(tid[1]);
+	}
 	
 });
 
-//scroll for tal
-(function(){
-	$(window).load(function(){
-		$("#inventpop").mCustomScrollbar();
-	});
-})();
 	

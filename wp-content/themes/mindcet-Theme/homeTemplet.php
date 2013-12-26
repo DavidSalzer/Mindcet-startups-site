@@ -18,6 +18,7 @@ set_post_thumbnail( 165, 176177178179 );
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     
   <section  class="home">
+    <?php  echo get_the_post_thumbnail( $page->ID, 'full',array('class'=>'mainPageBg'));?>
     <div class="entry">
         <div class="entry-design">
             <p class="entry-main-title">Changing</p>
@@ -30,6 +31,22 @@ set_post_thumbnail( 165, 176177178179 );
       <!----form inventors--->
     <?php 
   if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post"&& isset($_POST['submit'])) {
+	 //get the category
+	 $args = array(
+			'orderby' => 'name',
+	     	'order' => 'ASC',
+			'hide_empty'=>0
+			);
+			$categories = get_categories($args);
+			 $selectCat=array();
+			 foreach($categories as $category) { 
+				if($_POST[ $category->slug]){
+					array_push($selectCat,$category->term_id);
+				}
+			
+			}  
+	  
+	  
 	// Do some minor form validation to make sure there is content
 	if (isset ($_POST['title'])) {
 		$title =  $_POST['title'];
@@ -70,7 +87,8 @@ set_post_thumbnail( 165, 176177178179 );
 			'post_title'	=>	$title,
 			'post_content'	=>	$description,
 			'post_status'	=>	'pending',           // Choose: publish, preview, future, draft, etc.
-			'post_type'	=>	'initiator'  //'post',page' or use a custom post type if you want to
+			'post_type'	=>	'initiator',  //'post',page' or use a custom post type if you want to
+			'post_category' => $selectCat
 			);
 		
 			//SAVE THE POST
@@ -136,6 +154,23 @@ do_action('wp_insert_post', 'wp_insert_post');
             <!--<fieldset class="formfield">-->
            <textarea id="description" tabindex="35" name="description" cols="30" rows="1" placeholder="About You/Your Startup"></textarea>
             <!--</fieldset>-->
+             <?php 
+					$args = array(
+					  'orderby' => 'name',
+					  'order' => 'ASC',
+					  'hide_empty'=>0
+					  );
+					$categories = get_categories($args);
+					  foreach($categories as $category) { 
+				 	?>
+					
+					<input type="checkbox" name="<?php echo $category->slug;?>" value="<?php echo $category->term_id;?>">
+					<?php echo $category->name ;?>
+				<?php } 
+ 
+			
+			
+			?>   
         </div>
         
         <div id="formPart2">    

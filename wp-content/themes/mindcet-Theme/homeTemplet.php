@@ -21,12 +21,7 @@ set_post_thumbnail( 165, 176177178179 );
     <?php  echo get_the_post_thumbnail( $page->ID, 'full',array('class'=>'mainPageBg'));?>
     <div class="entry">
         <div class="entry-design">
-            <p class="entry-main-title">Changing</p>
-            <p id="entry-main-title-2" class="entry-main-title">Education</p>
-            <p id="entry-main-title-3" class="entry-main-title">Mindset</p>
-            <p>The most promising EdTech startups 2013</p>
-          <?php $homeContant=get_the_content(); ?>
-          <?php $pageUrl = get_page_by_title( 'Offer a Startup' ); ?>
+            
           <a href="<?php echo $pageUrl->guid;?>" id="offerStartUp">Offer a Startup</a> </div> </div>
       <!----form inventors--->
     <?php 
@@ -131,6 +126,11 @@ do_action('wp_insert_post', 'wp_insert_post');
                 <input type="text" id="title" value="" tabindex="5" name="title" placeholder="StartUp Name" />
             <!--</fieldset>-->
     
+            <!-- post slogen -->
+            <!--<fieldset class="formfield">-->
+                <input type="text" id="slogen" value="" tabindex="10" name="slogen" placeholder="Slogen" />
+            <!--</fieldset>-->
+
             <!-- post Category -->
             <!--<fieldset class="formfield">-->
                 <input type="text" id="invetName" value="" tabindex="10" name="invetName" placeholder="Your Name" />

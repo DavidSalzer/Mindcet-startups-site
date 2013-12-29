@@ -58,7 +58,7 @@
 					$ye_tech=$mach['ye_tech'];
 				?>
     		<div class="logoAndSocial">
-				<a href="http://www.mindcet.org/" class="tagLogo mindcet" target="_blank">
+				<a href="http://www.mindcet.org/en/" class="tagLogo mindcet" target="_blank">
                 	<span class="logoMindcet"></span>
                 </a>
                 <a href="<?php echo  $ye_tech;?>" class="tagLogo" target="_blank">

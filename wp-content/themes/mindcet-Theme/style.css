@@ -310,6 +310,10 @@ footer .tagLogo {
     height: 95px;
     
 }
+.footerLogos a{
+    width: 100px;
+    height: 100%;
+}
 .logoMindcet{
 	background-image: url(img/logo_icons.png);
 display: inline-block;
@@ -329,6 +333,24 @@ background-repeat: no-repeat;
 background-position: -103px bottom;
 background-size: 195px;
 	position: relative;
+}
+.logoPau{
+    background-image: url(img/PAU.jpg);
+background-size: 100%;
+background-repeat: no-repeat;
+width: 100px;
+display: inline-block;
+height: 53px;
+margin: 21px 5px 10px;
+}
+.logoEdTech{
+    background-image: url(img/EdTechlondon.jpg);
+background-size: 100%;
+background-repeat: no-repeat;
+width: 100px;
+display: inline-block;
+height: 80px;
+margin: 10px 0;
 }
 .topImgLink {
     width: 83px;
@@ -834,6 +856,9 @@ z-index:100;
 }
 .inventDescription .close, .judgeDescription .close, .inventorPopUp .close{
 background-color: #616161;
+background-image: url(img/x.png);
+background-repeat: no-repeat;
+background-position: 3.9px;
 color: #fff;
 display: inline-block;
 width: 30px;
@@ -847,6 +872,12 @@ right: 14px;
 top: 11px;
 cursor: pointer;
 z-index: 100;
+}
+
+.inventDescription .close, .judgeDescription .close{
+background-position: 5px;
+width: 25px;
+height: 25px;
 }
 
 .judgesAvantar.hide{
@@ -964,16 +995,36 @@ font-family: sans;
 .categories{
 margin: 10px 0;
 }
-.categories-input input[type="checkbox"]{
+input[type="checkbox"]{
     margin: 0;
     height: 20px;
     width: 20px;
     margin-left: 20px;
-    
+    display: none;
 }
-.categories-input input[name="curriculum-projects"] {
+
+.bottomArea span, .categories-input span {
+display: inline-block;
+background-image: url(img/v.png);
+background-position-x: 0;
+background-position-y: -4px;
+background-repeat: no-repeat;
+height: 20px;
+width: 20px;
+vertical-align: middle;
+margin-right: 5px;
+}
+
+input[type=checkbox]:checked + span {
+    background-position-x: -26px;
+}
+.categories-input label[for="k-12"], .categories-input label[for="teachers-need"] {
+    margin-left: 20px;
+}
+.categories-input label[for="curriculum-projects"] {
     margin-left: 0;
 }
+
 /***************************** error input **************************************/
 textarea.error, input.error,.formfield.input-border.error{
     border: 2px solid #e76c76;
@@ -1112,6 +1163,21 @@ border-radius: 3px;
 bottom: 32px;
 margin-right: 9px;
 }
+/*.checkbox{
+    display: inline;
+    width: 20px;
+height: 20px;
+background-image: url(img/v.png);
+background-position: 0;
+position: absolute;
+margin-left: 17px;
+}
+input[type="checkbox"]:checked + span{
+    background-position: 22px;
+}*/
+.checkbox[attr="curriculum-projects"] {
+    margin-left: 0;
+}
 .submit {
 float: right;
 position: absolute;
@@ -1140,9 +1206,9 @@ text-indent: 0;
 }
 .form-end-message{
     width: 412px;
-height: 400px;
+height: 150px;
 margin: auto;
-font-size: 25px;
+font-size: 23px;
 font-family: sans;
 vertical-align: middle;
 margin-top: 120px;
@@ -1155,26 +1221,27 @@ text-align: center;
     font-family: sansbold;
 }
 .bad .form-end-message:first-line{
-    color: #e76c76;
+    color: #21cb89;
 }
 .good .form-end-message:first-line{
-    color: #21cb89;
+    color: #e76c76;
+    
 }
 .planes {
 background-repeat: no-repeat;
 width: 175px;
 height: 62px;
-margin: 20px auto;
+margin: 25px auto 60px;
 }
 .good .planes{
-    background-image: url(img/airplane-green.png);
+    background-image: url(img/airplane-red.png);
 }
 .bad .planes{
-    background-image: url(img/airplane-red.png);
+    background-image: url(img/airplane-green.png);
 }
 
 /*.validate-error{*/
-#validate-general-error, #validate-description-error, #validate-img-error{
+#validate-general-error, #validate-description-error, #validate-img-error, #validate-slogen-error{
    color: #e76c76;
 font-size: 15px;
 font-family: sans-serif;
@@ -1190,7 +1257,7 @@ display: none;
 #validate-description-error{
     bottom: 105px;
 }
-#validate-img-error{
+#validate-img-error, #validate-slogen-error{
     bottom: 120px;
 }
 .last-page {
@@ -1245,7 +1312,7 @@ left: 55px;
     background-color:#e76c76;
 	
     color:#fff;
-    margin-right: 45px;
+    right: 0;
     cursor: pointer;
     display: none;
     /*width: 170px;
@@ -1273,7 +1340,7 @@ font-family: sans-serif;*/
 }
 .footerLogos{
     background-color: #f5f5f5;
-    width: 345px;
+    width: 555px;
     margin: auto;
 }
 .footerMenu ul li{
@@ -1369,10 +1436,13 @@ clear: both;
     color: #6a6a6a;
     padding-top: 9%;
     font-size: 39px;
-    text-indent: 16px;
+    text-indent: 6px;
 }
 #formPart3  .topArea .title {
     padding-top: 0;
+}
+#formPart3 .bottomArea {
+margin: 11px;
 }
 .ellipsis{
     white-space: nowrap;
@@ -1387,8 +1457,6 @@ float: left;
 width: 347px;
 text-indent: 8px;
 
-width: 100%;
-text-indent: 16px;
 
 }
 #formPart3 .topArea .logo, .topArea .wp-post-image{
@@ -1462,13 +1530,23 @@ margin-bottom: 12px;
 
 .form-end-message .social {
     border: 0;
+background-size: 210px;
+font-size: 13px;
+padding-right: 13px;
+padding-left: 13px;
+width: 52px;
+    
 }
 .socialArea .fb , .form-end-message .fb{
     background-image: url("img/social_startup_popup.png");
 background-position-x: -6px;
+margin: 25px 0 0 58px;
 color: #555ca8;
-    margin: 25px 0 0 58px;
     display: block;
+}
+.form-end-message .fb {
+    background-position-x: 3px;
+    margin: 0;
 }
  
 .socialArea .twitter , .form-end-message .twitter{
@@ -1477,8 +1555,6 @@ color: #555ca8;
     color: #45b0e4;
     margin: 0 0 0 58px;
     display: block;
-    /* width: 44px; */
-    /* background-repeat: no-repeat; */
 }
 .socialArea .linkedin , .form-end-message .linkedin{
     background-image: url("img/social_startup_popup.png");
@@ -1487,13 +1563,21 @@ color: #555ca8;
     margin: 11px 0 0 56px;
     display: block;
 }
+.form-end-message .linkedin {
+    background-image: url("img/social_startup_popup.png");
+    background-position-x: 105%;
+}
+
 .socialArea .likes {
     border: 0;
 }
 .form-end-message .fb , .form-end-message .twitter{
 margin: 0 0 0 114px;
 border-right: 2px solid #c0c0c0;
-padding-right: 13px;
+padding-right: 13px
+}
+.form-end-message .fb{
+    padding-right: 0;
 }
 .form-end-message .twitter{
     margin: 0;
@@ -1519,6 +1603,7 @@ border-radius: 2px;
     position: relative;
     top: 44px;
     float: right;
+    display: none;
 }
 #formPart3 .mainArea .movie {
     /* margin: 0 auto 10px auto; */
@@ -1543,12 +1628,13 @@ margin-right: 56px;
 
 #formPart3 .mainArea .description {
     height: 342px;
+    line-height: 16px;
 overflow-y: auto;
 margin-bottom: 10px;
 width: 343px;
 overflow: hidden;
 font-size: 11px;
-line-height: 18px;
+line-height: 16px;
 float: left;
 clear: right;
 margin-left: 8px;
@@ -1756,7 +1842,4 @@ body {
     scrollbar-track-color: #7D7E94;  
     scrollbar-arrow-color: #C1C1D1;   
 }*/
-input[type="checkbox"] {
-    width: 30px;
-    height: 16px;
-}
+

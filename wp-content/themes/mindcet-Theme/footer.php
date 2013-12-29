@@ -11,6 +11,12 @@
                 <a href="https://angel.co/socraticlabs" class="" target="_blank">
                 	<span class="logoCet"></span>
                 </a>
+                <a href="http://paueducation.com/en/content/pierre-antoine-ullmo" target="_blank" class="">
+                	<span class="logoPau"></span>
+                </a>
+                <a href="http://www.edtechincubator.com/" target="_blank" class="">
+                	<span class="logoEdTech"></span>
+                </a>
                 
             </div>
         	<nav class="footerNav">

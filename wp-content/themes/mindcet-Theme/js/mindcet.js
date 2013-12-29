@@ -80,7 +80,7 @@ $(document).ready(function (e) {
 
 
                 var html = '       <div class="topArea">    '
-                html += '		    <div class="=title ellipsis">' + title + '</div>';
+                html += '		    <div class="title ellipsis">' + title + '</div>';
                 html += '		    <div class="name ellipsis">' + invetName + '</div>';
 
                 // html +=                 logo;
@@ -110,6 +110,16 @@ $(document).ready(function (e) {
                     html += '           <div>    <img class="gallery-img" src="' + ImgSrc3 + '" alt="' + title + ' img3"> </div>    ';
                 html += '           </div>    ';
                 //html += '           <div class="fb-comments"></div>    ';
+                html += '       </div>    ';
+                html += '       <div class="bottomArea">    ';
+                html += '           <label for="ads">';
+                html += '               <input type="checkbox" id="ads" name="ads" checked>';
+                html += '               <span></span>I accept to get intersting information about new EdTech startups.<br><br>';
+                html += '           </label>    ';
+                html += '           <label for="terms">';
+                html += '               <input type="checkbox" id="terms" name="terms" checked>';
+                html += '               <span></span>I accept the terms of the EdTech Startups competition.<br>';
+                html += '           </label>    ';
                 html += '       </div>    ';
 
                 var $inventDescription = $(html);
@@ -278,7 +288,7 @@ $(document).ready(function (e) {
 
 
     $('.judgeDescription').on('click','.close', this, function () {
-        $('.judgeDescription').empty().append('<span class="close">x</span>');
+        $('.judgeDescription').empty().append('<span class="close"></span>');
         $('.judgeDescription').slideUp(1000, 'easeInOutBack');
 		$('.mask').hide();
         return false;
@@ -655,7 +665,7 @@ function enable_scroll() {
     $('.inventDescription').append($inventDescription);
     //facebookCommentsLink()
     $('.inventDescription .close').on('click', this, function () {
-        $('.inventDescription').empty().append('<span id="invent-close" class="close">x</span>');
+        $('.inventDescription').empty().append('<span id="invent-close" class="close"></span>');
         $('.inventDescription').fadeOut(600, 'easeInOutBack');
 		window.location.hash='';
         $('html, body').animate({
@@ -699,37 +709,42 @@ function form1Validate() {
     //Invet Name
     var invetName = validateEmptyInput($("#invetName"));
 
-    //Invet Name
-    var slogen = validateEmptyInput($("#slogen"));
+    //slogen
+    //var slogen = validateEmptyInput($("#slogen"));
+    
+    //slogen's length
+    var slogen8 = slogenValidate($("#slogen"));
 
-    //email
+    //emails
     var email = emailValidate($("#email"));
+    var emailFounder = emailValidate($("#founderMail"));
 
-    //description
-    var descript = descriptionValidate($("#description"));
+    
     
 
     //logo
     //var logo = validateLogo($(".title-logo.logoimg"));
 
-    if (title & invetName & (email == undefined || email) & slogen & descript)
+    if (title & invetName & (email == undefined || email) & (emailFounder == undefined || emailFounder)  & slogen8 )
         return true;
     return false;
 }
 
 function form2Validate() {
 
-    //Founder Mail
-    var email = emailValidate($("#founderMail"));
+    
+    //description
+    var descript = descriptionValidate($("#description"));
 
-
+    //video
     var videotrue = (getMovieDataByURL($("#youtubeUrl").val()) != null);
+    //videotrue = true;
 
     //site
     validateSite($("#site"));
     var site = true;
 
-    if (site & videotrue & (email == undefined || email))
+    if (site & videotrue & descript)
         return true;
     return false;
 }
@@ -780,6 +795,21 @@ function descriptionValidate(input){
         input.removeClass("error");
             $("#validate-description-error").hide();
             return true;
+    }
+}
+
+//validate slogen field
+function slogenValidate(input){
+    var words = $('#slogen').val().split(' ');
+    if ( words.length>9 || input.val() == "") {
+        input.addClass("error");
+        $("#validate-slogen-error").show();
+        return false;
+    }
+    else{
+        input.removeClass("error");
+        $("#validate-slogen-error").hide();
+        return true;        
     }
 }
 

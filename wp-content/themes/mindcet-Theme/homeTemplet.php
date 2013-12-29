@@ -117,7 +117,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 
 ?>
     <div id="offer-zone" class="inventorPopUp">
-    <span class="close">X</span>
+    <span class="close"></span>
     <span class="triangle"></span>
     <form id="new_post" name="new_post" class="popInvent" method="post" action="" class="wpcf7-form" enctype="multipart/form-data">
         
@@ -163,9 +163,11 @@ do_action('wp_insert_post', 'wp_insert_post');
 					$categories = get_categories($args);
 					  foreach($categories as $category) { 
 				 	?>
-					
-					<input type="checkbox" name="<?php echo $category->slug;?>" value="<?php echo $category->term_id;?>">
-					<?php echo $category->name ;?>
+					<label for="<?php echo $category->slug;?>">
+                        <label class="styleCheckbox"></label>					
+					    <input type="checkbox" id="<?php echo $category->slug;?>" name="<?php echo $category->slug;?>" value="<?php echo $category->term_id;?>">
+                        <span></span><?php echo $category->name ;?>
+                    </label>
 				<?php } 
  
 			
@@ -266,6 +268,7 @@ do_action('wp_insert_post', 'wp_insert_post');
     <div id="validate-general-error" class="validate-error">* please insert a valid text </div>
     <div id="validate-description-error" class="validate-error">* please insert less than 200 words to description field </div>
     <div id="validate-img-error" class="validate-error">* file is too big, Please ensure that file size is less than 2Mb </div>
+    <div id="validate-slogen-error" class="validate-error">* please insert up to 8 words in mission field </div>
     <span id="page-number-1" class="page-number">1/3</span>
     <span id="page-number-2" class="page-number">2/3</span>
     <span id="page-number-3" class="page-number">3/3</span>
@@ -285,7 +288,7 @@ do_action('wp_insert_post', 'wp_insert_post');
   <?php endif; ?>
 
     <div id="single-startup-zone"class="inventDescription">
-        <span id="invent-close" class="close">x</span>
+        <span id="invent-close" class="close"></span>
         <!--<div class="topArea">
             <div class="title ellipsis">Class Dojo</div>
             <div class="logo"></div>
@@ -375,7 +378,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 </div>
 <div class="page-wrap judges">
 	<div id="judgeDescription" class="judgeDescription">
-        <span class="close">x</span>
+        <span class="close"></span>
 
         <!--<div class="judgeDescriptionLeft">
             <div class="judgeDescription-img"></div>

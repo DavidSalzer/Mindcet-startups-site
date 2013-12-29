@@ -836,17 +836,18 @@ z-index:100;
 background-color: #616161;
 color: #fff;
 display: inline-block;
-width: 30px;
-height: 30px;
+width: 22px;
+height: 22px;
 position: absolute;
 text-align: center;
-line-height: 26px;
-font-size: 28px;
+line-height: 21px;
+font-size: 24px;
 border-radius: 100%;
 right: 14px;
 top: 11px;
 cursor: pointer;
 z-index: 100;
+font-weight: normal;
 }
 
 .judgesAvantar.hide{
@@ -1392,9 +1393,10 @@ text-indent: 16px;
 
 }
 #formPart3 .topArea .logo, .topArea .wp-post-image{
-    max-width: 100%;
+    height: 60px;
 
-    max-height: 100%;
+    margin: 0 auto;
+    display: block;
 }
 #formPart3 .startup-logo-form{
     height: 69px;
@@ -1643,8 +1645,6 @@ iframe > .play_button {
 }
 .inventDescription .topArea {
     width: 100%;
-    height: 98px;
-    border-bottom: solid 1px #636363;
     position: relative;
     /*width: 711px;
 height: 98px;
@@ -1653,27 +1653,30 @@ position: fixed;
 top: 30px;*/
 }
 .inventDescription .title.ellipsis {
-    float: left;
-    margin-top: 54px;
-    margin-left: 144px;
+    position: relative;
+    top: 16px;
+    left: 144px;
     font-size: 35px;
     width: 270px;
     text-decoration: none;
-color: #000;
+
+    color: #666;
 }
 .inventDescription a.title.ellipsis:hover {
     color: #6a6a6a;
 }
 .inventDescription .startup-popup-logo {
-    /*width: 106px;*/
+    width: 100%;
     height: 60px;
-    float: right;
     position: relative;
     margin: 30px 100px 0 0;
+    padding-bottom: 14px;
+    border-bottom: solid 1px #e6e6e8;
 }
 .inventDescription .socialArea {
     width: 124px;
 position: absolute;
+    top: 122px;
 }
 .inventDescription .mainArea {
     /*float: left;
@@ -1682,10 +1685,7 @@ height: 755px;
 margin-left: 135px;*/
 float: left;
 width: 480px;
-height: 730px;
-margin-left: 135px;
-overflow-y: auto;
-overflow-x: hidden;
+margin-left: 123px;
 padding-bottom: 25px;
 padding-right: 30px;
 }

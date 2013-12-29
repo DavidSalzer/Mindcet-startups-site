@@ -64,16 +64,52 @@
 	
 	
 	//ajax section
-	//wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
-	//wp_register_script( 'mindcetAjax', get_template_directory_uri(). '/js/mindcetAjax.js',  array('jquery'), 1.0 );
+		wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );	//wp_register_script( 'mindcetAjax', get_template_directory_uri(). '/js/mindcetAjax.js',  array('jquery'), 1.0 );
 	//wp_enqueue_script('mindcetAjax');
 	
-   	//add_action( 'wp_ajax_ getAllStartup', 'getStartup' );
-	//add_action( 'wp_ajax_nopriv_ getAllStartup', 'getStartup' );  
+   	add_action( 'wp_ajax_addLike', 'addLike' );
+	add_action( 'wp_ajax_nopriv_addLike', 'addLike' );  
 	//add_action( 'wp_ajax_my_action', 'my_action_callback' );
 	//add_action( 'wp_ajax_nopriv_my_action', 'my_action_callback' );
 	
-	
+	function addLike(){
+		$mach=get_option('ye_plugin_options');
+	 	$days=$mach['ye_voteDays'];
+		$good=$mach['ye_voteGood'];
+		$bad=$mach['ye_voteErorr'];
+
+		
+		if(isset($_COOKIE['vote'])){
+			echo $bad;
+		die;
+		}
+		
+		
+		if(isset($_POST['postId'])){
+			$like= get_post_meta($_POST['postId'],'wpcf-likes',true);
+			if($like==''||empty($like)){
+					//echo $_POST['postId'];
+					$like=1;
+				}else{
+					//echo $like;
+					$like++;
+			}
+			 update_post_meta($_POST['postId'],'wpcf-likes', $like);
+			 echo $good;
+			}else{
+		
+			
+		} 
+		
+		setcookie('vote', 'vote', time()+(3600*24*$days));//expire in 1 hour 
+		
+		die;
+	}
+
+
+
+
+	/////////////////////////////////end ajax///////////////////////////////////
 	function getAllStartup(){
 		 $args = array(
         'posts_per_page'   => -1,
@@ -107,11 +143,12 @@
 		$startupImg1=get_post_meta($post->ID,'wpcf-startup-img-2',true);
 		$startupImg2=get_post_meta($post->ID,'wpcf-startup-img-3',true);
 		$category=wp_get_post_categories($post->ID);
+		$likes=get_post_meta($post->ID,'wpcf-likes',true);
 		
         $startupImgArry=array('0'=>$startupImg,'1'=>$startupImg1,'2'=>$startupImg2);
  
  		$tempArry=array('techId'=>$techId,'title'=>$title,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
-  ,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImgArry,'category'=>$category);
+  ,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImgArry,'category'=>$category,'like'=>$likes);
         $allTech[$techId]=$tempArry;
 		//$tempArry=array('techId'=>$techId,'title'=>$title,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
 		//,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImg,'startupImg1'=>$startupImg,'startupImg2'=>$startupImg);

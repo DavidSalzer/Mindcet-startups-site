@@ -51,6 +51,10 @@ class MindCet_Option{
 		add_settings_field('ye_twitter','לינק טוויטר :',array($this,'ye_down_twitter'),__FILE__,'ye_main_section');
 		add_settings_field('ye_tech','לינק ליד לוגו מינדסט :',array($this,'ye_down_tech'),__FILE__,'ye_main_section');
 		
+		add_settings_field('ye_voteDays','כמה ימים למנוע הצבעה נוספת :',array($this,'ye_vDays'),__FILE__,'ye_main_section');
+		add_settings_field('ye_voteErorr','טקסט עבור הצבעה שנכשלה :',array($this,'ye_vError'),__FILE__,'ye_main_section');
+		add_settings_field('ye_voteGood','טקסט עבור הצבעה שנוספה :',array($this,'ye_vGood'),__FILE__,'ye_main_section');
+		
 	}
 	
 	
@@ -75,6 +79,15 @@ class MindCet_Option{
 			echo "<input type='text' name='ye_plugin_options[ye_tech]' value='".$this->options['ye_tech']."'/>";	
 			}
 	
+	public function ye_vDays(){
+			echo "<input type='number' name='ye_plugin_options[ye_voteDays]' value='".$this->options['ye_voteDays']."'/>";	
+			}
+	public function ye_vError(){
+			echo "<input type='text' name='ye_plugin_options[ye_voteErorr]' value='".$this->options['ye_voteErorr']."'/>";	
+			}		
+	public function ye_vGood(){
+			echo "<input type='text' name='ye_plugin_options[ye_voteGood]' value='".$this->options['ye_voteGood']."'/>";	
+			}
 }
 
 add_action('admin_menu',function(){

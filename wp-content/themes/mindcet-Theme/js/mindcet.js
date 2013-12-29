@@ -80,7 +80,9 @@ $(document).ready(function (e) {
 
 
                 var html = '       <div class="topArea">    '
-                html += '		    <div class="title ellipsis">' + title + '</div>';
+                html += '		    <div class="=title ellipsis">' + title + '</div>';
+                html += '		    <div class="name ellipsis">' + invetName + '</div>';
+
                 // html +=                 logo;
                 if (logoSrc != null)
                     html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
@@ -98,7 +100,6 @@ $(document).ready(function (e) {
                 var videoIframe = getEmbedMovie(getMovieDataByURL(youtubeUrl), 140, 225);
                 if (videoIframe != undefined)
                     html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(youtubeUrl), 140, 225) + '</div>';
-                html += '		    <div class="name ellipsis">' + invetName + '</div>';
                 html += '		    <div class="description">' + description + '</div>';
                 html += '           <div class="gallery">    ';
                 if (ImgSrc1 != null)
@@ -164,7 +165,7 @@ $(document).ready(function (e) {
 		
 		
         var fileName = $(this).val();
-        var fileName = $(this).val().replace("C:\\fakepath\\","..");
+        var fileName = $(this).val().replace("C:\\fakepath\\","");
         $('.title-logo.logoimg').text(fileName);
 
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
@@ -195,7 +196,7 @@ $(document).ready(function (e) {
 		}
 		
         var fileName = $(this).val();
-        var fileName = $(this).val().replace("C:\\fakepath\\","..");
+        var fileName = $(this).val().replace("C:\\fakepath\\","");
         $('.title-logo.img1').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
             if (this.files && this.files[0]) {
@@ -223,7 +224,7 @@ $(document).ready(function (e) {
             return;
 		}
 
-        var fileName = $(this).val().replace("C:\\fakepath\\","..");
+        var fileName = $(this).val().replace("C:\\fakepath\\","");
         $('.title-logo.img2').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
             if (this.files && this.files[0]) {
@@ -252,7 +253,7 @@ $(document).ready(function (e) {
 		}
 
         var fileName = $(this).val();
-        var fileName = $(this).val().replace("C:\\fakepath\\","..");
+        var fileName = $(this).val().replace("C:\\fakepath\\","");
         $('.title-logo.img3').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 

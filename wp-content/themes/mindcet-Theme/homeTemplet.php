@@ -122,16 +122,6 @@ do_action('wp_insert_post', 'wp_insert_post');
     <form id="new_post" name="new_post" class="popInvent" method="post" action="" class="wpcf7-form" enctype="multipart/form-data">
         
         <div id="formPart1">
-            <!-- post name -->
-            <!--<fieldset name="title">-->
-                <input type="text" id="title" value="" tabindex="5" name="title" placeholder="StartUp Name" />
-            <!--</fieldset>-->
-    
-            <!-- post slogen -->
-            <!--<fieldset class="formfield">-->
-                <input type="text" id="slogen" value="" tabindex="10" name="slogen" placeholder="Slogen" />
-            <!--</fieldset>-->
-
             <!-- post Category -->
             <!--<fieldset class="formfield">-->
                 <input type="text" id="invetName" value="" tabindex="10" name="invetName" placeholder="Your Name" />
@@ -139,22 +129,31 @@ do_action('wp_insert_post', 'wp_insert_post');
     
             <!-- post Category -->
             <fieldset class="formfield">
-                <input type="email" id="email" value="" tabindex="15" name="email" placeholder="Your E-Mail"/>
+                <input type="email" id="email" value="" tabindex="11" name="email" placeholder="Your E-Mail"/>
             </fieldset>
-
-            <!-- post Category -->
             
-            <fieldset class="formfield input-border">
-                <span class="title-logo logoimg">Logo</span>
-                <div class="upload">
-                    <input type="file" id="logo" value="Upload" name="logo" tabindex="25" name="logo" placeholder="" />Select file
-                </div>
-            </fieldset>
-
-            <!-- post Content -->
-            <!--<fieldset class="formfield">-->
-           <textarea id="description" tabindex="35" name="description" cols="30" rows="1" placeholder="About You/Your Startup"></textarea>
+            <!-- post name -->
+            <!--<fieldset name="title">-->
+                <input type="text" id="title" value="" tabindex="12" name="title" placeholder="StartUp Name" />
             <!--</fieldset>-->
+            
+            <!-- post Category -->
+            <!--<fieldset class="formfield">-->
+                <input type="text" id="founder" value="" tabindex="13" name="founder" placeholder="Founder" />
+            <!--</fieldset>-->
+        
+             <!-- post Category -->
+            <!--<fieldset class="formfield">-->
+                <input type="email" id="founderMail" value="" tabindex="14" name="founderMail" placeholder="Founder E-Mail" />
+            <!--</fieldset>-->
+
+            <!-- post slogen -->
+            <!--<fieldset class="formfield">-->
+                <input type="text" id="slogen" value="" tabindex="15" name="slogen" placeholder="Startup mission up to 8 words" />
+            <!--</fieldset>-->            
+
+            <fieldset class="categories-input">
+                <div class="categories">Startup's categories <br></div>
              <?php 
 					$args = array(
 					  'orderby' => 'name',
@@ -172,27 +171,34 @@ do_action('wp_insert_post', 'wp_insert_post');
 			
 			
 			?>   
+            </fieldset>            
         </div>
         
         <div id="formPart2">    
+            
+            
             <!-- post Category -->
+            
+            <!-- post Content -->
             <!--<fieldset class="formfield">-->
-                <input type="text" id="founder" value="" tabindex="25" name="founder" placeholder="Founder" />
-            <!--</fieldset>-->
-        
-             <!-- post Category -->
-            <!--<fieldset class="formfield">-->
-                <input type="email" id="founderMail" value="" tabindex="30" name="founderMail" placeholder="Founder E-Mail" />
+           <textarea id="description" tabindex="20" name="description" cols="30" rows="1" placeholder="About You/Your Startup"></textarea>
             <!--</fieldset>-->
 
             <!-- post Category -->
             <!--<fieldset class="formfield">-->
-                <input type="url" id="site" value="" tabindex="20" name="site" placeholder="Link to Site"/>
+                <input type="url" id="site" value="" tabindex="21" name="site" placeholder="Link to Site"/>
             <!--</fieldset>-->
         
             <!-- post Category -->
             <fieldset class="formfield">
-                <input type="url" id="youtubeUrl" value="" tabindex="20" name="youtubeUrl" placeholder="Link to Video"/>
+                <input type="url" id="youtubeUrl" value="" tabindex="22" name="youtubeUrl" placeholder="Link to Video"/>
+            </fieldset>
+
+            <fieldset class="formfield input-border">
+                <span class="title-logo logoimg">Logo</span>
+                <div class="upload">
+                    <input type="file" id="logo" value="Upload" name="logo" tabindex="23" name="logo" placeholder="" />Select file
+                </div>
             </fieldset>
         
             <!-- post Category -->
@@ -200,7 +206,7 @@ do_action('wp_insert_post', 'wp_insert_post');
             <fieldset class="formfield input-border">
                 <span class="title-logo img1">Add Your Photo</span>
                 <div class="upload">
-                    <input type="file" id="img-1" value="" tabindex="25" name="img-1" placeholder="" />Select file
+                    <input type="file" id="img-1" value="" tabindex="24" name="img-1" placeholder="" />Select file
                 </div>
             </fieldset>
 
@@ -218,7 +224,7 @@ do_action('wp_insert_post', 'wp_insert_post');
             <fieldset class="formfield input-border">
                 <span class="title-logo img3">Add Your Photo</span>
                 <div class="upload">
-                    <input type="file" id="img-3" value="" tabindex="25" name="img-3" placeholder="" />Select file
+                    <input type="file" id="img-3" value="" tabindex="26" name="img-3" placeholder="" />Select file
                 </div>
             </fieldset>
 

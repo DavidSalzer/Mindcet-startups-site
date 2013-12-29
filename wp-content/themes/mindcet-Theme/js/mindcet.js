@@ -80,7 +80,9 @@ $(document).ready(function (e) {
 
 
                 var html = '       <div class="topArea">    '
-                html += '		    <div class="title ellipsis">' + title + '</div>';
+                html += '		    <div class="=title ellipsis">' + title + '</div>';
+                html += '		    <div class="name ellipsis">' + invetName + '</div>';
+
                 // html +=                 logo;
                 if (logoSrc != null)
                     html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
@@ -98,7 +100,6 @@ $(document).ready(function (e) {
                 var videoIframe = getEmbedMovie(getMovieDataByURL(youtubeUrl), 140, 225);
                 if (videoIframe != undefined)
                     html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(youtubeUrl), 140, 225) + '</div>';
-                html += '		    <div class="name ellipsis">' + invetName + '</div>';
                 html += '		    <div class="description">' + description + '</div>';
                 html += '           <div class="gallery">    ';
                 if (ImgSrc1 != null)

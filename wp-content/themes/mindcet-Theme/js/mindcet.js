@@ -279,14 +279,15 @@ $(document).ready(function (e) {
     $('.judgeDescription').on('click','.close', this, function () {
         $('.judgeDescription').empty().append('<span class="close">x</span>');
         $('.judgeDescription').slideUp(1000, 'easeInOutBack');
+		$('.mask').hide();
         return false;
     });
 
     $('.judgesAvantar').on('click', this, function () {
         $('.inventorPopUp .close').click();
         tid = $(this).attr('judgeId');
-
-
+		$('.mask').show();
+		
         $('.judgeDescription').slideDown(1000, 'easeInOutBack');
         //imgProfile = allJudges[tid].imgProfile;
 
@@ -575,14 +576,17 @@ function enable_scroll() {
         domUrlTweet=domUrl.replace('#','%23');
         console.log(tid);
 		console.log(allTech[tid]);
-    var html = '       <div class="topArea">    '
+    var html = '       <div class="topArea">    ';
+   
+    html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
+   
     if (allTech[tid].siteUrl.length > 0){
         html += '		        <a href="' + allTech[tid].siteUrl + '" class="title ellipsis">' + allTech[tid].title + '</a>';
         }
     else {
         html += '		        <div class="title ellipsis">' + allTech[tid].title + '</div>';
     }
-    html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
+   
     html += '       </div>    ';
 
         html += '       <div class="socialArea">    ';

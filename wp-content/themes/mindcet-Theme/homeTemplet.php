@@ -90,6 +90,7 @@ set_post_thumbnail( 165, 176177178179 );
 			$pid = wp_insert_post($new_post);
 		
 		   //SET OUR CASTUOM FIELDS
+        
 			update_post_meta($pid, 'wpcf-full_name', $name);
 			update_post_meta($pid, 'wpcf-email_up', $email);
 			update_post_meta($pid, 'wpcf-site-url', $site);

@@ -164,7 +164,7 @@ $(document).ready(function (e) {
 		
 		
         var fileName = $(this).val();
-        var fileName = $(this).val().replace("C:\\fakepath\\","..");
+        var fileName = $(this).val().replace("C:\\fakepath\\","");
         $('.title-logo.logoimg').text(fileName);
 
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
@@ -195,7 +195,7 @@ $(document).ready(function (e) {
 		}
 		
         var fileName = $(this).val();
-        var fileName = $(this).val().replace("C:\\fakepath\\","..");
+        var fileName = $(this).val().replace("C:\\fakepath\\","");
         $('.title-logo.img1').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
             if (this.files && this.files[0]) {
@@ -223,7 +223,7 @@ $(document).ready(function (e) {
             return;
 		}
 
-        var fileName = $(this).val().replace("C:\\fakepath\\","..");
+        var fileName = $(this).val().replace("C:\\fakepath\\","");
         $('.title-logo.img2').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
             if (this.files && this.files[0]) {
@@ -252,7 +252,7 @@ $(document).ready(function (e) {
 		}
 
         var fileName = $(this).val();
-        var fileName = $(this).val().replace("C:\\fakepath\\","..");
+        var fileName = $(this).val().replace("C:\\fakepath\\","");
         $('.title-logo.img3').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 

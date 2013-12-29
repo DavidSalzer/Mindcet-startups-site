@@ -322,4 +322,100 @@ function fileUp($postid){
 
 }
 
+//castomise thems
+function mytheme_customize_register( $wp_customize ) {
+   //All our sections, settings, and controls will be added here
+   //1. Define a new section (if desired) to the Theme Customizer
+   $wp_customize->add_section( 'my_options', 
+         array(
+            'title' =>'midedcet Addon', //Visible title of section
+          //  'priority' => 35, //Determines what order this appears in
+          //  'capability' => 'edit_theme_options', //Capability needed to tweak
+            'description' => 'Top Link Color setting.', //Descriptive tooltip
+         ) 
+      );
+	 
+	 //2. Register new settings to the WP database...
+	$wp_customize->add_setting( 'link_textcolor', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default' => '#6a6a6a', //Default setting/value to save
+       //     'type' => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+       //     'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+        //    'transport' => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+         ) 
+      );  	  
+	  
+	   //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+      $wp_customize->add_control( new WP_Customize_Color_Control( //Instantiate the color control class
+         $wp_customize, //Pass the $wp_customize object (required)
+         'link_textcolor', //Set a unique ID for the control
+         array(
+            'label' => 'link color', //Admin-visible name of the control
+            'section' => 'my_options', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+            'settings' => 'link_textcolor', //Which setting to load and manipulate (serialized is okay)
+            'priority' => 10, //Determines the order this control appears in for the specified section
+         ) 
+      ) );
+	  
+	  //set a img for link at the top
+	  $wp_customize->add_section( 'Img_link', 
+         array(
+            'title' =>'בחירת תמונה', //Visible title of section
+            'description' => 'בחירת תמונה עבור לינק ליד לוגו מינדסט', //Descriptive tooltip
+         ) 
+      );
+	 
+	 //2. Register new settings to the WP database...
+	$wp_customize->add_setting( 'link_ImgBg', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default' => '', //Default setting/value to save
+		     ) 
+      );  	  
+	  
+	   //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+      $wp_customize->add_control( new WP_Customize_Image_Control( //Instantiate the color control class
+         $wp_customize, //Pass the $wp_customize object (required)
+         'top_link_ImgBg', //Set a unique ID for the control
+         array(
+            'label' => 'תמונת לינק', //Admin-visible name of the control
+            'section' => 'Img_link', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+            'settings' => 'link_ImgBg', //Which setting to load and manipulate (serialized is okay)
+            'priority' => 10, //Determines the order this control appears in for the specified section
+         ) 
+      ) );
+	  
+	  $wp_customize->add_setting( 'link_ImgBg_text', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default' => '', //Default setting/value to save
+		     ) 
+      );  	  
+	  
+	   //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+      $wp_customize->add_control( 
+         'link_ImgBg_text', //Set a unique ID for the control
+         array(
+            'label' => 'טקסט תמונת לינק', //Admin-visible name of the control
+            'section' => 'Img_link', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+            'settings' => 'link_ImgBg_text', //Which setting to load and manipulate (serialized is okay)
+            'priority' => 10, //Determines the order this control appears in for the specified section
+         ) 
+       );
+   
+}
+add_action('wp_head','getCssForLink');
+
+add_action( 'customize_register', 'mytheme_customize_register' );
+
+//function to get the theam setting
+function getCssForLink(){
+?>
+	<style>
+    .topMenu ul li a{
+		color:<?php echo get_theme_mod('link_textcolor');?>;
+	}
+    
+    </style>
+<?php
+}
+
 ?>

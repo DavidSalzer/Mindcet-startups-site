@@ -62,7 +62,9 @@
                 	<span class="logoMindcet"></span>
                 </a>
                 <a href="<?php echo  $ye_tech;?>" class="tagLogo" target="_blank">
-                	<span class="logoCet"></span>
+                	<span class="logoCet">
+                    	<img src="<?php echo get_theme_mod('link_ImgBg'); ?>" title="<?php echo get_theme_mod('link_ImgBg_text');?>" class="topImgLink">
+                    </span>
                 </a>
                 <div class="timer">
                 <?php get_sidebar('countdown');?>

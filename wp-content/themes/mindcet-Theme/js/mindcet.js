@@ -582,7 +582,7 @@ function enable_scroll() {
     else {
         html += '		        <div class="title ellipsis">' + allTech[tid].title + '</div>';
     }
-    html += '<div class="startup-popup-logo"><img class="wp-post-image" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
+    html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
     html += '       </div>    ';
 
         html += '       <div class="socialArea">    ';

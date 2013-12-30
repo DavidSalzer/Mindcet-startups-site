@@ -655,7 +655,7 @@ width: 217px;
 height: 40px;
 line-height: 40px;
 text-align: center;
-border-right: solid 1px #999;
+/*border-right: solid 1px #999;*/
 }
 .leftScroll {
     width: 72px;

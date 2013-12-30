@@ -354,10 +354,33 @@ $(document).ready(function (e) {
         popuopInvent(tid);
     });
 
-    //$('.inventHome li').on('click', this, function () {
-    //    
-    //    
-    //});
+    $('.inventHome li a').on('click', this, function () {
+        e.preventDefault();
+
+        //var category= $('.inventHome li a').attr('href').split('?cat=');
+        //category=category[1];
+        //
+        //document.getElementById("scrollInventorCon").remove();
+        //
+        //var html= '<div id="scrollInventorCon"><span class="placholderSlide"></span><ul class="inventList">';
+        //for (var prop in allTech){
+        //    tid = $('.inventList li').attr('idtec');
+        //    if(allTech.hasOwnProperty(tid))
+
+        //    for (var j=0;j<3;j++){
+        //            
+        //    }
+        //}
+        //
+
+        //    if (allTech[i].category.indexOf("category") != -1){
+        //        html +='';
+        //    }
+        //    else{
+        //        
+        //    }
+        
+    });
 
 
 

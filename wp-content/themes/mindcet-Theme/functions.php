@@ -69,6 +69,9 @@
 	
    	add_action( 'wp_ajax_addLike', 'addLike' );
 	add_action( 'wp_ajax_nopriv_addLike', 'addLike' );  
+	
+	add_action( 'wp_ajax_sendMesg', 'sendMesg' );
+	add_action( 'wp_ajax_nopriv_sendMesg', 'sendMesg' );  
 	//add_action( 'wp_ajax_my_action', 'my_action_callback' );
 	//add_action( 'wp_ajax_nopriv_my_action', 'my_action_callback' );
 	
@@ -83,8 +86,7 @@
 			echo $bad;
 		die;
 		}
-		
-		
+
 		if(isset($_POST['postId'])){
 			$like= get_post_meta($_POST['postId'],'wpcf-likes',true);
 			if($like==''||empty($like)){
@@ -106,7 +108,24 @@
 		die;
 	}
 
-
+	function sendMesg(){
+			$first=esc_attr($_POST['first']);
+			$last=esc_attr($_POST['last']);
+			$email=esc_attr($_POST['email']);
+			$message=esc_attr($_POST['msg']);
+			
+	   $adminEmail=get_option( 'admin_email' );
+	   $subject='התקבלה פניה מהאתר';
+	   $headers = 'From: '.$first.' '.$last.' <'.$email.'>' . "\r\n";
+ 
+		 if(wp_mail( $adminEmail, $subject, $message, $headers, $attachments )){
+		 		echo 'message send';
+		 		
+		 }else{
+			 	echo 'message send failed, please try again';
+			} 
+		die();
+	}
 
 
 	/////////////////////////////////end ajax///////////////////////////////////

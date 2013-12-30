@@ -264,6 +264,7 @@ body{
 	background-repeat:repeat;
 	background-size: 50px;
 	font-family:sans;
+	position:relative;
 }
 *{
 	outline:none;
@@ -1149,7 +1150,8 @@ margin-bottom: 20px;
 width: 166px;
 height: 43px;
 border: 2px solid #e8e8e8;
-background-color: #e76c76;
+
+    background-color: #e76c76;
 color: white;
 cursor: pointer;
 position: absolute;
@@ -1380,6 +1382,7 @@ width: 1024px;
 margin: auto;
 right: 0;
 left: 0;
+position: relative;
 }
 /*------------Invent----------------*/
 .mask{
@@ -1839,4 +1842,79 @@ body {
     scrollbar-track-color: #7D7E94;  
     scrollbar-arrow-color: #C1C1D1;   
 }*/
-
+#contactUsForm {
+    position: absolute;
+    background: #fff;
+    width: 506px;
+    bottom: 80px;
+    height: 536px;
+    left: 112px;
+    box-shadow: #333 2px 3px 4px 0px;
+	display:none;
+}
+#contactUsForm form {
+    margin: 45px 0 0 30px;
+}
+#contactUsForm form input,#contactUsForm form textarea{
+	float:left;
+	clear:both;
+}
+#contactUsForm form input{
+    width: 415px;
+    margin-bottom: 28px;
+    height: 42px;
+    font-size: 26px;
+    padding-left: 5px;
+}
+#contactUsForm form textarea{
+    width: 418px;
+    height: 173px;
+    font-size: 25px;
+    padding: 5px;
+}
+#contactUsForm #cbtm{
+    background: #e76c76;
+    color: #fff;
+    border: none;
+    width: 168px;
+    float: right;
+    margin: 17px 49px;
+}
+#contactUsForm .close{ 
+	background-color: #616161;
+	background-image: url(img/x.png);
+	background-repeat: no-repeat;
+	background-position: 3.9px;
+	color: #fff;
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	text-align: center;
+	line-height: 21px;
+	font-size: 24px;
+	border-radius: 100%;
+	right: 14px;
+	top: 11px;
+	cursor: pointer;
+	z-index: 100;
+	font-weight: normal;
+}
+#contactUsForm .triangle {
+	position: absolute;
+	background-image: url(img/triangle.png);
+	width: 50px;
+	left: 28px;
+	bottom: -37px;
+	height: 57px;
+	-webkit-transform: rotateZ(-90deg);
+}
+.loading {
+    position: relative;
+    top: 50px;
+    color: #333;
+    padding: 15px;
+    text-align: center;
+    font-size: 35px;
+	display:none;
+}

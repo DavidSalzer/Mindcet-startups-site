@@ -70,10 +70,10 @@
                 <?php get_sidebar('countdown');?>
                 </div>
                 <div class="socialTabs">
-                    <a href="<?php echo $linkin; ?>" class="socialTab" target="_blank">
+                    <div class="socialTab" onClick="openInNewWindow('<?php echo $linkin; ?>', 100, 100)">
                 	    <span class="linkin"></span>
-                    </a>
-                    <a href="<?php echo $twitter; ?>" class="socialTab" target="_blank">
+                    </div>
+                    <a href="<?php echo $twitter; ?>" class="socialTab" target="_blank" width="100px" height="100px">
                 	    <span class="twitter"></span>
                     </a>
                     <a href="<?php echo $face; ?>" class="socialTab" target="_blank">

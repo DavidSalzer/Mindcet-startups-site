@@ -428,7 +428,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 </div>
 <div class="page-wrap contect">
 	<article>
-	<?php echo $homeContant ;?>
+	<?php the_content();?>
 	</article>
 </div>
 <script>

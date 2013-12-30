@@ -335,7 +335,7 @@ background-size: 195px;
 	position: relative;
 }
 .logoPau{
-    background-image: url(img/PAU.jpg);
+    background-image: url(img/logo-pau.png);
 background-size: 100%;
 background-repeat: no-repeat;
 width: 100px;
@@ -344,7 +344,7 @@ height: 53px;
 margin: 21px 5px 10px;
 }
 .logoEdTech{
-    background-image: url(img/EdTechlondon.jpg);
+    background-image: url(img/logo-edtech.png);
 background-size: 100%;
 background-repeat: no-repeat;
 width: 100px;
@@ -702,7 +702,7 @@ height: 40px;
 }
 .inventHome {
     height: 54px;
-    width: 80%;
+    width: 87%;
     margin: auto;
 }
 #scrollInventorCon {
@@ -1242,7 +1242,7 @@ margin: 25px auto 60px;
 }
 
 /*.validate-error{*/
-#validate-general-error, #validate-description-error, #validate-img-error, #validate-slogen-error{
+#validate-general-error, #validate-description-error, #validate-img-error, #validate-slogen-error, #validate-checkbox-error{
    color: #e76c76;
 font-size: 15px;
 font-family: sans-serif;
@@ -1503,6 +1503,7 @@ line-height: 83px;
 }
 .socialArea .social , .form-end-message .social{
    width: 38px;
+   cursor: pointer;
 
    height: 22px;
 border-bottom: 1px solid #6a6a6a;
@@ -1525,7 +1526,7 @@ padding-bottom: 8px;
 .form-end-message .social {
 float: left;
 border: 0;
-padding-top: 12%;
+padding-top: 15%;
 margin-top: 4px;
 margin-bottom: 12px;
 }
@@ -1574,12 +1575,11 @@ color: #555ca8;
     border: 0;
 }
 .form-end-message .fb , .form-end-message .twitter{
-margin: 0 0 0 114px;
+margin: 0 0 0 97px;
 border-right: 2px solid #c0c0c0;
 padding-right: 13px
 }
 .form-end-message .fb{
-    padding-right: 0;
 }
 .form-end-message .twitter{
     margin: 0;

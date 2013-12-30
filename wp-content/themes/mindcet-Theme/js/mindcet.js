@@ -154,12 +154,19 @@ $(document).ready(function (e) {
 
         return;
     });
+    $('#new_post').on('submit', this, function(){
+        if (document.getElementById(("ads")).checked && document.getElementById(("terms")).checked)
+            return true;
+        $("#validate-checkbox-error").show();
+        return false;
+    });
 
     var logoSrc = null;
     var ImgSrc1 = null;
     var ImgSrc2 = null;
     var ImgSrc3 = null;
 
+    
     $("#logo").change(function (e) {
 		
         //input.removeClass("error");
@@ -347,6 +354,10 @@ $(document).ready(function (e) {
         popuopInvent(tid);
     });
 
+    //$('.inventHome li').on('click', this, function () {
+    //    
+    //    
+    //});
 
 
 
@@ -585,6 +596,9 @@ function enable_scroll() {
 		if(tid){window.location.hash=tid;}
 		domUrl=document.URL;
         domUrlTweet=domUrl.replace('#','%23');
+        var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]=&p[summary]=';
+        var tweetUrl='http://twitter.com/intent/tweet?text='+domUrlTweet;
+        var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+domUrl;
         console.log(tid);
 		console.log(allTech[tid]);
     var html = '       <div class="topArea">    ';
@@ -601,23 +615,10 @@ function enable_scroll() {
     html += '       </div>    ';
 
         html += '       <div class="socialArea">    ';
-        //html += '           <div class="social fb">Share on <span class="letter-space">Facbook</span></div>    ';
-       // html += '           <div class="social fb"><div class="fb-share-button" data-href="'+domUrl+'" data-type="button_count"></div></div>    ';
-       
-	   html+='<a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]=&p[summary]=" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>';
-	   // html += '           <a href="http://www.facebook.com/sharer/sharer.php?u='+domUrl+'" class="social fb" title="(Share on Facebook)" target="_blank">Share on Facebook</a>';
-        //html += '           <div class="social twitter">Share on <span class="letter-space">Twitter</span></div>    ';
-        html += '           <a href="http://twitter.com/intent/tweet?text='+domUrlTweet+'" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>';
-        //html += '           <div class="social linkedin">Share on <span class="letter-space">Linkedin</span></div>    ';
-        html += '           <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url='+domUrl+'" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>';
-       //html += '           <div class="social likes"><!-- AddThis Button BEGIN -->';
-
-       //html += '               <div class="addthis_toolbox addthis_floating_style addthis_counter_style" url=" " style="left:50px;top:50px;">';
-       //html += '                   <a class="addthis_button_facebook_like" fb:like:layout="box_count"></a>';
-       //
-       //html += '                </div>';
-       //html += '                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-52bab90d488ccc3b"></script>';
-       //html += '               <!-- AddThis Button END --></div>    ';
+	   html+='              <div onClick="openInNewWindow('+"'"+fbUrl+"'"+')" class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
+        html+='             <div onClick="openInNewWindow('+"'"+tweetUrl+"'"+')" class="social twitter" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
+        html+='             <div onClick="openInNewWindow('+"'"+linkedinUrl+"'"+')" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
+        
        html += '          </div>    ';
 
 
@@ -804,6 +805,8 @@ function slogenValidate(input){
     if ( words.length>9 || input.val() == "") {
         input.addClass("error");
         $("#validate-slogen-error").show();
+        if ( input.val() == "")
+            $("#validate-general-error").show();
         return false;
     }
     else{
@@ -868,4 +871,8 @@ function showForm4(){
     }
 }
 
+function openInNewWindow(url, width, height){
+    var win=window.open(url, '_blank', location=0, menubar=0, height=100, width=100);
+    win.focus();
+}
 /////////////////////////////////////////////////////////////////////////end validation

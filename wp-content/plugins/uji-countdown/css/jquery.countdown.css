@@ -35,8 +35,7 @@
 }
 .countdown_amount {
 	color: #fff;
-	font-family:sans;
-/*	padding: 5px 10px 5px 10px;
+	padding: 5px 10px 5px 10px;
 	margin-right: 2px;
 
 	font: 35px/1.5 'Open Sans Condensed',sans-serif;
@@ -56,7 +55,7 @@
 	-moz-border-radius: 5px;
 	-o-border-radius: 5px;
 	border-radius: 5px;
-	text-shadow: 1px 1px 1px #000; */
+	text-shadow: 1px 1px 1px #000; 
 }
 .countdown_txt {
 	padding: 5px;
@@ -101,13 +100,4 @@
 }
 .ujic_none{
 	display: block;
-}
-.countdown_section {
-    display: none !important;
-}
-.countdown_section:first-child {
-    display: block !important;
-}
-#uji_sec {
-    display: none !important;
 }

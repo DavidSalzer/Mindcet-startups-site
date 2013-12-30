@@ -1,6 +1,24 @@
             <div id="footer">
             <div class="footerLogos">
-                <a href="http://www3.cet.ac.il/" target="_blank" class="">
+            	    <?php
+					$defaults = array(
+						'theme_location'  =>'logoMenu',
+						'menu'            => 'logoMenu',
+						'container'       => 'div',
+						'container_class' => 'logo_menu',
+						'menu_class'      => 'menu',
+						'echo'            => false,
+						'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+					);
+					
+					$menu =wp_nav_menu( $defaults );
+					$menu = str_replace('<a',"<a target='_blank'",$menu);
+					echo $menu;
+					
+					?>
+            
+            
+                <?php /*?><a href="http://www3.cet.ac.il/" target="_blank" class="">
                 	<span class="logoMatach"></span>
                 </a>
                 <!--<a href="<?php echo site_url();?>" target="_blank" class="mindcet">-->
@@ -16,7 +34,7 @@
                 </a>
                 <a href="http://www.edtechincubator.com/" target="_blank" class="">
                 	<span class="logoEdTech"></span>
-                </a>
+                </a<?php */?>
                 
             </div>
         	<nav class="footerNav">

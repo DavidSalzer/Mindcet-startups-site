@@ -56,7 +56,8 @@
 		register_nav_menus( array(
 		'topMenu' => 'top Menu',
 		'startupMenu'=>'home startup menu',
-		'footerMenu'=>'footer menu'
+		'footerMenu'=>'footer menu',
+		'logoMenu'=>'logos menu'
 		));
 	
 	}
@@ -456,7 +457,7 @@ function mytheme_customize_register( $wp_customize ) {
             'priority' => 10, //Determines the order this control appears in for the specified section
          ) 
        );
-   
+
 }
 add_action('wp_head','getCssForLink');
 

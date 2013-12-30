@@ -1918,3 +1918,13 @@ body {
     font-size: 35px;
 	display:none;
 }
+.countdown_section {
+	display: none !important;
+}
+.countdown_amount{
+	box-shadow:none !important;
+}
+.countdown_section:first-child {
+	display: block !important;
+}
+#uji_sec{display:none !important;}

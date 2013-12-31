@@ -46,6 +46,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+    
 	<div class="mask"></div>
     <header>
     	<div class="header cf">

@@ -287,9 +287,16 @@ do_action('wp_insert_post', 'wp_insert_post');
   <?php else : ?>
   <h2>Not Found</h2>
   <?php endif; ?>
-
+  
     <div id="single-startup-zone"class="inventDescription">
         <span id="invent-close" class="close"></span>
+        <div class="inventDescription-append"></div>
+        <div class="facebook-comments">
+        <iframe src="" id="comments-frame" class="fb-comments">
+        
+        </iframe>
+            </div>
+        
         <!--<div class="topArea">
             <div class="title ellipsis">Class Dojo</div>
             <div class="logo"></div>
@@ -412,7 +419,9 @@ do_action('wp_insert_post', 'wp_insert_post');
 	
 		
     <div class="judgesAvantar" judgeId="<?php echo $post->ID;?>"> 
+        <div class="judge-pic">
 		<?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?>
+            </div>
       	<h2> <?php the_title(); ?></h2>
         <div class="judgestext">           
         	<?php  echo get_post_meta($post->ID,'wpcf-judges_role',true);?>

@@ -260,7 +260,7 @@ html[xmlns] .cf {
 }
 /*------------------header and general-------------------------*/
 body{
-	background-image:url(img/texture.jpg);
+    background-color: #f5f5f5;
 	background-repeat:repeat;
 	background-size: 50px;
 	font-family:sans;
@@ -408,10 +408,10 @@ background-position-y: 80%;
 	background-position: -3px 87px;
 }
 .socialTab span.linkin{
-    background-position: -117px 87px;
+    background-position: -119px 87px;
 }
 .socialTab span.twitter{
-    background-position: -58px 87px;
+    background-position: -60px 87px;
 }
 .topNav {
 	width: 100%;
@@ -492,7 +492,7 @@ margin: 0 auto;
 position: relative;
 /*background-image: url(img/background.jpg);
 background-repeat: no-repeat;*/
-margin-top: 157px;
+margin-top: 155px;
 height: 528px;
 }
 .home .entry {
@@ -697,9 +697,11 @@ height: 40px;
 }
 .inventorNav {
     height: 54px;
-    width: 1022px;
-    border-left: 1px solid #969696;
-    border-right: 1px solid #969696;
+    width: 1024px;
+	background-image:url(img/texture.jpg);
+    
+    /*border-left: 1px solid #969696;
+    border-right: 1px solid #969696;*/
 }
 .inventHome {
     height: 54px;
@@ -733,6 +735,7 @@ height: 40px;
 }
 .page-wrap.judges {
     width: 1024px;
+	background-image:url(img/texture.jpg);
     position: relative;
     height: 320px;
 }
@@ -838,6 +841,24 @@ padding-right: 2px;
     cursor: pointer;
     margin-right: 5px;
 	box-shadow: #333 2px 1px 1px 0px;
+    vertical-align: top;
+    
+}
+.judge-pic{
+    width: 100%;
+    height: 161px;
+	border-bottom:solid 6px #fff;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    
 }
 .judgeDescription{
     width: 1024px;
@@ -886,7 +907,6 @@ height: 25px;
 }
 .judgesAvantar img{
 	max-width:100%;
-	border-bottom:solid 6px #fff;
 }
 .judgesAvantar h2{
 	background:#3f3f3f;
@@ -905,9 +925,10 @@ margin-top: -2px;
 	top:122px;
 }
 .page-wrap.contect{
-	width: 1022px;
-    border-left: 1px solid #969696;
-    border-right: 1px solid #969696;
+	width: 1024px;
+	background-image:url(img/texture.jpg);
+    /*border-left: 1px solid #969696;
+    border-right: 1px solid #969696;*/
     position: relative;
 }
 .page-wrap.contect p {
@@ -1408,7 +1429,7 @@ left: 0;
 right: 0;
 margin-top: 55px;
 display: none;
-overflow-y: auto;
+/*overflow-y: auto;*/
 }
 #formPart3 .topArea{
     width: 96%;
@@ -1705,10 +1726,13 @@ border-radius: 2px;*/
    display: inline-block;
    vertical-align: middle;
 }
-.mainArea .recipe-facebook-comments{
-    width: 100%;
-    min-height: 70px;
-    border: 1px solid #000;   
+.fb-comments{
+width: 560px;
+max-height: 500px;
+margin-left: 140px;
+overflow-y: auto;
+overflow-x: hidden;
+margin-bottom: 20px;
 }
 
 
@@ -1769,7 +1793,7 @@ position: absolute;
 width: 480px;
 height: 755px;
 margin-left: 135px;*/
-float: left;
+display: inline-block;
 width: 480px;
 margin-left: 123px;
 padding-bottom: 25px;
@@ -1789,6 +1813,8 @@ padding-right: 30px;
     width: 465px;
     margin-left: 15px;
     line-height: 17px;
+    font-size: 14px;
+text-align: justify;
 }
 .inventDescription .mainArea .gallery {
     width: 460px;
@@ -1936,7 +1962,7 @@ body {
 .logo_menu li{
 	display: inline-block;
 margin: 10px 5px;
-width: 110px;
+width: 100px;
 height: 80px;
 vertical-align: sub;
 }

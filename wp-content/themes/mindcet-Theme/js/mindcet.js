@@ -97,9 +97,9 @@ $(document).ready(function (e) {
 
                 html += '       <div class="mainArea">    ';
                 //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(youtubeUrl)) + '" /><span class="play_button"></span> ' + '</div>    ';
-                var videoIframe = getEmbedMovie(getMovieDataByURL(youtubeUrl), 140, 225);
-                if (videoIframe != undefined)
-                    html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(youtubeUrl), 140, 225) + '</div>';
+                //var videoIframe = getEmbedMovie(getMovieDataByURL(youtubeUrl), 140, 225);
+                //if (videoIframe != undefined)
+                //    html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(youtubeUrl), 140, 225) + '</div>';
                 html += '		    <div class="description">' + description + '</div>';
                 html += '           <div class="gallery">    ';
                 if (ImgSrc1 != null)
@@ -352,6 +352,7 @@ $(document).ready(function (e) {
     $('.inventList li').on('click', this, function () {
         tid = $(this).attr('idtec');
         popuopInvent(tid);
+        //setIframe();
     });
 
     $('.inventHome li a').on('click', this, function () {
@@ -387,11 +388,13 @@ $(document).ready(function (e) {
 }); //dom ready
 
 
+
+
 function openOfferPopUp() {
     //disable_scroll();
     $('.inventorPopUp').fadeIn(1500, 'easeInOutBack');
     $('html, body').animate({
-        scrollTop: $("#offer-zone").offset().top - 160
+        scrollTop: $("#offer-zone").offset().top - 154
     }, 500, function () { enable_scroll() });
 
 
@@ -564,7 +567,7 @@ function updateMenuUrl() {
     //scroll smooth
     $('a[href^="#"]').click(function () {    // Change to needed selector
         $("html, body").animate({    // Need both for full browser support
-            scrollTop: $($(this).attr("href")).offset().top - 160 // Extra 100px
+            scrollTop: $($(this).attr("href")).offset().top - 154 // Extra 100px
         }, 500);    // Change to desired scroll time in ms
         return false;    // Prevents the dreaded jump/flash
     });
@@ -612,22 +615,33 @@ function enable_scroll() {
 
 
 //////////////////////////
+
   function popuopInvent (tid) {
         if ($('#formPart4').is(":hidden")){
             $('.inventorPopUp .close').click();
         }
 		if(tid){window.location.hash=tid;}
+        
+        globalUrl=document.URL.split("#")[0];
 		domUrl=document.URL;
         domUrlTweet=domUrl.replace('#','%23');
-        var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]=&p[summary]=';
+        domComments=domUrl.replace("#", "comments#");
+       
+        $('#comments-frame').attr("src",globalUrl+'comment.htm?url='+ domComments);
+        //alert($('#comments-frame').attr("src"));
+        //$('.fb-comments').attr("data-href",domComments);
+        var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]='+domUrl+'&p[summary]='+domUrl;
         var tweetUrl='http://twitter.com/intent/tweet?text='+domUrlTweet;
         var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+domUrl;
         console.log(tid);
 		console.log(allTech[tid]);
-    var html = '       <div class="topArea">    ';
-   
-    html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
-   
+        var html = '       <div class="topArea">    ';
+        if (allTech[tid].logo){
+            html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
+        }
+        else{
+            html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'"></div>';
+        }
     if (allTech[tid].siteUrl.length > 0){
         html += '		        <a href="' + allTech[tid].siteUrl + '" class="title ellipsis">' + allTech[tid].title + '</a>';
         }
@@ -664,7 +678,7 @@ function enable_scroll() {
     //html += '               <div class="gallery-img"></div>    ';
     //html += '               <div class="gallery-img"></div>    ';
     html += '           </div>    ';
-    //html += '           <div class="fb-comments"></div>    ';
+    //html += '           <div class="fb-comments" data-href="'+domComments+'" data-width="500" data-numposts="5" data-colorscheme="light"></div>    ';
 
     //html += '            <div id="facebook-comments" class="text-box" shape-id="0">';
     //html += '               <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-colorscheme="light" data-numposts="10" data-width="488px" shape-id="0" fb-xfbml-state="rendered"> ';   
@@ -683,13 +697,14 @@ function enable_scroll() {
 
     $('html, body').animate({
         scrollTop: $("#invent-close").offset().top - 25
-    }, 1000);
+    }, 50);
 
     var $inventDescription = $(html);
-    $('.inventDescription').append($inventDescription);
+    $('.inventDescription-append').append($inventDescription);
+    
     //facebookCommentsLink()
     $('.inventDescription .close').on('click', this, function () {
-        $('.inventDescription').empty().append('<span id="invent-close" class="close"></span>');
+        $('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
         $('.inventDescription').fadeOut(600, 'easeInOutBack');
 		window.location.hash='';
         $('html, body').animate({
@@ -898,4 +913,12 @@ function openInNewWindow(url, width, height){
     var win=window.open(url, '_blank', location=0, menubar=0, height=100, width=100);
     win.focus();
 }
+
+//function setIframe(){
+//        globalUrl=document.URL.split("#")[0];
+//		domUrl=document.URL;
+//       
+//        $('#comments-frame').attr("src",''+globalUrl+'comment.htm?url='+ domUrl+'');
+//        //alert($('#comments-frame').attr("src"));
+//}
 /////////////////////////////////////////////////////////////////////////end validation

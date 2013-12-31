@@ -261,8 +261,6 @@ html[xmlns] .cf {
 /*------------------header and general-------------------------*/
 body{
     background-color: #f5f5f5;
-	background-repeat:repeat;
-	background-size: 50px;
 	font-family:sans;
 	position:relative;
 }
@@ -699,7 +697,8 @@ height: 40px;
     height: 54px;
     width: 1024px;
 	background-image:url(img/texture.jpg);
-    
+    background-size: 50px;
+    background-repeat: repeat;
     /*border-left: 1px solid #969696;
     border-right: 1px solid #969696;*/
 }
@@ -736,6 +735,8 @@ height: 40px;
 .page-wrap.judges {
     width: 1024px;
 	background-image:url(img/texture.jpg);
+    background-size: 50px;
+    background-repeat: repeat;
     position: relative;
     height: 320px;
 }
@@ -820,7 +821,7 @@ margin-top: 17px;
 }
 .judgestext {
 background-color: #e6e6e8;
-height: 39px;
+height: 43px;
 color: #909090;
 overflow: hidden;
 white-space: normal;
@@ -1842,7 +1843,7 @@ text-align: justify;
     margin-left: 0;
     float: left;
     margin-right: 4px;
-    border: solid  1px #666;
+    border: solid  1px #cfcfcf;
 }
 /*::-webkit-scrollbar {  
     width: 22px;  

@@ -88,18 +88,7 @@ $(document).ready(function (e) {
                     html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
                 html += '       </div>    ';
 
-                //html += '       <div class="socialArea">    ';
-                //html += '           <div class="social fb"></div>    ';
-                //html += '           <div class="social twitter"></div>    ';
-                //html += '           <div class="social linkedin"></div>    ';
-                //html += '           <div class="social likes"></div>    ';
-                //html += '       </div>    ';
-
                 html += '       <div class="mainArea">    ';
-                //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(youtubeUrl)) + '" /><span class="play_button"></span> ' + '</div>    ';
-                //var videoIframe = getEmbedMovie(getMovieDataByURL(youtubeUrl), 140, 225);
-                //if (videoIframe != undefined)
-                //    html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(youtubeUrl), 140, 225) + '</div>';
                 html += '		    <div class="description">' + description + '</div>';
                 html += '           <div class="gallery">    ';
                 if (ImgSrc1 != null)
@@ -109,7 +98,6 @@ $(document).ready(function (e) {
                 if (ImgSrc3 != null)
                     html += '           <div>    <img class="gallery-img" src="' + ImgSrc3 + '" alt="' + title + ' img3"> </div>    ';
                 html += '           </div>    ';
-                //html += '           <div class="fb-comments"></div>    ';
                 html += '       </div>    ';
                 html += '       <div class="bottomArea">    ';
                 html += '           <label for="ads">';
@@ -175,8 +163,6 @@ $(document).ready(function (e) {
 		size=size/1024/1024;
 		if(size>maxSize){
 			$("#validate-img-error").show();
-            //alert(fileMesg);
-            //input.addClass("error");
 			return false;
 		}
 		
@@ -307,15 +293,8 @@ $(document).ready(function (e) {
 		$('.mask').show();
 		
         $('.judgeDescription').slideDown(1000, 'easeInOutBack');
-        //imgProfile = allJudges[tid].imgProfile;
-
-        //var html = '    <span class="close">x</span>';
         var html = '       <div class="judgeDescriptionLeft">';
-        //allJudges[tid].imgProfile.forEach(function(imgProfile){
-        //    if(imgProfile!=""){
-                html += '       <div class="judgeDescription-img">'+ allJudges[tid].imgProfile + '</div>    ';
-        //    }
-        //});
+        html += '       <div class="judgeDescription-img">'+ allJudges[tid].imgProfile + '</div>    ';
         html += '               <div class="contactMe"><a href="mailto:' + allJudges[tid].email + '" >Contact Me</a></div>';
         html += '           </div>';
         html += '           <div class="judgeDescriptionRight">';
@@ -625,7 +604,7 @@ function enable_scroll() {
         globalUrl=document.URL.split("#")[0];
 		domUrl=document.URL;
         domUrlTweet=domUrl.replace('#','%23');
-        domComments=domUrl.replace("#", "comments#");
+        domComments=domUrl;//.replace("#", "comments#");
        
         $('#comments-frame').attr("src",globalUrl+'comment.htm?url='+ domComments);
         //alert($('#comments-frame').attr("src"));
@@ -648,7 +627,7 @@ function enable_scroll() {
     else {
         html += '		        <div class="title ellipsis">' + allTech[tid].title + '</div>';
     }
-   
+    html += '		        <div class="slogen ellipsis">' + allTech[tid].slogen + '</div>';
     html += '       </div>    ';
 
         html += '       <div class="socialArea">    ';
@@ -661,11 +640,9 @@ function enable_scroll() {
 
 
     html += '       <div class="mainArea" id="inventpop">    ';
-    //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(allTech[tid].youtube)) + '" /><span class="play_button"></span> ' + '</div>    ';
     var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480);
     if (videoIframe != undefined)
         html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480) + '</div>';
-    //html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube)) +'</div>';
     html += '		    <div class="name ellipsis">' + allTech[tid].name + '</div>';
     html += '		    <div class="description">' + allTech[tid].descript + '</div>';
     html += '           <div class="gallery">    ';
@@ -674,9 +651,6 @@ function enable_scroll() {
             html += '<div><img class="gallery-img" src="' + img + '" alt="' + allTech[tid].title + '"> </div>   ';
         }
     });
-    //html += '               <img class="gallery-img" src="' + allTech[tid].startupImg[0] + '" alt="' + allTech[tid].title + ' img1">    ';
-    //html += '               <div class="gallery-img"></div>    ';
-    //html += '               <div class="gallery-img"></div>    ';
     html += '           </div>    ';
     //html += '           <div class="fb-comments" data-href="'+domComments+'" data-width="500" data-numposts="5" data-colorscheme="light"></div>    ';
 

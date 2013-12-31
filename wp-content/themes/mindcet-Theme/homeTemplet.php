@@ -65,7 +65,7 @@ set_post_thumbnail( 165, 176177178179 );
 	}else{
 	  $founderMail= $_POST['founderMail'];
 	}
-	if(!filter_var($_POST['site'], FILTER_VALIDATE_URL)){
+    if(!filter_var($_POST['site'], FILTER_VALIDATE_URL)){
 	 //  $error['url']= "URL is not valid";
 	}else{
 	  $site=$_POST['site'];
@@ -77,7 +77,8 @@ set_post_thumbnail( 165, 176177178179 );
 			$name=filter_input(INPUT_POST,'invetName',FILTER_SANITIZE_STRING);
 			$founder=filter_input(INPUT_POST,'founder',FILTER_SANITIZE_STRING);
 			$youtubeUrl=filter_input(INPUT_POST,'youtubeUrl',FILTER_SANITIZE_STRING);
-			// ADD THE FORM INPUT TO $new_post ARRAY
+			$slogen=filter_input(INPUT_POST,'slogen',FILTER_SANITIZE_STRING);
+            // ADD THE FORM INPUT TO $new_post ARRAY
 			$new_post = array(
 			'post_title'	=>	$title,
 			'post_content'	=>	$description,
@@ -96,7 +97,8 @@ set_post_thumbnail( 165, 176177178179 );
 			update_post_meta($pid, 'wpcf-site-url', $site);
 			update_post_meta($pid, 'wpcf-founder', $founder);
 			update_post_meta($pid, 'wpcf-founder-email', $founderMail);
-		   
+		    update_post_meta($pid, 'wpcf-slogen', $slogen);
+
 		   update_post_meta($pid, 'wpcf-youtube-url', $youtubeUrl);
 			
 		
@@ -275,10 +277,6 @@ do_action('wp_insert_post', 'wp_insert_post');
     <span id="page-number-3" class="page-number">3/3</span>
     <div class="last-page"><div class="nav-page-img">Back</div></div>
     <div class="next-page"><div class="nav-page-img">Next</div></div>
-        <!--<div class="page-2-buttons"><div class="last-page"><div class="nav-page-img">Back</div></div></div>
-    <div class="page-3-buttons"><div class="last-page"><div class="nav-page-img">Back</div></div></div>
-    <div class="page-1-buttons"><div class="next-page"><div class="nav-page-img">Next</div></div></div>
-    <div class="page-2-buttons"><div class="next-page"><div class="nav-page-img">Next</div></div></div>-->
     </div>
       
       <!-- end form -->
@@ -291,32 +289,10 @@ do_action('wp_insert_post', 'wp_insert_post');
     <div id="single-startup-zone"class="inventDescription">
         <span id="invent-close" class="close"></span>
         <div class="inventDescription-append"></div>
-        <div class="facebook-comments">
+        <!--<div class="facebook-comments">
         <iframe src="" id="comments-frame" class="fb-comments">
         
         </iframe>
-            </div>
-        
-        <!--<div class="topArea">
-            <div class="title ellipsis">Class Dojo</div>
-            <div class="logo"></div>
-        </div>
-        <div class="socialArea">
-            <div class="social fb"></div>
-            <div class="social twitter"></div>
-            <div class="social linkedin"></div>
-            <div class="social likes"></div>
-        </div>
-        <div class="mainArea">
-                <div class="movie"></div>
-                <div class="names ellipsis">Israel Israeli</div>
-                <div class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis vidLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eoodem modo typi, qui nunc nobis vid</div>
-                <div class="gallery">
-                    <div class="gallery-img"></div>
-                    <div class="gallery-img"></div>
-                    <div class="gallery-img"></div>
-                </div>
-                <div class="fb-comments"></div>
         </div>-->
     </div>
 
@@ -375,7 +351,7 @@ do_action('wp_insert_post', 'wp_insert_post');
                }?>
     <?php $caunter++; endforeach; 
         wp_reset_postdata();?>
-    <?php	if($caunter!=3){
+    <?php	{
             echo "</ul><span class='placholderSlide'></span></div>";
             }
 		?>

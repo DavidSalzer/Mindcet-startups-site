@@ -164,10 +164,11 @@
 		$startupImg2=get_post_meta($post->ID,'wpcf-startup-img-3',true);
 		$category=wp_get_post_categories($post->ID);
 		$likes=get_post_meta($post->ID,'wpcf-likes',true);
-		
+	    $slogen= get_post_meta($post->ID, 'wpcf-slogen', true);
+    	
         $startupImgArry=array('0'=>$startupImg,'1'=>$startupImg1,'2'=>$startupImg2);
  
- 		$tempArry=array('techId'=>$techId,'title'=>$title,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
+ 		$tempArry=array('techId'=>$techId,'title'=>$title,'slogen'=>$slogen,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
   ,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImgArry,'category'=>$category,'like'=>$likes);
         $allTech[$techId]=$tempArry;
 		//$tempArry=array('techId'=>$techId,'title'=>$title,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email

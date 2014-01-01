@@ -289,11 +289,11 @@ do_action('wp_insert_post', 'wp_insert_post');
     <div id="single-startup-zone"class="inventDescription">
         <span id="invent-close" class="close"></span>
         <div class="inventDescription-append"></div>
-        <!--<div class="facebook-comments">
+        <div class="facebook-comments">
         <iframe src="" id="comments-frame" class="fb-comments">
         
         </iframe>
-        </div>-->
+        </div>
     </div>
 
 </div>

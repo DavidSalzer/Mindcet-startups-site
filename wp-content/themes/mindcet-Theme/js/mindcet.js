@@ -283,14 +283,21 @@ $(document).ready(function (e) {
     $('.judgeDescription').on('click','.close', this, function () {
         $('.judgeDescription').empty().append('<span class="close"></span>');
         $('.judgeDescription').slideUp(1000, 'easeInOutBack');
+        $('.mask').removeClass('mask-judge');
 		$('.mask').hide();
         return false;
     });
+
+    $('body').on('click','.mask-judge', this, function () {
+            $('.judgeDescription .close').click();      
+            return false;
+        });
 
     $('.judgesAvantar').on('click', this, function () {
         $('.inventorPopUp .close').click();
         tid = $(this).attr('judgeId');
 		$('.mask').show();
+        $('.mask').addClass('mask-judge');
 		
         $('.judgeDescription').slideDown(1000, 'easeInOutBack');
         var html = '       <div class="judgeDescriptionLeft">';
@@ -388,9 +395,6 @@ function popupallJ(allJudges) {
     console.log(allJudges);
 }
 
-function facebookCommentsLink() {
-    $("#facebook-comments .fb-comments").attr("data-href", window.location.href);
-}
 
 getEmbedMovie = function (data, height, width) {
     if (data == null || data.type != "movie") return;
@@ -604,25 +608,36 @@ function enable_scroll() {
         globalUrl=document.URL.split("#")[0];
 		domUrl=document.URL;
         domUrlTweet=domUrl.replace('#','%23');
-        domComments=domUrl;//.replace("#", "comments#");
-       
+        domComments=ascii(domUrl);
+        //domLikes=$('.fb-like').attr("data-href").split("initiator")[0].replace('?','?initiator='+allTech[tid].title);
+        //domLikes=domLikes.split(" ").join("-");
+        
         $('#comments-frame').attr("src",globalUrl+'comment.htm?url='+ domComments);
-        //alert($('#comments-frame').attr("src"));
-        //$('.fb-comments').attr("data-href",domComments);
-        var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]='+domUrl+'&p[summary]='+domUrl;
+
+        //domLikes=document.URL.split("#")[0]+'?'+allTech[tid].techId+'#'+allTech[tid].techId;
+        //$('.fb-like').attr("data-href",domLikes);
+        //$('#id'+allTech[tid].techId).show();
+
+        //var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]='+domUrl+'&p[summary]='+domUrl;
+        var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+globalUrl+'&p[title]='+ascii(domUrl)+'&p[images][0]='+allTech[tid].logo[0];//'&p[summary]='+ascii(domUrl)+
         var tweetUrl='http://twitter.com/intent/tweet?text='+domUrlTweet;
-        var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+domUrl;
+        var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+ascii(domUrl)+'&amp;title='+ascii(domUrl);//+'&summary='+ascii(domUrl);
         console.log(tid);
 		console.log(allTech[tid]);
         var html = '       <div class="topArea">    ';
         if (allTech[tid].logo){
-            html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
+            if (allTech[tid].siteUrl.length > 0){
+                html += '		        <div class="startup-popup-logo"><a href="' + allTech[tid].siteUrl + '" target="_blank"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></a></div>';
+                }
+            else {
+                html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
+                }
         }
         else{
             html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'"></div>';
         }
     if (allTech[tid].siteUrl.length > 0){
-        html += '		        <a href="' + allTech[tid].siteUrl + '" class="title ellipsis">' + allTech[tid].title + '</a>';
+        html += '		        <a href="' + allTech[tid].siteUrl + '" class="title ellipsis" target="_blank">' + allTech[tid].title + '</a>';
         }
     else {
         html += '		        <div class="title ellipsis">' + allTech[tid].title + '</div>';
@@ -632,6 +647,7 @@ function enable_scroll() {
 
         html += '       <div class="socialArea">    ';
 	   html+='              <div onClick="openInNewWindow('+"'"+fbUrl+"'"+')" class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
+       //html+='              <a href="'+fbUrl+':void(0);" class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></a>';
         html+='             <div onClick="openInNewWindow('+"'"+tweetUrl+"'"+')" class="social twitter" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
         html+='             <div onClick="openInNewWindow('+"'"+linkedinUrl+"'"+')" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
         
@@ -643,7 +659,7 @@ function enable_scroll() {
     var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480);
     if (videoIframe != undefined)
         html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480) + '</div>';
-    html += '		    <div class="name ellipsis">' + allTech[tid].name + '</div>';
+    html += '		    <div class="name ellipsis">' + allTech[tid].founder + '</div>';
     html += '		    <div class="description">' + allTech[tid].descript + '</div>';
     html += '           <div class="gallery">    ';
     allTech[tid].startupImg.forEach(function (img) {
@@ -652,39 +668,37 @@ function enable_scroll() {
         }
     });
     html += '           </div>    ';
-    //html += '           <div class="fb-comments" data-href="'+domComments+'" data-width="500" data-numposts="5" data-colorscheme="light"></div>    ';
-
-    //html += '            <div id="facebook-comments" class="text-box" shape-id="0">';
-    //html += '               <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-colorscheme="light" data-numposts="10" data-width="488px" shape-id="0" fb-xfbml-state="rendered"> ';   
-    //html += '                   <span style="">';
-    //html += '                       <iframe id="f1956c9268" data-href="' + domUrl + '" name="ff7c6a088" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://m.facebook.com/plugins/comments.php?api_key=162470583945071&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D28%23cb%3Df142527dc8%26domain%3Dlocalhost%26origin%3Dhttp%253A%252F%252Flocalhost%253A55898%252Ff2e22d2284%26relation%3Dparent.parent&amp;colorscheme=light&amp;href=http%3A%2F%2Flocalhost%3A55898%2F%25D7%2590%25D7%2595%25D7%2596%25D7%25A0%25D7%2599-%25D7%25A4%25D7%2599%25D7%259C-%25D7%25A9%25D7%2595%25D7%25A7%25D7%2595%25D7%259C%25D7%2593&amp;locale=en_US&amp;mobile=true&amp;numposts=5&amp;sdk=joey&amp;skin=light" style="border: none; overflow: hidden; min-height: 492px;  width: 100%;">';
-    //html += '                       </iframe>';
-    //html += '                   </span>';
-    //html += '               </div>';
-    //html += '           </div>';
     html += '       </div>    ';
 
     youtube = allTech[tid].youtube;
     startupImg = allTech[tid].startupImg;
-    $('.inventDescription').fadeIn(600, 'easeInOutBack');
-    $('.mask').fadeIn(600, 'easeInOutBack');
-
+    $('.mask').fadeIn(200, 'easeInOutBack');
+    $('.inventDescription').fadeIn(100, 'easeInOutBack');
+    $('.mask').addClass('mask-invent');
     $('html, body').animate({
         scrollTop: $("#invent-close").offset().top - 25
-    }, 50);
+    }, 1);
 
     var $inventDescription = $(html);
     $('.inventDescription-append').append($inventDescription);
+    //$('.inventDescription .mainArea .movie iframe').delay(200).fadeIn(500, 'easeInOutBack');
+    //$('.inventDescription .mainArea').delay(600).fadeIn(200, 'easeInOutBack');
     
     //facebookCommentsLink()
     $('.inventDescription .close').on('click', this, function () {
         $('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
-        $('.inventDescription').fadeOut(600, 'easeInOutBack');
+        $('.inventDescription').fadeOut(300, 'easeInOutBack');
+        //$('#id'+allTech[tid].techId).hide();
 		window.location.hash='';
         $('html, body').animate({
             scrollTop: "550px"
         }, 1);
-        $('.mask').fadeOut(600, 'easeInOutBack');
+        $('.mask').removeClass('mask-invent');
+        $('.mask').fadeOut(800, 'easeInOutBack');
+        return false;
+    });
+    $('body').on('click','.mask-invent', this, function () {
+        $('.inventDescription .close').click();      
         return false;
     });
 
@@ -884,8 +898,14 @@ function showForm4(){
 }
 
 function openInNewWindow(url, width, height){
-    var win=window.open(url, '_blank', location=0, menubar=0, height=100, width=100);
-    win.focus();
+    var win=window.open(url, '_blank', menubar=0, height=500, width=500);
+    //win.focus();
+    return false;
+}
+
+function ascii(url){
+    var urlAscii=url.split('3').join('%33').split('1').join('%31').split('2').join('%32').split('4').join('%34').split('5').join('%35').split('6').join('%36').split('7').join('%37').split('8').join('%38').split('9').join('%39').split('0').join('%30').split('#').join('%23').split(':').join('%3A').split('/').join('%2F');
+    return urlAscii;
 }
 
 //function setIframe(){

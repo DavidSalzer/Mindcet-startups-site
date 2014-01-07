@@ -47,6 +47,15 @@
 
 <body <?php body_class(); ?>>
     
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
 	<div class="mask"></div>
     <header>
     	<div class="header cf">
@@ -62,7 +71,7 @@
 				<a href="http://www.mindcet.org/en/" class="tagLogo mindcet" target="_blank">
                 	<span class="logoMindcet"></span>
                 </a>
-                <a href="<?php echo  $ye_tech;?>" class="tagLogo" target="_blank">
+                <a href="<?php echo  site_url();?>" class="tagLogo" target="_blank">
                 	<span class="logoCet">
                     	<img src="<?php echo get_theme_mod('link_ImgBg'); ?>" title="<?php echo get_theme_mod('link_ImgBg_text');?>" class="topImgLink">
                     </span>

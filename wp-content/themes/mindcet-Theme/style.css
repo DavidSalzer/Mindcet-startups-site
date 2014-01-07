@@ -352,9 +352,10 @@ height: 80px;
 margin: 10px 0;
 }
 .topImgLink {
-    width: 83px;
-    position: absolute;
-    bottom: 10px;
+    width: 69px;
+position: absolute;
+bottom: 10px;
+padding: 0 8px;
 }
 .footerLogos .logoCet {
     background-image: url(img/logo_icons.png);
@@ -406,7 +407,7 @@ background-position-y: 80%;
 	background-position: -3px 87px;
 }
 .socialTab span.linkin{
-    background-position: -119px 87px;
+    background-position: -120px 87px;
 }
 .socialTab span.twitter{
     background-position: -60px 87px;
@@ -750,11 +751,14 @@ height: 40px;
     padding: 4% 0;	
 }
 .judgeDescriptionLeft {
-width: 34%;
-height: 82%;
+width: 29%;
+height: 270px;
 display: inline-block;
 position: absolute;
 padding-top: 50px;
+background-image:url(img/texture.jpg);
+    background-size: 50px;
+    background-repeat: repeat;
 }
 .judgeDescription-img {
 width: 194px;
@@ -812,7 +816,7 @@ padding: 0px 6px;
 background-color: #e6e6e8;
 line-height: 36px;
 font-weight: bold;
-color: #333;
+color: #828282;
 }
 .judgeDescription-full {
 width: 90%;
@@ -875,6 +879,7 @@ z-index:100;
 -moz-box-shadow: inset 12px 0px 12px rgba(50, 50, 50, 0.6);
 -webkit-box-shadow: inset 12px 0px 12px rgba(50, 50, 50, 0.6);*/
 }
+
 .inventDescription .close, .judgeDescription .close, .inventorPopUp .close{
 background-color: #616161;
 background-image: url(img/x.png);
@@ -928,6 +933,8 @@ margin-top: -2px;
 .page-wrap.contect{
 	width: 1024px;
 	background-image:url(img/texture.jpg);
+    background-size: 50px;
+    background-repeat: repeat;
     /*border-left: 1px solid #969696;
     border-right: 1px solid #969696;*/
     position: relative;
@@ -1419,6 +1426,9 @@ position: relative;
     background-size: cover;
     background-position: inherit;
 }
+.inventDescription-append .movie{
+    /*display: none;*/
+}
 .inventDescription{
     width: 712px;
 /*height: 854px;
@@ -1473,7 +1483,7 @@ overflow: hidden;
 text-overflow: ellipsis;
 }
 .name {
-font-size: 16px;
+font-size: 17px;
 padding: 4px 0;
 clear: both;
 float: left;
@@ -1593,8 +1603,18 @@ color: #555ca8;
     background-position-x: 105%;
 }
 
-.socialArea .likes {
-    border: 0;
+.fb-like.fb_edge_widget_with_comment {
+top: 400px;
+left: 53px;
+position: absolute !important;
+/*display: none;*/
+}
+.home .fb-like.fb_edge_widget_with_comment {
+top: 33px;
+right: 53px;
+position: absolute !important;
+z-index: 50;
+background-color: #ffffff;
 }
 .form-end-message .fb , .form-end-message .twitter{
 margin: 0 0 0 97px;
@@ -1730,12 +1750,20 @@ border-radius: 2px;*/
 .fb-comments{
 width: 560px;
 max-height: 500px;
-margin-left: 140px;
+margin-left: 132px;
 overflow-y: auto;
 overflow-x: hidden;
 margin-bottom: 20px;
+min-height: 200px;
 }
-
+#comments-frame {
+width: 550px;
+min-height: 260px;
+margin-left: 123px;
+overflow: overlay;
+display: table;
+margin-bottom: 20px;
+}
 
 .play_button {
 width: 50px;
@@ -1788,6 +1816,7 @@ top: 30px;*/
     width: 124px;
 position: absolute;
     top: 122px;
+    /*display: none;*/
 }
 .inventDescription .mainArea {
     /*float: left;
@@ -1799,14 +1828,19 @@ width: 480px;
 margin-left: 123px;
 padding-bottom: 25px;
 padding-right: 30px;
+min-height: 300px;
+/*display: none;*/
 }
 .inventDescription .mainArea .movie {
     width: 340px;
     margin: 30px 0 0 18px;
 }
+.inventDescription .mainArea .movie iframe {
+    /*display: none;*/
+}
 .inventDescription .mainArea .name.ellipsis {
     clear: both;
-    margin: 56px 0 0 20px;
+    margin: 40px 0 5px 8px;
     float: left;
 }
 .inventDescription .mainArea .description {
@@ -1973,4 +2007,14 @@ vertical-align: sub;
 .logo_menu li img{
 	max-width: 100%;
 	max-height: 100%;
+}
+
+
+
+
+.temporary-map{
+    background-image: url(img/main_new.png);
+    width: 1024px;
+    height: 562px;
+    margin: auto;
 }

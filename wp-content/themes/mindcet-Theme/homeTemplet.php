@@ -19,9 +19,9 @@ set_post_thumbnail( 165, 176177178179 );
     
   <section  class="home">
     <?php  echo get_the_post_thumbnail( $page->ID, 'full',array('class'=>'mainPageBg'));?>
+    <!--<div class="fb-like" data-href="<?php //echo site_url(); ?>" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>-->
     <div class="entry">
         <div class="entry-design">
-            
           <a href="<?php echo $pageUrl->guid;?>" id="offerStartUp">Offer a Startup</a> </div> </div>
       <!----form inventors--->
     <?php 
@@ -288,12 +288,20 @@ do_action('wp_insert_post', 'wp_insert_post');
   
     <div id="single-startup-zone"class="inventDescription">
         <span id="invent-close" class="close"></span>
+
+        <!--<div  id ="id446" class="fb-like" data-href="http://localhost/Mindcet-startups-site/?446#446" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+        <div  id ="id78" class="fb-like" data-href="http://localhost/Mindcet-startups-site/?78#78" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+        <div  id ="id79" class="fb-like" data-href="http://localhost/Mindcet-startups-site/?79#79" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+        <div  id ="id80" class="fb-like" data-href="http://localhost/Mindcet-startups-site/?80#80" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>-->
+        <!--<div  class="fb-like" data-href="http://localhost/Mindcet-startups-site/?initiator=img3" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>-->
+    
         <div class="inventDescription-append"></div>
         <div class="facebook-comments">
-        <iframe src="" id="comments-frame" class="fb-comments">
+        <iframe src="" id="comments-frame">
         
         </iframe>
         </div>
+        
     </div>
 
 </div>
@@ -357,6 +365,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 		?>
         
 </div>
+<div class="temporary-map"></div>
 <div  class="middelBanner">
   <h2> The Judges</h2>
 </div>

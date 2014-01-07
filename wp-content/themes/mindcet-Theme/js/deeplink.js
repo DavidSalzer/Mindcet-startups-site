@@ -2,7 +2,7 @@
 $(document).ready(function(e) {
     
 	deep=window.location.hash;
-	if(deep.length>0){
+	if(deep.length>0 && deep.indexOf('#')>-1){
 		tid=deep.split('#')
 		popuopInvent(tid[1]);
 	}

@@ -3,6 +3,9 @@
 
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />
+    <meta property="og:image" content="<?php echo site_url();?>wp-content/themes/mindcet-Theme/img/background.png"/>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+     
 	<?php if (is_search()) { ?>
 	   <meta name="robots" content="noindex, nofollow" /> 
 	<?php } ?>
@@ -48,13 +51,13 @@
 <body <?php body_class(); ?>>
     
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 	<div class="mask"></div>
     <header>
@@ -68,10 +71,10 @@
 					$ye_tech=$mach['ye_tech'];
 				?>
     		<div class="logoAndSocial">
-				<a href="http://www.mindcet.org/en/" class="tagLogo mindcet" target="_blank">
+				<!--<a href="http://www.mindcet.org/en/" class="tagLogo mindcet" target="_blank">
                 	<span class="logoMindcet"></span>
-                </a>
-                <a href="<?php echo  site_url();?>" class="tagLogo" target="_blank">
+                </a>-->
+                <a href="#" class="tagLogo">
                 	<span class="logoCet">
                     	<img src="<?php echo get_theme_mod('link_ImgBg'); ?>" title="<?php echo get_theme_mod('link_ImgBg_text');?>" class="topImgLink">
                     </span>

@@ -19,10 +19,11 @@ set_post_thumbnail( 165, 176177178179 );
     
   <section  class="home">
     <?php  echo get_the_post_thumbnail( $page->ID, 'full',array('class'=>'mainPageBg'));?>
-    <!--<div class="fb-like" data-href="<?php //echo site_url(); ?>" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>-->
+      <!--<div class="fb-like" data-href="http://localhost/Mindcet-startups-site/" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>-->
+      <!--<div class="fb-img"><div class="fb-like" data-href="<?//php echo site_url(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></div>-->
     <div class="entry">
         <div class="entry-design">
-          <a href="<?php echo $pageUrl->guid;?>" id="offerStartUp">Offer a Startup</a> </div> </div>
+          <a href="<?php echo $pageUrl->guid;?>" id="offerStartUp">Add a Startup</a> </div> </div>
       <!----form inventors--->
     <?php 
   if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post"&& isset($_POST['submit'])) {
@@ -246,7 +247,7 @@ do_action('wp_insert_post', 'wp_insert_post');
                 You're more than welcome to share the competition with your friends! <br>
                 <div class="planes"></div>
                 
-                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url();?>&p[images][0]=&p[title]=&p[summary]=" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
+                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url();?>&p[images][0]=&p[title]=&p[summary]" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
 
                 <a href="http://twitter.com/intent/tweet?text=<?php echo site_url();?>" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>
 
@@ -289,11 +290,8 @@ do_action('wp_insert_post', 'wp_insert_post');
     <div id="single-startup-zone"class="inventDescription">
         <span id="invent-close" class="close"></span>
 
-        <!--<div  id ="id446" class="fb-like" data-href="http://localhost/Mindcet-startups-site/?446#446" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
-        <div  id ="id78" class="fb-like" data-href="http://localhost/Mindcet-startups-site/?78#78" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
-        <div  id ="id79" class="fb-like" data-href="http://localhost/Mindcet-startups-site/?79#79" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
-        <div  id ="id80" class="fb-like" data-href="http://localhost/Mindcet-startups-site/?80#80" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>-->
-        <!--<div  class="fb-like" data-href="http://localhost/Mindcet-startups-site/?initiator=img3" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>-->
+        
+        <div  class="fb-like" data-href="http://localhost/Mindcet-startups-site/?initiator=img3" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
     
         <div class="inventDescription-append"></div>
         <div class="facebook-comments">
@@ -365,12 +363,35 @@ do_action('wp_insert_post', 'wp_insert_post');
 		?>
         
 </div>
-<div class="temporary-map"></div>
+<div id="map-banner" class="middelBanner">
+  <h2>EdTech Mapping</h2>
+</div>
+<div class="page-wrap mapping">
+<div class="google-map">
+    <div id="map"></div>
+</div>
+    <div class="best-invent">
+        <div id="best-invent-title">
+            Highlights of the day
+        </div>
+        
+        <div id="best-invent-logo">
+            <div id="best-logo-frame">
+                <!--<div class="best-logo"></div>-->
+            </div>
+        </div>
+        <div id="best-invent-description">
+            <!--<div class="best-description"></div>-->
+        </div>
+</div>
+</div>
 <div  class="middelBanner">
   <h2> The Judges</h2>
 </div>
 <div class="page-wrap judges">
-	<div id="judgeDescription" class="judgeDescription">
+    <!--<div class="judgeDescription-bg">-->
+	<div id="judgeDescription-bg">
+        <div class="judgeDescription">
         <span class="close"></span>
 
         <!--<div class="judgeDescriptionLeft">
@@ -382,6 +403,7 @@ do_action('wp_insert_post', 'wp_insert_post');
             <div class="judgeDescription-role"> title - role</div>
             <div class="judgeDescription-full">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis vidLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis manitatis per seacula quarta decima et quinta decima. Eoodem modo typi, qui nunc nobis vid</div>
         </div>-->
+    </div>
     </div>
 
     <div class="rightScroll" id="judgesR"><div class="rightScroll-arrow"></div></div>

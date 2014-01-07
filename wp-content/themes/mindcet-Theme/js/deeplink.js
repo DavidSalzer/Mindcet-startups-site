@@ -45,7 +45,7 @@ function setStar(pid){
 				action: 'addLike',
 			}
 			, function(data) {
-				alert(data);	
+				//alert(data);	
 			});	
 
 }

@@ -3,9 +3,11 @@
 // JavaScript Document
 $(document).ready(function (e) {
     
+    initMap();
     showForm4();    
     showArrowsStartups();
     showArrowsJudges();
+    showHighlight();
     
     $('#inventScrollR').on('click', this, function () {
         scrollVal = $('#scrollInventorCon').scrollLeft() + 500;
@@ -81,7 +83,7 @@ $(document).ready(function (e) {
 
                 var html = '       <div class="topArea">    '
                 html += '		    <div class="title ellipsis">' + title + '</div>';
-                html += '		    <div class="name ellipsis">' + invetName + '</div>';
+                html += '		    <div class="name ellipsis">Founders: ' + invetName + '</div>';
 
                 // html +=                 logo;
                 if (logoSrc != null)
@@ -303,10 +305,10 @@ $(document).ready(function (e) {
         var html = '       <div class="judgeDescriptionLeft">';
         html += '       <div class="judgeDescription-img">'+ allJudges[tid].imgProfile + '</div>    ';
         html += '               <div class="contactMe"><a href="mailto:' + allJudges[tid].email + '" >Contact Me</a></div>';
-        html += '           </div>';
-        html += '           <div class="judgeDescriptionRight">';
         html += '                <div class="judgeDescription-name">' +  allJudges[tid].name + '</div>';
         html += '               <div class="judgeDescription-role">' + allJudges[tid].role + '</div>';
+        html += '           </div>';
+        html += '           <div class="judgeDescriptionRight">';
         html += '               <div class="judgeDescription-full">' + allJudges[tid].descript + '</div>';
         html += '           </div>';
 
@@ -609,13 +611,13 @@ function enable_scroll() {
 		domUrl=document.URL;
         domUrlTweet=domUrl.replace('#','%23');
         domComments=ascii(domUrl);
-        //domLikes=$('.fb-like').attr("data-href").split("initiator")[0].replace('?','?initiator='+allTech[tid].title);
-        //domLikes=domLikes.split(" ").join("-");
-        
+        domLikes=globalUrl+'?initiator='+allTech[tid].title;
+        domLikes=domLikes.split(" ").join("-");
+        domLikes=domLikes.toLowerCase();
         $('#comments-frame').attr("src",globalUrl+'comment.htm?url='+ domComments);
 
         //domLikes=document.URL.split("#")[0]+'?'+allTech[tid].techId+'#'+allTech[tid].techId;
-        //$('.fb-like').attr("data-href",domLikes);
+        $('.fb-like').attr("data-href",domLikes);
         //$('#id'+allTech[tid].techId).show();
 
         //var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]='+domUrl+'&p[summary]='+domUrl;
@@ -880,6 +882,14 @@ function showArrowsJudges(){
  }   
 }
 
+function showHighlight(){
+    var best=446;
+    var html = '<img class="best-logo" src="'+allTech[best].logo[0]+'" alt="'+allTech[best].title+' logo">';
+    $('#best-logo-frame').empty().append(html);
+    var html = '<div class="best-description">'+allTech[best].descript+'</div>';
+    $('#best-invent-description').empty().append(html);
+}
+
 function showForm4(){
     if ($('#formPart4').hasClass('show')){
         $('#offer-zone').show();
@@ -898,7 +908,7 @@ function showForm4(){
 }
 
 function openInNewWindow(url, width, height){
-    var win=window.open(url, '_blank', menubar=0, height=500, width=500);
+    var win=window.open(url, '_blank', menubar=0, height=100, width=100);
     //win.focus();
     return false;
 }
@@ -916,3 +926,15 @@ function ascii(url){
 //        //alert($('#comments-frame').attr("src"));
 //}
 /////////////////////////////////////////////////////////////////////////end validation
+
+            var map;
+       
+            function initMap() {
+                var opts = {
+                    streetViewControl: false,
+                    center: new google.maps.LatLng(0, 0),
+                    zoom: 1
+                };
+                map = new google.maps.Map(document.getElementById("map"), opts);
+            }
+   

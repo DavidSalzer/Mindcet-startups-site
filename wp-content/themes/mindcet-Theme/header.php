@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />
-    <meta property="og:image" content="<?php echo site_url();?>wp-content/themes/mindcet-Theme/img/background.png"/>
+    <meta property="og:image" content="<?php echo site_url();?>/wp-content/uploads/2014/01/final-logo.png"/>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
      
 	<?php if (is_search()) { ?>

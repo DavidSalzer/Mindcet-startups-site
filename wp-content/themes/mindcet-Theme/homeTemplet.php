@@ -20,7 +20,7 @@ set_post_thumbnail( 165, 176177178179 );
   <section  class="home">
     <?php  echo get_the_post_thumbnail( $page->ID, 'full',array('class'=>'mainPageBg'));?>
       <!--<div class="fb-like" data-href="http://localhost/Mindcet-startups-site/" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>-->
-      <!--<div class="fb-img"><div class="fb-like" data-href="<?//php echo site_url(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></div>-->
+      <!--<div id="fb-like-site" class="fb-img"><div class="fb-like" data-href="<?//php echo site_url(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></div>-->
     <div class="entry">
         <div class="entry-design">
           <a href="<?php echo $pageUrl->guid;?>" id="offerStartUp">Add a Startup</a> </div> </div>
@@ -127,17 +127,17 @@ do_action('wp_insert_post', 'wp_insert_post');
         <div id="formPart1">
             <!-- post Category -->
             <!--<fieldset class="formfield">-->
-                <input type="text" id="invetName" value="" tabindex="10" name="invetName" placeholder="Your Name" />
+                <input type="text" id="invetName" value="" tabindex="10" name="invetName" placeholder="Your name" /> *
             <!--</fieldset>-->
     
             <!-- post Category -->
             <fieldset class="formfield">
-                <input type="email" id="email" value="" tabindex="11" name="email" placeholder="Your E-Mail"/>
+                <input type="email" id="email" value="" tabindex="11" name="email" placeholder="Your E-Mail"/> *
             </fieldset>
             
             <!-- post name -->
             <!--<fieldset name="title">-->
-                <input type="text" id="title" value="" tabindex="12" name="title" placeholder="StartUp Name" />
+                <input type="text" id="title" value="" tabindex="12" name="title" placeholder="StartUp name" /> *
             <!--</fieldset>-->
             
             <!-- post Category -->
@@ -152,7 +152,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 
             <!-- post slogen -->
             <!--<fieldset class="formfield">-->
-                <input type="text" id="slogen" value="" tabindex="15" name="slogen" placeholder="Startup mission up to 8 words" />
+                <input type="text" id="slogen" value="" tabindex="15" name="slogen" placeholder="Startup mission up to 140 characters" /> *
             <!--</fieldset>-->            
 
             <fieldset class="categories-input">
@@ -186,17 +186,17 @@ do_action('wp_insert_post', 'wp_insert_post');
             
             <!-- post Content -->
             <!--<fieldset class="formfield">-->
-           <textarea id="description" tabindex="20" name="description" cols="30" rows="1" placeholder="About You/Your Startup"></textarea>
+           <textarea id="description" tabindex="20" name="description" cols="30" rows="1" placeholder="About the startup"></textarea> *
             <!--</fieldset>-->
 
             <!-- post Category -->
             <!--<fieldset class="formfield">-->
-                <input type="url" id="site" value="" tabindex="21" name="site" placeholder="Link to Site"/>
+                <input type="url" id="site" value="" tabindex="21" name="site" placeholder="Link to website"/> *
             <!--</fieldset>-->
         
             <!-- post Category -->
             <fieldset class="formfield">
-                <input type="url" id="youtubeUrl" value="" tabindex="22" name="youtubeUrl" placeholder="Link to Video"/>
+                <input type="url" id="youtubeUrl" value="" tabindex="22" name="youtubeUrl" placeholder="Link to video (YouTube/Vimeo)"/>
             </fieldset>
 
             <fieldset class="formfield input-border">
@@ -209,7 +209,7 @@ do_action('wp_insert_post', 'wp_insert_post');
             <!-- post Category -->
             
             <fieldset class="formfield input-border">
-                <span class="title-logo img1">Add Your Photo</span>
+                <span class="title-logo img1">Add a photo</span>
                 <div class="upload">
                     <input type="file" id="img-1" value="" tabindex="24" name="img-1" placeholder="" />Select file
                 </div>
@@ -218,7 +218,7 @@ do_action('wp_insert_post', 'wp_insert_post');
             <!-- post Category -->
             
             <fieldset class="formfield input-border">
-                <span class="title-logo img2">Add Your Photo</span>
+                <span class="title-logo img2">Add a photo</span>
                 <div class="upload">
                     <input type="file" id="img-2" value="" tabindex="25" name="img-2" placeholder="" />Select file
                 </div>
@@ -227,7 +227,7 @@ do_action('wp_insert_post', 'wp_insert_post');
             <!-- post Category -->
             
             <fieldset class="formfield input-border">
-                <span class="title-logo img3">Add Your Photo</span>
+                <span class="title-logo img3">Add a photo</span>
                 <div class="upload">
                     <input type="file" id="img-3" value="" tabindex="26" name="img-3" placeholder="" />Select file
                 </div>
@@ -262,7 +262,7 @@ do_action('wp_insert_post', 'wp_insert_post');
     
     
         <fieldset class="submit">
-            <input type="submit" value="Sign" tabindex="40" id="submit" name="submit" />
+            <input type="submit" value="Submit" tabindex="40" id="submit" name="submit" />
         </fieldset>
     
         <input type="hidden" name="action" value="new_post" />
@@ -272,7 +272,7 @@ do_action('wp_insert_post', 'wp_insert_post');
     <div id="validate-checkbox-error" class="validate-error">* please check it out... </div>
     <div id="validate-description-error" class="validate-error">* please insert less than 200 words to description field </div>
     <div id="validate-img-error" class="validate-error">* file is too big, Please ensure that file size is less than 2Mb </div>
-    <div id="validate-slogen-error" class="validate-error">* please insert text with maximum 8 words mission field </div>
+    <div id="validate-slogen-error" class="validate-error">* please insert text with maximum 140 characters mission field </div>
     <span id="page-number-1" class="page-number">1/3</span>
     <span id="page-number-2" class="page-number">2/3</span>
     <span id="page-number-3" class="page-number">3/3</span>
@@ -287,11 +287,11 @@ do_action('wp_insert_post', 'wp_insert_post');
   <h2>Not Found</h2>
   <?php endif; ?>
   
-    <div id="single-startup-zone"class="inventDescription">
+    <div id="single-startup-zone"class="inventDescription modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <span id="invent-close" class="close"></span>
 
         
-        <div  class="fb-like" data-href="http://localhost/Mindcet-startups-site/?initiator=img3" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+        <!--<div  class="fb-like" data-href="http://localhost/Mindcet-startups-site/?initiator=img3" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>-->
     
         <div class="inventDescription-append"></div>
         <div class="facebook-comments">
@@ -363,6 +363,35 @@ do_action('wp_insert_post', 'wp_insert_post');
 		?>
         
 </div>
+
+
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
 <div id="map-banner" class="middelBanner">
   <h2>EdTech Mapping</h2>
 </div>

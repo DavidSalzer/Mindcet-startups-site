@@ -372,7 +372,7 @@ width: 130px;
 margin: auto;
 right: 0;
 left: 0;
-padding-left: 14px;
+/*padding-left: 14px;*/
 }
 .footerLogos .logoCet {
     background-image: url(img/logo_icons.png);
@@ -909,7 +909,7 @@ z-index:100;
 }
 
 .inventDescription .close, .judgeDescription .close, .inventorPopUp .close{
-background-color: #616161;
+/*background-color: #616161;*/
 background-image: url(img/x.png);
 background-repeat: no-repeat;
 background-position: 3.9px;
@@ -936,7 +936,7 @@ position: absolute;
 z-index: 51;
 }
 .inventDescription .close, .judgeDescription .close{
-background-position: 5px;
+background-position: -5px;
 width: 25px;
 height: 25px;
 }
@@ -1001,6 +1001,8 @@ background: #fff;
 left: 405px;
 z-index: 51;
 box-shadow: #333 2px 2px 5px 1px;
+font-size: 30px;
+color: #21cb89;
 }
 .inventorPopUp .triangle{
     position: absolute;
@@ -1011,7 +1013,7 @@ bottom:138px;
 height: 57px;
 }
 .inventorPopUp .close{
-	background-color: #616161;
+background-position: -5px;
 color: #fff;
 display: block;
 width: 22px;
@@ -1027,7 +1029,7 @@ z-index: 100;
 font-size: 13px;
 }
 .popInvent{
-    margin: 40px 54px 0 34px;
+    margin: 40px 30px 0 34px;
 }
 
 .popInvent input{
@@ -1036,7 +1038,7 @@ font-size: 13px;
 .popInvent input, .popInvent textarea{
     width: 496px;
 height: 43px;
-font-size: 1.8em;
+font-size: 24px;
 margin-bottom: 20px;
 font-family: sans;
 vertical-align: middle;
@@ -1047,18 +1049,21 @@ border-radius: 3px;
 }
 .popInvent textarea {
 width: 496px;
-height: 47px;
-max-height: 47px;
+max-width: 496px;
+height: 90px;
+line-height: 37px;
+max-height: 90px;
 min-height: 47px;
 text-indent: 15px;
 }
 .categories-input{
-    font-size: 1.5em;    
+    font-size: 21px;    
 font-family: sans;
     color: #a9a9a9;
 }
 .categories{
 margin: 10px 0;
+font-size: 24px;
 }
 input[type="checkbox"]{
     margin: 0;
@@ -1091,7 +1096,7 @@ input[type=checkbox]:checked + span {
 }
 
 /***************************** error input **************************************/
-textarea.error, input.error,.formfield.input-border.error{
+.popInvent textarea.error, input.error,.formfield.input-border.error{
     border: 2px solid #e76c76;
     color: #e76c76;
 }
@@ -1124,6 +1129,7 @@ textarea.error, input.error,.formfield.input-border.error{
 }
 #formPart3 {
 width: 100%;
+font-size: 16px;
 }
 .title-logo{
     /*display: inline-block;
@@ -1145,14 +1151,14 @@ color: #a9a9a9;
     position: relative;
 text-indent: 15px;
 height: 45px;
-font-size: 1.8em;
+font-size: 24px;
 margin-bottom: 20px;
-font-family: sans-serif;
+font-family: sans;
 vertical-align: middle;
 line-height: 45px;
 color: #a9a9a9;
 overflow: hidden;
-width: 323px;
+width: 319px;
 text-overflow: ellipsis;
 display: inline-block;
 }
@@ -1189,7 +1195,7 @@ width: 167px;
 display: inline-block;
 cursor: pointer;
 text-indent: 47px;
-font-size: 1.7em;
+font-size: 24px;
 font-family: sans-serif;
 line-height: 45px;
 color: #fff;
@@ -1324,7 +1330,7 @@ display: none;
     bottom: 105px;
 }
 #validate-img-error, #validate-slogen-error{
-    bottom: 120px;
+    bottom: 110px;
 }
 .last-page {
     right: 231px;
@@ -1370,7 +1376,6 @@ left: 55px;
 .popInvent input[type="submit"]{
     width: 175px;
 	height: 47px;
-    font-size: 1.8em;
     margin-bottom: 30px;
 	
     float:right;
@@ -1619,6 +1624,7 @@ margin: 25px 0 0 58px;
 color: #555ca8;
     display: block;
 }
+
 .form-end-message .fb {
     background-position-x: 3px;
     margin: 0;
@@ -1631,12 +1637,16 @@ color: #555ca8;
     margin: 0 0 0 58px;
     display: block;
 }
+
 .socialArea .linkedin , .form-end-message .linkedin{
     background-image: url("img/social_startup_popup.png");
     background-position-x: 93%;
     color: #2980b9;
     margin: 11px 0 0 56px;
     display: block;
+}
+.socialArea .fb, .socialArea .twitter, .socialArea .linkedin{
+    margin-left: 50px;
 }
 .form-end-message .linkedin {
     background-image: url("img/social_startup_popup.png");
@@ -1648,6 +1658,28 @@ top: 400px;
 left: 53px;
 position: absolute !important;
 /*display: none;*/
+}
+.fb_iframe_widget span {
+overflow: visible!important;
+width: 450px!important;
+}
+.fb-like { z-index: 9999; }
+.fbpdl { ;z-index: 9999 !important; width:500px;
+overflow: visible;
+}
+.pam { z-index: 9999 !important; width:500px;
+overflow: visible;
+}
+.execphpwidget
+{ z-index: 9999 !important; width:500px;
+overflow: visible;
+}
+.fb-like span { z-index: 9999 !important; width:500px !important;
+overflow: visible;
+}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget {
+    left: -300px !important;
+    display:none;
 }
 .home .fb-like.fb_edge_widget_with_comment {
 top: 27px;
@@ -1857,13 +1889,13 @@ top: 30px;*/
 
     color: #666;
 }
-.inventDescription .slogen.ellipsis {
+.inventDescription .slogen{
     position: relative;
     left: 144px;
     top: 20px;
     margin-bottom: 10px;
     font-size: 17px;
-    width: 555px;
+    width: 470px;
     color: #666;
 }
 .inventDescription a.title.ellipsis:hover {
@@ -1880,7 +1912,7 @@ top: 30px;*/
 .inventDescription .socialArea {
     width: 124px;
 position: absolute;
-    top: 122px;
+    top: 150px;
     /*display: none;*/
 }
 .inventDescription .mainArea {
@@ -1930,8 +1962,8 @@ text-align: justify;
 	cursor:pointer;
  }
 .inventDescription .mainArea .gallery img:hover {
-	-webkit-transform:scale(2,2);
- 	transform:scale(2,2);
+	-webkit-transform:scale(4,4);
+ 	transform:scale(4,4);
 	z-index:15;
 	box-shadow:rgba(0,0,0,0.63) 2px 2px 1px 0px;
  }
@@ -2156,3 +2188,6 @@ overflow-y: auto;
 line-height: 22px;
 font-size: 15px;
 }
+
+/*bootstrap*/
+

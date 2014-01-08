@@ -108,7 +108,7 @@ $(document).ready(function (e) {
                 html += '           </label>    ';
                 html += '           <label for="terms">';
                 html += '               <input type="checkbox" id="terms" name="terms" checked>';
-                html += '               <span></span>I accept the terms of the EdTech Startups competition.<br>';
+                html += '               <span></span>I accept the terms of the Global EdTech Startups Awards.<br>';
                 html += '           </label>    ';
                 html += '       </div>    ';
 
@@ -122,6 +122,7 @@ $(document).ready(function (e) {
     });
 
     $('.last-page').on('click', this, function () {
+        $(".validate-error").hide();
         if ($('#formPart2').is(":visible")) {
             $('#formPart2').hide();
             $('#page-number-2').hide();
@@ -197,6 +198,7 @@ $(document).ready(function (e) {
 		size=size/1024/1024;
 		if(size>maxSize){
             $("#img-1").addClass("error");
+            $("#validate-img-error").show();
 			return;
 		}
 		
@@ -226,6 +228,7 @@ $(document).ready(function (e) {
 		size=size/1024/1024;
 		if(size>maxSize){
 			$("#img-2").addClass("error");
+            $("#validate-img-error").show();
             return;
 		}
 
@@ -254,6 +257,7 @@ $(document).ready(function (e) {
 		size=size/1024/1024;
 		if(size>maxSize){
 			$("#img-3").addClass("error");
+            $("#validate-img-error").show();
 			return;
 		}
 
@@ -418,7 +422,7 @@ getImgUrl = function (data) {
 
 getMovieDataByURL = function (url) {
     $("#youtubeUrl").removeClass("error");
-    $(".validate-error").hide();
+    //$(".validate-error").hide();
     if (url.indexOf('youtu.be') > 0 || url.indexOf('?v=') > 0 || url.indexOf('iframe') > 0 && url.indexOf('youtu') > 0) {
 
         var reg = new RegExp('(?:https?://)?(?:www\\.)?(?:youtu\\.be/|youtube\\.com(?:/embed/|/v/|/watch\\?v=))([\\w-]{10,12})', 'g');
@@ -617,7 +621,7 @@ function enable_scroll() {
         $('#comments-frame').attr("src",globalUrl+'comment.htm?url='+ domComments);
 
         //domLikes=document.URL.split("#")[0]+'?'+allTech[tid].techId+'#'+allTech[tid].techId;
-        $('.fb-like').attr("data-href",domLikes);
+        //$('.fb-like').attr("data-href",domLikes);
         //$('#id'+allTech[tid].techId).show();
 
         //var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]='+domUrl+'&p[summary]='+domUrl;
@@ -644,7 +648,7 @@ function enable_scroll() {
     else {
         html += '		        <div class="title ellipsis">' + allTech[tid].title + '</div>';
     }
-    html += '		        <div class="slogen ellipsis">' + allTech[tid].slogen + '</div>';
+    html += '		        <div class="slogen">' + allTech[tid].slogen + '</div>';
     html += '       </div>    ';
 
         html += '       <div class="socialArea">    ';
@@ -712,6 +716,9 @@ function generalValidate() {
     //StartUp Name
     validateEmptyInput($("#title"));
 
+    //Invet email
+    validateEmptyInput($("#email"));
+
     //Invet Name
     validateEmptyInput($("#invetName"));
 
@@ -732,8 +739,14 @@ function generalValidate() {
 }
 
 function form1Validate() {
+    
+    $(".validate-error").hide();
+    
     //StartUp Name
     var title = validateEmptyInput($("#title"));
+
+    //email not empty
+    var emailNotEmpty=validateEmptyInput($("#email"));
 
     //Invet Name
     var invetName = validateEmptyInput($("#invetName"));
@@ -754,14 +767,21 @@ function form1Validate() {
     //logo
     //var logo = validateLogo($(".title-logo.logoimg"));
 
-    if (title & invetName & (email == undefined || email) & (emailFounder == undefined || emailFounder)  & slogen8 )
+    if (title & invetName & emailNotEmpty & (email == undefined || email) & (emailFounder == undefined || emailFounder)  & slogen8 )
         return true;
     return false;
 }
 
 function form2Validate() {
-
     
+    $(".validate-error").hide();
+    
+    //StartUp Name
+    var siteNotEmpty = validateEmptyInput($("#site"));
+
+    //Invet description
+    //var descriptNotEmpty=validateEmptyInput($("#description"));
+
     //description
     var descript = descriptionValidate($("#description"));
 
@@ -773,7 +793,7 @@ function form2Validate() {
     validateSite($("#site"));
     var site = true;
 
-    if (site & videotrue & descript)
+    if (siteNotEmpty & site & videotrue & descript)//& descriptNotEmpty 
         return true;
     return false;
 }
@@ -813,24 +833,28 @@ function emailValidate(input) {
 //validate description field
 function descriptionValidate(input){
     var words = $('#description').val().split(' ');
-    //alert(words.length);
-    if (words.length>200) {
+     if ($('#description').val()=="" ){
         input.addClass("error");
-            //alert("description is not validate");
-            $("#validate-description-error").show();
-            return false;
+        $("#validate-general-error").show();
+        return false;
+    }
+    else if (words.length>200 ){
+        input.addClass("error");
+        $("#validate-description-error").show();
+        return false;
     }
     else{
         input.removeClass("error");
-            $("#validate-description-error").hide();
+           // $("#validate-description-error").hide();
+            //$("#validate-general-error").hide();
             return true;
     }
 }
 
 //validate slogen field
 function slogenValidate(input){
-    var words = $('#slogen').val().split(' ');
-    if ( words.length>9 || input.val() == "") {
+    var words = $('#slogen').val().split('');
+    if ( words.length>140 || input.val() == "") {
         input.addClass("error");
         $("#validate-slogen-error").show();
         if ( input.val() == "")
@@ -851,6 +875,10 @@ function validateSite(input) {
         if (input.val().indexOf("http") == -1) {
             input.val("http://" + input.val());
         }
+    }
+    else{
+        $("#validate-general-error").show();
+        return false;
     }
     //var regexp = /^([a-z]([a-z]|\d|\+|-|\.)*):(\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?((\[(|(v[\da-f]{1,}\.(([a-z]|\d|-|\.|_|~)|[!\$&'\(\)\*\+,;=]|:)+))\])|((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=])*)(:\d*)?)(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*|(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)){0})(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
     //if (!regexp.test(input.val())) {
@@ -884,6 +912,7 @@ function showArrowsJudges(){
 
 function showHighlight(){
     var best=446;
+    //var best=437;
     var html = '<img class="best-logo" src="'+allTech[best].logo[0]+'" alt="'+allTech[best].title+' logo">';
     $('#best-logo-frame').empty().append(html);
     var html = '<div class="best-description">'+allTech[best].descript+'</div>';
@@ -927,14 +956,55 @@ function ascii(url){
 //}
 /////////////////////////////////////////////////////////////////////////end validation
 
-            var map;
+
+/////////////////////////////////////////////////////////////////////////start google map
+
+var map;
        
-            function initMap() {
-                var opts = {
-                    streetViewControl: false,
-                    center: new google.maps.LatLng(0, 0),
-                    zoom: 1
-                };
-                map = new google.maps.Map(document.getElementById("map"), opts);
-            }
-   
+function initMap() {
+    var opts = {
+        streetViewControl: false,
+        center: new google.maps.LatLng(0, 0),
+        zoom: 1
+    };
+    var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+    map = new google.maps.Map(document.getElementById("map"), opts);
+    var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+        '<div id="bodyContent">'+
+        '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+        'sandstone rock formation in the southern part of the '+
+        'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+        'south west of the nearest large town, Alice Springs; 450&#160;km '+
+        '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+      
+        'Heritage Site.</p>'+
+        '<p>Attribution: Uluru, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+        'http://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+        '(last visited June 22, 2009).</p>'+
+        '</div>'+
+        '</div>';
+    contentString = '<div id="content">'+
+        'under construction <br>'+//allTech[437].title+
+        '</div>';
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        maxWidth: 650
+    });
+
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'Uluru (Ayers Rock)'
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map,marker);
+        $('#content').parent().css({"overflow":"hidden"});
+      });
+    
+}
+google.maps.event.addDomListener(window, 'load', initMap);
+
+   /////////////////////////////////////////////////////////////////////////end google map

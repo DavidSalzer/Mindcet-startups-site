@@ -24,7 +24,7 @@
 
         var url = getParameterByName("url");
         console.log('url '+url);
-        $("body").append('<div class="fb-comments" data-href="' + url + '" data-num-posts="5" data-width="525"></div>');
+        $("body").append('<div class="fb-comments" data-href="' + url + '" data-num-posts="5" data-width="500"></div>');
 
 
     });
@@ -32,7 +32,21 @@
 
 
     </script>
-    
 
+    <!--<script>
+        $(document).ready(function (e) {
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+           
+            var url = getParameterByName("url");
+            console.log('url ' + url);
+            $("body").append('<div class="fb-like" data-href="' + url + '" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>');
+        });
+    </script>-->
 </body>
 </html>

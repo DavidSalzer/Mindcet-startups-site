@@ -54,6 +54,9 @@ class MindCet_Option{
 		add_settings_field('ye_voteDays','כמה ימים למנוע הצבעה נוספת :',array($this,'ye_vDays'),__FILE__,'ye_main_section');
 		add_settings_field('ye_voteErorr','טקסט עבור הצבעה שנכשלה :',array($this,'ye_vError'),__FILE__,'ye_main_section');
 		add_settings_field('ye_voteGood','טקסט עבור הצבעה שנוספה :',array($this,'ye_vGood'),__FILE__,'ye_main_section');
+        
+        add_settings_field('ye_fev','סטרטאפ מועדף :',array($this,'ye_vFevor'),__FILE__,'ye_main_section');
+
 		
 	}
 	
@@ -87,6 +90,9 @@ class MindCet_Option{
 			}		
 	public function ye_vGood(){
 			echo "<input type='text' name='ye_plugin_options[ye_voteGood]' value='".$this->options['ye_voteGood']."'/>";	
+			}
+    public function ye_vFevor(){
+			echo "<input type='text' name='ye_plugin_options[ye_fev]' value='".$this->options['ye_fev']."'/>";	
 			}
 }
 

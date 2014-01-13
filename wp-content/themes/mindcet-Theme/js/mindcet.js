@@ -3,16 +3,10 @@
 // JavaScript Document
 $(document).ready(function (e) {
     
-    initMap();
     showForm4();    
     showArrowsStartups();
     showArrowsJudges();
-    showHighlight();
-
-    //facebook click twice: like+unlike to fix align
-    //$('#fb-like-site').click();
-    //$('#fb-like-site').click();
-           
+    
     $('#inventScrollR').on('click', this, function () {
         scrollVal = $('#scrollInventorCon').scrollLeft() + 500;
         $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
@@ -76,7 +70,7 @@ $(document).ready(function (e) {
 
                 if (document.getElementById("title").value) { var title = document.getElementById("title").value; } else { title = "no title"; }
                 //var logo = document.getElementById("logo").addEventListener('change', handleFileSelect, false);
-                
+
 
                 var youtubeUrl = document.getElementById("youtubeUrl").value;
                 var invetName = document.getElementById("invetName").value;
@@ -87,14 +81,24 @@ $(document).ready(function (e) {
 
                 var html = '       <div class="topArea">    '
                 html += '		    <div class="title ellipsis">' + title + '</div>';
-                html += '		    <div class="name ellipsis"><b>Founders:</b> ' + invetName + '</div>';
-
                 // html +=                 logo;
                 if (logoSrc != null)
                     html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
                 html += '       </div>    ';
 
+                //html += '       <div class="socialArea">    ';
+                //html += '           <div class="social fb"></div>    ';
+                //html += '           <div class="social twitter"></div>    ';
+                //html += '           <div class="social linkedin"></div>    ';
+                //html += '           <div class="social likes"></div>    ';
+                //html += '       </div>    ';
+
                 html += '       <div class="mainArea">    ';
+                //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(youtubeUrl)) + '" /><span class="play_button"></span> ' + '</div>    ';
+                var videoIframe = getEmbedMovie(getMovieDataByURL(youtubeUrl), 140, 225);
+                if (videoIframe != undefined)
+                    html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(youtubeUrl), 140, 225) + '</div>';
+                html += '		    <div class="name ellipsis">' + invetName + '</div>';
                 html += '		    <div class="description">' + description + '</div>';
                 html += '           <div class="gallery">    ';
                 if (ImgSrc1 != null)
@@ -104,16 +108,7 @@ $(document).ready(function (e) {
                 if (ImgSrc3 != null)
                     html += '           <div>    <img class="gallery-img" src="' + ImgSrc3 + '" alt="' + title + ' img3"> </div>    ';
                 html += '           </div>    ';
-                html += '       </div>    ';
-                html += '       <div class="bottomArea">    ';
-                html += '           <label for="ads">';
-                html += '               <input type="checkbox" id="ads" name="ads" checked>';
-                html += '               <span></span>I accept to get intersting information about new EdTech startups.<br><br>';
-                html += '           </label>    ';
-                html += '           <label for="terms">';
-                html += '               <input type="checkbox" id="terms" name="terms" checked>';
-                html += '               <span></span>I accept the terms of the Global EdTech Startups Awards.<br>';
-                html += '           </label>    ';
+                //html += '           <div class="fb-comments"></div>    ';
                 html += '       </div>    ';
 
                 var $inventDescription = $(html);
@@ -126,7 +121,6 @@ $(document).ready(function (e) {
     });
 
     $('.last-page').on('click', this, function () {
-        $(".validate-error").hide();
         if ($('#formPart2').is(":visible")) {
             $('#formPart2').hide();
             $('#page-number-2').hide();
@@ -149,19 +143,12 @@ $(document).ready(function (e) {
 
         return;
     });
-    $('#new_post').on('submit', this, function(){
-        if (document.getElementById(("ads")).checked && document.getElementById(("terms")).checked)
-            return true;
-        $("#validate-checkbox-error").show();
-        return false;
-    });
 
     var logoSrc = null;
     var ImgSrc1 = null;
     var ImgSrc2 = null;
     var ImgSrc3 = null;
 
-    
     $("#logo").change(function (e) {
 		
         //input.removeClass("error");
@@ -170,12 +157,14 @@ $(document).ready(function (e) {
 		size=size/1024/1024;
 		if(size>maxSize){
 			$("#validate-img-error").show();
+            //alert(fileMesg);
+            //input.addClass("error");
 			return false;
 		}
 		
 		
         var fileName = $(this).val();
-        var fileName = $(this).val().replace("C:\\fakepath\\","");
+
         $('.title-logo.logoimg').text(fileName);
 
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
@@ -202,12 +191,10 @@ $(document).ready(function (e) {
 		size=size/1024/1024;
 		if(size>maxSize){
             $("#img-1").addClass("error");
-            $("#validate-img-error").show();
 			return;
 		}
 		
         var fileName = $(this).val();
-        var fileName = $(this).val().replace("C:\\fakepath\\","");
         $('.title-logo.img1').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
             if (this.files && this.files[0]) {
@@ -232,11 +219,10 @@ $(document).ready(function (e) {
 		size=size/1024/1024;
 		if(size>maxSize){
 			$("#img-2").addClass("error");
-            $("#validate-img-error").show();
             return;
 		}
 
-        var fileName = $(this).val().replace("C:\\fakepath\\","");
+        var fileName = $(this).val();
         $('.title-logo.img2').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
             if (this.files && this.files[0]) {
@@ -248,7 +234,7 @@ $(document).ready(function (e) {
                     smallImgAdded = true;
                 };
 
-                reader.readAsDataURL(this.files[0]);
+                reader.readAsDataURL(this.files[1]);
             }
         }
         else {
@@ -261,12 +247,10 @@ $(document).ready(function (e) {
 		size=size/1024/1024;
 		if(size>maxSize){
 			$("#img-3").addClass("error");
-            $("#validate-img-error").show();
 			return;
 		}
 
         var fileName = $(this).val();
-        var fileName = $(this).val().replace("C:\\fakepath\\","");
         $('.title-logo.img3').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
@@ -291,35 +275,32 @@ $(document).ready(function (e) {
 
 
     $('.judgeDescription').on('click','.close', this, function () {
-        $('.judgeDescription').empty().append('<span class="close"></span>');
+        $('.judgeDescription').empty().append('<span class="close">x</span>');
         $('.judgeDescription').slideUp(1000, 'easeInOutBack');
-        $('.mask').removeClass('mask-judge');
-		$('.mask').hide();
         return false;
     });
-
-    $('body').on('click','.mask-judge', this, function () {
-            $('.judgeDescription .close').click();      
-            return false;
-        });
 
     $('.judgesAvantar').on('click', this, function () {
         $('.inventorPopUp .close').click();
         tid = $(this).attr('judgeId');
-		$('.mask').show();
-        $('.mask').addClass('mask-judge');
-		
+
+
         $('.judgeDescription').slideDown(1000, 'easeInOutBack');
+        //imgProfile = allJudges[tid].imgProfile;
+
+        //var html = '    <span class="close">x</span>';
         var html = '       <div class="judgeDescriptionLeft">';
-        html += '       <div class="judgeDescription-img">'+ allJudges[tid].imgProfile + '</div>    ';
+        //allJudges[tid].imgProfile.forEach(function(imgProfile){
+        //    if(imgProfile!=""){
+                html += '       <div class="judgeDescription-img">'+ allJudges[tid].imgProfile + '</div>    ';
+        //    }
+        //});
         html += '               <div class="contactMe"><a href="mailto:' + allJudges[tid].email + '" >Contact Me</a></div>';
-        html += '                <div class="judgeDescription-name">' +  allJudges[tid].name + '</div>';
-        html += '               <div class="judgeDescription-role">' + allJudges[tid].role + '</div>';
         html += '           </div>';
         html += '           <div class="judgeDescriptionRight">';
+        html += '                <div class="judgeDescription-name">' +  allJudges[tid].name + '</div>';
+        html += '               <div class="judgeDescription-role">' + allJudges[tid].role + '</div>';
         html += '               <div class="judgeDescription-full">' + allJudges[tid].descript + '</div>';
-        html += '           </div>';
-        html += '           <div class="judgeDescriptionMargin">';
         html += '           </div>';
 
         $('html, body').animate({
@@ -350,54 +331,19 @@ $(document).ready(function (e) {
     $('.inventList li').on('click', this, function () {
         tid = $(this).attr('idtec');
         popuopInvent(tid);
-        //setIframe();
-    });
-    $('#best-logo-frame').on('click', this, function () {
-        //tid = $(this).attr('idtec');
-        popuopInvent(allTech["fev"]);
-        //setIframe();
     });
 
-    $('.inventHome li a').on('click', this, function () {
-        e.preventDefault();
-
-        //var category= $('.inventHome li a').attr('href').split('?cat=');
-        //category=category[1];
-        //
-        //document.getElementById("scrollInventorCon").remove();
-        //
-        //var html= '<div id="scrollInventorCon"><span class="placholderSlide"></span><ul class="inventList">';
-        //for (var prop in allTech){
-        //    tid = $('.inventList li').attr('idtec');
-        //    if(allTech.hasOwnProperty(tid))
-
-        //    for (var j=0;j<3;j++){
-        //            
-        //    }
-        //}
-        //
-
-        //    if (allTech[i].category.indexOf("category") != -1){
-        //        html +='';
-        //    }
-        //    else{
-        //        
-        //    }
-        
-    });
 
 
 
 }); //dom ready
 
 
-
-
 function openOfferPopUp() {
     //disable_scroll();
     $('.inventorPopUp').fadeIn(1500, 'easeInOutBack');
     $('html, body').animate({
-        scrollTop: $("#offer-zone").offset().top - 154
+        scrollTop: $("#offer-zone").offset().top - 160
     }, 500, function () { enable_scroll() });
 
 
@@ -412,6 +358,9 @@ function popupallJ(allJudges) {
     console.log(allJudges);
 }
 
+function facebookCommentsLink() {
+    $("#facebook-comments .fb-comments").attr("data-href", window.location.href);
+}
 
 getEmbedMovie = function (data, height, width) {
     if (data == null || data.type != "movie") return;
@@ -433,7 +382,7 @@ getImgUrl = function (data) {
 
 getMovieDataByURL = function (url) {
     $("#youtubeUrl").removeClass("error");
-    //$(".validate-error").hide();
+    $(".validate-error").hide();
     if (url.indexOf('youtu.be') > 0 || url.indexOf('?v=') > 0 || url.indexOf('iframe') > 0 && url.indexOf('youtu') > 0) {
 
         var reg = new RegExp('(?:https?://)?(?:www\\.)?(?:youtu\\.be/|youtube\\.com(?:/embed/|/v/|/watch\\?v=))([\\w-]{10,12})', 'g');
@@ -567,7 +516,7 @@ function updateMenuUrl() {
     //scroll smooth
     $('a[href^="#"]').click(function () {    // Change to needed selector
         $("html, body").animate({    // Need both for full browser support
-            scrollTop: $($(this).attr("href")).offset().top - 154 // Extra 100px
+            scrollTop: $($(this).attr("href")).offset().top - 160 // Extra 100px
         }, 500);    // Change to desired scroll time in ms
         return false;    // Prevents the dreaded jump/flash
     });
@@ -615,68 +564,49 @@ function enable_scroll() {
 
 
 //////////////////////////
-
   function popuopInvent (tid) {
         if ($('#formPart4').is(":hidden")){
             $('.inventorPopUp .close').click();
         }
 		if(tid){window.location.hash=tid;}
-        
-        globalUrl=document.URL.split("#")[0];
 		domUrl=document.URL;
         domUrlTweet=domUrl.replace('#','%23');
-        domComments=ascii(domUrl);
-        domLikes=globalUrl+'?initiator='+allTech[tid].title;
-        domLikes=domLikes.split(" ").join("-");
-        domLikes=domLikes.toLowerCase();
-        $('#comments-frame').attr("src",globalUrl+'comment.htm?url='+ domComments);
-
-        //domLikes=document.URL.split("#")[0]+'?'+allTech[tid].techId+'#'+allTech[tid].techId;
-        //$('.fb-like').attr("data-href",domLikes);
-        //$('#id'+allTech[tid].techId).show();
-
-        //var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]='+domUrl+'&p[summary]='+domUrl;
-        var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+globalUrl+'&p[title]='+ascii(domUrl)+'&p[images][0]='+allTech[tid].logo[0];//'&p[summary]='+ascii(domUrl)+
-        var tweetUrl='http://twitter.com/intent/tweet?text='+domUrlTweet;
-        var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+ascii(domUrl)+'&amp;title='+ascii(domUrl);//+'&summary='+ascii(domUrl);
         console.log(tid);
 		console.log(allTech[tid]);
-        var html = '       <div class="topArea">    ';
-        if (allTech[tid].logo){
-            if (allTech[tid].siteUrl.length > 0){
-                html += '		        <div class="startup-popup-logo"><a href="' + allTech[tid].siteUrl + '" target="_blank"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></a></div>';
-                }
-            else {
-                html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
-                }
-        }
-        else{
-            html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'"></div>';
-        }
-    if (allTech[tid].siteUrl.length > 0){
-        html += '		        <a href="' + allTech[tid].siteUrl + '" class="title ellipsis" target="_blank">' + allTech[tid].title + '</a>';
-        }
-    else {
-        html += '		        <div class="title ellipsis">' + allTech[tid].title + '</div>';
-    }
-    html += '		        <div class="slogen">' + allTech[tid].slogen + '</div>';
+    var html = '       <div class="topArea">    '
+    html += '		    <div class="title ellipsis"><a herf="' + allTech[tid].siteUrl + '">' + allTech[tid].title + '</a></div>';
+    html += '<div class="startup-popup-logo"><img class="wp-post-image" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
     html += '       </div>    ';
 
         html += '       <div class="socialArea">    ';
-	   html+='              <div onClick="openInNewWindow('+"'"+fbUrl+"'"+')" class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
-       //html+='              <a href="'+fbUrl+':void(0);" class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></a>';
-        html+='             <div onClick="openInNewWindow('+"'"+tweetUrl+"'"+')" class="social twitter" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
-        html+='             <div onClick="openInNewWindow('+"'"+linkedinUrl+"'"+')" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
-        
+        //html += '           <div class="social fb">Share on <span class="letter-space">Facbook</span></div>    ';
+       // html += '           <div class="social fb"><div class="fb-share-button" data-href="'+domUrl+'" data-type="button_count"></div></div>    ';
+       
+	   html+='<a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]=&p[summary]=" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>';
+	   // html += '           <a href="http://www.facebook.com/sharer/sharer.php?u='+domUrl+'" class="social fb" title="(Share on Facebook)" target="_blank">Share on Facebook</a>';
+        //html += '           <div class="social twitter">Share on <span class="letter-space">Twitter</span></div>    ';
+        html += '           <a href="http://twitter.com/intent/tweet?text='+domUrlTweet+'" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>';
+        //html += '           <div class="social linkedin">Share on <span class="letter-space">Linkedin</span></div>    ';
+        html += '           <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url='+domUrl+'" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>';
+       //html += '           <div class="social likes"><!-- AddThis Button BEGIN -->';
+
+       //html += '               <div class="addthis_toolbox addthis_floating_style addthis_counter_style" url=" " style="left:50px;top:50px;">';
+       //html += '                   <a class="addthis_button_facebook_like" fb:like:layout="box_count"></a>';
+       //
+       //html += '                </div>';
+       //html += '                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-52bab90d488ccc3b"></script>';
+       //html += '               <!-- AddThis Button END --></div>    ';
        html += '          </div>    ';
 
 
 
     html += '       <div class="mainArea" id="inventpop">    ';
+    //html += '           <img class="movie" src="' + getImgUrl(getMovieDataByURL(allTech[tid].youtube)) + '" /><span class="play_button"></span> ' + '</div>    ';
     var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480);
     if (videoIframe != undefined)
         html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480) + '</div>';
-    html += '		    <div class="name ellipsis"><b>Founders:</b> ' + allTech[tid].founder + '</div>';
+    //html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube)) +'</div>';
+    html += '		    <div class="name ellipsis">' + allTech[tid].name + '</div>';
     html += '		    <div class="description">' + allTech[tid].descript + '</div>';
     html += '           <div class="gallery">    ';
     allTech[tid].startupImg.forEach(function (img) {
@@ -684,38 +614,48 @@ function enable_scroll() {
             html += '<div><img class="gallery-img" src="' + img + '" alt="' + allTech[tid].title + '"> </div>   ';
         }
     });
+    //html += '               <img class="gallery-img" src="' + allTech[tid].startupImg[0] + '" alt="' + allTech[tid].title + ' img1">    ';
+    //html += '               <div class="gallery-img"></div>    ';
+    //html += '               <div class="gallery-img"></div>    ';
     html += '           </div>    ';
+    //html += '           <div class="fb-comments"></div>    ';
+
+    //html += '            <div id="facebook-comments" class="text-box" shape-id="0">';
+    //html += '               <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-colorscheme="light" data-numposts="10" data-width="488px" shape-id="0" fb-xfbml-state="rendered"> ';   
+    //html += '                   <span style="">';
+    //html += '                       <iframe id="f1956c9268" data-href="' + domUrl + '" name="ff7c6a088" scrolling="no" title="Facebook Social Plugin" class="fb_ltr fb_iframe_widget_lift" src="https://m.facebook.com/plugins/comments.php?api_key=162470583945071&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D28%23cb%3Df142527dc8%26domain%3Dlocalhost%26origin%3Dhttp%253A%252F%252Flocalhost%253A55898%252Ff2e22d2284%26relation%3Dparent.parent&amp;colorscheme=light&amp;href=http%3A%2F%2Flocalhost%3A55898%2F%25D7%2590%25D7%2595%25D7%2596%25D7%25A0%25D7%2599-%25D7%25A4%25D7%2599%25D7%259C-%25D7%25A9%25D7%2595%25D7%25A7%25D7%2595%25D7%259C%25D7%2593&amp;locale=en_US&amp;mobile=true&amp;numposts=5&amp;sdk=joey&amp;skin=light" style="border: none; overflow: hidden; min-height: 492px;  width: 100%;">';
+    //html += '                       </iframe>';
+    //html += '                   </span>';
+    //html += '               </div>';
+    //html += '           </div>';
     html += '       </div>    ';
 
     youtube = allTech[tid].youtube;
     startupImg = allTech[tid].startupImg;
-    $('.mask').fadeIn(200, 'easeInOutBack');
-    $('.inventDescription').fadeIn(100, 'easeInOutBack');
-    $('.mask').addClass('mask-invent');
+    $('.inventDescription').fadeIn(600, 'easeInOutBack');
+    
+	
+	$('.mask').fadeIn(600, 'easeInOutBack');
+	$('body').css('overflow','hidden');
+	
+	
+
     $('html, body').animate({
         scrollTop: $("#invent-close").offset().top - 25
-    }, 1);
+    }, 1000);
 
     var $inventDescription = $(html);
-    $('.inventDescription-append').append($inventDescription);
-    //$('.inventDescription .mainArea .movie iframe').delay(200).fadeIn(500, 'easeInOutBack');
-    //$('.inventDescription .mainArea').delay(600).fadeIn(200, 'easeInOutBack');
-    
+    $('.inventDescription').append($inventDescription);
     //facebookCommentsLink()
     $('.inventDescription .close').on('click', this, function () {
-        $('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
-        $('.inventDescription').fadeOut(300, 'easeInOutBack');
-        //$('#id'+allTech[tid].techId).hide();
+        $('.inventDescription').empty().append('<span id="invent-close" class="close">x</span>');
+        $('.inventDescription').fadeOut(600, 'easeInOutBack');
 		window.location.hash='';
         $('html, body').animate({
             scrollTop: "550px"
         }, 1);
-        $('.mask').removeClass('mask-invent');
-        $('.mask').fadeOut(800, 'easeInOutBack');
-        return false;
-    });
-    $('body').on('click','.mask-invent', this, function () {
-        $('.inventDescription .close').click();      
+        $('.mask').fadeOut(600, 'easeInOutBack');
+		$('body').css('overflow','auto');
         return false;
     });
 
@@ -727,14 +667,8 @@ function generalValidate() {
     //StartUp Name
     validateEmptyInput($("#title"));
 
-    //Invet email
-    validateEmptyInput($("#email"));
-
     //Invet Name
     validateEmptyInput($("#invetName"));
-
-    //Invet Name
-    validateEmptyInput($("#slogen"));
 
     //email
     emailValidate($("#email"));
@@ -750,61 +684,40 @@ function generalValidate() {
 }
 
 function form1Validate() {
-    
-    $(".validate-error").hide();
-    
     //StartUp Name
     var title = validateEmptyInput($("#title"));
-
-    //email not empty
-    var emailNotEmpty=validateEmptyInput($("#email"));
 
     //Invet Name
     var invetName = validateEmptyInput($("#invetName"));
 
-    //slogen
-    //var slogen = validateEmptyInput($("#slogen"));
-    
-    //slogen's length
-    var slogen8 = slogenValidate($("#slogen"));
-
-    //emails
+    //email
     var email = emailValidate($("#email"));
-    var emailFounder = emailValidate($("#founderMail"));
 
-    
+    //description
+    var descript = descriptionValidate($("#description"));
     
 
     //logo
-    //var logo = validateLogo($(".title-logo.logoimg"));
+    var logo = validateLogo($(".title-logo.logoimg"));
 
-    if (title & invetName & emailNotEmpty & (email == undefined || email) & (emailFounder == undefined || emailFounder)  & slogen8 )
+    if (title & invetName & (email == undefined || email) & logo & descript)
         return true;
     return false;
 }
 
 function form2Validate() {
-    
-    $(".validate-error").hide();
-    
-    //StartUp Name
-    var siteNotEmpty = validateEmptyInput($("#site"));
 
-    //Invet description
-    //var descriptNotEmpty=validateEmptyInput($("#description"));
+    //Founder Mail
+    var email = emailValidate($("#founderMail"));
 
-    //description
-    var descript = descriptionValidate($("#description"));
 
-    //video
     var videotrue = (getMovieDataByURL($("#youtubeUrl").val()) != null);
-    //videotrue = true;
 
     //site
     validateSite($("#site"));
     var site = true;
 
-    if (siteNotEmpty & site & videotrue & descript)//& descriptNotEmpty 
+    if (site & videotrue & (email == undefined || email))
         return true;
     return false;
 }
@@ -844,38 +757,17 @@ function emailValidate(input) {
 //validate description field
 function descriptionValidate(input){
     var words = $('#description').val().split(' ');
-     if ($('#description').val()=="" ){
+    //alert(words.length);
+    if (words.length>200) {
         input.addClass("error");
-        $("#validate-general-error").show();
-        return false;
-    }
-    else if (words.length>200 ){
-        input.addClass("error");
-        $("#validate-description-error").show();
-        return false;
+            //alert("description is not validate");
+            $("#validate-description-error").show();
+            return false;
     }
     else{
         input.removeClass("error");
-           // $("#validate-description-error").hide();
-            //$("#validate-general-error").hide();
+            $("#validate-description-error").hide();
             return true;
-    }
-}
-
-//validate slogen field
-function slogenValidate(input){
-    var words = $('#slogen').val().split('');
-    if ( words.length>140 || input.val() == "") {
-        input.addClass("error");
-        $("#validate-slogen-error").show();
-        if ( input.val() == "")
-            $("#validate-general-error").show();
-        return false;
-    }
-    else{
-        input.removeClass("error");
-        $("#validate-slogen-error").hide();
-        return true;        
     }
 }
 
@@ -886,10 +778,6 @@ function validateSite(input) {
         if (input.val().indexOf("http") == -1) {
             input.val("http://" + input.val());
         }
-    }
-    else{
-        $("#validate-general-error").show();
-        return false;
     }
     //var regexp = /^([a-z]([a-z]|\d|\+|-|\.)*):(\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?((\[(|(v[\da-f]{1,}\.(([a-z]|\d|-|\.|_|~)|[!\$&'\(\)\*\+,;=]|:)+))\])|((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=])*)(:\d*)?)(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*|(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)){0})(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
     //if (!regexp.test(input.val())) {
@@ -921,14 +809,6 @@ function showArrowsJudges(){
  }   
 }
 
-function showHighlight(){
-    var best=allTech["fev"];
-    var html = '<img class="best-logo" src="'+allTech[best].logo[0]+'" alt="'+allTech[best].title+' logo">';
-    $('#best-logo-frame').empty().append(html);
-    var html = '<div class="best-description">'+allTech[best].descript+'</div>';
-    $('#best-invent-description').empty().append(html);
-}
-
 function showForm4(){
     if ($('#formPart4').hasClass('show')){
         $('#offer-zone').show();
@@ -946,86 +826,4 @@ function showForm4(){
     }
 }
 
-function openInNewWindow(url, width, height){
-    var win=window.open(url, '_blank', menubar=0, height=100, width=100);
-    //win.focus();
-    return false;
-}
-
-function ascii(url){
-    var urlAscii=url.split('3').join('%33').split('1').join('%31').split('2').join('%32').split('4').join('%34').split('5').join('%35').split('6').join('%36').split('7').join('%37').split('8').join('%38').split('9').join('%39').split('0').join('%30').split('#').join('%23').split(':').join('%3A').split('/').join('%2F');
-    return urlAscii;
-}
-
-//function setIframe(){
-//        globalUrl=document.URL.split("#")[0];
-//		domUrl=document.URL;
-//       
-//        $('#comments-frame').attr("src",''+globalUrl+'comment.htm?url='+ domUrl+'');
-//        //alert($('#comments-frame').attr("src"));
-//}
 /////////////////////////////////////////////////////////////////////////end validation
-
-
-/////////////////////////////////////////////////////////////////////////start google map
-
-var map;
-       
-function initMap() {
-    var opts = {
-        streetViewControl: false,
-        center: new google.maps.LatLng(0, 0),
-        zoom: 1
-    };
-    var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-    map = new google.maps.Map(document.getElementById("map"), opts);
-    var contentString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-        '<div id="bodyContent">'+
-        '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-        'sandstone rock formation in the southern part of the '+
-        'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-        'south west of the nearest large town, Alice Springs; 450&#160;km '+
-        '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-      
-        'Heritage Site.</p>'+
-        '<p>Attribution: Uluru, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-        'http://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-        '(last visited June 22, 2009).</p>'+
-        '</div>'+
-        '</div>';
-    contentString = '<div id="content">'+
-        'under construction <br>'+//allTech[437].title+
-        '</div>';
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString,
-        maxWidth: 650
-    });
-
-    var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        title: 'Uluru (Ayers Rock)'
-        //animation: google.maps.Animation.DROP,
-        //position: parliament
-    });
-    google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map,marker);
-        $('#content').parent().css({"overflow":"hidden"});
-      });
-      google.maps.event.addListener(marker, 'click', toggleBounce);
-    
-}
-function toggleBounce() {
-
-  if (marker.getAnimation() != null) {
-    marker.setAnimation(null);
-  } else {
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-  }
-}
-google.maps.event.addDomListener(window, 'load', initMap);
-
-   /////////////////////////////////////////////////////////////////////////end google map

@@ -8,7 +8,11 @@ $(document).ready(function (e) {
     showArrowsStartups();
     showArrowsJudges();
     showHighlight();
-    
+
+    //facebook click twice: like+unlike to fix align
+    //$('#fb-like-site').click();
+    //$('#fb-like-site').click();
+           
     $('#inventScrollR').on('click', this, function () {
         scrollVal = $('#scrollInventorCon').scrollLeft() + 500;
         $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
@@ -83,7 +87,7 @@ $(document).ready(function (e) {
 
                 var html = '       <div class="topArea">    '
                 html += '		    <div class="title ellipsis">' + title + '</div>';
-                html += '		    <div class="name ellipsis">Founders: ' + invetName + '</div>';
+                html += '		    <div class="name ellipsis"><b>Founders:</b> ' + invetName + '</div>';
 
                 // html +=                 logo;
                 if (logoSrc != null)
@@ -315,6 +319,8 @@ $(document).ready(function (e) {
         html += '           <div class="judgeDescriptionRight">';
         html += '               <div class="judgeDescription-full">' + allJudges[tid].descript + '</div>';
         html += '           </div>';
+        html += '           <div class="judgeDescriptionMargin">';
+        html += '           </div>';
 
         $('html, body').animate({
             scrollTop: $("#judgesCon").offset().top - 200
@@ -344,6 +350,11 @@ $(document).ready(function (e) {
     $('.inventList li').on('click', this, function () {
         tid = $(this).attr('idtec');
         popuopInvent(tid);
+        //setIframe();
+    });
+    $('#best-logo-frame').on('click', this, function () {
+        //tid = $(this).attr('idtec');
+        popuopInvent(allTech["fev"]);
         //setIframe();
     });
 
@@ -665,7 +676,7 @@ function enable_scroll() {
     var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480);
     if (videoIframe != undefined)
         html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480) + '</div>';
-    html += '		    <div class="name ellipsis">' + allTech[tid].founder + '</div>';
+    html += '		    <div class="name ellipsis"><b>Founders:</b> ' + allTech[tid].founder + '</div>';
     html += '		    <div class="description">' + allTech[tid].descript + '</div>';
     html += '           <div class="gallery">    ';
     allTech[tid].startupImg.forEach(function (img) {
@@ -911,8 +922,7 @@ function showArrowsJudges(){
 }
 
 function showHighlight(){
-    var best=446;
-    //var best=437;
+    var best=allTech["fev"];
     var html = '<img class="best-logo" src="'+allTech[best].logo[0]+'" alt="'+allTech[best].title+' logo">';
     $('#best-logo-frame').empty().append(html);
     var html = '<div class="best-description">'+allTech[best].descript+'</div>';
@@ -998,12 +1008,23 @@ function initMap() {
         position: myLatlng,
         map: map,
         title: 'Uluru (Ayers Rock)'
+        //animation: google.maps.Animation.DROP,
+        //position: parliament
     });
     google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map,marker);
         $('#content').parent().css({"overflow":"hidden"});
       });
+      google.maps.event.addListener(marker, 'click', toggleBounce);
     
+}
+function toggleBounce() {
+
+  if (marker.getAnimation() != null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
 }
 google.maps.event.addDomListener(window, 'load', initMap);
 

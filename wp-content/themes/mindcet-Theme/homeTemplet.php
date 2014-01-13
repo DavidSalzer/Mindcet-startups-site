@@ -20,7 +20,7 @@ set_post_thumbnail( 165, 176177178179 );
   <section  class="home">
     <?php  echo get_the_post_thumbnail( $page->ID, 'full',array('class'=>'mainPageBg'));?>
       <!--<div class="fb-like" data-href="http://localhost/Mindcet-startups-site/" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>-->
-      <!--<div id="fb-like-site" class="fb-img"><div class="fb-like" data-href="<?//php echo site_url(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></div>-->
+      <div id="fb-like-site" class="fb-img"><div class="fb-like" data-href="<?//php echo site_url(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></div>
     <div class="entry">
         <div class="entry-design">
           <a href="<?php echo $pageUrl->guid;?>" id="offerStartUp">Add a Startup</a> </div> </div>
@@ -287,7 +287,7 @@ do_action('wp_insert_post', 'wp_insert_post');
   <h2>Not Found</h2>
   <?php endif; ?>
   
-    <div id="single-startup-zone"class="inventDescription modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="single-startup-zone"class="inventDescription">
         <span id="invent-close" class="close"></span>
 
         
@@ -363,35 +363,6 @@ do_action('wp_insert_post', 'wp_insert_post');
 		?>
         
 </div>
-
-
-<!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-
-
 <div id="map-banner" class="middelBanner">
   <h2>EdTech Mapping</h2>
 </div>

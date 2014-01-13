@@ -403,6 +403,7 @@ background-position-y: 80%;
 	position: relative;
 	z-index: 5;
     margin-left: 13px;
+    cursor: pointer;
 }
 .socialTab:first-child {
     margin-left: 15px;
@@ -824,6 +825,14 @@ position: absolute;
 overflow-y: auto;
 
 }
+.judgeDescriptionMargin{
+    width: 54px;
+height: 320px;
+background-color: #fff;
+position: absolute;
+right: 0;
+top: 0px;
+}
 .judgeDescription-name {
 width: 178px;
 font-size: 20px;
@@ -894,7 +903,7 @@ padding-right: 2px;
     
 }
 .judgeDescription{
-    width: 970px;
+    width: 1024px;
 height: 320px;
 background-color: #ebebeb;
 z-index: 16;
@@ -941,8 +950,8 @@ width: 25px;
 height: 25px;
 }
 .judgeDescription .close {
-    position: absolute;
-    right: -40px;
+    /*position: absolute;
+    right: -40px;*/
 }
 .judgesAvantar.hide{
 	border:none;
@@ -2142,7 +2151,7 @@ margin: auto;
     float: right;
 }
 #best-invent-title {
-    width: 80%;
+    width: 270px;
     height: 60px;
     padding: 20px 10%;
     font-size: 30px;
@@ -2163,6 +2172,7 @@ margin: auto;
     position: relative;
     background-color: #fff;
     margin: auto;
+    cursor: pointer;
 }
 .best-logo {
 background-color: white;

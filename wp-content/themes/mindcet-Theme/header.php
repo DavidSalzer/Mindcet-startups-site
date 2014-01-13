@@ -3,9 +3,12 @@
 
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />
-    <meta property="og:image" content="<?php echo site_url();?>/wp-content/uploads/2014/01/final-logo.png"/>
+    <!--<meta property="og:image" content="<?php //echo site_url();?>/wp-content/uploads/2014/01/final-logo1.png"/>-->
+    <meta property="og:title" content="title of the page" />
+    <meta property="og:description" content="description of the page" />
+    <!--<meta property="og:image" content="http://mindcet.co.il.tigris.nethost.co.il/wp-content/uploads/2014/01/final-logo1.png"/>-->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-     
+     <link rel="image_src" href="<?php echo site_url();?>/wp-content/uploads/2014/01/final-logo1.png" />
 	<?php if (is_search()) { ?>
 	   <meta name="robots" content="noindex, nofollow" /> 
 	<?php } ?>
@@ -69,6 +72,7 @@
 					$linkin=$mach['ye_linkin'];
 					$twitter=$mach['ye_twitter'];
 					$ye_tech=$mach['ye_tech'];
+
 				?>
     		<div class="logoAndSocial">
 				<!--<a href="http://www.mindcet.org/en/" class="tagLogo mindcet" target="_blank">
@@ -83,15 +87,9 @@
                 <?php get_sidebar('countdown');?>
                 </div>
                 <div class="socialTabs">
-                    <div class="socialTab" onClick="openInNewWindow('<?php echo $linkin; ?>', 100, 100)">
-                	    <span class="linkin"></span>
-                    </div>
-                    <a href="<?php echo $twitter; ?>" class="socialTab" target="_blank" width="100px" height="100px">
-                	    <span class="twitter"></span>
-                    </a>
-                    <a href="<?php echo $face; ?>" class="socialTab" target="_blank">
-                	    <span class="facebook"></span>
-                    </a>			
+                    <div class="socialTab" onClick="openInNewWindow('http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=<?php echo site_url(); ?>', 100, 100)"><span class="linkin"></span></div>
+                    <div class="socialTab" onClick="openInNewWindow('http://twitter.com/intent/tweet?text=<?php echo site_url(); ?>' , 100, 100)"><span class="twitter"></span></div>
+                    <div class="socialTab" onClick="openInNewWindow('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>' , 100, 100)"><span class="facebook"></span></div>
                 </div>
 			</div>
           </div>

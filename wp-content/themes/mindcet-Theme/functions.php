@@ -165,13 +165,17 @@
 		$category=wp_get_post_categories($post->ID);
 		$likes=get_post_meta($post->ID,'wpcf-likes',true);
 	    $slogen= get_post_meta($post->ID, 'wpcf-slogen', true);
+
+        $mach=get_option('ye_plugin_options');
+	 	$ye_fev=$mach['ye_fev'];
     	
         $startupImgArry=array('0'=>$startupImg,'1'=>$startupImg1,'2'=>$startupImg2);
  
  		$tempArry=array('techId'=>$techId,'title'=>$title,'slogen'=>$slogen,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
   ,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImgArry,'category'=>$category,'like'=>$likes);
         $allTech[$techId]=$tempArry;
-		//$tempArry=array('techId'=>$techId,'title'=>$title,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
+		$allTech['fev']=$ye_fev;
+        //$tempArry=array('techId'=>$techId,'title'=>$title,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
 		//,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImg,'startupImg1'=>$startupImg,'startupImg2'=>$startupImg);
   //      $allTech[$techId]=$tempArry;
 	  endforeach; 

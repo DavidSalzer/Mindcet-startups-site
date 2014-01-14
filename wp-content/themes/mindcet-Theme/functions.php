@@ -130,45 +130,6 @@
 
 
 	/////////////////////////////////end ajax///////////////////////////////////
-	function getAllVotes(){
-		 $args = array(
-        'posts_per_page'   => -1,
-        'orderby'          => 'post_date',
-        'order'            => 'DESC',
-        'post_type'        => 'votes',
-        'post_status'      => 'publish',
-        );
-    
-	$allVotes=array();
-	
-    $myposts = get_posts( $args );
-        
-        $vote=array();
-		foreach ( $myposts as $post ) : setup_postdata( $post ); 
-		$caunter=0;
-		
-		$title=get_the_title($post->ID);
-		$descript=apply_filters ("the_content", $post->post_content);
-		$src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array(220,155), false, '' );
-		$logo= $src;
-			
-		$long=get_field('longitude',$post->ID);
-	    $lat=get_field('latitude',$post->ID);
-		$rel=get_field('fevorite',$post->ID);
-			foreach($rel as $fav){
-			  $vote['favId'][$caunter]=$fav->ID;
-			   $caunter++;	
-			}
-		$vote['title']=$title;
-		$vote['logo']=$logo;
-		$vote['descript']=$descript;
-		
-		array_push($allVotes,$vote);
-		endforeach;
-		return json_encode($allVotes);
-	}
-	
-	
 	function getAllStartup(){
 		 $args = array(
         'posts_per_page'   => -1,

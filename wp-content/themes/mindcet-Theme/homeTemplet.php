@@ -13,6 +13,7 @@
 set_post_thumbnail( 165, 176177178179 );
 ?>
 
+
 <div class="page-wrap">
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     
@@ -437,11 +438,8 @@ do_action('wp_insert_post', 'wp_insert_post');
 <script>
      allTech=<?php echo getAllStartup(); ?>;
      allJudges=<?php echo getAllJudges(); ?>;
-	 allVotes=<?php echo getAllVotes();?>
-
      popupall(allTech);
      popupallJ(allJudges);
-	 popupallV(allVotes);
     	 
 </script>
 <?php get_footer(); ?>

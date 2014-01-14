@@ -841,7 +841,7 @@ color: #fff;
 padding: 6px;
 margin: auto;
 position: relative;
-margin-top: 0;
+margin-top: 150px;
 }
 .judgeDescription-role {
 font-size: 17px;
@@ -1929,6 +1929,7 @@ top: 30px;*/
     margin: 30px 100px 0 0;
     padding-bottom: 14px;
     border-bottom: solid 1px #e6e6e8;
+    padding-top: 14px;
 }
 .inventDescription .socialArea {
     width: 124px;

@@ -62,7 +62,23 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-	<div class="mask"></div>
+	<div class="mask">
+    <div id="single-startup-zone"class="inventDescription">
+        <span id="invent-close" class="close"></span>
+
+        
+        <!--<div  class="fb-like" data-href="http://localhost/Mindcet-startups-site/?initiator=img3" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>-->
+    
+        <div class="inventDescription-append"></div>
+        <div class="facebook-comments">
+        <iframe src="" id="comments-frame">
+        
+        </iframe>
+        </div>
+        
+    </div>
+    
+    </div>
     <header>
     	<div class="header cf">
         <?php 

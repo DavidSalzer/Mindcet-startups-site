@@ -390,7 +390,7 @@ $(document).ready(function (e) {
 
 	$(window).on('resize',function(){
 		h=$(window).height();
-		$('.mask').fadeIn(600, 'easeInOutBack').css('height',h+'px');
+		$('.mask').css('height',h+'px');
 	});
 
 }); //dom ready
@@ -634,11 +634,13 @@ function enable_scroll() {
         domLikes=globalUrl+'?initiator='+allTech[tid].title;
         domLikes=domLikes.split(" ").join("-");
         domLikes=domLikes.toLowerCase();
+		permalink=allTech[tid].permalink;
+		
         $('#comments-frame').attr("src",globalUrl+'comment.htm?url='+ domComments);
 
-        //domLikes=document.URL.split("#")[0]+'?'+allTech[tid].techId+'#'+allTech[tid].techId;
-        //$('.fb-like').attr("data-href",domLikes);
-        //$('#id'+allTech[tid].techId).show();
+        domLikes=document.URL.split("#")[0]+'?'+allTech[tid].techId+'#'+allTech[tid].techId;
+        $('.fb-like.invent').attr("data-href",permalink);
+        $('#id'+allTech[tid].techId).show();
 
         //var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]='+domUrl+'&p[summary]='+domUrl;
         var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+globalUrl+'&p[title]='+ascii(domUrl)+'&p[images][0]='+allTech[tid].logo[0];//'&p[summary]='+ascii(domUrl)+
@@ -711,7 +713,7 @@ function enable_scroll() {
     //$('.inventDescription .mainArea').delay(600).fadeIn(200, 'easeInOutBack');
     
     //facebookCommentsLink()
-    $('.inventDescription .close').on('click', this, function () {
+    $('.inventDescription .close,.mask').on('click', this, function () {
         $('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
         $('.inventDescription').fadeOut(300, 'easeInOutBack');
         //$('#id'+allTech[tid].techId).hide();

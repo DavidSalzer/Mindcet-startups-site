@@ -2022,7 +2022,7 @@ body {
     scrollbar-track-color: #7D7E94;  
     scrollbar-arrow-color: #C1C1D1;   
 }*/
-#contactUsForm {
+#contactUsForm ,#aboutUs{
     position: absolute;
     background: #fff;
     width: 506px;
@@ -2031,6 +2031,7 @@ body {
     left: 112px;
     box-shadow: #333 2px 3px 4px 0px;
 	display:none;
+	z-index:50;
 }
 #contactUsForm form {
     margin: 45px 0 0 30px;
@@ -2060,11 +2061,11 @@ body {
     float: right;
     margin: 17px 49px;
 }
-#contactUsForm .close{ 
+#contactUsForm .close,#aboutUs .close{ 
 	background-color: #616161;
 	background-image: url(img/x.png);
 	background-repeat: no-repeat;
-	background-position: 3.9px;
+	background-position: -5px;
 	color: #fff;
 	display: inline-block;
 	width: 22px;
@@ -2080,7 +2081,7 @@ body {
 	z-index: 100;
 	font-weight: normal;
 }
-#contactUsForm .triangle {
+#contactUsForm .triangle,#aboutUs .triangle {
 	position: absolute;
 	background-image: url(img/triangle.png);
 	width: 50px;
@@ -2225,4 +2226,9 @@ font-size: 15px;
 	background-position: 82px center;
 	height: 30px;
 	line-height: 30px;
+}
+.fb-like.invent.fb_edge_widget_with_comment.fb_iframe_widget {
+left: 0px;
+margin-left: 50px;
+margin-top: 400px;
 }

@@ -13,21 +13,38 @@ $('.inventDescription').on('click','img.wp-post-image',function(){
 		setStar(pid);
 	});	
 	
-$('.contactUs').on('click',this,function(){
+$('.contactUs').on('click',this,function(e){
 	$('#contactUsForm .loading').html('Sending...').hide();
 	$('#cfirst').val('');
 	$('#clast').val('');
 	$('#cemail').val('');
 	$('#cmessage').val('');
-
+	
+	console.log(e);
+	$('#contactUsForm').css({'left':(e.pageX-50)+'px','top':(e.pageY-760)+'px'});
 	$('#contactUsForm form').show();
 	$('#contactUsForm').fadeIn();
 	return false;
 });
 
+$('.aboutUs').on('click',this,function(e){
+	console.log(e);
+	$('#aboutUs').css({'left':(e.pageX-50)+'px','top':(e.pageY-760)+'px'});
+	$('#aboutUs').show();
+	$('#aboutUs').fadeIn();
+	return false;
+});
+
 $('#contactUsForm .close').on('click',this,function(){
 	$('#contactUsForm').slideUp();
+	$('#aboutUs').hide();
 });
+
+$('#aboutUs .close').on('click',this,function(){
+	$('#aboutUs').slideUp();
+	$('#contactUsForm').hide();
+});
+
 	
 $('#cbtm').on('click',this,function(){
 		sendMessage();

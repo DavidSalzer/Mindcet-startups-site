@@ -13,7 +13,6 @@
 set_post_thumbnail( 165, 176177178179 );
 ?>
 
-
 <div class="page-wrap">
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     

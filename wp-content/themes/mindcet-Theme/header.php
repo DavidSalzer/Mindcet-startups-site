@@ -67,10 +67,14 @@
         <div class="inventContener">
         	<span id="invent-close" class="close"></span>
 
-        <!--<div  class="fb-like" data-href="http://localhost/Mindcet-startups-site/?initiator=img3" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>-->
+        <!--<div  class="fb-like invent" data-href="http://localhost/Mindcet-startups-site/?initiator=img3" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>-->
+    		
+    
     
         	<div class="inventDescription-append"></div>
         </div>
+        <div class="fb-like invent" data-href="http://mindcet.co.il.tigris.nethost.co.il/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+        
         <div class="facebook-comments">
         <iframe src="" id="comments-frame">
         

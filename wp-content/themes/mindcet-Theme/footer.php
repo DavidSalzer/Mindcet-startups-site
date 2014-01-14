@@ -39,22 +39,7 @@
             </div>
         	<nav class="footerNav">
                 <div class="unitedNav">
-                  <section id="contactUsForm">
-                  <div class="loading">
-                  	Sending...
-                  </div>
-                  <span class="close"></span>
-                    
-                    <form>
-                        <input type="text" id="cfirst" name="cfirst" placeholder="First Name">
-                        <input type="text" id="clast" name="clast" placeholder="Last Name">
-                        <input type="email" id="cemail" name="cemail" placeholder="Your E-mail">
-                        <textarea name="cmessage" id="cmessage" placeholder="Your Message"></textarea>
-                        <input type="button" id="cbtm" value="Send">
-                    
-                    </form>
-                    <span class="triangle"></span>
-                </section>
+                 
                 
                 
 			   <?php
@@ -90,7 +75,33 @@
 	<?php wp_footer(); ?>
 	
 	<!-- Don't forget analytics -->
-  
+   <section id="contactUsForm">
+                  <div class="loading">
+                  	Sending...
+                  </div>
+                  <span class="close"></span>
+                    
+                    <form>
+                        <input type="text" id="cfirst" name="cfirst" placeholder="First Name">
+                        <input type="text" id="clast" name="clast" placeholder="Last Name">
+                        <input type="email" id="cemail" name="cemail" placeholder="Your E-mail">
+                        <textarea name="cmessage" id="cmessage" placeholder="Your Message"></textarea>
+                        <input type="button" id="cbtm" value="Send">
+                    
+                    </form>
+                    <span class="triangle"></span>
+   </section>
+   <section id="aboutUs">
+   	<span class="close"></span>
+                  <?php 
+				  	$about=get_page_by_title('about us');
+				  ?>
+                  <h1><?php echo $about->post_title;?></h1>
+              	  <article>
+                  	<?php echo $about->post_content;?>
+                  </article>      
+              <span class="triangle"></span>
+   </section>
 	
 </body>
 

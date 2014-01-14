@@ -165,14 +165,22 @@
 		$category=wp_get_post_categories($post->ID);
 		$likes=get_post_meta($post->ID,'wpcf-likes',true);
 	    $slogen= get_post_meta($post->ID, 'wpcf-slogen', true);
+		$parmalink=get_permalink($post->ID);
 
         $mach=get_option('ye_plugin_options');
-	 	$ye_fev=$mach['ye_fev'];
+	 	if($mach['ye_fev']){
+			$ye_fev=$mach['ye_fev'];
+		}else{
+			$ye_fev=array();
+			$ye_fev['Img']=get_theme_mod('fev_img');
+			$ye_fev['H1']=get_theme_mod('fev_h1');
+			$ye_fev['text']=get_theme_mod('fev_text');
+		}
     	
         $startupImgArry=array('0'=>$startupImg,'1'=>$startupImg1,'2'=>$startupImg2);
  
  		$tempArry=array('techId'=>$techId,'title'=>$title,'slogen'=>$slogen,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
-  ,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImgArry,'category'=>$category,'like'=>$likes);
+  ,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImgArry,'category'=>$category,'like'=>$likes,'permalink'=>$parmalink);
         $allTech[$techId]=$tempArry;
 		$allTech['fev']=$ye_fev;
         //$tempArry=array('techId'=>$techId,'title'=>$title,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
@@ -385,6 +393,24 @@ function fileUp($postid){
 }
 
 //castomise thems
+if ( class_exists( 'WP_Customize_Control' ) ) {
+
+    class Example_Customize_Textarea_Control extends WP_Customize_Control {
+    public $type = 'textarea';
+ 
+    public function render_content() {
+        ?>
+        <label>
+        <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+        <textarea rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
+        </label>
+        <?php
+    }
+}
+
+}
+
+
 function mytheme_customize_register( $wp_customize ) {
    //All our sections, settings, and controls will be added here
    //1. Define a new section (if desired) to the Theme Customizer
@@ -462,6 +488,66 @@ function mytheme_customize_register( $wp_customize ) {
             'priority' => 10, //Determines the order this control appears in for the specified section
          ) 
        );
+
+	 //set a img for link at the top
+	  $wp_customize->add_section( 'fev_defult', 
+         array(
+            'title' =>'מועדף defult', //Visible title of section
+            'description' => 'פבוריט בריירת מחדל אם לא נבחר אחר', //Descriptive tooltip
+         ) 
+      );
+	 
+	 //2. Register new settings to the WP database...
+	$wp_customize->add_setting( 'fev_img', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default' => '', //Default setting/value to save
+		     ) 
+      );  	  
+	  
+	   //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+      $wp_customize->add_control( new WP_Customize_Image_Control( //Instantiate the color control class
+         $wp_customize, //Pass the $wp_customize object (required)
+         'fev_Bg', //Set a unique ID for the control
+         array(
+            'label' => 'תמונת לינק', //Admin-visible name of the control
+            'section' => 'fev_defult', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+            'settings' => 'fev_img', //Which setting to load and manipulate (serialized is okay)
+            'priority' => 10, //Determines the order this control appears in for the specified section
+         ) 
+      ) );
+	  
+	  $wp_customize->add_setting( 'fev_h1', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default' => '', //Default setting/value to save
+		     ) 
+      );  	  
+	  
+	   //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+      $wp_customize->add_control( 
+         'fev_title', //Set a unique ID for the control
+         array(
+            'label' => 'כותרת', //Admin-visible name of the control
+            'section' => 'fev_defult', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+            'settings' => 'fev_h1', //Which setting to load and manipulate (serialized is okay)
+            'priority' => 10, //Determines the order this control appears in for the specified section
+         ) 
+       );
+	   
+	    $wp_customize->add_setting( 'fev_text', 
+         array(
+            'default' => 'Some default text', 
+		     ) 
+      );  	  
+	  
+	  
+	  $wp_customize->add_control( new Example_Customize_Textarea_Control( $wp_customize, 'textarea_setting', array(
+		'label'   => 'Textarea Setting',
+		'section' => 'fev_defult',
+		'settings'   => 'fev_text',
+	) ) );
+	  
+
+
 
 }
 add_action('wp_head','getCssForLink');

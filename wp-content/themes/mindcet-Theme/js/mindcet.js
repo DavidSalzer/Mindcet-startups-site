@@ -276,7 +276,9 @@ $(document).ready(function (e) {
 
     $('.judgeDescription').on('click','.close', this, function () {
         $('.judgeDescription').empty().append('<span class="close">x</span>');
-        $('.judgeDescription').slideUp(1000, 'easeInOutBack');
+		$('.judgeDescription').slideUp(1000, 'easeInOutBack');
+        $('.maskall').fadeOut();
+		$('body').css('overflow','auto');
         return false;
     });
 
@@ -284,7 +286,8 @@ $(document).ready(function (e) {
         $('.inventorPopUp .close').click();
         tid = $(this).attr('judgeId');
 
-
+		$('.maskall').fadeIn();
+		$('body').css('overflow','hidden');
         $('.judgeDescription').slideDown(1000, 'easeInOutBack');
         //imgProfile = allJudges[tid].imgProfile;
 
@@ -334,6 +337,11 @@ $(document).ready(function (e) {
     });
 
 
+	
+	$(window).on('resize',function(){
+		h=$(window).height();
+		$('.mask').fadeIn(600, 'easeInOutBack').css('height',h+'px');
+	});
 
 
 }); //dom ready
@@ -573,7 +581,7 @@ function enable_scroll() {
         domUrlTweet=domUrl.replace('#','%23');
         console.log(tid);
 		console.log(allTech[tid]);
-    var html = '       <div class="topArea">    '
+    var html = ' <span id="invent-close" class="close">x</span>      <div class="topArea">    '
     html += '		    <div class="title ellipsis"><a herf="' + allTech[tid].siteUrl + '">' + allTech[tid].title + '</a></div>';
     html += '<div class="startup-popup-logo"><img class="wp-post-image" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
     html += '       </div>    ';
@@ -634,8 +642,11 @@ function enable_scroll() {
     startupImg = allTech[tid].startupImg;
     $('.inventDescription').fadeIn(600, 'easeInOutBack');
     
-	
-	$('.mask').fadeIn(600, 'easeInOutBack');
+	h=$(window).height();
+	$(window).on('resize',function(){
+		alert('re');
+	});
+	$('.mask').fadeIn(600, 'easeInOutBack').css('height',h+'px');
 	$('body').css('overflow','hidden');
 	
 	
@@ -644,11 +655,12 @@ function enable_scroll() {
         scrollTop: $("#invent-close").offset().top - 25
     }, 1000);
 
-    var $inventDescription = $(html);
-    $('.inventDescription').append($inventDescription);
-    //facebookCommentsLink()
+   // var $inventDescription = $(html);
+    //$('.inventDescription').append($inventDescription);
+    $('.inventContener').html(html);
+	//facebookCommentsLink()
     $('.inventDescription .close').on('click', this, function () {
-        $('.inventDescription').empty().append('<span id="invent-close" class="close">x</span>');
+        $('.inventDescription').append('<span id="invent-close" class="close">x</span>');
         $('.inventDescription').fadeOut(600, 'easeInOutBack');
 		window.location.hash='';
         $('html, body').animate({

@@ -77,6 +77,7 @@
                         <div>&copy;<?php echo "  " ;echo date("Y"); echo " MindCET."; ?></div>
                         <div>All rights reserved</div>
                     </div>
+                    <a href="http://www.cambium.co.il" class="devby">developed by </a>
                 </div>
            </nav>
         

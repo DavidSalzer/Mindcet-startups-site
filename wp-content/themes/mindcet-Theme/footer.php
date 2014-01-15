@@ -1,3 +1,4 @@
+</div>
             <div id="footer">
             <div class="footerLogos">
             	    <?php
@@ -70,7 +71,7 @@
 			
 		</div>
 
-	</div>
+
 
 	<?php wp_footer(); ?>
 	
@@ -91,18 +92,39 @@
                     </form>
                     <span class="triangle"></span>
    </section>
+   
+  <div class="aboutUsMask"> 
    <section id="aboutUs">
-   	<span class="close"></span>
-                  <?php 
-				  	$about=get_page_by_title('about us');
-				  ?>
+   	      <?php $about=get_page_by_title('about us');?>	
+    <span class="close"></span>
+            <div class="logo">
+                  <?php echo get_the_post_thumbnail($about->ID,'thumbnail', array('class' => 'aboutLogo')  ); ?>
+            </div>     
                   <h1><?php echo $about->post_title;?></h1>
-              	  <article>
+				  <div class="media">
+                		<?php $field = get_field('about_us_video', $about->ID,true);
+							  echo $field;
+						 ?>  
+                  </div>
+                <article>
                   	<?php echo $about->post_content;?>
-                  </article>      
-              <span class="triangle"></span>
-   </section>
-	
+                  </article>  
+                  <div class="gallery">
+                  		<?php 
+							if($field = get_field('img1', $about->ID)){?>
+                        	<img src="<?php echo $field;?>">
+						<?php }?>
+                        <?php if($field = get_field('img2', $about->ID)){?>
+                        	<img src="<?php echo $field;?>">
+						<?php }?>
+                        <?php if($field = get_field('img3', $about->ID)){?>
+                        	<img src="<?php echo $field;?>">
+						<?php }?>
+                  </div>    
+              
+ 		  </section>
+  <div>	
+		
 </body>
 
 </html>

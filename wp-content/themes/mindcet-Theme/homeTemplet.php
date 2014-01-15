@@ -22,7 +22,15 @@ set_post_thumbnail( 165, 176177178179 );
       <div id="fb-like-site" class="fb-img"><div class="fb-like" data-href="<?//php echo site_url(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></div>
     <div class="entry">
         <div class="entry-design">
-          <a href="<?php echo $pageUrl->guid;?>" id="offerStartUp">Add a Startup</a> </div> </div>
+          <a href="<?php echo $pageUrl->guid;?>" id="offerStartUp">Add a Startup</a>
+           <!-- AddThis Button BEGIN -->
+            <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_tweet"></a>
+            </div>
+            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52d6681e180b98e3"></script>
+            <!-- AddThis Button END -->
+             </div> </div>
       <!----form inventors--->
     <?php 
   if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post"&& isset($_POST['submit'])) {

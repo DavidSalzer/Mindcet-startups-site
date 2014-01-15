@@ -169,7 +169,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 					 ?>
 					<select name="category" id="category" >
                   	
-                    	<option selected="selected">Select category</option>
+                    	<option selected="selected" class="selectGrey">Select category</option>
                     <?php  foreach($categories as $category) { ?>
                     <label for="<?php echo $category->slug;?>">
                         	  <option value="<?php echo $category->term_id;?>"><?php echo $category->name ;?></option>
@@ -177,9 +177,9 @@ do_action('wp_insert_post', 'wp_insert_post');
                		</select>
                     
                     <select name="tags" id="tags" >
-                  			<option selected="selected">Select Audience</option>
+                  			<option selected="selected" class="selectGrey">Select Audience</option>
 					<?php 
-					$arg=array('hide_empty'=>false);
+					$arg=array('hide_empty'=>false,'orderby'=>'name','order' => 'ASC');
 					$tags = get_tags($arg);
 					foreach ( $tags as $tag ) {
 						$tag_link = get_tag_link( $tag->term_id );
@@ -313,10 +313,10 @@ do_action('wp_insert_post', 'wp_insert_post');
 <div id="startups-banner" class="middelBanner">
   <h2>The Startups</h2>
 </div>
-<?php if ( has_nav_menu( 'startupMenu') ):?>
+<?php //if ( has_nav_menu( 'startupMenu') ):?>
 
 <nav class="inventorNav">
-           <?php
+           <?php /*
 		$defaults = array(
 			'theme_location'  =>'startupMenu',
 			'menu'            => 'startupMenu',
@@ -328,11 +328,31 @@ do_action('wp_insert_post', 'wp_insert_post');
 		);
 		
 		wp_nav_menu( $defaults );
-		
+		*/
 		?>
+        <select name="category" id="categoryNav" >
+                  	
+                    	<option selected="selected" class="selectGrey">Select category</option>
+                    <?php  foreach($categories as $category) { ?>
+                        	  <option value="<?php echo $category->term_id;?>"><?php echo $category->name ;?></option>
+            	<?php } ?>
+               		</select>
+                    
+                    <select name="tags" id="tagsNav" >
+                  			<option selected="selected" class="selectGrey">Select Audience</option>
+					<?php 
+					$arg=array('hide_empty'=>false,'orderby'=>'name','order' => 'ASC');
+					$tags = get_tags($arg);
+					foreach ( $tags as $tag ) {
+						$tag_link = get_tag_link( $tag->term_id );
+					?>			
+						 <option value="<?php echo $tag->name;?>"><?php echo $tag->name ;?></option>
+					
+            	<?php } ?>
+               		</select>
            	
  </nav>
- <?php endif;?>
+ <?php //endif;?>
 <div class="page-wrap inventors" >
     <div class="rightScroll" id="inventScrollR"><div class="rightScroll-arrow"></div></div>
     <div class="leftScroll" id="inventScrollL"><div class="leftScroll-arrow"></div></div>
@@ -468,7 +488,6 @@ do_action('wp_insert_post', 'wp_insert_post');
     
 	$('#formPart3').on('click','#terms',function(){
 		urlhide=$('#urlHide').text();
-		alert(urlhide);
 		$(this).attr('href',urlhide);
 		return true;
 	

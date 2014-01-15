@@ -112,7 +112,7 @@ $(document).ready(function (e) {
                 html += '           </label>    ';
                 html += '           <label for="terms">';
                 html += '               <input type="checkbox" id="terms" name="terms" checked>';
-                html += '               <span></span><a href="#" id="terms"> I accept the terms </a>of the Global EdTech Startups Awards.<br>';
+                html += '               <span></span><a href="#" id="terms" target="_blank"> I accept the terms </a>of the Global EdTech Startups Awards.<br>';
                 html += '           </label>    ';
                 html += '       </div>    ';
 

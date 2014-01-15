@@ -8,7 +8,7 @@
 //add_post_meta(165,'wpcf-user_img', 
 //	"http://localhost/mindset/wp-content/uploads/2013/12/free-images1-big.jpg"
 //);
-?> 
+?>    
 <?
 set_post_thumbnail( 165, 176177178179 );
 ?>
@@ -27,7 +27,7 @@ set_post_thumbnail( 165, 176177178179 );
     <?php 
   if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post"&& isset($_POST['submit'])) {
 	 //get the category
-	 $args = array(
+	/* $args = array(
 			'orderby' => 'name',
 	     	'order' => 'ASC',
 			'hide_empty'=>0
@@ -35,12 +35,14 @@ set_post_thumbnail( 165, 176177178179 );
 			$categories = get_categories($args);
 			 $selectCat=array();
 			 foreach($categories as $category) { 
-				if($_POST[ $category->slug]){
+				if($_POST[$category->slug]){
 					array_push($selectCat,$category->term_id);
 				}
 			
-			}  
+			}  */
+	  $selectCat=$_POST['category'];
 	  
+	  $tag=$_POST['tags'];
 	  
 	// Do some minor form validation to make sure there is content
 	if (isset ($_POST['title'])) {
@@ -84,7 +86,8 @@ set_post_thumbnail( 165, 176177178179 );
 			'post_content'	=>	$description,
 			'post_status'	=>	'pending',           // Choose: publish, preview, future, draft, etc.
 			'post_type'	=>	'initiator',  //'post',page' or use a custom post type if you want to
-			'post_category' => $selectCat
+			'post_category' => array($selectCat),
+			'tags_input'=>array($tag)
 			);
 		
 			//SAVE THE POST
@@ -163,19 +166,37 @@ do_action('wp_insert_post', 'wp_insert_post');
 					  'hide_empty'=>0
 					  );
 					$categories = get_categories($args);
-					  foreach($categories as $category) { 
-				 	?>
-					<label for="<?php echo $category->slug;?>">
-                        <label class="styleCheckbox"></label>					
+					 ?>
+					<select name="category" id="category" >
+                  	
+                    	<option selected="selected">Select category</option>
+                    <?php  foreach($categories as $category) { ?>
+                    <label for="<?php echo $category->slug;?>">
+                        	  <option value="<?php echo $category->term_id;?>"><?php echo $category->name ;?></option>
+            	<?php } ?>
+               		</select>
+                    
+                    <select name="tags" id="tags" >
+                  			<option selected="selected">Select Audience</option>
+					<?php 
+					$arg=array('hide_empty'=>false);
+					$tags = get_tags($arg);
+					foreach ( $tags as $tag ) {
+						$tag_link = get_tag_link( $tag->term_id );
+					?>			
+						 <option value="<?php echo $tag->name;?>"><?php echo $tag->name ;?></option>
+					
+            	<?php } ?>
+               		</select>
+                 
+                
+                <?php /*?><label class="styleCheckbox"></label>					
 					    <input type="checkbox" id="<?php echo $category->slug;?>" name="<?php echo $category->slug;?>" value="<?php echo $category->term_id;?>">
                         <span></span><?php echo $category->name ;?>
-                    </label>
-				<?php } 
- 
-			
-			
-			?>   
-            </fieldset>            
+                    </label><?php */?>
+            	
+            
+          </fieldset>            
         </div>
         
         <div id="formPart2">    

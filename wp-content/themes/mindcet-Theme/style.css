@@ -16,7 +16,7 @@ body { background: white; font: 14px/1.4 Georgia, Serif; }
 .group:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 /** html .group, *:first-child+html .group { zoom: 1; } /* First selector = IE6, Second Selector = IE 7 */
 
-#page-wrap,.page-wrap { width: 1024px; margin: 0px auto; clear: both; padding: 0;}
+#page-wrap,.page-wrap { width: 1024px; margin: 0px auto; clear: both; padding: 0; margin-top: 130px;}
 
 h1, h2, h3 { font-weight: normal; margin: 0 0 10px 0; }
 h1 { }
@@ -241,6 +241,10 @@ html[xmlns] .cf {
          url('css/font/Alef-Bold.svg#alefbold') format('svg');
     font-weight: bold;
     font-style: normal;
+
+
+
+
 
 }
 
@@ -587,6 +591,7 @@ border-bottom: 2px solid #000;
 	overflow: hidden;
 	width: 1024px;
 	position: relative;
+	margin-top: 0;
 }
 .inventList:first-child{
 	width: 844px;
@@ -670,6 +675,7 @@ text-align: center;
 text-decoration: none;
 display: block;
 width: 217px;
+
 height: 40px;
 line-height: 40px;
 text-align: center;
@@ -759,6 +765,7 @@ height: 40px;
     background-repeat: repeat;
     position: relative;
     height: 320px;
+    margin-top: 0;
 }
 .judgesContenar{
 	position:relative;
@@ -985,6 +992,7 @@ margin-top: -2px;
     /*border-left: 1px solid #969696;
     border-right: 1px solid #969696;*/
     position: relative;
+	margin-top: 0;
 }
 .page-wrap.contect p {
     margin: 16px auto;
@@ -1926,6 +1934,7 @@ top: 30px;*/
     width: 100%;
     height: 60px;
     position: relative;
+
     margin: 30px 100px 0 0;
     padding-bottom: 14px;
     border-bottom: solid 1px #e6e6e8;
@@ -2022,7 +2031,7 @@ body {
     scrollbar-track-color: #7D7E94;  
     scrollbar-arrow-color: #C1C1D1;   
 }*/
-#contactUsForm ,#aboutUs{
+#contactUsForm {
     position: absolute;
     background: #fff;
     width: 506px;
@@ -2081,7 +2090,7 @@ body {
 	z-index: 100;
 	font-weight: normal;
 }
-#contactUsForm .triangle,#aboutUs .triangle {
+#contactUsForm .triangle{
 	position: absolute;
 	background-image: url(img/triangle.png);
 	width: 50px;
@@ -2119,13 +2128,14 @@ body {
 margin: 10px 5px;
 width: 100px;
 height: 80px;
-vertical-align: sub;
+
+	vertical-align: sub;
 }
 .logo_menu li a{
 	text-decoration:none;
 }
 .logo_menu li img{
-	max-width: 100%;
+	/* max-width: 100%; */
 	max-height: 100%;
 }
 
@@ -2150,6 +2160,7 @@ margin: auto;
 .mapping{
     width: 1024px;
     height: 514px;
+    margin-top: 0;
 }
 .google-map{
     width: 687px;
@@ -2231,4 +2242,74 @@ font-size: 15px;
 left: 0px;
 margin-left: 50px;
 margin-top: 400px;
+}
+#urlHide{
+	display:none !important;
+}
+
+
+.aboutUsMask{
+	display:none;
+	width:100%;
+	position: fixed;
+	background:rgba(0,0,0,.5);
+	height:100%;
+	top: 0;
+	z-index: 50;
+}
+#aboutUs{
+	position: relative;
+	margin: 50px auto;
+	width:712px;
+	background:#fff;
+	z-index:50;
+}
+#aboutUs .logo{
+	width:100%;
+	height:90px;
+	border-bottom: solid 1px #e6e6e8;
+}
+#aboutUs .logo img {
+	height: 70px;
+	margin: 0 auto;
+	display: block;
+	padding-top: 10px;
+	width: 90px;
+}
+#aboutUs h1{
+	position: relative;
+	top: 6px;
+	left: 70px;
+	font-size: 35px;
+	width: 270px;
+	text-decoration: none;
+	color: #666;
+	height: 50px;
+}
+#aboutUs .media{
+    text-align: center;
+}
+#aboutUs article{
+	margin:15px 70px 15px 70px;
+}
+#aboutUs .gallery{
+	margin: 30px auto 0 auto;
+	display: flex;
+	flex-wrap: wrap-reverse;
+	justify-content: center;
+	clear: right;
+	padding-bottom: 25px;
+	position: relative;
+	width: 100%;
+}
+#aboutUs .gallery img{
+    height: 150px;
+    margin-right: 20px;
+	transition:ease-in-out all 0.3s;
+}
+#aboutUs .gallery img:hover{
+	-webkit-transform:scale(2,2);
+	-moz-transform:scale(2,2);
+	-ms-transform:scale(2,2);
+	transform:scale(2,2);
 }

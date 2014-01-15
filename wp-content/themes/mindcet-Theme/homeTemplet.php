@@ -454,13 +454,25 @@ do_action('wp_insert_post', 'wp_insert_post');
 	<article>
 	<?php the_content();?>
 	</article>
+</div> 
+<div id="urlHide">
+<?php $term=get_page_by_title('terms of use');echo $term->guid;?>;
 </div>
 <script>
      allTech=<?php echo getAllStartup(); ?>;
      allJudges=<?php echo getAllJudges(); ?>;
+	 allVotes=<?php echo getAllVotes(); ?>;
      popupall(allTech);
      popupallJ(allJudges);
-    	 
+	 popupallV(allVotes);
+    
+	$('#formPart3').on('click','#terms',function(){
+		urlhide=$('#urlHide').text();
+		alert(urlhide);
+		$(this).attr('href',urlhide);
+		return true;
+	
+	});	 
 </script>
 <?php get_footer(); ?>
 

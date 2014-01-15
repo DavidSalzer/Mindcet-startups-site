@@ -20,6 +20,7 @@ $('.contactUs').on('click',this,function(e){
 	$('#cemail').val('');
 	$('#cmessage').val('');
 	
+	$('#aboutUs').slideUp();
 	console.log(e);
 	$('#contactUsForm').css({'left':(e.pageX-50)+'px','top':(e.pageY-760)+'px'});
 	$('#contactUsForm form').show();
@@ -29,20 +30,26 @@ $('.contactUs').on('click',this,function(e){
 
 $('.aboutUs').on('click',this,function(e){
 	console.log(e);
-	$('#aboutUs').css({'left':(e.pageX-50)+'px','top':(e.pageY-760)+'px'});
-	$('#aboutUs').show();
-	$('#aboutUs').fadeIn();
+	$('#contactUsForm').slideUp();
+	$('.aboutUsMask').fadeIn('fast',function(){
+		$('body').css('overflow','hidden');
+		$('#aboutUs').fadeIn();
+	});
+	
 	return false;
 });
 
 $('#contactUsForm .close').on('click',this,function(){
 	$('#contactUsForm').slideUp();
+	$('body').css('overflow','auto');
 	$('#aboutUs').hide();
 });
 
-$('#aboutUs .close').on('click',this,function(){
+$('#aboutUs .close,.aboutUsMask').on('click',this,function(){
 	$('#aboutUs').slideUp();
-	$('#contactUsForm').hide();
+	$('.aboutUsMask').fadeOut();
+		$('body').css('overflow','auto');
+
 });
 
 	

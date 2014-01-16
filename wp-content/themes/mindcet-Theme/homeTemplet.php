@@ -12,10 +12,7 @@
 <?
 set_post_thumbnail( 165, 176177178179 );
 ?>
-<div style="position:absolute;background:#fff;width:150px;height:150px;z-55">
-	   <div id="inventLikeCount" class="fb-like" data-href="'+allTech[tid].permalink+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>         
 
-</div>
 <div class="page-wrap">
 
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -405,7 +402,7 @@ do_action('wp_insert_post', 'wp_insert_post');
   <h2>EdTech Mapping</h2>
 </div>
 <!--marker popup-->
-<div id="marker-popup" class="inventDescription" style="display: block;">
+<div id="marker-popup" class="mapDescription" style="display: block;">
     <div class="inventContener">
         <span id="invent-close" class="close"></span>
         <div class="popupDescription-append">

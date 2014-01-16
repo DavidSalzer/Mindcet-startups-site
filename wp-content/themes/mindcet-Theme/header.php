@@ -89,7 +89,14 @@
         </div>
         
     </div>
-    
+    <div id="marker-popup" class="mapDescription" style="display: block;">
+        <div class="inventContener">
+            <span id="invent-close" class="close"></span>
+            <div class="popupDescription-append">
+         
+            </div>
+        </div>
+    </div>
     </div>
     <header>
     	<div class="header cf">

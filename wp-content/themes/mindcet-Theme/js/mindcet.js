@@ -999,11 +999,34 @@ function ascii(url){
 /////////////////////////////////////////////////////////////////////////end validation
 
 /////////////////////////////////////////////////////////////////////////start google map
-
+ 
 var map;
 var markers = [];
 var favoritesByMarker = [];
+
 function initMap() {
+
+    // Create an array of styles.
+    var styles = [
+        {
+            "featureType": "landscape",
+            "stylers": [
+            { "color": "#5cb480" }
+        ]
+        }, {
+            "featureType": "water",
+            "stylers": [
+            { "color": "#0c4480" },
+            { "lightness": 75 }
+        ]
+        }
+    ];
+
+    // Create a new StyledMapType object, passing it the array of styles,
+    // as well as the name to be displayed on the map type control.
+    var styledMap = new google.maps.StyledMapType(styles,
+    { name: "Styled Map" });
+
     var options = {
         streetViewControl: false,
         center: new google.maps.LatLng(0, 0),
@@ -1012,10 +1035,12 @@ function initMap() {
 
     map = new google.maps.Map(document.getElementById("map"), options);
 
+    //Associate the styled map with the MapTypeId and set it to display.
+    map.mapTypes.set('map_style', styledMap);
+    map.setMapTypeId('map_style');
+
     setMarkers(saveVotesData);
-
 }
-
 var placeInsaveVotesData = 0;
 var savePlaceInVotesData = [];
 // Add a marker to the map and push to the array.
@@ -1025,18 +1050,18 @@ function addMarker(location) {
         map: map
     });
     markers.push(marker);
-
+ 
     //save favorites linked to the marker
     savePlaceInVotesData[marker.__gm_id] = placeInsaveVotesData++;
-
+ 
     google.maps.event.addListener(marker, 'click', function () {
         var key = savePlaceInVotesData[marker.__gm_id];
         buildMarkerPopupHTML(key);
     })
 }
-
+ 
 function setMarkers(allMarkers) {
-
+ 
     for (marker in allMarkers) {
         //convert to latLng
         var myLatlng = new google.maps.LatLng(parseInt(allMarkers[marker].lat), parseInt(allMarkers[marker].lon));
@@ -1049,45 +1074,74 @@ function setMarkers(allMarkers) {
         console.log(markers[i]);
     }
 }
-
+ 
 function buildMarkerPopupHTML(key) {
     console.log(saveVotesData[key].logo[0]);
     console.log(saveVotesData[key].descript);
     console.log(saveVotesData[key].title);
-
+ 
     var html = '<div class="topArea">    '
     if (saveVotesData[key].logo)
         html += '<div class="startup-popup-logo">  <img class="wp-post-image logo" src="' + saveVotesData[key].logo[0] + '" alt="' + saveVotesData[key].title + ' logo">   </div> ';
     html += '</div>    ';
-
+ 
     html += '<div class="mainArea">    ';
-
+ 
     html += '<div class="popup-title">' + saveVotesData[key].title + '</div>';
-
+ 
     html += '<div class="description"><p dir="ltr" style="text-align: left;">' + saveVotesData[key].descript + '</p></div>';
-
+ 
     html += '<div class="startups-gallery">    ';
-
+ 
     html += '<div class="startups-gallery-header">';
     html += '   <img class="gallery-img" src="http://mindcet.co.il.tigris.nethost.co.il/wp-content/uploads/2014/01/image-14.jpg" alt="Class Messenger">';
     html += '   <span>Our Top 10 Startups</span>';
     html += '</div>';
-
+ 
     for (var favorite in saveVotesData[key].favId) {
         console.log(allTech[saveVotesData[key].favId[favorite]]);
         html += '<div class="startups-gallery-item">';
+        html += '<div class="startups-gallery-item-frame">';
         html += '<img class="gallery-img" src="' + allTech[saveVotesData[key].favId[favorite]].logo[0] + '" alt="Class Messenger">';
         html += '<span class="gallery-description">' + allTech[saveVotesData[key].favId[favorite]].descript + '</span>';
+        html += '   </div>';
         html += '   </div>';
     }
     html += '   </div>';
     html += '</div>';
-
+ 
     var $inventDescription = $(html);
     $('.popupDescription-append').empty().append($inventDescription);
-    $("#marker-popup").show();
+    
+    h=$(window).height();
+	$('body').css('overflow','hidden');
+	
+	$('.mask').fadeIn(200, 'easeInOutBack').css('height',h+'px');;
+	$('#marker-popup').fadeIn(100, 'easeInOutBack');
+    //$('.mask').addClass('mask-invent');
+    $('html, body').animate({
+        scrollTop: $("#invent-close").offset().top - 25
+    }, 1);
+    
+     $('#marker-popup').on('click', ".close", function () {
+        //$('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
+        $('#marker-popup').fadeOut(300, 'easeInOutBack');
+        //$('#id'+allTech[tid].techId).hide();
+		window.location.hash='';
+        $('html, body').animate({
+            scrollTop: "550px"
+        }, 1);
+        //$('.mask').removeClass('mask-invent');
+        $('.mask').fadeOut(800, 'easeInOutBack');
+		$('body').css('overflow','auto');
+        return false;
+    });
 }
-
+ 
+//$("#marker-popup").on("click",".close",function(){
+//    $('#marker-popup').fadeOut(600, 'easeInOutBack');
+//});
+// 
 
 
 //////////////////////////////end google map///////////////////////////////////////////

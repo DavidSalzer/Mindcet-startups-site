@@ -402,14 +402,14 @@ do_action('wp_insert_post', 'wp_insert_post');
   <h2>EdTech Mapping</h2>
 </div>
 <!--marker popup-->
-<div id="marker-popup" class="mapDescription" style="display: block;">
+<!--<div id="marker-popup" class="mapDescription" style="display: block;">
     <div class="inventContener">
         <span id="invent-close" class="close"></span>
         <div class="popupDescription-append">
          
         </div>
     </div>
-</div>
+</div>-->
 <!--marker popup-->
 <div class="page-wrap mapping">
 <div class="google-map">

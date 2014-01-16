@@ -4,8 +4,8 @@
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />
     <!--<meta property="og:image" content="<?php //echo site_url();?>/wp-content/uploads/2014/01/final-logo1.png"/>-->
-    <meta property="og:title" content="title of the page" />
-    <meta property="og:description" content="description of the page" />
+    <meta property="og:title" content="Global EdTech Startup Awards 2014" />
+    <meta property="og:description" content="What's your favorite EdTech startup?" />
     <!--<meta property="og:image" content="http://mindcet.co.il.tigris.nethost.co.il/wp-content/uploads/2014/01/final-logo1.png"/>-->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
      <link rel="image_src" href="<?php echo site_url();?>/wp-content/uploads/2014/01/final-logo1.png" />
@@ -54,13 +54,15 @@
 <body <?php body_class(); ?>>
     
     <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>
+(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+</script>
 	<div class="maskall"></div>
 	<div class="mask">
     <div id="single-startup-zone"class="inventDescription">
@@ -136,5 +138,6 @@
     </header>
  <?php if(!is_front_page()):?>     
 	<div id="page-wrap">
+    
 <?php endif; ?>
 		

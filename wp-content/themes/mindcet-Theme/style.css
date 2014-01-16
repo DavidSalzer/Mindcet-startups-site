@@ -246,6 +246,9 @@ html[xmlns] .cf {
 
 
 
+
+
+
 }
 
 
@@ -461,6 +464,7 @@ left: 0;
     margin: auto;
 	position: relative;
 }
+
 .topMenu ul li{
 	display: inline-block;
 width: 189px;
@@ -1507,6 +1511,7 @@ position: relative;
 }
 .inventDescription{
     width: 712px;
+
 	background-color: #fff;
 	position: relative;
 	z-index: 51;
@@ -1683,9 +1688,9 @@ color: #555ca8;
 }
 
 .fb-like.fb_edge_widget_with_comment {
-top: 400px;
-left: 53px;
-position: absolute !important;
+/* top: 400px; */
+/* left: 53px; */
+/* position: absolute !important; */
 /*display: none;*/
 }
 .fb_iframe_widget span {
@@ -1711,13 +1716,13 @@ overflow: visible;
     display:none;
 }
 .home .fb-like.fb_edge_widget_with_comment {
-top: 27px;
-right: 53px;
-width: 78px;
-right: 0;
+/* top: 27px; */
+/* right: 53px; */
+/* width: 78px; */
+/* right: 0; */
 z-index: 21;
-margin: 0;
-margin-left: 855px;
+/* margin: 0; */
+/* margin-left: 855px; */
 /*position: absolute !important;
 z-index: 50;*/
 /*background-color: #ffffff;*/
@@ -2319,6 +2324,7 @@ select#category,select#tags {
 	font-family: inherit;
 	font-size: 24px;
 	color: #b9b9b9;
+	line-height: 50px;
 }
 select#tags {
 	margin-left:30px;
@@ -2327,13 +2333,13 @@ select#tags {
 	background:#f4f4f4;
 }
 select#categoryNav,select#tagsNav {
-	width: 49%;
+	width: 49.9%;
 	height: 50px;
 	font-family: inherit;
 	font-size: 24px;
 	color: #000;
 	border:none;
-	background-color:rgba(0,0,0,.14);
+	background-color:rgba(152,152,152,.2);
 	text-align:center;
 }
 select#categoryNav{
@@ -2341,4 +2347,10 @@ select#categoryNav{
 }
 select#tagsNav{
 	float:right;
+}
+#fb-like-site {
+    position: absolute;
+    left: 135px;
+    width: 150px;
+    bottom: 70px;
 }

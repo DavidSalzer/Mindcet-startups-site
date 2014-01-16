@@ -12,8 +12,10 @@
 <?
 set_post_thumbnail( 165, 176177178179 );
 ?>
-
+<a  href="http://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=http://localhost/Mindcet-startups-site/?initiator=simple-contact&amp;p[title]=Global EdTech Startup Awards 2014&amp;p[summary]=Simple Contact is my favorite EdTech startup. What's yours?&amp;p[images][0]=http://localhost/Mindcet-startups-site/wp-content/uploads/2014/01/LandingCambium-300x224.jpg')" target="_blank" class="social fb" title="(Share on Facebook)" style="position:absolute;background:#fff;width:150px;height:150px;z-
+    55">Share on <span class="letter-space">Facbook</span></a>
 <div class="page-wrap">
+
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     
   <section  class="home">
@@ -169,15 +171,14 @@ do_action('wp_insert_post', 'wp_insert_post');
 					 ?>
 					<select name="category" id="category" >
                   	
-                    	<option selected="selected" class="selectGrey">Select category</option>
+                    	<option>Select category</option>
                     <?php  foreach($categories as $category) { ?>
-                    <label for="<?php echo $category->slug;?>">
                         	  <option value="<?php echo $category->term_id;?>"><?php echo $category->name ;?></option>
             	<?php } ?>
                		</select>
                     
                     <select name="tags" id="tags" >
-                  			<option selected="selected" class="selectGrey">Select Audience</option>
+                  			<option>Select Audience</option>
 					<?php 
 					$arg=array('hide_empty'=>false,'orderby'=>'name','order' => 'ASC');
 					$tags = get_tags($arg);
@@ -332,14 +333,14 @@ do_action('wp_insert_post', 'wp_insert_post');
 		?>
         <select name="category" id="categoryNav" >
                   	
-                    	<option selected="selected" class="selectGrey">Select category</option>
+                    	<option  class="selectGrey">Select category</option>
                     <?php  foreach($categories as $category) { ?>
                         	  <option value="<?php echo $category->term_id;?>"><?php echo $category->name ;?></option>
             	<?php } ?>
                		</select>
                     
                     <select name="tags" id="tagsNav" >
-                  			<option selected="selected" class="selectGrey">Select Audience</option>
+                  			<option  class="selectGrey">Select Audience</option>
 					<?php 
 					$arg=array('hide_empty'=>false,'orderby'=>'name','order' => 'ASC');
 					$tags = get_tags($arg);

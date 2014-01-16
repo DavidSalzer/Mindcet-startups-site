@@ -1101,8 +1101,10 @@ function buildMarkerPopupHTML(key) {
     for (var favorite in saveVotesData[key].favId) {
         console.log(allTech[saveVotesData[key].favId[favorite]]);
         html += '<div class="startups-gallery-item">';
+        html += '<div class="startups-gallery-item-frame">';
         html += '<img class="gallery-img" src="' + allTech[saveVotesData[key].favId[favorite]].logo[0] + '" alt="Class Messenger">';
         html += '<span class="gallery-description">' + allTech[saveVotesData[key].favId[favorite]].descript + '</span>';
+        html += '   </div>';
         html += '   </div>';
     }
     html += '   </div>';

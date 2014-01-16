@@ -402,9 +402,20 @@ do_action('wp_insert_post', 'wp_insert_post');
 <div id="map-banner" class="middelBanner">
   <h2>EdTech Mapping</h2>
 </div>
+<!--marker popup-->
+<div id="marker-popup" class="inventDescription" style="display: block;">
+    <div class="inventContener">
+        <span id="invent-close" class="close"></span>
+        <div class="popupDescription-append">
+         
+        </div>
+    </div>
+</div>
+<!--marker popup-->
 <div class="page-wrap mapping">
 <div class="google-map">
     <div id="map"></div>
+    
 </div>
     <div class="best-invent">
         <div id="best-invent-title">

@@ -2786,3 +2786,39 @@ select#tagsNav{
     width: 150px;
     bottom: 70px;
 }
+/*****************marker popup**********************/
+#marker-popup {
+    display: none;
+}
+
+.popup-title {
+    margin: auto;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.startups-gallery .startups-gallery-header {
+    /*background-color: white;
+    border: 1px solid gray;*/
+}
+
+.startups-gallery .startups-gallery-item:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.startups-gallery .startups-gallery-item:nth-child(odd) {
+    background-color: #a9a9a9;
+}
+
+.startups-gallery .gallery-img {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+.startups-gallery .gallery-description {
+    width: 87%;
+    display: inline-block;
+}

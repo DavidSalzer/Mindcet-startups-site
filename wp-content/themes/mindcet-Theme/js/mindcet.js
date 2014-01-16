@@ -393,6 +393,12 @@ $(document).ready(function (e) {
 		$('.mask').css('height',h+'px');
 	});
 
+
+    $('body').on('click','#inventLikeFb,#inventTwiiwer,#inventLinkedin',function(){
+        likeUrl=$(this).data('url');
+        openInNewWindow(likeUrl);
+    })
+
 }); //dom ready
 
 
@@ -416,10 +422,11 @@ function popupall(allTech) {
 function popupallJ(allJudges) {
     console.log(allJudges);
 }
+var saveVotesData;
 function popupallV(allVotes) {
-    console.log(allJudges);
+    console.log(allVotes);
+    saveVotesData = allVotes;
 }
-
 
 getEmbedMovie = function (data, height, width) {
     if (data == null || data.type != "movie") return;
@@ -674,10 +681,10 @@ function enable_scroll() {
 
         html += '       <div class="socialArea">    ';
 	  
-      html+='              <div onClick="openInNewWindow('+"'"+fbUrl+"'"+')" class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
+      html+='              <div data-url="'+fbUrl+'" id="inventLikeFb"class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
      //  html+='              <a href="'+fbUrl+':void(0);" class="social fb" title="(Share on Facebook)"  target="_">Share on <span class="letter-space">Facbook</span></a>';
-        html+='             <div onClick="openInNewWindow('+"'"+tweetUrl+"'"+')" class="social twitter" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
-        html+='             <div onClick="openInNewWindow('+"'"+linkedinUrl+"'"+')" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
+        html+='             <div data-url="'+tweetUrl+'" id="inventTwiiwer" class="social twitter" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
+        html+='             <div data-url="'+linkedinUrl+'" id="inventLinkedin" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
         
        html += '          </div>    ';
 
@@ -984,66 +991,96 @@ function ascii(url){
 //}
 /////////////////////////////////////////////////////////////////////////end validation
 
-
 /////////////////////////////////////////////////////////////////////////start google map
 
 var map;
-       
+var markers = [];
+var favoritesByMarker = [];
 function initMap() {
-    var opts = {
+    var options = {
         streetViewControl: false,
         center: new google.maps.LatLng(0, 0),
         zoom: 1
     };
-    var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-    map = new google.maps.Map(document.getElementById("map"), opts);
-    var contentString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-        '<div id="bodyContent">'+
-        '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-        'sandstone rock formation in the southern part of the '+
-        'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-        'south west of the nearest large town, Alice Springs; 450&#160;km '+
-        '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-      
-        'Heritage Site.</p>'+
-        '<p>Attribution: Uluru, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-        'http://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-        '(last visited June 22, 2009).</p>'+
-        '</div>'+
-        '</div>';
-    contentString = '<div id="content">'+
-        'under construction <br>'+//allTech[437].title+
-        '</div>';
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString,
-        maxWidth: 650
-    });
 
+    map = new google.maps.Map(document.getElementById("map"), options);
+
+    setMarkers(saveVotesData);
+
+}
+
+var placeInsaveVotesData = 0;
+var savePlaceInVotesData = [];
+// Add a marker to the map and push to the array.
+function addMarker(location) {
     var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        title: 'Uluru (Ayers Rock)'
-        //animation: google.maps.Animation.DROP,
-        //position: parliament
+        position: location,
+        map: map
     });
-    google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map,marker);
-        $('#content').parent().css({"overflow":"hidden"});
-      });
-      google.maps.event.addListener(marker, 'click', toggleBounce);
-    
-}
-function toggleBounce() {
+    markers.push(marker);
 
-  if (marker.getAnimation() != null) {
-    marker.setAnimation(null);
-  } else {
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-  }
-}
-google.maps.event.addDomListener(window, 'load', initMap);
+    //save favorites linked to the marker
+    savePlaceInVotesData[marker.__gm_id] = placeInsaveVotesData++;
 
-   /////////////////////////////////////////////////////////////////////////end google map
+    google.maps.event.addListener(marker, 'click', function () {
+        var key = savePlaceInVotesData[marker.__gm_id];
+        buildMarkerPopupHTML(key);
+    })
+}
+
+function setMarkers(allMarkers) {
+
+    for (marker in allMarkers) {
+        //convert to latLng
+        var myLatlng = new google.maps.LatLng(parseInt(allMarkers[marker].lat), parseInt(allMarkers[marker].lon));
+        //create marker push marker to array
+        addMarker(myLatlng);
+    }
+    //show markers on map
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+        console.log(markers[i]);
+    }
+}
+
+function buildMarkerPopupHTML(key) {
+    console.log(saveVotesData[key].logo[0]);
+    console.log(saveVotesData[key].descript);
+    console.log(saveVotesData[key].title);
+
+    var html = '<div class="topArea">    '
+    if (saveVotesData[key].logo)
+        html += '<div class="startup-popup-logo">  <img class="wp-post-image logo" src="' + saveVotesData[key].logo[0] + '" alt="' + saveVotesData[key].title + ' logo">   </div> ';
+    html += '</div>    ';
+
+    html += '<div class="mainArea">    ';
+
+    html += '<div class="popup-title">' + saveVotesData[key].title + '</div>';
+
+    html += '<div class="description"><p dir="ltr" style="text-align: left;">' + saveVotesData[key].descript + '</p></div>';
+
+    html += '<div class="startups-gallery">    ';
+
+    html += '<div class="startups-gallery-header">';
+    html += '   <img class="gallery-img" src="http://mindcet.co.il.tigris.nethost.co.il/wp-content/uploads/2014/01/image-14.jpg" alt="Class Messenger">';
+    html += '   <span>Our Top 10 Startups</span>';
+    html += '</div>';
+
+    for (var favorite in saveVotesData[key].favId) {
+        console.log(allTech[saveVotesData[key].favId[favorite]]);
+        html += '<div class="startups-gallery-item">';
+        html += '<img class="gallery-img" src="' + allTech[saveVotesData[key].favId[favorite]].logo[0] + '" alt="Class Messenger">';
+        html += '<span class="gallery-description">' + allTech[saveVotesData[key].favId[favorite]].descript + '</span>';
+        html += '   </div>';
+    }
+    html += '   </div>';
+    html += '</div>';
+
+    var $inventDescription = $(html);
+    $('.popupDescription-append').empty().append($inventDescription);
+    $("#marker-popup").show();
+}
+
+
+
+//////////////////////////////end google map///////////////////////////////////////////

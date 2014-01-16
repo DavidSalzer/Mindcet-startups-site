@@ -171,7 +171,8 @@
 		$vote['title']=$title;
 		$vote['logo']=$logo;
 		$vote['descript']=$descript;
-		
+		 $vote['lat']=$lat;
+        $vote['lon']=$long;
 		array_push($allVotes,$vote);
 		endforeach;
 		return json_encode($allVotes);

@@ -1344,7 +1344,7 @@ background-repeat: no-repeat;*/
 .inventorPopUp {
     position: absolute;
     display: none;
-    top: -95px;
+    top: -125px;
     width: 590px;
     height: 666px;
     background: #fff;
@@ -2815,7 +2815,10 @@ select#tagsNav{
     display: none;
 }
 
-.popup-title {
+#marker-popup .inventDescription .mainArea .description{
+    margin-left: 0px;
+}
+#marker-popup .popup-title {
     margin: auto;
     text-align: center;
     font-size: 40px;
@@ -2823,9 +2826,17 @@ select#tagsNav{
     margin-bottom: 5px;
 }
 
-.startups-gallery .startups-gallery-header {
-    /*background-color: white;
-    border: 1px solid gray;*/
+#marker-popup .startups-gallery{
+    float: left;
+margin-top: 20px;
+
+}
+#marker-popup .startups-gallery-item {
+    height: 62px;
+}
+#marker-popup .startups-gallery .startups-gallery-header {
+    border: 1px solid #cccccc;
+height: 60px;
 }
 
 .startups-gallery .startups-gallery-item:nth-child(even) {
@@ -2836,14 +2847,14 @@ select#tagsNav{
     background-color: #f5f5f5;
 }
 
-.startups-gallery .gallery-img {
+#marker-popup .startups-gallery .gallery-img {
     width: 40px;
     height: 40px;
     margin: 5px;
     vertical-align: top;
 }
 
-.startups-gallery .gallery-description {
+#marker-popup .startups-gallery .gallery-description {
     width: 87%;
     display: inline-block;
 }

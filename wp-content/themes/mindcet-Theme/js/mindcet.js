@@ -1003,19 +1003,44 @@ function ascii(url){
 var map;
 var markers = [];
 var favoritesByMarker = [];
+
 function initMap() {
+
+    // Create an array of styles.
+    var styles = [
+        {
+            "featureType": "landscape",
+            "stylers": [
+            { "color": "#5cb480" }
+        ]
+        }, {
+            "featureType": "water",
+            "stylers": [
+            { "color": "#0c4480" },
+            { "lightness": 75 }
+        ]
+        }
+    ];
+
+    // Create a new StyledMapType object, passing it the array of styles,
+    // as well as the name to be displayed on the map type control.
+    var styledMap = new google.maps.StyledMapType(styles,
+    { name: "Styled Map" });
+
     var options = {
         streetViewControl: false,
         center: new google.maps.LatLng(0, 0),
         zoom: 1
     };
- 
+
     map = new google.maps.Map(document.getElementById("map"), options);
- 
+
+    //Associate the styled map with the MapTypeId and set it to display.
+    map.mapTypes.set('map_style', styledMap);
+    map.setMapTypeId('map_style');
+
     setMarkers(saveVotesData);
- 
 }
- 
 var placeInsaveVotesData = 0;
 var savePlaceInVotesData = [];
 // Add a marker to the map and push to the array.
@@ -1096,8 +1121,25 @@ function buildMarkerPopupHTML(key) {
         scrollTop: $("#invent-close").offset().top - 25
     }, 1);
     
+     $('#marker-popup').on('click', ".close", function () {
+        //$('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
+        $('#marker-popup').fadeOut(300, 'easeInOutBack');
+        //$('#id'+allTech[tid].techId).hide();
+		window.location.hash='';
+        $('html, body').animate({
+            scrollTop: "550px"
+        }, 1);
+        //$('.mask').removeClass('mask-invent');
+        $('.mask').fadeOut(800, 'easeInOutBack');
+		$('body').css('overflow','auto');
+        return false;
+    });
 }
  
- 
- 
+//$("#marker-popup").on("click",".close",function(){
+//    $('#marker-popup').fadeOut(600, 'easeInOutBack');
+//});
+// 
+
+
 //////////////////////////////end google map///////////////////////////////////////////

@@ -5,7 +5,7 @@
 	<meta charset="<?php bloginfo('charset'); ?>" />
     <!--<meta property="og:image" content="<?php //echo site_url();?>/wp-content/uploads/2014/01/final-logo1.png"/>-->
     <meta property="og:title" content="Global EdTech Startup Awards 2014" />
-    <meta property="og:description" content="What's your favorite EdTech startup?" />
+    <meta property="og:description" content="What's your favorite EdTech startup?"/>
     <!--<meta property="og:image" content="http://mindcet.co.il.tigris.nethost.co.il/wp-content/uploads/2014/01/final-logo1.png"/>-->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
      <link rel="image_src" href="<?php echo site_url();?>/wp-content/uploads/2014/01/final-logo1.png" />
@@ -37,8 +37,6 @@
 	<link rel="shortcut icon" href="/favicon.ico">
 	
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
-    <!--<link rel="stylesheet" href="http://localhost/Mindcet-startups-site/wp-content/themes/mindcet-Theme/tablet.css">
-    <link rel="stylesheet" media="all and (max-width: 1023px)"  href="tablet.css" type="text/css" />-->
 	
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
@@ -56,29 +54,34 @@
 <body <?php body_class(); ?>>
     
     <div id="fb-root"></div>
-<script>
-(function(d, s, id) {
+<script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
+}(document, 'script', 'facebook-jssdk'));</script>
 	<div class="maskall"></div>
 	<div class="mask">
     <div id="single-startup-zone"class="inventDescription">
         <div class="inventContener">
         	<span id="invent-close" class="close"></span>
 
-        <!--<div  class="fb-like invent" data-href="http://localhost/Mindcet-startups-site/?initiator=img3" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>-->
+     <!--   <div  class="fb-like invent" data-href="http://localhost/Mindcet-startups-site/?initiator=img3" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>-->
     		
     
     
         	<div class="inventDescription-append"></div>
         </div>
-        <div class="fb-like invent" data-href="http://mindcet.co.il.tigris.nethost.co.il/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+         <div class="facebook-likes">
+        <iframe src="" id="like-frame">
         
+        </iframe>
+        </div>
+<!--        <a href="https://twitter.com/share" class="twitter-share-button" data-url="" data-text="" id="inventTwitterCount">Tweet</a>
+<script>
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>-->
         <div class="facebook-comments">
         <iframe src="" id="comments-frame">
         
@@ -140,6 +143,5 @@
     </header>
  <?php if(!is_front_page()):?>     
 	<div id="page-wrap">
-    
 <?php endif; ?>
 		

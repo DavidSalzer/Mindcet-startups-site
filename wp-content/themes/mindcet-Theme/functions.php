@@ -1,5 +1,14 @@
 <?php
 	
+	add_filter('locale', 'wpse27056_setLocale');
+	function wpse27056_setLocale($locale) {
+		if (!is_admin() ) {
+			return 'en_US';
+		}
+	
+		return $locale;
+	}
+	
 	// Add RSS links to <head> section
 	automatic_feed_links();
 	

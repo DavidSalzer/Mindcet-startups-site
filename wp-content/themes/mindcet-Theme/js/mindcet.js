@@ -646,8 +646,11 @@ function enable_scroll() {
         domLikes=domLikes.toLowerCase();
 		permalink=allTech[tid].permalink;
 		
-        $('#comments-frame').attr("src",globalUrl+'comment.htm?url='+ domComments);
-
+        $('#like-frame').attr("src",globalUrl+'likeCount.htm?url='+allTech[tid].permalink);
+        $('#comments-frame').attr("src",globalUrl+'comment.htm?url='+domComments);
+        
+		$('#inventTwitterCount').attr('data-url',allTech[tid].permalink).attr('data-text',allTech[tid].title);
+		
         domLikes=document.URL.split("#")[0]+'?'+allTech[tid].techId+'#'+allTech[tid].techId;
         $('.fb-like.invent').attr("data-href",permalink);
         $('#id'+allTech[tid].techId).show();
@@ -685,12 +688,16 @@ function enable_scroll() {
      //  html+='              <a href="'+fbUrl+':void(0);" class="social fb" title="(Share on Facebook)"  target="_">Share on <span class="letter-space">Facbook</span></a>';
         html+='             <div data-url="'+tweetUrl+'" id="inventTwiiwer" class="social twitter" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
         html+='             <div data-url="'+linkedinUrl+'" id="inventLinkedin" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
-        
+      // html+=              '<div id="inventLikeCount" class="fb-like" data-href="'+allTech[tid].permalink+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>';             
        html += '          </div>    ';
 
 
 
     html += '       <div class="mainArea" id="inventpop">    ';
+
+    $('#inventLikeCount').attr('data-href',allTech[tid].permalink);
+
+
     var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480);
     if (videoIframe != undefined)
         html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480) + '</div>';

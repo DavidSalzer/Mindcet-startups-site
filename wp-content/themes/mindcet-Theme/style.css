@@ -2803,6 +2803,11 @@ select#tagsNav{
     width: 150px;
     bottom: 70px;
 }
+#inventLikeCount {
+    position: absolute;
+    top: 275px;
+    left: 50px;
+}
 /*****************marker popup**********************/
 #marker-popup {
     display: none;
@@ -2838,4 +2843,11 @@ select#tagsNav{
 .startups-gallery .gallery-description {
     width: 87%;
     display: inline-block;
+}
+#like-frame {
+    width: 490px;
+    height: 420px;
+    position: relative;
+    left: 145px;
+    top: -30px;
 }

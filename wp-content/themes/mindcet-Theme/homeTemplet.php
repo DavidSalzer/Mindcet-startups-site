@@ -12,8 +12,10 @@
 <?
 set_post_thumbnail( 165, 176177178179 );
 ?>
-<!--<a  href="http://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=http://localhost/Mindcet-startups-site/?initiator=simple-contact&amp;p[title]=Global EdTech Startup Awards 2014&amp;p[summary]=Simple Contact is my favorite EdTech startup. What's yours?&amp;p[images][0]=http://localhost/Mindcet-startups-site/wp-content/uploads/2014/01/LandingCambium-300x224.jpg')" target="_blank" class="social fb" title="(Share on Facebook)" style="position:absolute;background:#fff;width:150px;height:150px;z-
-    55">Share on <span class="letter-space">Facbook</span></a>-->
+<div style="position:absolute;background:#fff;width:150px;height:150px;z-55">
+	   <div id="inventLikeCount" class="fb-like" data-href="'+allTech[tid].permalink+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>         
+
+</div>
 <div class="page-wrap">
 
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>

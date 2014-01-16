@@ -644,11 +644,11 @@ function enable_scroll() {
         domLikes=document.URL.split("#")[0]+'?'+allTech[tid].techId+'#'+allTech[tid].techId;
         $('.fb-like.invent').attr("data-href",permalink);
         $('#id'+allTech[tid].techId).show();
-
+        //http://www.facebook.com/sharer/sharer.php?s=100&p[url]=&p[images][0]=&p[title]=&p[summary]=
         //var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]='+domUrl+'&p[summary]='+domUrl;
-        var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+globalUrl+'&p[title]='+ascii(domUrl)+'&p[images][0]='+allTech[tid].logo[0];//'&p[summary]='+ascii(domUrl)+
-        var tweetUrl='http://twitter.com/intent/tweet?text='+domUrlTweet;
-        var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+ascii(domUrl)+'&amp;title='+ascii(domUrl);//+'&summary='+ascii(domUrl);
+        var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+allTech[tid].permalink+'&p[title]=Global EdTech Startup Awards 2014&p[summary]='+allTech[tid].title +' is my favorite EdTech startup. What\'s yours?&p[images][0]='+allTech[tid].logo[0];//'&p[summary]='+ascii(domUrl)+
+        var tweetUrl='http://twitter.com/intent/tweet?text='+allTech[tid].title +' is my favorite EdTech startup. What\'s yours?';
+        var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+allTech[tid].permalink+'&amp;title=Global EdTech Startup Awards 2014&summary='+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?';
         console.log(tid);
 		console.log(allTech[tid]);
         var html = '       <div class="topArea">    ';
@@ -673,8 +673,9 @@ function enable_scroll() {
     html += '       </div>    ';
 
         html += '       <div class="socialArea">    ';
-	   html+='              <div onClick="openInNewWindow('+"'"+fbUrl+"'"+')" class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
-       //html+='              <a href="'+fbUrl+':void(0);" class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></a>';
+	  
+      html+='              <div onClick="openInNewWindow('+"'"+fbUrl+"'"+')" class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
+     //  html+='              <a href="'+fbUrl+':void(0);" class="social fb" title="(Share on Facebook)"  target="_">Share on <span class="letter-space">Facbook</span></a>';
         html+='             <div onClick="openInNewWindow('+"'"+tweetUrl+"'"+')" class="social twitter" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
         html+='             <div onClick="openInNewWindow('+"'"+linkedinUrl+"'"+')" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
         
@@ -716,7 +717,7 @@ function enable_scroll() {
     //$('.inventDescription .mainArea').delay(600).fadeIn(200, 'easeInOutBack');
     
     //facebookCommentsLink()
-    $('.inventDescription .close,.mask').on('click', this, function () {
+    $('.inventDescription .close').on('click', this, function () {
         $('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
         $('.inventDescription').fadeOut(300, 'easeInOutBack');
         //$('#id'+allTech[tid].techId).hide();
@@ -729,10 +730,11 @@ function enable_scroll() {
 		$('body').css('overflow','auto');
         return false;
     });
-    $('body').on('click','.mask-invent', this, function () {
-        $('.inventDescription .close').click();      
-        return false;
-    });
+    // $('body').on('click','.mask-invent', this, function () {
+    //     alert('poo');
+    //    $('.inventDescription .close').click();      
+    //    return false;
+    // });
 
     return false;
 };
@@ -961,7 +963,8 @@ function showForm4(){
     }
 }
 
-function openInNewWindow(url, width, height){
+function openInNewWindow(url, width, height)
+   {
     var win=window.open(url, '_blank', menubar=0, height=100, width=100);
     //win.focus();
     return false;

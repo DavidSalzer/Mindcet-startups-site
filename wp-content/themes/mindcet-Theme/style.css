@@ -479,6 +479,9 @@ html[xmlns] .cf {
     src: url('css/font/Alef-Bold.eot?#iefix') format('embedded-opentype'), url('css/font/Alef-Bold.woff') format('woff'), url('css/font/Alef-Bold.ttf') format('truetype'), url('css/font/Alef-Bold.svg#alefbold') format('svg');
     font-weight: bold;
     font-style: normal;
+
+
+
 }
 
 
@@ -721,14 +724,14 @@ footer .tagLogo {
     position: relative;
 }
 
-.topMenu ul li {
-    display: inline-block;
-    width: 189px;
-    height: 34px;
-    text-align: center;
-    line-height: 34px;
-    border-right: solid 1px #6a6a6a;
-    margin-top: 4px;
+.topMenu ul li{
+	display: inline-block;
+width: 189px;
+height: 34px;
+text-align: center;
+line-height: 34px;
+border-right: solid 1px #6a6a6a;
+margin-top: 4px;
 }
 
 .topMenu ul li:last-child {
@@ -1870,14 +1873,15 @@ font-family: sans-serif;*/
 
 .inventDescription {
     width: 712px;
-    background-color: #fff;
-    position: relative;
-    z-index: 51;
-    margin: auto;
-    left: 0;
-    right: 0;
-    margin-top: 55px;
-    display: none;
+
+	background-color: #fff;
+	position: relative;
+	z-index: 51;
+	margin: auto;
+	left: 0;
+	right: 0;
+	margin-top: 55px;
+	display: none;
 }
 
 #formPart3 .topArea {
@@ -2053,10 +2057,10 @@ margin-top: 10px;
 }
 
 .fb-like.fb_edge_widget_with_comment {
-    top: 400px;
-    left: 53px;
-    position: absolute !important;
-    /*display: none;*/
+/* top: 400px; */
+/* left: 53px; */
+/* position: absolute !important; */
+/*display: none;*/
 }
 
 .fb_iframe_widget span {
@@ -2099,14 +2103,14 @@ margin-top: 10px;
 }
 
 .home .fb-like.fb_edge_widget_with_comment {
-    top: 420px;
-    right: 27px;
-    width: 78px;
-    left: -687px;
-    z-index: 21;
-    margin: 0;
-    margin-left: 855px;
-    /*position: absolute !important;
+/* top: 27px; */
+/* right: 53px; */
+/* width: 78px; */
+/* right: 0; */
+z-index: 21;
+/* margin: 0; */
+/* margin-left: 855px; */
+/*position: absolute !important;
 z-index: 50;*/
     /*background-color: #ffffff;*/
 }
@@ -2766,6 +2770,7 @@ select#category, select#tags {
     font-family: inherit;
     font-size: 24px;
     color: #b9b9b9;
+	line-height: 50px;
 }
 
 select#tags {
@@ -2775,22 +2780,26 @@ select#tags {
 .selectGrey {
     background: #f4f4f4;
 }
-
-select#categoryNav, select#tagsNav {
-    width: 49%;
-    height: 50px;
-    font-family: inherit;
-    font-size: 24px;
-    color: #000;
-    border: none;
-    background-color: rgba(0,0,0,.14);
-    text-align: center;
+select#categoryNav,select#tagsNav {
+	width: 49.9%;
+	height: 50px;
+	font-family: inherit;
+	font-size: 24px;
+	color: #000;
+	border:none;
+	background-color:rgba(152,152,152,.2);
+	text-align:center;
 }
 
 select#categoryNav {
     float: left;
 }
-
-select#tagsNav {
-    float: right;
+select#tagsNav{
+	float:right;
+}
+#fb-like-site {
+    position: absolute;
+    left: 135px;
+    width: 150px;
+    bottom: 70px;
 }

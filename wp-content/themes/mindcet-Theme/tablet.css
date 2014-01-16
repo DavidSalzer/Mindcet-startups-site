@@ -1,7 +1,65 @@
 /*-------header---------*/
 
 .logoAndSocial {
-    width: 100%;
+    position: relative;
+    width: 768px;
+    height: 115px;
+    margin: 0 auto;
 }
 
 
+.socialTab {
+    float: right;
+    display: block;
+    background-image: url(img/social_tags.png);
+    width: 44px;
+    height: 145px;
+    background-position: -75px 0;
+    margin-right: 0px;
+    position: relative;
+    z-index: 5;
+    margin-left: 13px;
+    cursor: pointer;
+}
+
+
+
+.socialTab span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url(img/social_icons.png);
+    background-size: 167px;
+    background-repeat: no-repeat;
+    background-position: -7px 94px;
+}
+
+.topMenu {
+    width: 768px;
+    margin: 0 auto;
+}
+
+
+.page-wrap {
+    width: 768px;
+    margin: 0px auto;
+    clear: both;
+    padding: 0;
+}
+
+
+.page-wrap .home {
+min-width: 768px;
+margin: 0 auto;
+position: relative;
+margin-top: 155px;
+height: 528px;
+}
+
+
+.middelBanner {
+width: 768px;
+margin: auto;
+height: 45px;
+background-color: #21cb89;
+}

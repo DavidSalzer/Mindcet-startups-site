@@ -47,8 +47,9 @@ $(document).ready(function (e) {
     });
 
     $('.inventorPopUp .close').on('click', this, function () {
-        $('.inventorPopUp').fadeOut(600, 'easeInOutBack');
-        return false;
+        $('.inventorPopUp').fadeOut(300, 'easeInOutBack');
+        $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
+      //  return false;
     });
 
 
@@ -108,11 +109,11 @@ $(document).ready(function (e) {
                 html += '       <div class="bottomArea">    ';
                 html += '           <label for="ads">';
                 html += '               <input type="checkbox" id="ads" name="ads" checked>';
-                html += '               <span></span>I accept to get intersting information about new EdTech startups.<br><br>';
+                html += '               <span></span>I wish to receive interesting information about new EdTech startups.<br><br>';
                 html += '           </label>    ';
                 html += '           <label for="terms">';
                 html += '               <input type="checkbox" id="terms" name="terms" checked>';
-                html += '               <span></span><a href="#" id="terms" target="_blank"> I accept the terms </a>of the Global EdTech Startups Awards.<br>';
+                html += '               <span></span> I accept the <a href="#" id="terms" target="_blank">terms</a> of the Global EdTech Startups Awards.<br>';
                 html += '           </label>    ';
                 html += '       </div>    ';
 
@@ -406,7 +407,7 @@ $(document).ready(function (e) {
 
 function openOfferPopUp() {
     //disable_scroll();
-    $('.inventorPopUp').fadeIn(1500, 'easeInOutBack');
+    $('.inventorPopUp').fadeIn(400, 'easeInOutBack');
     $('html, body').animate({
         scrollTop: $("#offer-zone").offset().top - 154
     }, 500, function () { enable_scroll() });
@@ -732,19 +733,22 @@ function enable_scroll() {
     
     //facebookCommentsLink()
     $('.inventDescription .close').on('click', this, function () {
+        
+        $('.mask').removeClass('mask-invent');
+        $('.mask').fadeOut('fast');
+        $('body').css('overflow','auto');
+        
         $('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
-        $('.inventDescription').fadeOut(300, 'easeInOutBack');
+        $('.inventDescription').fadeOut('fast');
         //$('#id'+allTech[tid].techId).hide();
 		window.location.hash='';
         $('html, body').animate({
             scrollTop: "550px"
-        }, 1);
-        $('.mask').removeClass('mask-invent');
-        $('.mask').fadeOut(800, 'easeInOutBack');
-		$('body').css('overflow','auto');
+        }, 0.3);
+      
         return false;
     });
-    $('body').on('click','.mask-invent', this, function () {
+    $('.mask').on('click', this, function () {
        $('.inventDescription .close').click();      
        return false;
     });

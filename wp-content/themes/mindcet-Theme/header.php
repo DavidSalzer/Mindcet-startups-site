@@ -113,7 +113,7 @@
 				<!--<a href="http://www.mindcet.org/en/" class="tagLogo mindcet" target="_blank">
                 	<span class="logoMindcet"></span>
                 </a>-->
-                <a href="#" class="tagLogo">
+                <a href="<?php echo get_theme_mod('link_ImgBg_link');?>" class="tagLogo" target="_blank">
                 	<span class="logoCet">
                     	<img src="<?php echo get_theme_mod('link_ImgBg'); ?>" title="<?php echo get_theme_mod('link_ImgBg_text');?>" class="topImgLink">
                     </span>

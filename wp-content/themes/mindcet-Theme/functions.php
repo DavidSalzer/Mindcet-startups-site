@@ -538,6 +538,23 @@ function mytheme_customize_register( $wp_customize ) {
          ) 
        );
 
+
+	$wp_customize->add_setting( 'link_ImgBg_link', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+         array(
+            'default' => 'http://www.mindcet.org/', //Default setting/value to save
+		     ) 
+      );  	  
+	  
+	   //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+      $wp_customize->add_control( 
+         'link_ImgBg_link', //Set a unique ID for the control
+         array(
+            'label' =>'הכנס לינק', //Admin-visible name of the control
+            'section' => 'Img_link', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+            'settings' => 'link_ImgBg_link', //Which setting to load and manipulate (serialized is okay)
+            'priority' => 10, //Determines the order this control appears in for the specified section
+         ) 
+       );
 	 //set a img for link at the top
 	  $wp_customize->add_section( 'fev_defult', 
          array(

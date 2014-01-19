@@ -647,7 +647,19 @@ function enable_scroll() {
         domLikes=domLikes.toLowerCase();
 		permalink=allTech[tid].permalink;
 		
-        $('#like-frame').attr("src",globalUrl+'likeCount.htm?url='+allTech[tid].permalink);
+        //  $('#like-frame').attr("src",globalUrl+'likeCount.htm?url='+allTech[tid].permalink);
+        //$('#twittCount').attr('data-url',allTech[tid].permalink);
+        //$('#twittCount').attr('data-text',allTech[tid].title+' Startup name is my favorite EdTech startup. What\'s yours?');
+        $('#twittCount').remove();
+        if(twttr){
+            $('#single-startup-zone .inventContener').append('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button" data-url="'+allTech[tid].permalink+'" data-text="'+allTech[tid].title+' Startup name is my favorite EdTech startup. What\'s yours?">Tweet</a>');
+            twttr.widgets.load();
+        }
+        
+        $('#single-startup-zone .inventContener').append('<div class="fb-like" data-href="'+allTech[tid].permalink+'&postid='+allTech[tid].techId+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false" id="fbCount"></div>');
+        
+        FB.XFBML.parse();
+      
         $('#comments-frame').attr("src",globalUrl+'comment.htm?url='+domComments);
         
 		$('#inventTwitterCount').attr('data-url',allTech[tid].permalink).attr('data-text',allTech[tid].title);
@@ -658,7 +670,7 @@ function enable_scroll() {
         //http://www.facebook.com/sharer/sharer.php?s=100&p[url]=&p[images][0]=&p[title]=&p[summary]=
         //var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]='+domUrl+'&p[summary]='+domUrl;
         var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+allTech[tid].permalink+'&p[title]=Global EdTech Startup Awards 2014&p[summary]='+allTech[tid].title +' is my favorite EdTech startup. What\'s yours?&p[images][0]='+allTech[tid].logo[0];//'&p[summary]='+ascii(domUrl)+
-        var tweetUrl='http://twitter.com/intent/tweet?text='+allTech[tid].title +' is my favorite EdTech startup. What\'s yours?';
+        var tweetUrl='http://twitter.com/intent/tweet?text='+allTech[tid].title +' is my favorite EdTech startup. Whart\'s yours?';
         var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+allTech[tid].permalink+'&amp;title=Global EdTech Startup Awards 2014&summary='+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?';
         console.log(tid);
 		console.log(allTech[tid]);
@@ -733,6 +745,8 @@ function enable_scroll() {
     
     //facebookCommentsLink()
     $('.inventDescription .close').on('click', this, function () {
+        $('#fbCount').remove();
+        $('#twittCount').remove();
         
         $('.mask').removeClass('mask-invent');
         $('.mask').fadeOut('fast');

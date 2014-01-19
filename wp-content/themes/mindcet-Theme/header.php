@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-
-<head>
+<html>
 	<meta charset="<?php bloginfo('charset'); ?>" />
     <!--<meta property="og:image" content="<?php //echo site_url();?>/wp-content/uploads/2014/01/final-logo1.png"/>-->
     <meta property="og:title" content="Global EdTech Startup Awards 2014" />
@@ -66,13 +63,10 @@
     <div id="single-startup-zone"class="inventDescription">
         <div class="inventContener">
         	<span id="invent-close" class="close"></span>
-
-     <!--   <div  class="fb-like invent" data-href="http://localhost/Mindcet-startups-site/?initiator=img3" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>-->
-    		
-    
-    
-        	<div class="inventDescription-append"></div>
+      	<div class="inventDescription-append"></div>
         </div>
+        <a href="https://twitter.com/share" id="twittCount" class="twitter-share-button" data-url="<?php echo site_url();?>" data-text="Startup name is my favorite EdTech startup. What\'s yours?">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
          <div class="facebook-likes">
         <iframe src="" id="like-frame">
         

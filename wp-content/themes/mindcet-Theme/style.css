@@ -2359,7 +2359,7 @@ top: 30px;*/
 .inventDescription .socialArea ,.mapDescription .socialArea{
     width: 124px;
     position: absolute;
-    top: 150px;
+    top: 180px;
     /*display: none;*/
 }
 
@@ -2932,3 +2932,13 @@ margin: 5px;
     margin: 0;
 }
 
+#fbCount {
+position: absolute;
+top: 100px;
+left: 50px;
+}
+#twittCount {
+position: absolute;
+top: 175px;
+left: 50px;
+}

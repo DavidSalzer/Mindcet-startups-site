@@ -1843,6 +1843,13 @@ font-family: sans-serif;*/
     vertical-align: middle;
 }
 
+#my-logo {
+    line-height: 36px;
+    text-indent: 3.5px;
+    position: relative;
+    top: 10px;
+    left: 85px;
+}
 
 #all-rights-reserved-cambium {
     position: relative;

@@ -63,7 +63,7 @@
                         <div id="all-rights-reserved-cambium">&copy;<?php echo "  " ;echo date("Y"); echo " MindCET."; ?></div>
                         <div>All rights reserved</div>
                     </div>
-                    <a href="http://www.cambium.co.il" class="devby">developed by </a>
+                    <a id="my-logo" href="http://www.cambium.co.il" class="devby">developed by </a>
                 </div>
            </nav>
         

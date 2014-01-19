@@ -17,6 +17,7 @@
 	   wp_deregister_script('jquery');
 	   wp_register_script('jquery', ("http://code.jquery.com/jquery-1.10.1.min.js"), false);
 	   wp_enqueue_script('jquery');
+	 
 	  
 	  wp_register_script('easing', ("http://malsup.github.io/jquery.easing.1.3.js"), false);
 	   wp_enqueue_script('easing');

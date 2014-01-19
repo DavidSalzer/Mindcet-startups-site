@@ -1,6 +1,7 @@
    var maxSize=2;//mb
    var fileMesg='file is too big, Please ensure that file size is less than 2Mb.';
 // JavaScript Document
+
 $(document).ready(function (e) {
     
     initMap();
@@ -390,8 +391,8 @@ $(document).ready(function (e) {
     });
 
 	$(window).on('resize',function(){
-		h=$(window).height();
-		$('.mask').css('height',h+'px');
+	//	h=screen.height;
+	//	$('.mask').css('height',h+'px');
 	});
 
 
@@ -651,10 +652,13 @@ function enable_scroll() {
         //$('#twittCount').attr('data-url',allTech[tid].permalink);
         //$('#twittCount').attr('data-text',allTech[tid].title+' Startup name is my favorite EdTech startup. What\'s yours?');
         $('#twittCount').remove();
-        if(twttr){
-            $('#single-startup-zone .inventContener').append('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button" data-url="'+allTech[tid].permalink+'" data-text="'+allTech[tid].title+' Startup name is my favorite EdTech startup. What\'s yours?">Tweet</a>');
+        
+        $('#single-startup-zone .inventContener').append('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button" data-url="'+allTech[tid].permalink+'" data-text="'+allTech[tid].title+' Startup name is my favorite EdTech startup. What\'s yours?">Tweet</a>');
+        if($('#single-startup-zone').hasClass('twitterF')){
             twttr.widgets.load();
         }
+        $('#single-startup-zone').addClass('twitterF');
+        
         
         $('#single-startup-zone .inventContener').append('<div class="fb-like" data-href="'+allTech[tid].permalink+'&postid='+allTech[tid].techId+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false" id="fbCount"></div>');
         
@@ -1047,7 +1051,13 @@ function initMap() {
     var options = {
         streetViewControl: false,
         center: new google.maps.LatLng(0, 0),
-        zoom: 1
+        zoom: 1,
+        disableDefaultUI: true,
+        disableDoubleClickZoom: true,
+        draggable: false,
+        maxZoom:1,
+        minZoom:1
+
     };
  
     map = new google.maps.Map(document.getElementById("map"), options);

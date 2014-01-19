@@ -1370,6 +1370,18 @@ background-repeat: no-repeat;*/
     height: 57px;
 }
 
+
+#formPart1{
+    vertical-align:top;
+}
+
+#formPart1 .formfield
+{
+    vertical-align:top;
+}
+ 
+
+
 .inventorPopUp .close {
     background-position: -5px;
     color: #fff;

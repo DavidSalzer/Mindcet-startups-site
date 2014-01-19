@@ -48,7 +48,7 @@ Version: 1
         clear: both;
         padding: 0;
         margin-top: 130px;
-}
+    }
 
     h1, h2, h3 {
         font-weight: normal;
@@ -480,9 +480,6 @@ html[xmlns] .cf {
     src: url('css/font/Alef-Bold.eot?#iefix') format('embedded-opentype'), url('css/font/Alef-Bold.woff') format('woff'), url('css/font/Alef-Bold.ttf') format('truetype'), url('css/font/Alef-Bold.svg#alefbold') format('svg');
     font-weight: bold;
     font-style: normal;
-
-
-
 }
 
 
@@ -723,20 +720,24 @@ footer .tagLogo {
     width: 578px;
     margin: auto;
     position: relative;
+    left: 11px;
 }
 
-.topMenu ul li{
-	display: inline-block;
-width: 189px;
-height: 34px;
-text-align: center;
-line-height: 34px;
-border-right: solid 1px #6a6a6a;
-margin-top: 4px;
+.topMenu ul li {
+    display: inline-block;
+    padding-left: 12px;
+    padding-right: 12px;
+    height: 34px;
+    text-align: center;
+    line-height: 34px;
+    border-right: solid 1px #6a6a6a;
+    margin-top: 4px;
 }
 
 .topMenu ul li:last-child {
     border-right: none;
+    position: relative;
+    left: -5px;
 }
 
 .topMenu ul li a {
@@ -835,16 +836,14 @@ background-repeat: no-repeat;*/
     left: 34px;
     letter-spacing: 1px;
 }
- 
-#offerStartUp
-{
-        font-size: 1.1em;
+
+#offerStartUp {
+    font-size: 1.1em;
     background-color: #e76c76;
     box-shadow: #6a6a6a 1px 1px 2px 1px;
     line-height: 55px;
     text-decoration: none;
     color: #fff;
-    
 }
 
 .entry-main-title {
@@ -1251,7 +1250,7 @@ background-repeat: no-repeat;*/
 -webkit-box-shadow: inset 12px 0px 12px rgba(50, 50, 50, 0.6);*/
 }
 
-.inventDescription .close,.mapDescription .close, .judgeDescription .close, .inventorPopUp .close {
+.inventDescription .close, .mapDescription .close, .judgeDescription .close, .inventorPopUp .close {
     /*background-color: #616161;*/
     background-image: url(img/x.png);
     background-repeat: no-repeat;
@@ -1280,7 +1279,7 @@ background-repeat: no-repeat;*/
     z-index: 51;
 }
 
-.inventDescription .close, .judgeDescription .close ,.mapDescription .close{
+.inventDescription .close, .judgeDescription .close, .mapDescription .close {
     background-position: -5px;
     width: 25px;
     height: 25px;
@@ -1371,16 +1370,18 @@ background-repeat: no-repeat;*/
 }
 
 
-#formPart1{
-    vertical-align:top;
+#formPart1 {
+    vertical-align: top;
 }
 
-#formPart1 .formfield
-{
-    vertical-align:top;
+#formPart1 .formfield {
+    vertical-align: top;
 }
- 
 
+
+#formPart2 {
+    vertical-align: top;
+}
 
 .inventorPopUp .close {
     background-position: -5px;
@@ -1890,17 +1891,16 @@ font-family: sans-serif;*/
     /*display: none;*/
 }
 
-.inventDescription,.mapDescription {
+.inventDescription, .mapDescription {
     width: 712px;
-
-	background-color: #fff;
-	position: relative;
-	z-index: 51;
-	margin: auto;
-	left: 0;
-	right: 0;
-	margin-top: 55px;
-	display: none;
+    background-color: #fff;
+    position: relative;
+    z-index: 51;
+    margin: auto;
+    left: 0;
+    right: 0;
+    margin-top: 55px;
+    display: none;
 }
 
 #formPart3 .topArea {
@@ -2076,10 +2076,10 @@ margin-top: 10px;
 }
 
 .fb-like.fb_edge_widget_with_comment {
-/* top: 400px; */
-/* left: 53px; */
-/* position: absolute !important; */
-/*display: none;*/
+    /* top: 400px; */
+    /* left: 53px; */
+    /* position: absolute !important; */
+    /*display: none;*/
 }
 
 .fb_iframe_widget span {
@@ -2096,7 +2096,6 @@ margin-top: 10px;
     z-index: 9999 !important;
     width: 500px;
     overflow: visible;
-
 }
 
 .pam {
@@ -2123,14 +2122,14 @@ margin-top: 10px;
 }
 
 .home .fb-like.fb_edge_widget_with_comment {
-/* top: 27px; */
-/* right: 53px; */
-/* width: 78px; */
-/* right: 0; */
-z-index: 21;
-/* margin: 0; */
-/* margin-left: 855px; */
-/*position: absolute !important;
+    /* top: 27px; */
+    /* right: 53px; */
+    /* width: 78px; */
+    /* right: 0; */
+    z-index: 21;
+    /* margin: 0; */
+    /* margin-left: 855px; */
+    /*position: absolute !important;
 z-index: 50;*/
     /*background-color: #ffffff;*/
 }
@@ -2324,7 +2323,7 @@ iframe > .play_button {
     display: none;
 }
 
-.inventDescription .topArea,.mapDescription .topArea {
+.inventDescription .topArea, .mapDescription .topArea {
     width: 100%;
     position: relative;
     /*width: 711px;
@@ -2334,7 +2333,7 @@ position: fixed;
 top: 30px;*/
 }
 
-.inventDescription .title.ellipsis,.mapDescription .title.ellipsis {
+.inventDescription .title.ellipsis, .mapDescription .title.ellipsis {
     position: relative;
     top: 16px;
     left: 144px;
@@ -2344,7 +2343,7 @@ top: 30px;*/
     color: #666;
 }
 
-.inventDescription .slogen ,.mapDescription .slogen{
+.inventDescription .slogen, .mapDescription .slogen {
     position: relative;
     left: 144px;
     top: 20px;
@@ -2354,11 +2353,11 @@ top: 30px;*/
     color: #666;
 }
 
-.inventDescription a.title.ellipsis:hover ,.mapDescription a.title.ellipsis:hover {
+.inventDescription a.title.ellipsis:hover, .mapDescription a.title.ellipsis:hover {
     color: #6a6a6a;
 }
 
-.inventDescription .startup-popup-logo ,.mapDescription .startup-popup-logo{
+.inventDescription .startup-popup-logo, .mapDescription .startup-popup-logo {
     width: 100%;
     height: 60px;
     position: relative;
@@ -2368,14 +2367,14 @@ top: 30px;*/
     padding-top: 14px;
 }
 
-.inventDescription .socialArea ,.mapDescription .socialArea{
+.inventDescription .socialArea, .mapDescription .socialArea {
     width: 124px;
     position: absolute;
     top: 150px;
     /*display: none;*/
 }
 
-.inventDescription .mainArea ,.mapDescription .mainArea{
+.inventDescription .mainArea, .mapDescription .mainArea {
     /*float: left;
 width: 480px;
 height: 755px;
@@ -2398,13 +2397,13 @@ margin-left: 135px;*/
     /*display: none;*/
 }
 
-.inventDescription .mainArea .name.ellipsis ,.mapDescription .mainArea .name.ellipsis{
+.inventDescription .mainArea .name.ellipsis, .mapDescription .mainArea .name.ellipsis {
     clear: both;
     margin: 40px 0 5px 8px;
     float: left;
 }
 
-.inventDescription .mainArea .description ,.mapDescription .mainArea .description{
+.inventDescription .mainArea .description, .mapDescription .mainArea .description {
     float: left;
     width: 465px;
     margin-left: 15px;
@@ -2413,7 +2412,7 @@ margin-left: 135px;*/
     text-align: justify;
 }
 
-.inventDescription .mainArea .gallery ,.mapDescription .mainArea .gallery{
+.inventDescription .mainArea .gallery, .mapDescription .mainArea .gallery {
     width: 460px;
     float: left;
     margin-left: 60px;
@@ -2421,21 +2420,21 @@ margin-left: 135px;*/
     max-height: 91px;
 }
 
-.inventDescription .mainArea .gallery img ,.mapDescription .mainArea .gallery img{
+.inventDescription .mainArea .gallery img, .mapDescription .mainArea .gallery img {
     -webkit-transition: all ease-in-out 0.4s;
     transition: all ease-in-out 0.4s;
     position: relative;
     cursor: pointer;
 }
 
-.inventDescription .mainArea .gallery img:hover ,.mapDescription .mainArea .gallery img:hover{
+.inventDescription .mainArea .gallery img:hover, .mapDescription .mainArea .gallery img:hover {
     -webkit-transform: scale(4,4);
     transform: scale(4,4);
     z-index: 15;
     box-shadow: rgba(0,0,0,0.63) 2px 2px 1px 0px;
 }
 
-.inventDescription .mainArea .gallery div ,.mapDescription .mainArea .gallery div{
+.inventDescription .mainArea .gallery div, .mapDescription .mainArea .gallery div {
     width: 146px;
     height: 89px;
     margin-left: 0;
@@ -2792,7 +2791,7 @@ select#category, select#tags {
     font-family: inherit;
     font-size: 24px;
     color: #b9b9b9;
-	line-height: 50px;
+    line-height: 50px;
 }
 
 select#tags {
@@ -2802,30 +2801,32 @@ select#tags {
 .selectGrey {
     background: #f4f4f4;
 }
-select#categoryNav,select#tagsNav {
-        -webkit-appearance: none;  /*Removes default chrome and safari style*/
-     -moz-appearance: none;  /*Removes default style Firefox*/
-	width: 510px;
-	height: 50px;
-	font-family: inherit;
-	font-size: 24px;
-	color: #000;
-	border:none;
-	background: url('img/popup_dropdown.png') no-repeat;
+
+select#categoryNav, select#tagsNav {
+    -webkit-appearance: none; /*Removes default chrome and safari style*/
+    -moz-appearance: none; /*Removes default style Firefox*/
+    width: 510px;
+    height: 50px;
+    font-family: inherit;
+    font-size: 24px;
+    color: #000;
+    border: none;
+    background: url('img/popup_dropdown.png') no-repeat;
     background-position: right 18px;
-	background-color:rgba(152,152,152,.2);
-	text-align:center;
-	text-indent:10px;
+    background-color: rgba(152,152,152,.2);
+    text-align: center;
+    text-indent: 10px;
 }
+
 select#category, select#tags {
-     -webkit-appearance: none;  /*Removes default chrome and safari style*/
-     -moz-appearance: none;  /*Removes default style Firefox*/
+    -webkit-appearance: none; /*Removes default chrome and safari style*/
+    -moz-appearance: none; /*Removes default style Firefox*/
     width: 231px;
     height: 50px;
-/*    font-family: inherit;
-*/    font-size: 24px;
+    /*    font-family: inherit;
+*/ font-size: 24px;
     color: #b9b9b9;
- line-height: 50px;
+    line-height: 50px;
     background: url('img/popup_dropdown.png') no-repeat;
     background-position: 189px 18px;
 }
@@ -2837,15 +2838,18 @@ select#category, select#tags {
 select#categoryNav {
     float: left;
 }
-select#tagsNav{
-	float:right;
+
+select#tagsNav {
+    float: right;
 }
+
 #fb-like-site {
     position: absolute;
     left: 295px;
     width: 150px;
     bottom: 83px;
 }
+
 #inventLikeCount {
     position: absolute;
     top: 275px;
@@ -2855,10 +2859,11 @@ select#tagsNav{
 #marker-popup {
     display: none;
 }
- 
-#marker-popup .inventDescription .mainArea .description{
+
+#marker-popup .inventDescription .mainArea .description {
     margin-left: 0px;
 }
+
 #marker-popup .popup-title {
     margin: auto;
     text-align: center;
@@ -2866,42 +2871,46 @@ select#tagsNav{
     margin-top: 20px;
     margin-bottom: 5px;
 }
- 
-#marker-popup .startups-gallery{
+
+#marker-popup .startups-gallery {
     float: left;
-margin-top: 20px;
- 
+    margin-top: 20px;
 }
+
 #marker-popup .startups-gallery-item {
     height: 62px;
 }
+
 #marker-popup .startups-gallery .startups-gallery-header {
     border: 1px solid #cccccc;
-height: 60px;
+    height: 60px;
 }
- 
+
 .startups-gallery .startups-gallery-item:nth-child(even) {
     background-color: #ebebeb;
 }
- 
+
 .startups-gallery .startups-gallery-item:nth-child(odd) {
     background-color: #f5f5f5;
 }
+
 #marker-popup .startups-gallery .gallery-img {
     width: 50px;
     margin: 5px;
     padding: 0;
     vertical-align: top;
 }
+
 #marker-popup .startups-gallery .startups-gallery-header .gallery-img {
     width: 50px;
 }
+
 #marker-popup .startups-gallery .gallery-description {
     width: 380px;
-display: inline-block;
-padding: 0 5px;
+    display: inline-block;
+    padding: 0 5px;
 }
- 
+
 #like-frame {
     width: 490px;
     height: 420px;
@@ -2909,38 +2918,46 @@ padding: 0 5px;
     left: 145px;
     top: -30px;
 }
+
 .pageTemplet {
     padding: 5%;
     width: 90%;
-    width: 1024px;  background-image: url(img/texture.jpg);  background-size: 50px;  background-repeat: repeat;  position: relative;  margin-top: 0;
+    width: 1024px;
+    background-image: url(img/texture.jpg);
+    background-size: 50px;
+    background-repeat: repeat;
+    position: relative;
+    margin-top: 0;
     color: #898989;
 }
- 
+
 #marker-popup .startups-gallery-item {
-min-height: 62px;
-height: auto;
-padding: 7px;
+    min-height: 62px;
+    height: auto;
+    padding: 7px;
 }
+
 #marker-popup .startups-gallery-item p {
     padding-top: 5px;
     color: #9e9e9e;
 }
+
 .startups-gallery .startups-gallery-header span {
-font-size: 35px;
-line-height: 51px;
-color: #4f4f4f;
-}
-.startups-gallery-item-frame{
-    width: 50px;
-height: 50px;
-vertical-align: top;
-display: inline-block;
-background-color: #fff;
-padding: 5px;
-margin: 5px;
-    
-}
-#marker-popup .startups-gallery .startups-gallery-item-frame .gallery-img{
-    margin: 0;
+    font-size: 35px;
+    line-height: 51px;
+    color: #4f4f4f;
 }
 
+.startups-gallery-item-frame {
+    width: 50px;
+    height: 50px;
+    vertical-align: top;
+    display: inline-block;
+    background-color: #fff;
+    padding: 5px;
+    margin: 5px;
+}
+
+#marker-popup .startups-gallery .startups-gallery-item-frame .gallery-img {
+    margin: 0;
+}

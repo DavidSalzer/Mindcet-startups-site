@@ -1822,7 +1822,7 @@ font-family: sans-serif;*/
 }
 
 .footerMenu ul li:last-child {
-    width: 18%;
+    width: 19%;
 }
 
 .footerMenu ul li a {
@@ -1838,9 +1838,15 @@ font-family: sans-serif;*/
     display: inline-block;
     height: 41px;
     line-height: 17px;
-    padding: 0 50px;
+    padding: 0 17px;
     font-size: 0.8em;
     vertical-align: middle;
+}
+
+
+#all-rights-reserved-cambium {
+    position: relative;
+    top: 2.5px;
 }
 
 .footerMenu {

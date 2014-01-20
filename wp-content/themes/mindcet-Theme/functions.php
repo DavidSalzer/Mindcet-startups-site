@@ -27,7 +27,11 @@
 	  
 		wp_register_script('deep', (get_template_directory_uri()."/js/deeplink.js"), false);
 	   wp_enqueue_script('deep');
-	
+		
+		//if(is_front_page()){
+			wp_register_script('selection', (get_template_directory_uri()."/js/selection.js"), false);
+	   		wp_enqueue_script('selection');
+		//}
 	}
 	
 	// Clean up the <head>
@@ -87,6 +91,47 @@
 	add_action( 'wp_ajax_nopriv_sendMesg', 'sendMesg' );  
 	//add_action( 'wp_ajax_my_action', 'my_action_callback' );
 	//add_action( 'wp_ajax_nopriv_my_action', 'my_action_callback' );
+	add_action( 'wp_ajax_catGallery', 'catGallery' );
+	add_action( 'wp_ajax_nopriv_catGallery', 'catGallery' ); 
+	
+	function catGallery(){
+		$catId=$_REQUEST['catId'];
+		$tagName=$_REQUEST['tagName'];
+		
+		if($tagName){
+			$tag = get_term_by('name', $tagName, 'post_tag');
+			$tagId=$tag->term_id;
+			//echo "tag id is: ".$tagId;
+		}
+		
+		$args = array( 'posts_per_page' =>-1,'post_type'=>'initiator','cat' => $catId,'tag_id'=>$tagId);
+		//$myposts = get_posts( $args );
+		
+		$the_query = new WP_Query( $args );
+		if ( $the_query->have_posts() ) :
+		//foreach ( $myposts as $post ) : setup_postdata( $post ); 
+		 while ( $the_query->have_posts() ) : $the_query->the_post(); 
+		
+		?>
+		
+		<li idtec="<?php echo $post->ID;?>">
+        	<div class="img-wrap">
+            <?php echo get_the_post_thumbnail($post->ID, 'full'); ?>
+            </div>
+        <h2><a href="<?php echo get_permalink($post->ID); ?>" idtech="<?php echo $post->ID; ?>">
+       <?php echo get_the_title($post->ID);?>    </a> </h2>
+    </li>
+
+		
+		<?php
+		//endforeach;
+		endwhile;
+		endif;
+		wp_reset_postdata();
+	    die();
+	} 
+	
+	
 	
 	function addLike(){
 		$mach=get_option('ye_plugin_options');

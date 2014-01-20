@@ -561,8 +561,9 @@ footer .tagLogo {
 }
 
 .footerLogos a {
-    width: 100px;
+    width: 100%;
     height: 100%;
+    display: block;
 }
 
 .logoMindcet {
@@ -890,6 +891,8 @@ background-repeat: no-repeat;*/
     margin: auto;
     height: 45px;
     background-color: #21cb89;
+    display: flex;
+
 }
 
 .middelBanner h2 {
@@ -914,11 +917,15 @@ background-repeat: no-repeat;*/
 }
 
 .inventList {
-    width: 220px;
-    display: inline-block;
+   /* display: inline-block;
     vertical-align: top;
-    vertical-align: top;
+    vertical-align: top;*/
     background: #fff;
+    height: 606px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .inventList li {
@@ -1362,7 +1369,7 @@ visibility: hidden;
 .placholderSlide {
     /*#scrollInventorCon:before {*/
     display: inline-block;
-    width: 72PX;
+    width: 66PX;
 }
 
 /*-----------------------form--------------------*/
@@ -2605,18 +2612,75 @@ body {
 .logo_menu ul {
     display: block;
     text-align: center;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .logo_menu li {
-    display: inline-block;
     margin: 10px 5px;
-    width: 100px;
+    /* width: 100px; */
     height: 80px;
-    vertical-align: sub;
+    vertical-align: middle;
+    float: left;
+   display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .logo_menu li a {
     text-decoration: none;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .logo_menu li img {
@@ -2769,11 +2833,11 @@ body {
 }
 
 #aboutUs .logo img {
-    /* height: 70px; */
+    height: 90px; 
     margin: 0 auto;
     display: block;
     padding-top: 10px;
-    /* width: 90px; */
+     width: 90px; 
 }
 
 #aboutUs h1 {
@@ -3040,4 +3104,8 @@ left: 50px;
 position: absolute;
 width: 100%;
 height: 100%;
+}
+select#category.needSelect, select#tags.needSelect{
+ border: 2px solid #e76c76;
+    color: #e76c76;   
 }

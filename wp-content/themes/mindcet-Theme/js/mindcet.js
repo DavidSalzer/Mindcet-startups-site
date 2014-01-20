@@ -663,7 +663,9 @@ function enable_scroll() {
         
         $('#single-startup-zone .inventContener').append('<div class="fb-like" data-href="'+allTech[tid].permalink+'&postid='+allTech[tid].techId+'&logo='+allTech[tid].logo[0]+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false" id="fbCount"></div>');
         
-        setTimeout(function(){FB.XFBML.parse()},2000);
+        setTimeout(function(){FB.XFBML.parse();},2000);
+        //hack
+        setTimeout(function(){FB.XFBML.parse();},5000);
       
         $('#comments-frame').attr("src",globalUrl+'comment.php?url='+domComments+'&text='+allTech[tid].title+'&img='+allTech[tid].logo[0]+'&url='+allTech[tid].permalink);
         
@@ -824,6 +826,8 @@ function form1Validate() {
     //slogen's length
     var slogen8 = slogenValidate($("#slogen"));
 
+    var selectOne=dropSelect();
+
     //emails
     var email = emailValidate($("#email"));
     var emailFounder = emailValidate($("#founderMail"));
@@ -834,7 +838,7 @@ function form1Validate() {
     //logo
     //var logo = validateLogo($(".title-logo.logoimg"));
 
-    if (title & invetName & emailNotEmpty & (email == undefined || email) & (emailFounder == undefined || emailFounder)  & slogen8 )
+    if (selectOne==true &title & invetName & emailNotEmpty & (email == undefined || email) & (emailFounder == undefined || emailFounder)  & slogen8 )
         return true;
     return false;
 }
@@ -939,9 +943,11 @@ function slogenValidate(input){
 function dropSelect(){
     catVal=$('#category').val();
     tagVal=$('#tags').val();
-    if(catVal=='Select category'||tagVal=='Select Audience'){
-        return false;
+    if(catVal=='Select category' && tagVal=='Select Audience'){
+        $('select#category, select#tags').addClass('needSelect');
+            return false;    
     }else{
+        $('select#category, select#tags').removeClass('needSelect');
         return true;
     }
 
@@ -979,7 +985,14 @@ function showArrowsStartups(){
  if ($(".inventors .inventList li").length > 12){
      $("#inventScrollR .rightScroll-arrow").show();
      $("#inventScrollL .leftScroll-arrow").show();
- }   
+    $('#inventScrollL').show();
+     $('#inventScrollR').show();
+ } else{
+    $("#inventScrollR .rightScroll-arrow").hide();
+     $("#inventScrollL .leftScroll-arrow").hide();
+     $('#inventScrollL').hide();
+     $('#inventScrollR').hide();
+ }  
 }
 function showArrowsJudges(){
  if ($(".judgesContenar .judgesAvantar").length > 5){
@@ -1069,7 +1082,7 @@ function initMap() {
         zoom: 1,
     //    disableDefaultUI: true,
     //disableDoubleClickZoom: true,
-        draggable: false,
+       // draggable: false,
       //  maxZoom:1,
         minZoom:1
 

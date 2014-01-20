@@ -215,7 +215,7 @@ do_action('wp_insert_post', 'wp_insert_post');
                         <span></span><?php echo $category->name ;?>
                     </label><?php */?>
             	
-            
+        
           </fieldset>            
         </div>
         
@@ -396,10 +396,10 @@ do_action('wp_insert_post', 'wp_insert_post');
     
     $myposts = get_posts( $args );
         $caunter=0;
-        echo "<div id='scrollInventorCon'><span class='placholderSlide'></span><ul class='inventList'>";
+      echo "<div id='scrollInventorCon'><span class='placholderSlide'></span><ul class='inventList'>";
         foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
     <?php	if($caunter==3){
-                    echo "</ul><ul class='inventList'>";
+             //       echo "</ul><ul class='inventList'>";
                 }else{
                 }
         ?>

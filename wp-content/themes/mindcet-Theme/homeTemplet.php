@@ -194,10 +194,19 @@ do_action('wp_insert_post', 'wp_insert_post');
 					$tags = get_tags($arg);
 					foreach ( $tags as $tag ) {
 						$tag_link = get_tag_link( $tag->term_id );
-					?>			
+					?>	
+                    	<?php 
+							$nameTag=$tag->name;
+						if(strtolower($nameTag)=='other'){ 
+							$last= '<option value="'.$tag->name.'">'.$tag->name.'</option>';
+							}else{
+						?>
 						 <option value="<?php echo $tag->name;?>"><?php echo $tag->name ;?></option>
-					
-            	<?php } ?>
+						<?php }?>
+            	<?php }
+						echo $last;
+				 ?>
+                
                		</select>
                  
                 
@@ -356,10 +365,19 @@ do_action('wp_insert_post', 'wp_insert_post');
 					$tags = get_tags($arg);
 					foreach ( $tags as $tag ) {
 						$tag_link = get_tag_link( $tag->term_id );
-					?>			
+					?>	
+                    <?php 
+							$nameTag=$tag->name;
+						if(strtolower($nameTag)=='other'){ 
+							$last= '<option value="'.$tag->name.'">'.$tag->name.'</option>';
+							}else{
+						?>
 						 <option value="<?php echo $tag->name;?>"><?php echo $tag->name ;?></option>
+						<?php }?>		
 					
-            	<?php } ?>
+            	<?php } 
+					echo $last;
+				?>
                		</select>
            	
  </nav>
@@ -386,7 +404,7 @@ do_action('wp_insert_post', 'wp_insert_post');
                 }
         ?>
     <li  idTec="<?php echo $post->ID;?>"><div class="img-wrap"> <?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?></div>
-        <h2> <a href="<?php the_permalink(); ?>" id="<?php echo $post->ID;?>">
+        <h2> <a href="<?php the_permalink(); ?>" idTech="<?php echo $post->ID;?>">
         <?php the_title(); ?>
         </a> </h2>
     </li>
@@ -513,7 +531,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 		$(this).attr('href',urlhide);
 		return true;
 	
-	});	 
+	});
 </script>
 <?php get_footer(); ?>
 

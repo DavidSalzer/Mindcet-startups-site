@@ -310,6 +310,7 @@ $(document).ready(function (e) {
         $('.inventorPopUp .close').click();
         tid = $(this).attr('judgeId');
 		$('body').css('overflow','hidden');
+        $()
 		$('.mask').show();
         $('.mask').addClass('mask-judge');
 		
@@ -317,10 +318,10 @@ $(document).ready(function (e) {
         var html = '       <div class="judgeDescriptionLeft">';
         html += '       <div class="judgeDescription-img">'+ allJudges[tid].imgProfile + '</div>    ';
         html += '               <div class="contactMe"><a href="mailto:' + allJudges[tid].email + '" >Contact Me</a></div>';
-        html += '                <div class="judgeDescription-name">' +  allJudges[tid].name + '</div>';
-        html += '               <div class="judgeDescription-role">' + allJudges[tid].role + '</div>';
         html += '           </div>';
         html += '           <div class="judgeDescriptionRight">';
+           html += '                <div class="judgeDescription-name">' +  allJudges[tid].name + '</div>';
+        html += '               <div class="judgeDescription-role">' + allJudges[tid].role + '</div>';
         html += '               <div class="judgeDescription-full">' + allJudges[tid].descript + '</div>';
         html += '           </div>';
         html += '           <div class="judgeDescriptionMargin">';
@@ -653,18 +654,18 @@ function enable_scroll() {
         //$('#twittCount').attr('data-text',allTech[tid].title+' Startup name is my favorite EdTech startup. What\'s yours?');
         $('#twittCount').remove();
         
-        $('#single-startup-zone .inventContener').append('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button" data-url="'+allTech[tid].permalink+'" data-text="'+allTech[tid].title+' Startup name is my favorite EdTech startup. What\'s yours?">Tweet</a>');
+        $('#single-startup-zone .inventContener').append('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button" data-url="'+allTech[tid].permalink+'" data-text="'+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?" data-count="vertical">Tweet</a>');
         if($('#single-startup-zone').hasClass('twitterF')){
             twttr.widgets.load();
         }
         $('#single-startup-zone').addClass('twitterF');
         
         
-        $('#single-startup-zone .inventContener').append('<div class="fb-like" data-href="'+allTech[tid].permalink+'&postid='+allTech[tid].techId+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false" id="fbCount"></div>');
+        $('#single-startup-zone .inventContener').append('<div class="fb-like" data-href="'+allTech[tid].permalink+'&postid='+allTech[tid].techId+'&logo='+allTech[tid].logo[0]+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false" id="fbCount"></div>');
         
-        FB.XFBML.parse();
+        setTimeout(function(){FB.XFBML.parse()},2000);
       
-        $('#comments-frame').attr("src",globalUrl+'comment.htm?url='+domComments);
+        $('#comments-frame').attr("src",globalUrl+'comment.php?url='+domComments+'&text='+allTech[tid].title+'&img='+allTech[tid].logo[0]+'&url='+allTech[tid].permalink);
         
 		$('#inventTwitterCount').attr('data-url',allTech[tid].permalink).attr('data-text',allTech[tid].title);
 		
@@ -734,19 +735,21 @@ function enable_scroll() {
     
 	h=$(window).height();
 	$('body').css('overflow','hidden');
-	
+
 	$('.mask').fadeIn(200, 'easeInOutBack').css('height',h+'px');;
 	$('.inventDescription').fadeIn(100, 'easeInOutBack');
     $('.mask').addClass('mask-invent');
     $('html, body').animate({
-        scrollTop: $("#invent-close").offset().top - 25
+       // scrollTop: $("#invent-close").offset().top - 25
     }, 1);
 
     var $inventDescription = $(html);
     $('.inventDescription-append').append($inventDescription);
     //$('.inventDescription .mainArea .movie iframe').delay(200).fadeIn(500, 'easeInOutBack');
     //$('.inventDescription .mainArea').delay(600).fadeIn(200, 'easeInOutBack');
-    
+     if($('#single-startup-zone').hasClass('twitterF')){
+           setTimeout(function(){twttr.widgets.load();},2000);
+        }
     //facebookCommentsLink()
     $('.inventDescription .close').on('click', this, function () {
         $('#fbCount').remove();
@@ -760,15 +763,16 @@ function enable_scroll() {
         $('.inventDescription').fadeOut('fast');
         //$('#id'+allTech[tid].techId).hide();
 		window.location.hash='';
-        $('html, body').animate({
-            scrollTop: "550px"
-        }, 0.3);
+        //$('html, body').animate({
+           // scrollTop: "550px"
+      //  }, 0.3);
       
         return false;
     });
-    $('.mask').on('click', this, function () {
-       $('.inventDescription .close').click();      
-       return false;
+   $('.mask').on('click', this, function (e) {
+     if($(e.target).attr("class") != "undefind" && $(e.target).attr("class").indexOf('mask')==0) { 
+            $('.inventDescription .close').click();
+    }
     });
 
     return false;
@@ -931,6 +935,17 @@ function slogenValidate(input){
     }
 }
 
+//validate selected
+function dropSelect(){
+    catVal=$('#category').val();
+    tagVal=$('#tags').val();
+    if(catVal=='Select category'||tagVal=='Select Audience'){
+        return false;
+    }else{
+        return true;
+    }
+
+}
 //validate webSite field
 function validateSite(input) {
     //if there is not http
@@ -1052,10 +1067,10 @@ function initMap() {
         streetViewControl: false,
         center: new google.maps.LatLng(0, 0),
         zoom: 1,
-        disableDefaultUI: true,
-        disableDoubleClickZoom: true,
+    //    disableDefaultUI: true,
+    //disableDoubleClickZoom: true,
         draggable: false,
-        maxZoom:1,
+      //  maxZoom:1,
         minZoom:1
 
     };

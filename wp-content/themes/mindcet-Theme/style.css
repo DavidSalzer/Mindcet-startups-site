@@ -512,7 +512,7 @@ header {
 
 .header {
     background-color: #484848;
-    height: 115px;
+    height: 153px;
     box-shadow: #8f8f90 0 1px 1px 0;
     position: relative;
     width: 100%;
@@ -721,6 +721,25 @@ footer .tagLogo {
     margin: auto;
     position: relative;
     left: 11px;
+     display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .topMenu ul li {
@@ -782,7 +801,7 @@ footer .tagLogo {
     position: relative;
     /*background-image: url(img/background.jpg);
 background-repeat: no-repeat;*/
-    margin-top: 155px;
+    margin-top: 100px;
     height: 528px;
 }
 
@@ -1144,12 +1163,14 @@ background-repeat: no-repeat;*/
 }
 
 .judgeDescriptionRight {
-    width: 650px;
+    width: 600px;
     height: 210px;
     display: inline-block;
     top: 58px;
     position: absolute;
     overflow-y: auto;
+    overflow-x:hidden;
+    left: 342px;
 }
 
 .judgeDescriptionMargin {
@@ -1162,32 +1183,31 @@ background-repeat: no-repeat;*/
 }
 
 .judgeDescription-name {
-    width: 178px;
+     width: 640px;
     font-size: 20px;
     background: #333;
     color: #fff;
-    padding: 6px;
-    margin: auto;
-    position: relative;
-    margin-top: 150px;
+    padding: 6px 0 0 6px;
+    text-indent: 10ox;
 }
 
 .judgeDescription-role {
-    font-size: 17px;
-    padding: 0px 6px;
+   font-size: 17px;
     background-color: #e6e6e8;
     line-height: 36px;
     font-weight: bold;
     color: #828282;
-    width: 178px;
-    margin: auto;
+    width: 640px;
+    position: relative;
+    padding: 6px 0;
+    text-indent: 10px;
     position: relative;
 }
 
 .judgeDescription-full {
     width: 80%;
     font-size: 18px;
-    margin: auto;
+    margin: 5px 0;
     line-height: 23px;
 }
 
@@ -1292,6 +1312,7 @@ background-repeat: no-repeat;*/
 .judgesAvantar.hide {
     border: none;
     width: 68px;
+visibility: hidden;
 }
 
 .judgesAvantar img {
@@ -1954,7 +1975,7 @@ font-family: sans-serif;*/
 }
 
 #formPart3 .bottomArea {
-    margin: 11px;
+    margin: 11px 0;
 }
 
 .ellipsis {
@@ -2383,7 +2404,7 @@ top: 30px;*/
 .inventDescription .socialArea, .mapDescription .socialArea {
     width: 124px;
     position: absolute;
-    top: 180px;
+    top: 224px;
     /*display: none;*/
 }
 
@@ -2743,16 +2764,16 @@ body {
 
 #aboutUs .logo {
     width: 100%;
-    height: 90px;
+    /* height: 90px; */
     border-bottom: solid 1px #e6e6e8;
 }
 
 #aboutUs .logo img {
-    height: 70px;
+    /* height: 70px; */
     margin: 0 auto;
     display: block;
     padding-top: 10px;
-    width: 90px;
+    /* width: 90px; */
 }
 
 #aboutUs h1 {
@@ -2935,16 +2956,22 @@ select#tagsNav {
 
 .pageTemplet {
     padding: 5%;
-    width: 90%;
-    width: 1024px;
+    width: 850px;
     background-image: url(img/texture.jpg);
     background-size: 50px;
     background-repeat: repeat;
     position: relative;
     margin-top: 0;
     color: #898989;
+    margin:0 auto;
 }
+.pageTemplet ol,.pageTemplet ol {
+    list-style: initial;
+}
+.pageTemplet li {
+    margin: 5px
 
+}
 #marker-popup .startups-gallery-item {
     min-height: 62px;
     height: auto;
@@ -3008,4 +3035,9 @@ left: 50px;
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+}
+.mask.mask-judge {
+position: absolute;
+width: 100%;
+height: 100%;
 }

@@ -65,9 +65,9 @@
         	<span id="invent-close" class="close"></span>
       	<div class="inventDescription-append"></div>
         </div>
-        <a href="https://twitter.com/share" id="twittCount" class="twitter-share-button" data-url="<?php echo site_url();?>" data-text="Startup name is my favorite EdTech startup. What\'s yours?">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
          <div class="facebook-likes">
+     
       <!--  <iframe src="" id="like-frame">
         
         </iframe>-->
@@ -107,7 +107,7 @@
 				<!--<a href="http://www.mindcet.org/en/" class="tagLogo mindcet" target="_blank">
                 	<span class="logoMindcet"></span>
                 </a>-->
-                <a href="<?php echo get_theme_mod('link_ImgBg_link');?>" class="tagLogo" target="_blank">
+                <a href="<?php echo site_url();?>" class="tagLogo" >
                 	<span class="logoCet">
                     	<img src="<?php echo get_theme_mod('link_ImgBg'); ?>" title="<?php echo get_theme_mod('link_ImgBg_text');?>" class="topImgLink">
                     </span>
@@ -116,9 +116,9 @@
                 <?php get_sidebar('countdown');?>
                 </div>
                 <div class="socialTabs">
-                    <div class="socialTab" onClick="openInNewWindow('http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=<?php echo site_url(); ?>', 100, 100)"><span class="linkin"></span></div>
-                    <div class="socialTab" onClick="openInNewWindow('http://twitter.com/intent/tweet?text=<?php echo site_url(); ?>' , 100, 100)"><span class="twitter"></span></div>
-                    <div class="socialTab" onClick="openInNewWindow('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>' , 100, 100)"><span class="facebook"></span></div>
+                    <div class="socialTab" onClick="openInNewWindow('http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2014&summary=What\'s your favorite EdTech startup?', 100, 100)"><span class="linkin"></span></div>
+                    <div class="socialTab" onClick="openInNewWindow('http://twitter.com/intent/tweet?text=<?php echo site_url(); ?>%0D%0AGlobal EdTech Startup Awards 2014%0D%0AWhat\'s your favorite EdTech startup? ' , 100, 100)"><span class="twitter"></span></div>
+                    <div class="socialTab" onClick="openInNewWindow('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2014&p[summary]=What\'s your favorite EdTech startup?' , 100, 100)"><span class="facebook"></span></div>
                 </div>
 			</div>
           </div>

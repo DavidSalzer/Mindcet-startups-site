@@ -1,7 +1,7 @@
 <?php get_header('invent'); ?>
 	<?php if (have_posts()) { while (have_posts()) : the_post(); ?>
     <?php 
-		 //echo get_the_post_thumbnail($page->ID, 'thumbnail'); 
+		 echo get_the_post_thumbnail($page->ID, 'thumbnail'); 
 	
 	?>
 
@@ -18,4 +18,4 @@
  <script>
  	window.location="<?php echo $urlgo; ?>";
  </script>
-<?php get_footer();?>
+<?php wp_footer();?>

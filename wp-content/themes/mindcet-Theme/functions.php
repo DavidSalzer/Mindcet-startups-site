@@ -65,8 +65,10 @@
 	if(function_exists('register_nav_menus')){
 		register_nav_menus( array(
 		'topMenu' => 'top Menu',
+		'topMenuPage'=>'top menu for page',
 		'startupMenu'=>'home startup menu',
 		'footerMenu'=>'footer menu',
+		'footerMenuPage'=>'footer menu for page',
 		'logoMenu'=>'logos menu'
 		));
 	

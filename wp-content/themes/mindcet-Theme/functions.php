@@ -104,7 +104,7 @@
 			//echo "tag id is: ".$tagId;
 		}
 		
-		$args = array( 'posts_per_page' =>-1,'post_type'=>'initiator','cat' => $catId,'tag_id'=>$tagId);
+		$args = array( 'posts_per_page' =>-1,'post_type'=>'initiator','post_status'=>'publish','cat' => $catId,'tag_id'=>$tagId);
 		//$myposts = get_posts( $args );
 		
 		$the_query = new WP_Query( $args );
@@ -114,11 +114,11 @@
 		
 		?>
 		
-		<li idtec="<?php echo $post->ID;?>">
+		<li idtec="<?php echo the_ID();?>">
         	<div class="img-wrap">
-            <?php echo get_the_post_thumbnail($post->ID, 'full'); ?>
+            <?php echo get_the_post_thumbnail($post->ID, 'medium'); ?>
             </div>
-        <h2><a href="<?php echo get_permalink($post->ID); ?>" idtech="<?php echo $post->ID; ?>">
+        <h2><a href="<?php echo get_permalink($post->ID); ?>" idtech="<?php echo the_ID(); ?>">
        <?php echo get_the_title($post->ID);?>    </a> </h2>
     </li>
 

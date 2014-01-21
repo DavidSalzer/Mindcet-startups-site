@@ -83,14 +83,16 @@ $(document).ready(function (e) {
                 var youtubeUrl = document.getElementById("youtubeUrl").value;
                 var invetName = document.getElementById("invetName").value;
                 var description = document.getElementById("description").value;
+                var founderName = document.getElementById("founder").value;
                 //var img1 = document.getElementById("img-1").addEventListener('change', handleFileSelect, false);
 
 
 
                 var html = '       <div class="topArea">    '
                 html += '		    <div class="title ellipsis">' + title + '</div>';
-                html += '<div class="name ellipsis"><b>Founders:</b> ' + invetName + '</div>';
-
+                if(founderName){
+                    html += '<div class="name ellipsis"><b>Founders:</b> ' + founderName + '</div>';
+                }
                 // html +=                 logo;
                 if (logoSrc != null)
                     html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
@@ -950,7 +952,7 @@ function slogenValidate(input){
 function dropSelect(){
     catVal=$('#category').val();
     tagVal=$('#tags').val();
-    if(catVal=='Select category' && tagVal=='Select Audience'){
+    if(catVal=='none' && tagVal=='none'){
         $('select#category, select#tags').addClass('needSelect');
             return false;    
     }else{

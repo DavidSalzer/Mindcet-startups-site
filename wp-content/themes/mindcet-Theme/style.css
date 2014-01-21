@@ -922,10 +922,19 @@ background-repeat: no-repeat;*/
     vertical-align: top;*/
     background: #fff;
     height: 606px;
+
+     display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     flex-direction: column;
+     justify-content: flex-start;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
 }
 .inventList.mini{
     padding: 0 68px;
@@ -2944,11 +2953,11 @@ select#category, select#tags {
 }
 
 select#categoryNav {
-    float: left;
+    float: right;
 }
 
 select#tagsNav {
-    float: right;
+    float: left;
 }
 
 #fb-like-site {

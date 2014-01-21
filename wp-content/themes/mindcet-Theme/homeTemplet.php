@@ -52,9 +52,9 @@ set_post_thumbnail( 165, 176177178179 );
 				}
 			
 			}  */
-	  $selectCat=$_POST['category'];
+	   if($_POST['category']!='none'){$selectCat=$_POST['category'];}
 	  
-	  $tag=$_POST['tags'];
+	  if($_POST['tags']!='none'){$tag=$_POST['tags'];}
 	  
 	// Do some minor form validation to make sure there is content
 	if (isset ($_POST['title'])) {
@@ -181,14 +181,14 @@ do_action('wp_insert_post', 'wp_insert_post');
 					 ?>
 					<select name="category" id="category" >
                   	
-                    	<option>Select category</option>
+                    	<option value="none">Select Sector</option>
                     <?php  foreach($categories as $category) { ?>
                         	  <option value="<?php echo $category->term_id;?>"><?php echo $category->name ;?></option>
             	<?php } ?>
                		</select>
                     
                     <select name="tags" id="tags" >
-                  			<option>Select Audience</option>
+                  			<option value="none">Select product category</option>
 					<?php 
 					$arg=array('hide_empty'=>false,'orderby'=>'name','order' => 'ASC');
 					$tags = get_tags($arg);
@@ -352,14 +352,14 @@ do_action('wp_insert_post', 'wp_insert_post');
 		?>
         <select name="category" id="categoryNav" >
                   	
-                    	<option  class="selectGrey">Select category</option>
+                    	<option value="none"> Select Sector</option>
                     <?php  foreach($categories as $category) { ?>
                         	  <option value="<?php echo $category->term_id;?>"><?php echo $category->name ;?></option>
             	<?php } ?>
                		</select>
                     
                     <select name="tags" id="tagsNav" >
-                  			<option  class="selectGrey">Select Audience</option>
+                  			<option value="none">Select product category</option>
 					<?php 
 					$arg=array('hide_empty'=>false,'orderby'=>'name','order' => 'ASC');
 					$tags = get_tags($arg);
@@ -510,6 +510,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 <div id="judges-banner" class="middelBanner">
   <h2> The Competition</h2>
 </div>
+
 <div class="page-wrap contect">
 	<article>
 	<?php the_content();?>

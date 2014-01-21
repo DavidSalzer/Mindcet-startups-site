@@ -89,7 +89,7 @@ $(document).ready(function (e) {
 
                 var html = '       <div class="topArea">    '
                 html += '		    <div class="title ellipsis">' + title + '</div>';
-                html += '		    <div class="name ellipsis"><b>Founders:</b> ' + invetName + '</div>';
+                html += '<div class="name ellipsis"><b>Founders:</b> ' + invetName + '</div>';
 
                 // html +=                 logo;
                 if (logoSrc != null)
@@ -99,6 +99,10 @@ $(document).ready(function (e) {
                 html += '       <div class="mainArea">    ';
                 html += '		    <div class="description">' + description + '</div>';
                 html += '           <div class="gallery">    ';
+                //get the youtube video
+               // var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480);
+                //if(videoIframe)
+                  //  html+='<div></div>'            
                 if (ImgSrc1 != null)
                     html += '           <div>    <img class="gallery-img" src="' + ImgSrc1 + '" alt="' + title + ' img1">  </div>  ';
                 if (ImgSrc2 != null)
@@ -665,7 +669,7 @@ function enable_scroll() {
         
         setTimeout(function(){FB.XFBML.parse();},2000);
         //hack
-        setTimeout(function(){FB.XFBML.parse();},5000);
+        //setTimeout(function(){FB.XFBML.parse();},5000);
       
         $('#comments-frame').attr("src",globalUrl+'comment.php?url='+domComments+'&text='+allTech[tid].title+'&img='+allTech[tid].logo[0]+'&url='+allTech[tid].permalink);
         
@@ -721,7 +725,10 @@ function enable_scroll() {
     var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480);
     if (videoIframe != undefined)
         html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480) + '</div>';
-    html += '		    <div class="name ellipsis"><b>Founders:</b> ' + allTech[tid].founder + '</div>';
+    if(allTech[tid].founder){
+            html += '<div class="name ellipsis"><b>Founders:</b> ' + allTech[tid].founder + '</div>';
+        }else{html+='<br>';
+    }
     html += '		    <div class="description">' + allTech[tid].descript + '</div>';
     html += '           <div class="gallery">    ';
     allTech[tid].startupImg.forEach(function (img) {
@@ -985,14 +992,12 @@ function showArrowsStartups(){
  if ($(".inventors .inventList li").length > 12){
      $("#inventScrollR .rightScroll-arrow").show();
      $("#inventScrollL .leftScroll-arrow").show();
-    $('#inventScrollL').show();
-     $('#inventScrollR').show();
- } else{
+     $('.inventList').removeClass('mini');
+  } else{
     $("#inventScrollR .rightScroll-arrow").hide();
      $("#inventScrollL .leftScroll-arrow").hide();
-     $('#inventScrollL').hide();
-     $('#inventScrollR').hide();
- }  
+     $('.inventList').addClass('mini');
+  }  
 }
 function showArrowsJudges(){
  if ($(".judgesContenar .judgesAvantar").length > 5){

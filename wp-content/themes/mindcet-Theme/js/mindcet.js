@@ -83,16 +83,15 @@ $(document).ready(function (e) {
                 var youtubeUrl = document.getElementById("youtubeUrl").value;
                 var invetName = document.getElementById("invetName").value;
                 var description = document.getElementById("description").value;
-                var founderName = document.getElementById("founder").value;
                 //var img1 = document.getElementById("img-1").addEventListener('change', handleFileSelect, false);
-
+                var founderShow = document.getElementById("founder").value;
 
 
                 var html = '       <div class="topArea">    '
                 html += '		    <div class="title ellipsis">' + title + '</div>';
-                if(founderName){
-                    html += '<div class="name ellipsis"><b>Founders:</b> ' + founderName + '</div>';
-                }
+                if(founderShow)
+                html += '		    <div class="name ellipsis"><b>Founders:</b> ' + founderShow + '</div>';
+
                 // html +=                 logo;
                 if (logoSrc != null)
                     html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
@@ -101,10 +100,6 @@ $(document).ready(function (e) {
                 html += '       <div class="mainArea">    ';
                 html += '		    <div class="description">' + description + '</div>';
                 html += '           <div class="gallery">    ';
-                //get the youtube video
-               // var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480);
-                //if(videoIframe)
-                  //  html+='<div></div>'            
                 if (ImgSrc1 != null)
                     html += '           <div>    <img class="gallery-img" src="' + ImgSrc1 + '" alt="' + title + ' img1">  </div>  ';
                 if (ImgSrc2 != null)
@@ -354,6 +349,8 @@ $(document).ready(function (e) {
         setTimeout(function(){
 		if ($(document).scrollTop() > 550) {
            $('#offer-zone').fadeOut("slow");
+          $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
+
         }
 		},500);
 
@@ -669,9 +666,7 @@ function enable_scroll() {
         
         $('#single-startup-zone .inventContener').append('<div class="fb-like" data-href="'+allTech[tid].permalink+'&postid='+allTech[tid].techId+'&logo='+allTech[tid].logo[0]+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false" id="fbCount"></div>');
         
-        setTimeout(function(){FB.XFBML.parse();},2000);
-        //hack
-        //setTimeout(function(){FB.XFBML.parse();},5000);
+        setTimeout(function(){FB.XFBML.parse()},2000);
       
         $('#comments-frame').attr("src",globalUrl+'comment.php?url='+domComments+'&text='+allTech[tid].title+'&img='+allTech[tid].logo[0]+'&url='+allTech[tid].permalink);
         
@@ -727,11 +722,8 @@ function enable_scroll() {
     var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480);
     if (videoIframe != undefined)
         html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480) + '</div>';
-    if(allTech[tid].founder){
-            html += '<div class="name ellipsis"><b>Founders:</b> ' + allTech[tid].founder + '</div>';
-        }else{html+='<br>';
-    }
-    html += '		    <div class="description">' + allTech[tid].descript + '</div>';
+    if(allTech[tid].founder)html += '<div class="name ellipsis"><b>Founders:</b> ' + allTech[tid].founder + '</div>';
+        html += '<div class="description">' + allTech[tid].descript + '</div>';
     html += '           <div class="gallery">    ';
     allTech[tid].startupImg.forEach(function (img) {
         if (img != "") {
@@ -954,9 +946,11 @@ function dropSelect(){
     tagVal=$('#tags').val();
     if(catVal=='none' && tagVal=='none'){
         $('select#category, select#tags').addClass('needSelect');
+        $('#validate-select-error').show();
             return false;    
     }else{
         $('select#category, select#tags').removeClass('needSelect');
+        $('#validate-select-error').hide();
         return true;
     }
 
@@ -994,12 +988,7 @@ function showArrowsStartups(){
  if ($(".inventors .inventList li").length > 12){
      $("#inventScrollR .rightScroll-arrow").show();
      $("#inventScrollL .leftScroll-arrow").show();
-     $('.inventList').removeClass('mini');
-  } else{
-    $("#inventScrollR .rightScroll-arrow").hide();
-     $("#inventScrollL .leftScroll-arrow").hide();
-     $('.inventList').addClass('mini');
-  }  
+ }   
 }
 function showArrowsJudges(){
  if ($(".judgesContenar .judgesAvantar").length > 5){
@@ -1126,7 +1115,7 @@ function setMarkers(allMarkers) {
  
     for (marker in allMarkers) {
         //convert to latLng
-        var myLatlng = new google.maps.LatLng(parseInt(allMarkers[marker].lat), parseInt(allMarkers[marker].lon));
+        var myLatlng = new google.maps.LatLng(parseFloat(allMarkers[marker].lat), parseFloat(allMarkers[marker].lon));
         //create marker push marker to array
         addMarker(myLatlng);
     }

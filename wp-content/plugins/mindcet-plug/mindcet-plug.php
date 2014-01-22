@@ -9,6 +9,7 @@ Version:1.0*/
 
 //more extentions
 require_once('email2post.php');
+require_once('datePick.php');
 
 ///
 class MindCet_Option{
@@ -56,7 +57,6 @@ class MindCet_Option{
 		add_settings_field('ye_voteGood','טקסט עבור הצבעה שנוספה :',array($this,'ye_vGood'),__FILE__,'ye_main_section');
         
         add_settings_field('ye_fev','סטרטאפ מועדף :',array($this,'ye_vFevor'),__FILE__,'ye_main_section');
-
 		
 	}
 	

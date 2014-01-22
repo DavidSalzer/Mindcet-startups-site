@@ -81,6 +81,8 @@
 	
 	
 	//ajax section
+	wp_localize_script('function','ajax_script',array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+
 		wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );	//wp_register_script( 'mindcetAjax', get_template_directory_uri(). '/js/mindcetAjax.js',  array('jquery'), 1.0 );
 	//wp_enqueue_script('mindcetAjax');
 	
@@ -110,20 +112,28 @@
 		$the_query = new WP_Query( $args );
 		if ( $the_query->have_posts() ) :
 		//foreach ( $myposts as $post ) : setup_postdata( $post ); 
+		$caunter=0;
+		echo "<span class='placholderSlide'></span><ul class='inventList'>";
 		 while ( $the_query->have_posts() ) : $the_query->the_post(); 
-		
-		?>
-		
-		<li idtec="<?php echo the_ID();?>">
-        	<div class="img-wrap">
-            <?php echo get_the_post_thumbnail($post->ID, 'medium'); ?>
-            </div>
-        <h2><a href="<?php echo get_permalink($post->ID); ?>" idtech="<?php echo the_ID(); ?>">
-       <?php echo get_the_title($post->ID);?>    </a> </h2>
-    </li>
-
-		
-		<?php
+			?>
+    	<?php	
+			if($caunter==3){
+                    echo "</ul><ul class='inventList'>";
+                }else{
+                }
+        ?>
+           <li idtec="<?php echo the_ID();?>">
+                    <div class="img-wrap">
+                    <?php echo get_the_post_thumbnail($post->ID, 'medium'); ?>
+                    </div>
+                <h2><a href="<?php echo get_permalink($post->ID); ?>" idtech="<?php echo the_ID(); ?>">
+               <?php echo get_the_title($post->ID);?>    </a> </h2>
+            </li>
+    <?php	if($caunter==3){
+                $caunter=0;
+               }?>
+    <?php $caunter++;
+        
 		//endforeach;
 		endwhile;
 		endif;
@@ -167,21 +177,18 @@
 	}
 
 	function sendMesg(){
-			$first=esc_attr($_POST['first']);
-			$last=esc_attr($_POST['last']);
-			$email=esc_attr($_POST['email']);
-			$message=esc_attr($_POST['msg']);
+		$first=esc_attr($_POST['first']);
+		$last=esc_attr($_POST['last']);
+		$email=esc_attr($_POST['email']);
+		$message=esc_attr($_POST['msg']);
 			
-	   $adminEmail=get_option( 'admin_email' );
-	   $subject='התקבלה פניה מהאתר';
-	   $headers = 'From: '.$first.' '.$last.' <'.$email.'>' . "\r\n";
- 
-		 if(wp_mail( $adminEmail, $subject, $message, $headers, $attachments )){
-		 		echo 'message send';
-		 		
-		 }else{
-			 	echo 'message send failed, please try again';
-			} 
+	  // $adminEmail=get_option( 'admin_email' );
+	   $subject='התקבלה פניה מהאתר ';
+	   $subject.= 'From: '.$first.' '.$last.' <'.$email.'>' . "\r\n";
+ 		
+		
+
+		 do_action('send_mindeset_email',$subject,$message);
 		die();
 	}
 

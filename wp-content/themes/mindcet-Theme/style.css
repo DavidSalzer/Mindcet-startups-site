@@ -774,7 +774,7 @@ footer .tagLogo {
     font-size: 1.6em;
     font-weight: bold;
     position: relative;
-    top: 75px;
+    top: 45px;
 }
 
 .hasCountdown {
@@ -818,7 +818,7 @@ background-repeat: no-repeat;*/
 
 #twitter-widget-0 {
     position: absolute;
-    margin-top: 74px;
+    margin-top: 78px;
     margin-left: -120px;
 }
 
@@ -917,27 +917,29 @@ background-repeat: no-repeat;*/
 }
 
 .inventList {
-   /* display: inline-block;
+   display: inline-block;
     vertical-align: top;
-    vertical-align: top;*/
     background: #fff;
     height: 606px;
+width: 222px;
 
-     display: -webkit-box;
+   /* display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
     justify-content: flex-start;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     flex-direction: column;
      justify-content: flex-start;
     -webkit-align-content: flex-start;
     -ms-flex-line-pack: start;
-    align-content: flex-start;
+    align-content: flex-start;*/
 }
 .inventList.mini{
-    padding: 0 68px;
+ /*   padding: 0 68px;*/
 }
 .inventList li {
     width: 218px;
@@ -961,13 +963,13 @@ background-repeat: no-repeat;*/
     max-height: 100%;
     opacity: .5;
     transition: all ease-in-out 0.3s;
-    /* filter: url(filters.svg#grayscale); 
+   filter: url(filters.svg#grayscale); 
     filter: gray; /* IE6-9 */
     -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
 }
 
 .inventList li img:hover {
-    /*    filter: none;*/
+        filter: none;
     -webkit-filter: grayscale(0);
     opacity: 1;
 }
@@ -1384,12 +1386,16 @@ visibility: hidden;
     color: #898989;
 }
 
+#scrollInventorCon .placholderSlide {
+    /*#scrollInventorCon:before {*/
+    display: inline-block;
+    width: 72PX;
+}
 .placholderSlide {
     /*#scrollInventorCon:before {*/
     display: inline-block;
     width: 66PX;
 }
-
 /*-----------------------form--------------------*/
 .inventorPopUp {
     position: absolute;
@@ -1482,8 +1488,10 @@ visibility: hidden;
 }
 
 .categories {
-    margin: 10px 0;
-    font-size: 24px;
+    margin: 5px 0 0 0;
+    font-size: 21px;
+    text-indent: 18PX;
+    position: relative;
 }
 
 input[type="checkbox"] {
@@ -2929,23 +2937,30 @@ select#categoryNav, select#tagsNav {
     color: #000;
     border: none;
     background: url('img/popup_dropdown.png') no-repeat;
-    background-position: right 18px;
+    background-position: right 12px;
     background-color: rgba(152,152,152,.2);
     text-align: center;
     text-indent: 10px;
+    line-height:50px; 
 }
 
 select#category, select#tags {
     -webkit-appearance: none; /*Removes default chrome and safari style*/
     -moz-appearance: none; /*Removes default style Firefox*/
-    width: 231px;
-    height: 50px;
+    width: 500px;
+    height: 43px;
     /*    font-family: inherit;
 */ font-size: 24px;
     color: #b9b9b9;
     line-height: 50px;
     background: url('img/popup_dropdown.png') no-repeat;
-    background-position: 189px 18px;
+    background-position: 465px 12px;
+    display: block;
+    float: left;
+    position: relative;
+    margin: 5px 0 5px 0;
+    text-indent: 13px;
+    line-height: 43PX;
 }
 
 #category, #tags {
@@ -3127,4 +3142,31 @@ height: 100%;
 select#category.needSelect, select#tags.needSelect{
  border: 2px solid #e76c76;
     color: #e76c76;   
+}
+.daysRemind {
+    position: relative;
+    top: 40px;
+    color: #21cb89;
+    font-size: 34px;
+    font-weight: bold;
+}
+.categories-input .categories span.astro{
+  font-size: 30px;
+  color: #21cb89; 
+  background-image: none;
+}
+#slogen {
+margin-bottom: 5px;
+}
+#formPart1 input {
+/* margin-bottom: 13px; */
+}
+#validate-select-error{
+    display: none;
+    width: 240px;
+    font-size: 14px;
+    position: absolute;
+    top: 5px;
+    left: 240px;
+    color: #e76c76;
 }

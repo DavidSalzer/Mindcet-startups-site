@@ -40,12 +40,40 @@
     <script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js#xfbml=1&amp;appId=162470583945071"></script>
     <script src="//platform.linkedin.com/in.js" type="text/javascript">
         lang: en_US
+		
     </script>
     <script type="IN/Share"></script>
 
 	<?php if ( is_singular() ) wp_enqueue_script('comment-reply'); ?>
 
 	<?php wp_head(); ?>
+   <?php 
+		 if(preg_match('/(?i)msie [10]/',$_SERVER['HTTP_USER_AGENT']))
+		{
+			?>
+            <style>
+            .addthis_toolbox{
+    position: absolute;
+    top: 597px;
+    right: 330px;
+    z-index: 15;
+	left:0;
+	}
+            </style>
+        <?php    
+		   echo "version is IE 10"; //rest of your code
+		}
+		
+ ?>
+    <!--[if lt IE 11]>
+	.addthis_toolbox{
+    position: absolute;
+    top: 597px;
+    right: 330px;
+    z-index: 15;
+    left:0;
+	}
+<![endif]-->
 </head>
 
 <body <?php body_class(); ?>>

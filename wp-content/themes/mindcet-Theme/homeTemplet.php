@@ -170,7 +170,10 @@ do_action('wp_insert_post', 'wp_insert_post');
             <!--</fieldset>-->            
 
             <fieldset class="categories-input">
-                <div class="categories">Startup's categories <br></div>
+                 <div class="categories">Startup's categories <span class="astro">*</span>
+                 		<div id="validate-select-error" class="validate-error">* Please select at least one </div>
+                 		<br>
+                 </div>
              <?php 
 					$args = array(
 					  'orderby' => 'name',
@@ -399,7 +402,7 @@ do_action('wp_insert_post', 'wp_insert_post');
       echo "<div id='scrollInventorCon'><span class='placholderSlide'></span><ul class='inventList'>";
         foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
     <?php	if($caunter==3){
-             //       echo "</ul><ul class='inventList'>";
+                    echo "</ul><ul class='inventList'>";
                 }else{
                 }
         ?>

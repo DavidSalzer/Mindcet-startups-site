@@ -962,16 +962,17 @@ width: 222px;
     vertical-align: middle;
     max-height: 100%;
     opacity: .5;
-    transition: all ease-in-out 0.3s;
+  /*  transition: all ease-in-out 0.3s;
    filter: url(filters.svg#grayscale); 
-    filter: gray; /* IE6-9 */
-    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: gray; 
+    -webkit-filter: grayscale(1); 
+    */
 }
 
 .inventList li img:hover {
         filter: none;
-    -webkit-filter: grayscale(0);
-    opacity: 1;
+/*    -webkit-filter: grayscale(0);
+*/    opacity: 1;
 }
 
 .inventList li img {
@@ -985,14 +986,14 @@ width: 222px;
     transition: all ease-in-out 0.3s;
     /*    filter: url(filters.svg#grayscale);
     filter: gray;
-*/ -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+-webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
 }
 
 .inventList li img:hover {
     filter: none;
     -ms-opacity: 1;
     opacity: 1;
-    -webkit-filter: grayscale(0);
+/*    -webkit-filter: grayscale(0);*/
 }
 /*.inventList li:hover,.inventList li img:hover{
 
@@ -1020,6 +1021,9 @@ width: 222px;
     line-height: 40px;
     text-align: center;
     /*border-right: solid 1px #999;*/
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .leftScroll {
@@ -2070,7 +2074,7 @@ margin-top: 10px;
 }
 
 .socialArea .social, .form-end-message .social {
-    width: 38px;
+    width: 40px;
     cursor: pointer;
     height: 22px;
     border-bottom: 1px solid #6a6a6a;
@@ -3027,7 +3031,7 @@ select#tagsNav {
 }
 
 #marker-popup .startups-gallery .gallery-img {
-    width: 50px;
+    width: 120px;
     margin: 5px;
     padding: 0;
     vertical-align: top;
@@ -3038,7 +3042,7 @@ select#tagsNav {
 }
 
 #marker-popup .startups-gallery .gallery-description {
-    width: 380px;
+    /* width: 380px; */
     display: inline-block;
     padding: 0 5px;
 }
@@ -3074,6 +3078,9 @@ select#tagsNav {
     min-height: 62px;
     height: auto;
     padding: 7px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 #marker-popup .startups-gallery-item p {
@@ -3088,13 +3095,19 @@ select#tagsNav {
 }
 
 .startups-gallery-item-frame {
-    width: 50px;
-    height: 50px;
+    width: 130px;
+    height: 90px;
     vertical-align: top;
-    display: inline-block;
+    display: block;
     background-color: #fff;
     padding: 5px;
     margin: 5px;
+    float: left;
+    order: 0;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #marker-popup .startups-gallery .startups-gallery-item-frame .gallery-img {
@@ -3169,4 +3182,12 @@ margin-bottom: 5px;
     top: 5px;
     left: 240px;
     color: #e76c76;
+}
+.gallery-description.title a {
+    color: #333;
+    font-size: 18px;
+    text-decoration: underline;
+}
+.leftSide {
+    flex: 2;
 }

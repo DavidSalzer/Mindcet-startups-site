@@ -88,9 +88,9 @@ $(document).ready(function (e) {
 
 
                 var html = '       <div class="topArea">    '
-                html += '		    <div class="title ellipsis">' + title + '</div>';
+                html += '           <div class="title ellipsis">' + title + '</div>';
                 if(founderShow)
-                html += '		    <div class="name ellipsis"><b>Founders:</b> ' + founderShow + '</div>';
+                html += '           <div class="name ellipsis"><b>Founders:</b> ' + founderShow + '</div>';
 
                 // html +=                 logo;
                 if (logoSrc != null)
@@ -98,7 +98,7 @@ $(document).ready(function (e) {
                 html += '       </div>    ';
 
                 html += '       <div class="mainArea">    ';
-                html += '		    <div class="description">' + description + '</div>';
+                html += '           <div class="description">' + description + '</div>';
                 html += '           <div class="gallery">    ';
                 if (ImgSrc1 != null)
                     html += '           <div>    <img class="gallery-img" src="' + ImgSrc1 + '" alt="' + title + ' img1">  </div>  ';
@@ -166,17 +166,17 @@ $(document).ready(function (e) {
 
     
     $("#logo").change(function (e) {
-		
+        
         //input.removeClass("error");
         $("#validate-img-error").hide();
-		var size = document.getElementById("logo").files[0].size;
-		size=size/1024/1024;
-		if(size>maxSize){
-			$("#validate-img-error").show();
-			return false;
-		}
-		
-		
+        var size = document.getElementById("logo").files[0].size;
+        size=size/1024/1024;
+        if(size>maxSize){
+            $("#validate-img-error").show();
+            return false;
+        }
+        
+        
         var fileName = $(this).val();
         var fileName = $(this).val().replace("C:\\fakepath\\","");
         $('.title-logo.logoimg').text(fileName);
@@ -200,15 +200,15 @@ $(document).ready(function (e) {
         }
     });
     $("#img-1").change(function (e) {
-		$("#img-1").removeClass("error");
-		var size = document.getElementById("img-1").files[0].size;
-		size=size/1024/1024;
-		if(size>maxSize){
+        $("#img-1").removeClass("error");
+        var size = document.getElementById("img-1").files[0].size;
+        size=size/1024/1024;
+        if(size>maxSize){
             $("#img-1").addClass("error");
             $("#validate-img-error").show();
-			return;
-		}
-		
+            return;
+        }
+        
         var fileName = $(this).val();
         var fileName = $(this).val().replace("C:\\fakepath\\","");
         $('.title-logo.img1').text(fileName);
@@ -230,14 +230,14 @@ $(document).ready(function (e) {
         }
     });
     $("#img-2").change(function (e) {
-		$("#img-2").removeClass("error");
-		var size = document.getElementById("img-2").files[0].size;
-		size=size/1024/1024;
-		if(size>maxSize){
-			$("#img-2").addClass("error");
+        $("#img-2").removeClass("error");
+        var size = document.getElementById("img-2").files[0].size;
+        size=size/1024/1024;
+        if(size>maxSize){
+            $("#img-2").addClass("error");
             $("#validate-img-error").show();
             return;
-		}
+        }
 
         var fileName = $(this).val().replace("C:\\fakepath\\","");
         $('.title-logo.img2').text(fileName);
@@ -260,13 +260,13 @@ $(document).ready(function (e) {
     });
     $("#img-3").change(function (e) {
         $("#img-3").removeClass("error");
-		var size = document.getElementById("img-3").files[0].size;
-		size=size/1024/1024;
-		if(size>maxSize){
-			$("#img-3").addClass("error");
+        var size = document.getElementById("img-3").files[0].size;
+        size=size/1024/1024;
+        if(size>maxSize){
+            $("#img-3").addClass("error");
             $("#validate-img-error").show();
-			return;
-		}
+            return;
+        }
 
         var fileName = $(this).val();
         var fileName = $(this).val().replace("C:\\fakepath\\","");
@@ -297,8 +297,8 @@ $(document).ready(function (e) {
         $('.judgeDescription').empty().append('<span class="close"></span>');
         $('.judgeDescription').slideUp(1000, 'easeInOutBack');
         $('.mask').removeClass('mask-judge');
-		$('.mask').hide();
-		$('body').css('overflow','auto');
+        $('.mask').hide();
+        $('body').css('overflow','auto');
         return false;
     });
 
@@ -310,11 +310,11 @@ $(document).ready(function (e) {
     $('.judgesAvantar').on('click', this, function () {
         $('.inventorPopUp .close').click();
         tid = $(this).attr('judgeId');
-		$('body').css('overflow','hidden');
+        $('body').css('overflow','hidden');
         $()
-		$('.mask').show();
+        $('.mask').show();
         $('.mask').addClass('mask-judge');
-		
+        
         $('.judgeDescription').slideDown(1000, 'easeInOutBack');
         var html = '       <div class="judgeDescriptionLeft">';
         html += '       <div class="judgeDescription-img">'+ allJudges[tid].imgProfile + '</div>    ';
@@ -345,14 +345,14 @@ $(document).ready(function (e) {
     updateMenuUrl();
     //hide popup when scrolling down
     $(document).on('scroll', this, function () {
-		console.log($(document).scrollTop());
+        console.log($(document).scrollTop());
         setTimeout(function(){
-		if ($(document).scrollTop() > 550) {
+        if ($(document).scrollTop() > 550) {
            $('#offer-zone').fadeOut("slow");
           $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
 
         }
-		},500);
+        },500);
 
     });
     $('.inventList li').on('click', this, function () {
@@ -394,10 +394,10 @@ $(document).ready(function (e) {
         
     });
 
-	$(window).on('resize',function(){
-	//	h=screen.height;
-	//	$('.mask').css('height',h+'px');
-	});
+    $(window).on('resize',function(){
+    //  h=screen.height;
+    //  $('.mask').css('height',h+'px');
+    });
 
 
     $('body').on('click','#inventLikeFb,#inventTwiiwer,#inventLinkedin',function(){
@@ -641,17 +641,17 @@ function enable_scroll() {
         if ($('#formPart4').is(":hidden")){
             $('.inventorPopUp .close').click();
         }
-		if(tid){window.location.hash=tid;}
+        if(tid){window.location.hash=tid;}
         
         globalUrl=document.URL.split("#")[0];
-		domUrl=document.URL;
+        domUrl=document.URL;
         domUrlTweet=domUrl.replace('#','%23');
         domComments=ascii(domUrl);
         domLikes=globalUrl+'?initiator='+allTech[tid].title;
         domLikes=domLikes.split(" ").join("-");
         domLikes=domLikes.toLowerCase();
-		permalink=allTech[tid].permalink;
-		
+        permalink=allTech[tid].permalink;
+        
         //  $('#like-frame').attr("src",globalUrl+'likeCount.htm?url='+allTech[tid].permalink);
         //$('#twittCount').attr('data-url',allTech[tid].permalink);
         //$('#twittCount').attr('data-text',allTech[tid].title+' Startup name is my favorite EdTech startup. What\'s yours?');
@@ -670,8 +670,8 @@ function enable_scroll() {
       
         $('#comments-frame').attr("src",globalUrl+'comment.php?url='+domComments+'&text='+allTech[tid].title+'&img='+allTech[tid].logo[0]+'&url='+allTech[tid].permalink);
         
-		$('#inventTwitterCount').attr('data-url',allTech[tid].permalink).attr('data-text',allTech[tid].title);
-		
+        $('#inventTwitterCount').attr('data-url',allTech[tid].permalink).attr('data-text',allTech[tid].title);
+        
         domLikes=document.URL.split("#")[0]+'?'+allTech[tid].techId+'#'+allTech[tid].techId;
         $('.fb-like.invent').attr("data-href",permalink);
         $('#id'+allTech[tid].techId).show();
@@ -681,11 +681,11 @@ function enable_scroll() {
         var tweetUrl='http://twitter.com/intent/tweet?text='+allTech[tid].title +' is my favorite EdTech startup. Whart\'s yours?';
         var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+allTech[tid].permalink+'&amp;title=Global EdTech Startup Awards 2014&summary='+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?';
         console.log(tid);
-		console.log(allTech[tid]);
+        console.log(allTech[tid]);
         var html = '       <div class="topArea">    ';
         if (allTech[tid].logo){
             if (allTech[tid].siteUrl.length > 0){
-                html += '		        <div class="startup-popup-logo"><a href="' + allTech[tid].siteUrl + '" target="_blank"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></a></div>';
+                html += '               <div class="startup-popup-logo"><a href="' + allTech[tid].siteUrl + '" target="_blank"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></a></div>';
                 }
             else {
                 html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
@@ -695,16 +695,16 @@ function enable_scroll() {
             html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'"></div>';
         }
     if (allTech[tid].siteUrl.length > 0){
-        html += '		        <a href="' + allTech[tid].siteUrl + '" class="title ellipsis" target="_blank">' + allTech[tid].title + '</a>';
+        html += '               <a href="' + allTech[tid].siteUrl + '" class="title ellipsis" target="_blank">' + allTech[tid].title + '</a>';
         }
     else {
-        html += '		        <div class="title ellipsis">' + allTech[tid].title + '</div>';
+        html += '               <div class="title ellipsis">' + allTech[tid].title + '</div>';
     }
-    html += '		        <div class="slogen">' + allTech[tid].slogen + '</div>';
+    html += '               <div class="slogen">' + allTech[tid].slogen + '</div>';
     html += '       </div>    ';
 
         html += '       <div class="socialArea">    ';
-	  
+      
       html+='              <div data-url="'+fbUrl+'" id="inventLikeFb"class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
      //  html+='              <a href="'+fbUrl+':void(0);" class="social fb" title="(Share on Facebook)"  target="_">Share on <span class="letter-space">Facbook</span></a>';
         html+='             <div data-url="'+tweetUrl+'" id="inventTwiiwer" class="social twitter" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
@@ -722,7 +722,11 @@ function enable_scroll() {
     var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480);
     if (videoIframe != undefined)
         html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480) + '</div>';
-    if(allTech[tid].founder)html += '<div class="name ellipsis"><b>Founders:</b> ' + allTech[tid].founder + '</div>';
+    if(allTech[tid].founder){
+            html += '<div class="name ellipsis"><b>Founders:</b> ' + allTech[tid].founder + '</div>';
+        }else{
+            html +='<br>';
+        }
         html += '<div class="description">' + allTech[tid].descript + '</div>';
     html += '           <div class="gallery">    ';
     allTech[tid].startupImg.forEach(function (img) {
@@ -736,11 +740,11 @@ function enable_scroll() {
     youtube = allTech[tid].youtube;
     startupImg = allTech[tid].startupImg;
     
-	h=$(window).height();
-	$('body').css('overflow','hidden');
+    h=$(window).height();
+    $('body').css('overflow','hidden');
 
-	$('.mask').fadeIn(200, 'easeInOutBack').css('height',h+'px');;
-	$('.inventDescription').fadeIn(100, 'easeInOutBack');
+    $('.mask').fadeIn(200, 'easeInOutBack').css('height',h+'px');;
+    $('.inventDescription').fadeIn(100, 'easeInOutBack');
     $('.mask').addClass('mask-invent');
     $('html, body').animate({
        // scrollTop: $("#invent-close").offset().top - 25
@@ -765,7 +769,7 @@ function enable_scroll() {
         $('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
         $('.inventDescription').fadeOut('fast');
         //$('#id'+allTech[tid].techId).hide();
-		window.location.hash='';
+        window.location.hash='';
         //$('html, body').animate({
            // scrollTop: "550px"
       //  }, 0.3);
@@ -1036,7 +1040,7 @@ function ascii(url){
 
 //function setIframe(){
 //        globalUrl=document.URL.split("#")[0];
-//		domUrl=document.URL;
+//      domUrl=document.URL;
 //       
 //        $('#comments-frame').attr("src",''+globalUrl+'comment.htm?url='+ domUrl+'');
 //        //alert($('#comments-frame').attr("src"));
@@ -1152,11 +1156,20 @@ function buildMarkerPopupHTML(key) {
     for (var favorite in saveVotesData[key].favId) {
         console.log(allTech[saveVotesData[key].favId[favorite]]);
         html += '<div class="startups-gallery-item">';
-        html += '<div class="startups-gallery-item-frame">';
-        html += '<img class="gallery-img" src="' + allTech[saveVotesData[key].favId[favorite]].logo[0] + '" alt="Class Messenger">';
-        html += '   </div>';
-        html += '<span class="gallery-description">' + allTech[saveVotesData[key].favId[favorite]].descript + '</span>';
-        html += '   </div>';
+       
+       if(allTech[saveVotesData[key].favId[favorite]].logo[0]){
+         html += '<div class="startups-gallery-item-frame">';
+            html +='<a href="'+ allTech[saveVotesData[key].favId[favorite]].siteUrl+' target="_blank">';
+            html += '<img class="gallery-img" src="' + allTech[saveVotesData[key].favId[favorite]].logo[0] + '" alt="Class Messenger">';
+            html +='</a>';
+         html += '   </div>';
+           
+        }
+        html += '<div class="leftSide"><span class="gallery-description title"><a href="'+ allTech[saveVotesData[key].favId[favorite]].permalink + '">' + allTech[saveVotesData[key].favId[favorite]].title + '</a></span>';
+        html += '<span class="gallery-description">' + allTech[saveVotesData[key].favId[favorite]].slogen + '</span>';
+        if(allTech[saveVotesData[key].favId[favorite]].founder)
+        html += '<span class="gallery-description"><b>Founder: </b>' + allTech[saveVotesData[key].favId[favorite]].founder + '</span>';
+        html += ' </div>  </div>';
     }
     html += '   </div>';
     html += '</div>';

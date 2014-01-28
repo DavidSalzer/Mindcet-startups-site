@@ -117,6 +117,11 @@
             <div class="popupDescription-append">
          
             </div>
+            <div class="facebook-comments">
+            <iframe src="" id="comments-marker">
+        
+        	</iframe>
+            </div>
         </div>
     </div>
     </div>

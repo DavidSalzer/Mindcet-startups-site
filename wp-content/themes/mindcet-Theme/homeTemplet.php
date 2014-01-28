@@ -515,7 +515,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 </div>
 
 <div class="page-wrap contect">
-	<article>
+	<article class="unreset">
 	<?php the_content();?>
 	</article>
 </div> 

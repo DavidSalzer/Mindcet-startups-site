@@ -32,7 +32,13 @@ function buildCatGallery(catId,tagName){
 				//$('.inventList').fadeOut();
 				$('#scrollInventorCon').html(data);
 				//$('.inventList').fadeIn();	
-				showArrowsStartups();
+				 if ($(".inventors .inventList li").length > 12){
+				     $("#inventScrollR .rightScroll-arrow").show();
+				     $("#inventScrollL .leftScroll-arrow").show();
+				 }else{
+				     $("#inventScrollR .rightScroll-arrow").hide();
+				     $("#inventScrollL .leftScroll-arrow").hide();
+				 } 
 
 			$('.inventList li').on('click', this, function () {
         		tid = $(this).attr('idtec');

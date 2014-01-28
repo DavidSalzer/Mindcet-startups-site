@@ -685,7 +685,7 @@ function enable_scroll() {
         var html = '       <div class="topArea">    ';
         if (allTech[tid].logo){
             if (allTech[tid].siteUrl.length > 0){
-                html += '               <div class="startup-popup-logo"><a href="' + allTech[tid].siteUrl + '" target="_blank"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></a></div>';
+                html += ' <div class="startup-popup-logo"><a href="'+ allTech[tid].siteUrl +'"  target="_blank"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></a></div>';
                 }
             else {
                 html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
@@ -779,6 +779,7 @@ function enable_scroll() {
    $('.mask').on('click', this, function (e) {
      if($(e.target).attr("class") != "undefind" && $(e.target).attr("class").indexOf('mask')==0) { 
             $('.inventDescription .close').click();
+             $('#marker-popup').hide();
     }
     });
 
@@ -992,7 +993,10 @@ function showArrowsStartups(){
  if ($(".inventors .inventList li").length > 12){
      $("#inventScrollR .rightScroll-arrow").show();
      $("#inventScrollL .leftScroll-arrow").show();
- }   
+ }else{
+     $("#inventScrollR .rightScroll-arrow").hide();
+     $("#inventScrollL .leftScroll-arrow").hide();
+ } 
 }
 function showArrowsJudges(){
  if ($(".judgesContenar .judgesAvantar").length > 5){
@@ -1135,7 +1139,28 @@ function buildMarkerPopupHTML(key) {
     console.log(saveVotesData[key].descript);
     console.log(saveVotesData[key].title);
     var globalUrl=document.URL.split("#")[0];
-    var html = '<div class="topArea">    '
+        domUrl=document.URL;
+        domUrlTweet=domUrl.replace('#','%23');
+        domComments=ascii(domUrl);
+        domLikes=globalUrl+'?votes='+saveVotesData[key].title;
+        domLikes=domLikes.split(" ").join("-");
+        domLikes=domLikes.toLowerCase();
+        permalink=saveVotesData[key].permalink;
+
+    $('#comments-marker').attr("src",globalUrl+'comment.php?url='+saveVotesData[key].parmalink+'&text='+saveVotesData[key].title+'&img='+saveVotesData[key].logo[0]+'&url='+saveVotesData[key].parmalink);
+
+
+    var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+saveVotesData[key].parmalink+'&p[title]=Global EdTech Startup Awards 2014&p[summary]='+saveVotesData[key].title +'  favorite EdTech startup.?&p[images][0]='+ saveVotesData[key].logo[0];//'&p[summary]='+ascii(domUrl)+
+    var tweetUrl='http://twitter.com/intent/tweet?text='+ saveVotesData[key].title +' favorite EdTech startup. ';
+    var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+ saveVotesData[key].parmalink+'&amp;title=Global EdTech Startup Awards 2014&summary='+ saveVotesData[key].title+' favorite EdTech startup.';
+    
+   var html= '       <div class="socialArea">    ';
+    html+='              <div data-url="'+fbUrl+'" id="inventLikeFb"class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
+    html+='             <div data-url="'+tweetUrl+'" id="inventTwiiwer" class="social twitter" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
+    html+='             <div data-url="'+linkedinUrl+'" id="inventLinkedin" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
+    html += '          </div>    ';
+
+     html += '<div class="topArea">    '
     if (saveVotesData[key].logo)
         html += '<div class="startup-popup-logo">  <img class="wp-post-image logo" src="' + saveVotesData[key].logo[0] + '" alt="' + saveVotesData[key].title + ' logo">   </div> ';
     html += '</div>    ';
@@ -1149,7 +1174,7 @@ function buildMarkerPopupHTML(key) {
     html += '<div class="startups-gallery">    ';
  
     html += '<div class="startups-gallery-header">';
-    html += '   <img class="gallery-img" src="'+ globalUrl +'wp-content/uploads/2014/01/final-logo2.png" alt="Class Messenger">';
+//    html += '   <img class="gallery-img" src="'+ globalUrl +'wp-content/uploads/2014/01/final-logo2.png" alt="Class Messenger">';
     html += '   <span>Our Top 10 Startups</span>';
     html += '</div>';
  
@@ -1159,7 +1184,7 @@ function buildMarkerPopupHTML(key) {
        
        if(allTech[saveVotesData[key].favId[favorite]].logo[0]){
          html += '<div class="startups-gallery-item-frame">';
-            html +='<a href="'+ allTech[saveVotesData[key].favId[favorite]].siteUrl+' target="_blank">';
+            html +='<a href="'+ allTech[saveVotesData[key].favId[favorite]].siteUrl+'"" target="_blank">';
             html += '<img class="gallery-img" src="' + allTech[saveVotesData[key].favId[favorite]].logo[0] + '" alt="Class Messenger">';
             html +='</a>';
          html += '   </div>';
@@ -1176,7 +1201,8 @@ function buildMarkerPopupHTML(key) {
  
     var $inventDescription = $(html);
     $('.popupDescription-append').empty().append($inventDescription);
-    
+
+
     h=$(window).height();
     $('body').css('overflow','hidden');
     

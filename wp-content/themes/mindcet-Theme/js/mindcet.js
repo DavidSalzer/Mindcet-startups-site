@@ -641,7 +641,10 @@ function enable_scroll() {
         if ($('#formPart4').is(":hidden")){
             $('.inventorPopUp .close').click();
         }
-        if(tid){window.location.hash=tid;}
+        if(tid){
+            window.location.hash=tid;
+            ga('send', 'pageview',"statrtup= "+allTech[tid].title);
+        }
         
         globalUrl=document.URL.split("#")[0];
         domUrl=document.URL;

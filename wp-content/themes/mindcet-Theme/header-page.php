@@ -1,11 +1,13 @@
 <html>
 	<meta charset="<?php bloginfo('charset'); ?>" />
     <!--<meta property="og:image" content="<?php //echo site_url();?>/wp-content/uploads/2014/01/final-logo1.png"/>-->
+    <meta property="og:image" content="<?php echo get_theme_mod('link_ImgBg');?>"/>
     <meta property="og:title" content="Global EdTech Startup Awards 2014" />
     <meta property="og:description" content="What's your favorite EdTech startup?"/>
-    <!--<meta property="og:image" content="http://mindcet.co.il.tigris.nethost.co.il/wp-content/uploads/2014/01/final-logo1.png"/>-->
+    <meta property="og:updated_time" content="1391001033173" />    <!--<meta property="og:image" content="http://mindcet.co.il.tigris.nethost.co.il/wp-content/uploads/2014/01/final-logo1.png"/>-->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-     <link rel="image_src" href="<?php echo site_url();?>/wp-content/uploads/2014/01/final-logo1.png" />
+     <!--<link rel="image_src" href="<?php echo site_url();?>/wp-content/uploads/2014/01/final-logo1.png" />-->
+
 	<?php if (is_search()) { ?>
 	   <meta name="robots" content="noindex, nofollow" /> 
 	<?php } ?>
@@ -83,7 +85,8 @@
         </div>
         
     </div>
-    <div id="marker-popup" class="mapDescription" style="display: block;">
+    <!--<div id="marker-popup" class="mapDescription" style="display: block;">-->
+    <div id="marker-popup" class="mapDescription">
         <div class="inventContener">
           <span id="invent-close" class="map close"></span>
             <div class="popupDescription-append">

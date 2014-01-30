@@ -1229,6 +1229,13 @@ function buildMarkerPopupHTML(key) {
         $('body').css('overflow','auto');
         return false;
     });
+
+     $('.mask').on('click', this, function (e) {
+     if($(e.target).attr("class") != "undefind" && $(e.target).attr("class").indexOf('mask')==0) { 
+            $('#marker-popup .close').click();
+             $('#marker-popup').hide();
+    }
+    });
 }
  
 //$("#marker-popup").on("click",".close",function(){

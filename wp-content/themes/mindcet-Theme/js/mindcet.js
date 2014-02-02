@@ -110,7 +110,7 @@ $(document).ready(function (e) {
                 html += '       </div>    ';
                 html += '       <div class="bottomArea">    ';
                 html += '           <label for="ads">';
-                html += '               <input type="checkbox" id="ads" name="ads" checked>';
+                html += '               <input type="checkbox" id="ads" name="ads" value="yes" checked>';
                 html += '               <span></span>I wish to receive interesting information about new EdTech startups.<br><br>';
                 html += '           </label>    ';
                 html += '           <label for="terms">';

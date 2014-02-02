@@ -713,5 +713,5 @@ function mailChimp($email,$name){
                                         false,
                                         false
                                        );
-    print_r($result);
+    if($result)return true;
 	}

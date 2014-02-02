@@ -48,7 +48,7 @@ function emailSend($subject,$message){
 		$mail->WordWrap = 50;
 
 		if($mail->Send()) {
-			echo 'Thanks for your message, you\'ll be replied shortly';
+			echo ' Thank you for contacting us, we will get back to you shortly.';
 		  return true;
 		} else {
 				echo 'message send failed, please try again';

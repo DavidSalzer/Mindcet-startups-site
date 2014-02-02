@@ -120,6 +120,10 @@ set_post_thumbnail( 165, 176177178179 );
 		//uploadFile($pid);
 			$fileEr=fileUp($pid);	
 			
+			// subscrib to mailchimp
+			if(isset($_POST['ads']) && $_POST['ads']=='yes')
+			 mailChimp( $email, $name);
+			
 			do_action('post_mindeset_uplode');
 			
 			//REDIRECT TO THE NEW POST ON SAVE

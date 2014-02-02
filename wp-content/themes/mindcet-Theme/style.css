@@ -1048,9 +1048,12 @@ width: 222px;
     vertical-align: middle;
     height: auto;*/
     -ms-opacity: 0.5;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=50);
+    filter:alpha(opacity=50) ;
     opacity: .5;
     -webkit-transition: all ease-in-out 0.3s;
     transition: all ease-in-out 0.3s;
+    
     /*    filter: url(filters.svg#grayscale);
     filter: gray;
 -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
@@ -1058,8 +1061,11 @@ width: 222px;
 
 .inventList li img:hover {
     filter: none;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
     -ms-opacity: 1;
+    filter:alpha(opacity=100) ;
     opacity: 1;
+    
 /*    -webkit-filter: grayscale(0);*/
 }
 /*.inventList li:hover,.inventList li img:hover{

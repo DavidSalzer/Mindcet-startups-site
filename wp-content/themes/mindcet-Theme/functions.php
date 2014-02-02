@@ -12,6 +12,8 @@
 	// Add RSS links to <head> section
 	automatic_feed_links();
 	
+	
+	
 	// Load jQuery
 	if ( !is_admin() ) {
 	   wp_deregister_script('jquery');
@@ -692,3 +694,24 @@ function getCssForLink(){
 }
 
 ?>
+
+
+<?php 
+function mailChimp($email,$name){
+	 include ("inc/Mailchimp.php");
+	 $listId='8366e2458d';
+	 $merge_vars=array(
+		 'FNAME' => $name
+	);
+	 $apiKey='129c1db8a40f40aa3417c7d277581b9f-us6';
+	$mailChimp=new Mailchimp($apiKey);
+	//$mailChimp->lists->su
+	$result=$mailChimp->lists->subscribe($listId, array('email'=>$email),
+                                        $merge_vars,
+                                        false,
+                                        true,
+                                        false,
+                                        false
+                                       );
+    if($result)return true;
+	}

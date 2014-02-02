@@ -110,7 +110,7 @@ $(document).ready(function (e) {
                 html += '       </div>    ';
                 html += '       <div class="bottomArea">    ';
                 html += '           <label for="ads">';
-                html += '               <input type="checkbox" id="ads" name="ads" checked>';
+                html += '               <input type="checkbox" id="ads" name="ads" value="yes" checked>';
                 html += '               <span></span>I wish to receive interesting information about new EdTech startups.<br><br>';
                 html += '           </label>    ';
                 html += '           <label for="terms">';
@@ -772,7 +772,11 @@ function enable_scroll() {
         $('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
         $('.inventDescription').fadeOut('fast');
         //$('#id'+allTech[tid].techId).hide();
-        window.location.hash='';
+        var scr = document.body.scrollTop;
+
+        window.location.hash = ' ';
+
+        document.body.scrollTop = scr;
         //$('html, body').animate({
            // scrollTop: "550px"
       //  }, 0.3);
@@ -1089,7 +1093,7 @@ function initMap() {
         zoom: 1,
     //    disableDefaultUI: true,
     //disableDoubleClickZoom: true,
-       // draggable: false,
+        draggable: false,
       //  maxZoom:1,
         minZoom:1
 
@@ -1187,13 +1191,13 @@ function buildMarkerPopupHTML(key) {
        
        if(allTech[saveVotesData[key].favId[favorite]].logo[0]){
          html += '<div class="startups-gallery-item-frame">';
-            html +='<a href="'+ allTech[saveVotesData[key].favId[favorite]].siteUrl+'"" target="_blank">';
+            html +='<a href="'+ allTech[saveVotesData[key].favId[favorite]].siteUrl+'"" target="_blank" >';
             html += '<img class="gallery-img" src="' + allTech[saveVotesData[key].favId[favorite]].logo[0] + '" alt="Class Messenger">';
             html +='</a>';
          html += '   </div>';
            
         }
-        html += '<div class="leftSide"><span class="gallery-description title"><a href="'+ allTech[saveVotesData[key].favId[favorite]].permalink + '">' + allTech[saveVotesData[key].favId[favorite]].title + '</a></span>';
+        html += '<div class="leftSide"><span class="gallery-description title"><a href="#" class="mapOpenInvent" date-id="'+allTech[saveVotesData[key].favId[favorite]].techId+'">' + allTech[saveVotesData[key].favId[favorite]].title + '</a></span>';
         html += '<span class="gallery-description">' + allTech[saveVotesData[key].favId[favorite]].slogen + '</span>';
         if(allTech[saveVotesData[key].favId[favorite]].founder)
         html += '<span class="gallery-description"><b>Founder: </b>' + allTech[saveVotesData[key].favId[favorite]].founder + '</span>';
@@ -1229,6 +1233,22 @@ function buildMarkerPopupHTML(key) {
         $('body').css('overflow','auto');
         return false;
     });
+
+     $('.mask').on('click', this, function (e) {
+     if($(e.target).attr("class") != "undefind" && $(e.target).attr("class").indexOf('mask')==0) { 
+            $('#marker-popup .close').click();
+             $('#marker-popup').hide();
+    }
+    });
+
+
+$('body').on('click','.mapOpenInvent',function(e){
+    tid=$(this).attr('date-id');
+    $('#marker-popup').fadeOut(300, 'easeInOutBack');
+    popuopInvent(tid);
+    e.preventDefault()
+    return false;
+ });
 }
  
 //$("#marker-popup").on("click",".close",function(){

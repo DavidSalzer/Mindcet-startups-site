@@ -2041,7 +2041,7 @@ font-family: sans-serif;*/
 .inventDescription, .mapDescription {
     width: 712px;
     background-color: #fff;
-    position: relative;
+    position: absolute;
     z-index: 51;
     margin: auto;
     left: 0;

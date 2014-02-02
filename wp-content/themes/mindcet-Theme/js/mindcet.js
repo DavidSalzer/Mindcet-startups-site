@@ -405,6 +405,14 @@ $(document).ready(function (e) {
         openInNewWindow(likeUrl);
     })
 
+    $('body').on('click','.mapOpenInvent',function(e){
+    tid=$(this).attr('date-id');
+    $('#marker-popup').fadeOut(300, 'easeInOutBack');
+    popuopInvent(tid);
+    e.preventDefault()
+    return false;
+ });
+
 }); //dom ready
 
 
@@ -638,6 +646,7 @@ function enable_scroll() {
 //////////////////////////
 
   function popuopInvent (tid) {
+      //$('.inventDescription-append').empty();
         if ($('#formPart4').is(":hidden")){
             $('.inventorPopUp .close').click();
         }
@@ -1242,13 +1251,13 @@ function buildMarkerPopupHTML(key) {
     });
 
 
-$('body').on('click','.mapOpenInvent',function(e){
-    tid=$(this).attr('date-id');
-    $('#marker-popup').fadeOut(300, 'easeInOutBack');
-    popuopInvent(tid);
-    e.preventDefault()
-    return false;
- });
+//$('body').on('click','.mapOpenInvent',function(e){
+//    tid=$(this).attr('date-id');
+//    $('#marker-popup').fadeOut(300, 'easeInOutBack');
+//    popuopInvent(tid);
+//    e.preventDefault()
+//    return false;
+// });
 }
  
 //$("#marker-popup").on("click",".close",function(){

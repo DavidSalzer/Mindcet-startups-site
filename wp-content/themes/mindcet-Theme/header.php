@@ -1,7 +1,7 @@
 <html>
 	<meta charset="<?php bloginfo('charset'); ?>" />
     <!--<meta property="og:image" content="<?php //echo site_url();?>/wp-content/uploads/2014/01/final-logo1.png"/>-->
-    <!--<meta property="og:image" content="<?php echo get_theme_mod('link_ImgBg');?>"/>-->
+    <meta property="og:image" content="<?php echo get_theme_mod('link_ImgBg');?>"/>
     <meta property="og:title" content="Global EdTech Startup Awards 2014" />
     <meta property="og:description" content="What's your favorite EdTech startup?"/>
     <meta property="og:updated_time" content="1391001033173" /> 

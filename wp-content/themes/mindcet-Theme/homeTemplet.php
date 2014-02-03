@@ -248,8 +248,9 @@ do_action('wp_insert_post', 'wp_insert_post');
 
             <fieldset class="formfield input-border">
                 <span class="title-logo logoimg">Logo</span>
-                <div class="upload">
-                    <input type="file" id="logo" value="Upload" name="logo" tabindex="23" name="logo" placeholder="" />Select file
+                <div class="upload" onclick="getFile('#logo')">Select file</div>
+                <div class="input-outer">
+                    <input type="file" id="logo" value="Upload" name="logo" tabindex="23" name="logo" placeholder="" onchange="sub(this)"/>
                 </div>
             </fieldset>
         
@@ -257,8 +258,9 @@ do_action('wp_insert_post', 'wp_insert_post');
             
             <fieldset class="formfield input-border">
                 <span class="title-logo img1">Add a photo</span>
-                <div class="upload">
-                    <input type="file" id="img-1" value="" tabindex="24" name="img-1" placeholder="" />Select file
+                <div class="upload" onclick="getFile('#img-1')">Select file</div>
+                <div class="input-outer">
+                    <input type="file" id="img-1" value="" tabindex="24" name="img-1" placeholder="" onchange="sub(this)" />
                 </div>
             </fieldset>
 
@@ -266,8 +268,9 @@ do_action('wp_insert_post', 'wp_insert_post');
             
             <fieldset class="formfield input-border">
                 <span class="title-logo img2">Add a photo</span>
-                <div class="upload">
-                    <input type="file" id="img-2" value="" tabindex="25" name="img-2" placeholder="" />Select file
+                <div class="upload" onclick="getFile('#img-2')">Select file</div>
+                <div class="input-outer">
+                    <input type="file" id="img-2" value="" tabindex="25" name="img-2" placeholder="" onchange="sub(this)"/>
                 </div>
             </fieldset>
 
@@ -275,8 +278,9 @@ do_action('wp_insert_post', 'wp_insert_post');
             
             <fieldset class="formfield input-border">
                 <span class="title-logo img3">Add a photo</span>
-                <div class="upload">
-                    <input type="file" id="img-3" value="" tabindex="26" name="img-3" placeholder="" />Select file
+                <div class="upload" onclick="getFile('#img-3')">Select file</div>
+                <div class="input-outer">
+                    <input type="file" id="img-3" value="" tabindex="26" name="img-3" placeholder="" />
                 </div>
             </fieldset>
 

@@ -924,6 +924,9 @@ background-repeat: no-repeat;*/
     letter-spacing: 1px;
 }
 
+.addthis_button_tweet iframe{
+    width: auto !important;
+}
 #offerStartUp {
     font-size: 1.1em;
     background-color: #e76c76;
@@ -1736,6 +1739,16 @@ color: #fff;*/
     margin-bottom: 20px;
 }
 
+.input-outer{
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+}
+
+.input-outer input{
+    width: 0px;
+    height: 0px;
+}
 .last-page, .next-page, .submit input {
     display: inline-block;
     width: 166px;
@@ -2687,6 +2700,8 @@ body {
     bottom: -37px;
     height: 57px;
     -webkit-transform: rotateZ(-90deg);
+    -ms-transform:  rotateZ(-90deg);
+
 }
 
 .loading {
@@ -3007,6 +3022,7 @@ select#tags {
 }
 
 select#categoryNav, select#tagsNav {
+    appearance:none;
     -webkit-appearance: none; /*Removes default chrome and safari style*/
     -moz-appearance: none; /*Removes default style Firefox*/
     width: 510px;
@@ -3024,6 +3040,7 @@ select#categoryNav, select#tagsNav {
 }
 
 select#category, select#tags {
+    appearance:none;
     -webkit-appearance: none; /*Removes default chrome and safari style*/
     -moz-appearance: none; /*Removes default style Firefox*/
     width: 500px;
@@ -3086,6 +3103,7 @@ select#tagsNav {
 #marker-popup .startups-gallery {
     float: left;
     margin-top: 20px;
+    width: 480px;
 }
 
 #marker-popup .startups-gallery-item {
@@ -3160,7 +3178,9 @@ select#tagsNav {
     height: auto;
     padding: 7px;
     display: flex;
+    display: -ms-flexbox;
     flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
     justify-content: flex-start;
 }
 
@@ -3187,10 +3207,15 @@ select#tagsNav {
     margin: 5px;
     float: left;
     order: 0;
+    -ms-flex-order:0;
     flex: 1;
+    -ms-flex: 1;
     display: flex;
+    display: -ms-flexbox;
     justify-content: center;
+    -ms-flex-pack: center;
     align-items: center;
+    -ms-flex-align: center;
 }
 
 #marker-popup .startups-gallery .startups-gallery-item-frame .gallery-img {
@@ -3274,6 +3299,7 @@ margin-bottom: 5px;
 }
 .leftSide {
     flex: 2;
+    -ms-flex:2;
 }
 #marker-popup iframe {
     width: 550px;

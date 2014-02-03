@@ -91,7 +91,7 @@ $(document).ready(function (e) {
                 html += '           <div class="title ellipsis">' + title + '</div>';
                 if(founderShow)
                 html += '           <div class="name ellipsis"><b>Founders:</b> ' + founderShow + '</div>';
-
+                
                 // html +=                 logo;
                 if (logoSrc != null)
                     html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
@@ -99,7 +99,13 @@ $(document).ready(function (e) {
 
                 html += '       <div class="mainArea">    ';
                 html += '           <div class="description">' + description + '</div>';
+
+                
+
                 html += '           <div class="gallery">    ';
+                if(youtubeUrl){
+                    html+='         <div >'+getEmbedMovie(getMovieDataByURL(youtubeUrl),77,119)+'</div>';
+                }
                 if (ImgSrc1 != null)
                     html += '           <div>    <img class="gallery-img" src="' + ImgSrc1 + '" alt="' + title + ' img1">  </div>  ';
                 if (ImgSrc2 != null)
@@ -120,6 +126,7 @@ $(document).ready(function (e) {
                 html += '       </div>    ';
 
                 var $inventDescription = $(html);
+                $inventDescription.find('iframe').addClass("gallery-img");
                 $('#formPart3').empty().prepend($inventDescription);
             }
         }
@@ -1267,4 +1274,15 @@ function buildMarkerPopupHTML(key) {
  
  
 //////////////////////////////end google map///////////////////////////////////////////
- 
+
+//upload file button - wotre for ie but now all browsers use it
+function getFile(id){
+   $(id).click();
+ }
+ function sub(obj){
+    var file = obj.value;
+    var fileName = file.split("\\");
+    document.getElementById("yourBtn").innerHTML = fileName[fileName.length-1];
+    document.myForm.submit();
+    event.preventDefault();
+  }

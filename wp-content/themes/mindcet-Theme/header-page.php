@@ -1,3 +1,4 @@
+<!DOCTYPE html>  
 <html>
 	<meta charset="<?php bloginfo('charset'); ?>" />
     <!--<meta property="og:image" content="<?php //echo site_url();?>/wp-content/uploads/2014/01/final-logo1.png"/>-->

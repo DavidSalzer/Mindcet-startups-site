@@ -1,7 +1,7 @@
    var maxSize=2;//mb
    var fileMesg='file is too big, Please ensure that file size is less than 2Mb.';
 // JavaScript Document
-
+var fromMarker=null;
 $(document).ready(function (e) {
     
     initMap();
@@ -58,6 +58,7 @@ $(document).ready(function (e) {
     $('.next-page').on('click', this, function () {
         if ($('#formPart1').is(":visible")) {
             if (form1Validate()) {
+                ga('send', 'event', 'button', 'click', 'add invent - 2');
                 $('#formPart1').hide();
                 $('#formPart2').show();
                 $('.last-page').css("display", "inline-block");
@@ -69,6 +70,7 @@ $(document).ready(function (e) {
 
         else if ($('#formPart2').is(":visible")) {
             if (form2Validate()) {
+                ga('send', 'event', 'button', 'click', 'add invent - 3');
                 $('#formPart2').hide();
                 $('#page-number-2').hide();
                 $('.next-page').css("display", "none");
@@ -412,13 +414,74 @@ $(document).ready(function (e) {
         openInNewWindow(likeUrl);
     })
 
-    $('body').on('click','.mapOpenInvent',function(e){
+    $('body').on('click','.mapOpenInvent',function(e){   
     tid=$(this).attr('date-id');
     $('#marker-popup').fadeOut(300, 'easeInOutBack');
     popuopInvent(tid);
     e.preventDefault()
     return false;
  });
+
+ $('.inventDescription .close').on('click', this, function () {
+        $('#fbCount').remove();
+        $('#twittCount').remove();
+        
+        $('.mask').removeClass('mask-invent');
+        $('.mask').fadeOut('fast');
+        $('body').css('overflow','auto');
+        
+        $('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
+        $('.inventDescription').fadeOut('fast');
+        //$('#id'+allTech[tid].techId).hide();
+        var scr = document.body.scrollTop;
+
+        window.location.hash = ' ';
+
+        document.body.scrollTop = scr;
+        //$('html, body').animate({
+           // scrollTop: "550px"
+      //  }, 0.3);
+      
+        //if come from marker popup
+        var markerId=$("#marker-popup").attr("marker-id");
+        if(markerId!=""){
+            buildMarkerPopupHTML(markerId);            
+        }
+        return false;
+    });
+
+   $('.mask').on('click', this, function (e) {
+     if($(e.target).attr("class") != "undefind" && $(e.target).attr("class").indexOf('mask')==0) { 
+            //if from invent
+            if($(e.target).hasClass("mask-invent")){
+                $('.inventDescription .close').click();
+            }
+            //from marker
+            else{
+                $('#marker-popup .close').click();
+            }
+
+            //$('.inventDescription .close').click();
+            // $('#marker-popup').hide();
+    }
+    });
+
+     $('#marker-popup').on('click', ".close", function () {
+        //reset key-id to marker section
+        $("#marker-popup").attr("marker-id","");
+        
+        //$('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
+        $('#marker-popup').fadeOut(300, 'easeInOutBack');
+        //$('#id'+allTech[tid].techId).hide();
+        window.location.hash='';
+        $('html, body').animate({
+            scrollTop: "550px"
+        }, 1);
+        //$('.mask').removeClass('mask-invent');
+        $('.mask').fadeOut(800, 'easeInOutBack');
+        $('body').css('overflow','auto');
+        return false;
+    });
 
 }); //dom ready
 
@@ -427,6 +490,9 @@ $(document).ready(function (e) {
 
 function openOfferPopUp() {
     //disable_scroll();
+
+    ga('send', 'event', 'button', 'click', 'add invent - 1');
+
     $('.inventorPopUp').fadeIn(400, 'easeInOutBack');
     $('html, body').animate({
         scrollTop: $("#offer-zone").offset().top - 154
@@ -659,7 +725,7 @@ function enable_scroll() {
         }
         if(tid){
             window.location.hash=tid;
-            ga('send', 'pageview',"statrtup= "+allTech[tid].title);
+            ga('send', 'pageview',allTech[tid].title);
         }
         
         globalUrl=document.URL.split("#")[0];
@@ -676,15 +742,15 @@ function enable_scroll() {
         //$('#twittCount').attr('data-text',allTech[tid].title+' Startup name is my favorite EdTech startup. What\'s yours?');
         $('#twittCount').remove();
         
-        $('#single-startup-zone .inventContener').append('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button" data-url="'+allTech[tid].permalink+'" data-text="'+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?" data-count="vertical">Tweet</a>');
-        if($('#single-startup-zone').hasClass('twitterF')){
-            twttr.widgets.load();
-        }
-        $('#single-startup-zone').addClass('twitterF');
-        
-        
-        $('#single-startup-zone .inventContener').append('<div class="fb-like" data-href="'+allTech[tid].permalink+'&postid='+allTech[tid].techId+'&logo='+allTech[tid].logo[0]+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false" id="fbCount"></div>');
-        
+        //$('#single-startup-zone .inventContener').append('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button" data-url="'+allTech[tid].permalink+'" data-text="'+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?" data-count="vertical">Tweet</a>');
+        //if($('#single-startup-zone').hasClass('twitterF')){
+        //    twttr.widgets.load();
+        //}
+        //$('#single-startup-zone').addClass('twitterF');
+        //
+        //
+        //$('#single-startup-zone .inventContener').append('<div class="fb-like" data-href="'+allTech[tid].permalink+'&postid='+allTech[tid].techId+'&logo='+allTech[tid].logo[0]+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false" id="fbCount"></div>');
+        //
         setTimeout(function(){FB.XFBML.parse()},2000);
       
         $('#comments-frame').attr("src",globalUrl+'comment.php?url='+domComments+'&text='+allTech[tid].title+'&img='+allTech[tid].logo[0]+'&url='+allTech[tid].permalink);
@@ -770,42 +836,25 @@ function enable_scroll() {
     }, 1);
 
     var $inventDescription = $(html);
+   
     $('.inventDescription-append').append($inventDescription);
+
+     $(".socialArea").prepend('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button social" data-url="'+allTech[tid].permalink+'" data-text="'+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?" data-count="vertical">Tweet</a>');
+        if($('#single-startup-zone').hasClass('twitterF')){
+            twttr.widgets.load();
+        }
+        $('#single-startup-zone').addClass('twitterF');
+        
+        
+        $(".socialArea").prepend('<div class="fb-like social" data-href="'+allTech[tid].permalink+'&postid='+allTech[tid].techId+'&logo='+allTech[tid].logo[0]+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false" id="fbCount"></div>');
+        
     //$('.inventDescription .mainArea .movie iframe').delay(200).fadeIn(500, 'easeInOutBack');
     //$('.inventDescription .mainArea').delay(600).fadeIn(200, 'easeInOutBack');
      if($('#single-startup-zone').hasClass('twitterF')){
            setTimeout(function(){twttr.widgets.load();},2000);
         }
     //facebookCommentsLink()
-    $('.inventDescription .close').on('click', this, function () {
-        $('#fbCount').remove();
-        $('#twittCount').remove();
-        
-        $('.mask').removeClass('mask-invent');
-        $('.mask').fadeOut('fast');
-        $('body').css('overflow','auto');
-        
-        $('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
-        $('.inventDescription').fadeOut('fast');
-        //$('#id'+allTech[tid].techId).hide();
-        var scr = document.body.scrollTop;
-
-        window.location.hash = ' ';
-
-        document.body.scrollTop = scr;
-        //$('html, body').animate({
-           // scrollTop: "550px"
-      //  }, 0.3);
-      
-        return false;
-    });
-   $('.mask').on('click', this, function (e) {
-     if($(e.target).attr("class") != "undefind" && $(e.target).attr("class").indexOf('mask')==0) { 
-            $('.inventDescription .close').click();
-             $('#marker-popup').hide();
-    }
-    });
-
+    
     return false;
 };
 
@@ -1037,7 +1086,9 @@ function showHighlight(){
 }
 
 function showForm4(){
+   
     if ($('#formPart4').hasClass('show')){
+         ga('send', 'event', 'button', 'click', 'add invent - success');
         $('#offer-zone').show();
         $('.next-page').css("display", "none");
         $('.last-page').css("display", "none");
@@ -1158,6 +1209,8 @@ function setMarkers(allMarkers) {
 }
  
 function buildMarkerPopupHTML(key) {
+
+    ga('send', 'pageview',saveVotesData[key].title);
     console.log(saveVotesData[key].logo[0]);
     console.log(saveVotesData[key].descript);
     console.log(saveVotesData[key].title);
@@ -1225,6 +1278,8 @@ function buildMarkerPopupHTML(key) {
     var $inventDescription = $(html);
     $('.popupDescription-append').empty().append($inventDescription);
 
+    //add key-id to marker section
+    $("#marker-popup").attr("marker-id",key);
 
     h=$(window).height();
     $('body').css('overflow','hidden');
@@ -1236,26 +1291,7 @@ function buildMarkerPopupHTML(key) {
         scrollTop: $("#invent-close").offset().top - 25
     }, 1);
     
-     $('#marker-popup').on('click', ".close", function () {
-        //$('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
-        $('#marker-popup').fadeOut(300, 'easeInOutBack');
-        //$('#id'+allTech[tid].techId).hide();
-        window.location.hash='';
-        $('html, body').animate({
-            scrollTop: "550px"
-        }, 1);
-        //$('.mask').removeClass('mask-invent');
-        $('.mask').fadeOut(800, 'easeInOutBack');
-        $('body').css('overflow','auto');
-        return false;
-    });
-
-     $('.mask').on('click', this, function (e) {
-     if($(e.target).attr("class") != "undefind" && $(e.target).attr("class").indexOf('mask')==0) { 
-            $('#marker-popup .close').click();
-             $('#marker-popup').hide();
-    }
-    });
+    
 
 
 //$('body').on('click','.mapOpenInvent',function(e){

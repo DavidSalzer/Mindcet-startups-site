@@ -1,13 +1,14 @@
+<!DOCTYPE html>
 <html>
 	<meta charset="<?php bloginfo('charset'); ?>" />
     <!--<meta property="og:image" content="<?php //echo site_url();?>/wp-content/uploads/2014/01/final-logo1.png"/>-->
-    <!--<meta property="og:image" content="<?php echo get_theme_mod('link_ImgBg');?>"/>-->
+    <meta property="og:image" content="http://globaledtechawards.org/wp-content/themes/mindcet-Theme/img/thumbnail%20logo.gif"/>
     <meta property="og:title" content="Global EdTech Startup Awards 2014" />
     <meta property="og:description" content="What's your favorite EdTech startup?"/>
     <meta property="og:updated_time" content="1391001033173" /> 
     <!--<meta property="og:image" content="http://mindcet.co.il.tigris.nethost.co.il/wp-content/uploads/2014/01/final-logo1.png"/>-->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-     <link rel="image_src" href="<?php echo get_theme_mod('link_ImgBg');?>"/>
+     <link rel="image_src" href="http://globaledtechawards.org/wp-content/themes/mindcet-Theme/img/thumbnail%20logo.gif"/>
 	<?php if (is_search()) { ?>
 	   <meta name="robots" content="noindex, nofollow" /> 
 	<?php } ?>

@@ -84,6 +84,10 @@ Version: 1
         margin: 0 0 10px 0;
     }
 
+    select::-ms-expand {
+        display: none;
+    }
+
     .post {
     }
 
@@ -884,9 +888,12 @@ background-repeat: no-repeat;*/
 }
 
 #twitter-widget-0 {
-    position: absolute;
     margin-top: 78px;
-    margin-left: -120px;
+margin-left: -120px;
+position: absolute;
+left: 253px;
+bottom: 83px;
+z-index: 6;
 }
 
 #offerStartUp {
@@ -924,6 +931,9 @@ background-repeat: no-repeat;*/
     letter-spacing: 1px;
 }
 
+.addthis_button_tweet iframe{
+    width: auto !important;
+}
 #offerStartUp {
     font-size: 1.1em;
     background-color: #e76c76;
@@ -1163,6 +1173,8 @@ width: 222px;
     overflow: hidden;
     vertical-align: middle;
     height: 606px;
+    overflow-x: scroll;
+    /*-webkit-overflow-scrolling: touch;*/
 }
 
 .inventHome ul li {
@@ -1736,6 +1748,16 @@ color: #fff;*/
     margin-bottom: 20px;
 }
 
+.input-outer{
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+}
+
+.input-outer input{
+    width: 0px;
+    height: 0px;
+}
 .last-page, .next-page, .submit input {
     display: inline-block;
     width: 166px;
@@ -2041,7 +2063,7 @@ font-family: sans-serif;*/
 .inventDescription, .mapDescription {
     width: 712px;
     background-color: #fff;
-    position: relative;
+    position: absolute;
     z-index: 51;
     margin: auto;
     left: 0;
@@ -2185,11 +2207,11 @@ margin-top: 10px;
 }
 
 .socialArea .fb, .form-end-message .fb {
-    background-image: url("img/social_startup_popup.png");
-    background-position-x: -6px;
-    margin: 25px 0 0 58px;
-    color: #555ca8;
-    display: block;
+   background-image: url("img/social_startup_popup.png");
+background-position-x: -6px;
+margin: 11px 0 0 58px;
+color: #555ca8;
+display: block;
 }
 
 .form-end-message .fb {
@@ -2199,18 +2221,19 @@ margin-top: 10px;
 
 .socialArea .twitter, .form-end-message .twitter {
     background-image: url("img/social_startup_popup.png");
-    background-position-x: 52%;
-    color: #45b0e4;
-    margin: 0 0 0 58px;
-    display: block;
+background-position-x: 52%;
+color: #45b0e4;
+margin: 6px 0 0 58px;
+display: block;
 }
 
 .socialArea .linkedin, .form-end-message .linkedin {
     background-image: url("img/social_startup_popup.png");
-    background-position-x: 93%;
+    background-position-x: 97%;
     color: #2980b9;
     margin: 11px 0 0 56px;
     display: block;
+    border: none;
 }
 
 .socialArea .fb, .socialArea .twitter, .socialArea .linkedin {
@@ -2520,7 +2543,12 @@ top: 30px;*/
     top: 224px;
     /*display: none;*/
 }
-
+.inventDescription .socialArea{
+    top: 86px;
+}
+.mapDescription .socialArea{
+    top: 170px;
+}
 .inventDescription .mainArea, .mapDescription .mainArea {
     /*float: left;
 width: 480px;
@@ -2687,6 +2715,8 @@ body {
     bottom: -37px;
     height: 57px;
     -webkit-transform: rotateZ(-90deg);
+    -ms-transform:  rotateZ(-90deg);
+
 }
 
 .loading {
@@ -3007,6 +3037,7 @@ select#tags {
 }
 
 select#categoryNav, select#tagsNav {
+    appearance:none;
     -webkit-appearance: none; /*Removes default chrome and safari style*/
     -moz-appearance: none; /*Removes default style Firefox*/
     width: 510px;
@@ -3024,6 +3055,7 @@ select#categoryNav, select#tagsNav {
 }
 
 select#category, select#tags {
+    appearance:none;
     -webkit-appearance: none; /*Removes default chrome and safari style*/
     -moz-appearance: none; /*Removes default style Firefox*/
     width: 500px;
@@ -3086,6 +3118,7 @@ select#tagsNav {
 #marker-popup .startups-gallery {
     float: left;
     margin-top: 20px;
+    width: 480px;
 }
 
 #marker-popup .startups-gallery-item {
@@ -3160,7 +3193,9 @@ select#tagsNav {
     height: auto;
     padding: 7px;
     display: flex;
+    display: -ms-flexbox;
     flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
     justify-content: flex-start;
 }
 
@@ -3187,10 +3222,15 @@ select#tagsNav {
     margin: 5px;
     float: left;
     order: 0;
+    -ms-flex-order:0;
     flex: 1;
+    -ms-flex: 1;
     display: flex;
+    display: -ms-flexbox;
     justify-content: center;
+    -ms-flex-pack: center;
     align-items: center;
+    -ms-flex-align: center;
 }
 
 #marker-popup .startups-gallery .startups-gallery-item-frame .gallery-img {
@@ -3198,14 +3238,17 @@ select#tagsNav {
 }
 
 #fbCount {
-position: absolute;
-top: 100px;
-left: 50px;
+margin-left: 43px;
+width: 48px;
+padding-bottom: 15px;
+padding-left: 3px;
+height: auto;
 }
 #twittCount {
-position: absolute;
-top: 175px;
-left: 50px;
+margin-left: 42px;
+padding-bottom: 17px;
+padding-top: 4px;
+margin-bottom: 0px;
 }
 .img-wrap {
     width: 100%;
@@ -3274,6 +3317,7 @@ margin-bottom: 5px;
 }
 .leftSide {
     flex: 2;
+    -ms-flex:2;
 }
 #marker-popup iframe {
     width: 550px;

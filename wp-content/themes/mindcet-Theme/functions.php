@@ -697,6 +697,8 @@ function getCssForLink(){
 
 
 <?php 
+
+
 function mailChimp($email,$name){
 	 include ("inc/Mailchimp.php");
 	 $listId='8366e2458d';
@@ -718,33 +720,44 @@ function mailChimp($email,$name){
 
 
 
+include_once('/inc/recaptcha-php/recaptchalib.php' );
+
 function myCapch(){
-	require( get_template_directory() . 'inc/recaptcha-php/recaptchalib.php' );
-	// Get a key from https://www.google.com/recaptcha/admin/create
-	$publickey = "6Lc_Pu4SAAAAAPo3yZJ8UQkagt5Wm_tA4W5x8Qpz";
-	$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
-	
-	# the response from reCAPTCHA
-	$resp = null;
-	# the error code from reCAPTCHA, if any
-	$error = null;
-	
-	# was there a reCAPTCHA response?
-	if ($_POST["recaptcha_response_field"]) {
-			$resp = recaptcha_check_answer ($privatekey,
-											$_SERVER["REMOTE_ADDR"],
-											$_POST["recaptcha_challenge_field"],
-											$_POST["recaptcha_response_field"]);
-	
-			if ($resp->is_valid) {
-					echo "You got it!";
-			} else {
-					# set the error code so that we can display it
-					$error = $resp->error;
-			}
-	}
-	echo recaptcha_get_html($publickey, $error);
-	
+			?>
+			  <script type="text/javascript">
+		 var RecaptchaOptions = {
+			theme : 'white'
+		 };
+		 </script>
+		<?php
+			
+			// Get a key from https://www.google.com/recaptcha/admin/create
+			$publickey = "6LdQPu4SAAAAACRzwW4h8VQtluCUAqLiMrhRQNKp";
+			$privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
+			
+			# the response from reCAPTCHA
+			$resp = null;
+			# the error code from reCAPTCHA, if any
+			$error = null;
+			
+			# was there a reCAPTCHA response?
+			echo recaptcha_get_html($publickey,$error);
+		
+}
 
+function myCapchIsValid(){
+  $privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
+  $resp = recaptcha_check_answer ($privatekey,
+                                $_SERVER["REMOTE_ADDR"],
+                                $_POST["recaptcha_challenge_field"],
+                                $_POST["recaptcha_response_field"]);
 
+  if (!$resp->is_valid) {
+    // What happens when the CAPTCHA was entered incorrectly
+    die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
+         "(reCAPTCHA said: " . $resp->error . ")");
+  } else {
+    // Your code here to handle a successful verification
+  }
+	
 }

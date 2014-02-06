@@ -64,12 +64,16 @@ $(document).ready(function (e) {
                 $('.last-page').css("display", "inline-block");
                 $('#page-number-1').hide();
                 $('#page-number-2').show();
+				
             }
             return true;
         }
 
         else if ($('#formPart2').is(":visible")) {
             if (form2Validate()) {
+				$('.capchArea').show();
+				$('.inventorPopUp').css('height','775px');
+				$('.triangle').css('bottom','250px');
                 ga('send', 'event', 'button', 'click', 'add invent - 3');
                 $('#formPart2').hide();
                 $('#page-number-2').hide();
@@ -146,10 +150,14 @@ $(document).ready(function (e) {
             $('.next-page').css("display", "inline-block");
             $('#formPart1').show();
             $('#page-number-1').show();
+			
             return;
         }
 
         else if ($('#formPart3').is(":visible")) {
+			$('.capchArea').hide();
+			$('.inventorPopUp').css('height','666px');
+			$('.triangle').css('bottom','138px');
             $('#formPart3').hide();
             $('#page-number-3').hide();
             $('#page-number-2').show();
@@ -157,6 +165,7 @@ $(document).ready(function (e) {
             $('#formPart2').show();
             $('.next-page').show();
             $('.next-page').css("display", "inline-block");
+			
         }
 
         return;

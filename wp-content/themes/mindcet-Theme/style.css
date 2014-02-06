@@ -1173,8 +1173,6 @@ width: 222px;
     overflow: hidden;
     vertical-align: middle;
     height: 606px;
-    overflow-x: scroll;
-    /*-webkit-overflow-scrolling: touch;*/
 }
 
 .inventHome ul li {
@@ -2207,11 +2205,11 @@ margin-top: 10px;
 }
 
 .socialArea .fb, .form-end-message .fb {
-   background-image: url("img/social_startup_popup.png");
-background-position-x: -6px;
-margin: 11px 0 0 58px;
-color: #555ca8;
-display: block;
+    background-image: url("img/social_startup_popup.png");
+    background-position-x: -6px;
+    margin: 25px 0 0 58px;
+    color: #555ca8;
+    display: block;
 }
 
 .form-end-message .fb {
@@ -2221,15 +2219,15 @@ display: block;
 
 .socialArea .twitter, .form-end-message .twitter {
     background-image: url("img/social_startup_popup.png");
-background-position-x: 52%;
-color: #45b0e4;
-margin: 6px 0 0 58px;
-display: block;
+    background-position-x: 52%;
+    color: #45b0e4;
+    margin: 0 0 0 58px;
+    display: block;
 }
 
 .socialArea .linkedin, .form-end-message .linkedin {
     background-image: url("img/social_startup_popup.png");
-    background-position-x: 97%;
+    background-position-x: 93%;
     color: #2980b9;
     margin: 11px 0 0 56px;
     display: block;
@@ -2546,9 +2544,7 @@ top: 30px;*/
 .inventDescription .socialArea{
     top: 86px;
 }
-.mapDescription .socialArea{
-    top: 170px;
-}
+
 .inventDescription .mainArea, .mapDescription .mainArea {
     /*float: left;
 width: 480px;

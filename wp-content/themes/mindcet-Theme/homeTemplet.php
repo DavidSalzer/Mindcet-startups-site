@@ -320,7 +320,7 @@ do_action('wp_insert_post', 'wp_insert_post');
          	</div> 
     
         <fieldset class="submit">
-            <input type="button" value="Submit" tabindex="40" id="submit" name="submit" />
+            <input type="submit" value="Submit" tabindex="40" id="submit" name="submit" />
         </fieldset>
     
         <input type="hidden" name="action" value="new_post" />

@@ -56,13 +56,19 @@ $('#aboutUs .close,.aboutUsMask').on('click',this,function(){
 $('#cbtm').on('click',this,function(){
 		sendMessage();
 	});	
-
-//addStartUp();
+//capchSeccess=false;
+$('#new_post').attr("capchSeccess",'false');
+$('#new_post').submit(function(e){
+	if($('#new_post').attr("capchSeccess")=='false'){
+		addStartUp();
+		e.preventDefault();
+	}
+});
 
 });//dom ready
 
 function addStartUp(){
-	$('#new_post').on('submit',this,function(e){	
+	
 	recaptcha_challenge=$("input#recaptcha_challenge_field").val();
 	recaptcha_response=$("input#recaptcha_response_field").val();
 	
@@ -74,16 +80,17 @@ function addStartUp(){
 			}
 			, function(data) {
 				console.log(data);
-					if(data=='ok'){
+					if(data==1){
+						$('#new_post').attr("capchSeccess",'true');
+						$('#submit').click();
 						return true;
 					}else{
 						alert('captcha is not valid');
-						return false;
+						$('#new_post').attr("capchSeccess",'false');
+						return false;	
 					}	
 			});
-			return false;
-			e.preventDefault();	
-	});
+		
 }
 
 

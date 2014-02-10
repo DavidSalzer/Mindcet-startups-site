@@ -111,9 +111,9 @@
 		
 		  if (!$resp->is_valid) {
 			// What happens when the CAPTCHA was entered incorrectly
-				echo 'fail';
+				echo '0';
 			  }else{
-				echo 'ok';
+				echo '1';
 			}
 		die();
 	}

@@ -3330,3 +3330,5 @@ margin-bottom: 5px;
 .capchArea{
 	display:none;
 }
+
+iframe[src="about:blank"]{display:none;}

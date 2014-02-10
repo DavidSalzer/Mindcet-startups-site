@@ -483,9 +483,9 @@ $(document).ready(function (e) {
         $('#marker-popup').fadeOut(300, 'easeInOutBack');
         //$('#id'+allTech[tid].techId).hide();
         window.location.hash='';
-        $('html, body').animate({
-            scrollTop: "550px"
-        }, 1);
+        //$('html, body').animate({
+        //    scrollTop: "550px"
+        //}, 1);
         //$('.mask').removeClass('mask-invent');
         $('.mask').fadeOut(800, 'easeInOutBack');
         $('body').css('overflow','auto');

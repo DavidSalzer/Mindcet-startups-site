@@ -44,7 +44,7 @@ set_post_thumbnail( 165, 176177178179 );
   if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post"&& isset($_POST['submit'])) {
 	 //get the category
 
-	$privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
+	$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
   $resp = recaptcha_check_answer ($privatekey,
                                 $_SERVER["REMOTE_ADDR"],
                                 $_POST["recaptcha_challenge_field"],
@@ -328,13 +328,12 @@ do_action('wp_insert_post', 'wp_insert_post');
 
             </div>
         
-<div class='capchArea'>	
-			<?php myCapch() ?>
-
-			</div>        
+			       
         		<?php }?>	
         </div>
-    
+    <div class='capchArea'>	
+				<?php myCapch() ?>
+         	</div> 
     
         <fieldset class="submit">
             <input type="submit" value="Submit" tabindex="40" id="submit" name="submit" />

@@ -98,6 +98,17 @@
 	add_action( 'wp_ajax_catGallery', 'catGallery' );
 	add_action( 'wp_ajax_nopriv_catGallery', 'catGallery' ); 
 	
+	add_action( 'wp_ajax_addStartUp', 'addStartUp' );
+	add_action( 'wp_ajax_nopriv_addStartUp', 'addStartUp' ); 
+	
+	
+	function addStartUp(){
+		echo 'addd';
+		die();
+	}
+	
+	
+	
 	function catGallery(){
 		$catId=$_REQUEST['catId'];
 		$tagName=$_REQUEST['tagName'];
@@ -707,7 +718,7 @@ function mailChimp($email,$name){
 	);
 	 $apiKey='129c1db8a40f40aa3417c7d277581b9f-us6';
 	$mailChimp=new Mailchimp($apiKey);
-	
+	//$mailChimp->lists->su
 	$result=$mailChimp->lists->subscribe($listId, array('email'=>$email),
                                         $merge_vars,
                                         false,

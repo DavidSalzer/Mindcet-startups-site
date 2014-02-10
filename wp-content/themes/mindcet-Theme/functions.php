@@ -700,19 +700,19 @@ function getCssForLink(){
 
 
 function mailChimp($email,$name){
-	 include ("inc/Mailchimp.php");
+	 require( get_template_directory().'/inc/Mailchimp.php');
 	 $listId='8366e2458d';
 	 $merge_vars=array(
 		 'FNAME' => $name
 	);
 	 $apiKey='129c1db8a40f40aa3417c7d277581b9f-us6';
 	$mailChimp=new Mailchimp($apiKey);
-	//$mailChimp->lists->su
+	
 	$result=$mailChimp->lists->subscribe($listId, array('email'=>$email),
                                         $merge_vars,
                                         false,
                                         true,
-                                        false,
+                                        true,
                                         false
                                        );
     if($result)return true;
@@ -720,20 +720,20 @@ function mailChimp($email,$name){
 
 
 
-include_once('/inc/recaptcha-php/recaptchalib.php' );
+require( get_template_directory() .'/inc/recaptcha-php/recaptchalib.php' );
 
 function myCapch(){
 			?>
 			  <script type="text/javascript">
 		 var RecaptchaOptions = {
-			theme : 'white'
+			theme : 'clean'
 		 };
 		 </script>
 		<?php
 			
 			// Get a key from https://www.google.com/recaptcha/admin/create
-			$publickey = "6LdQPu4SAAAAACRzwW4h8VQtluCUAqLiMrhRQNKp";
-			$privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
+			$publickey = "6Lc_Pu4SAAAAAPo3yZJ8UQkagt5Wm_tA4W5x8Qpz";
+			$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
 			
 			# the response from reCAPTCHA
 			$resp = null;

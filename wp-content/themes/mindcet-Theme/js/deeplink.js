@@ -62,13 +62,28 @@ addStartUp();
 });//dom ready
 
 function addStartUp(){
+	$('#new_post').on('submit',this,function(e){	
+	recaptcha_challenge=$("input#recaptcha_challenge_field").val();
+	recaptcha_response=$("input#recaptcha_response_field").val();
+	
 	jQuery.post('wp-admin/admin-ajax.php', {
 				action: 'addStartUp',
+				recaptcha_challenge_field:recaptcha_challenge,
+				recaptcha_response_field:recaptcha_response,
+				
 			}
 			, function(data) {
-					alert(data);	
-			});	
-
+				console.log(data);
+					if(data=='ok'){
+						return true;
+					}else{
+						alert('captcha is not valid');
+						return false;
+					}	
+			});
+			return false;
+			e.preventDefault();	
+	});
 }
 
 
@@ -78,7 +93,12 @@ function setStar(){
 				action: 'addLike',
 			}
 			, function(data) {
-					alert(data);	
+					if(data=='fail'){
+						alert('captcha is incorrect. please try again');
+						return false;
+					}else{
+						return true;
+					}	
 			});	
 
 }

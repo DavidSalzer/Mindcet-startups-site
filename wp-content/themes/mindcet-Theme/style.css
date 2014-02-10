@@ -2256,7 +2256,7 @@ margin-top: 10px;
 }
 
 .fb-like {
-    z-index: 9999;
+    z-index: 6;
 }
 
 .fbpdl {
@@ -3330,3 +3330,5 @@ margin-bottom: 5px;
 .capchArea{
 	display:none;
 }
+
+iframe[src="about:blank"]{display:none;}

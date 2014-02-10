@@ -57,7 +57,7 @@ $('#cbtm').on('click',this,function(){
 		sendMessage();
 	});	
 
-addStartUp();
+//addStartUp();
 
 });//dom ready
 

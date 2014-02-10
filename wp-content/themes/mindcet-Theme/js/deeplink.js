@@ -57,19 +57,28 @@ $('#cbtm').on('click',this,function(){
 		sendMessage();
 	});	
 
-
+addStartUp();
 
 });//dom ready
 
+function addStartUp(){
+	jQuery.post('wp-admin/admin-ajax.php', {
+				action: 'addStartUp',
+			}
+			, function(data) {
+					alert(data);	
+			});	
+
+}
 
 
-function setStar(pid){
+function setStar(){
 	jQuery.post('wp-admin/admin-ajax.php', {
 				postId:pid,
 				action: 'addLike',
 			}
 			, function(data) {
-				//alert(data);	
+					alert(data);	
 			});	
 
 }

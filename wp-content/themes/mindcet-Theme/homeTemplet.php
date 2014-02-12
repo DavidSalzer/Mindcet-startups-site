@@ -44,22 +44,6 @@ set_post_thumbnail( 165, 176177178179 );
   if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post"&& isset($_POST['submit'])) {
 	 //get the category
 
-	$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
-  $resp = recaptcha_check_answer ($privatekey,
-                                $_SERVER["REMOTE_ADDR"],
-                                $_POST["recaptcha_challenge_field"],
-                                $_POST["recaptcha_response_field"]);
-
-  if (!$resp->is_valid) {
-    // What happens when the CAPTCHA was entered incorrectly
-	 $error['capch']= "<div class='form-end-message'>Oops!<br><br> Worng Capch is Inserted</div><div class='planes'></div>";	
-	  $error['initiator']="<div class='form-end-message'>Oops!<br><br> Worng Capch is Inserted</div><div class='planes'></div>";
-	  }else{
-		$error['capch']='valid';
-	}
-
-
-
 	/* $args = array(
 			'orderby' => 'name',
 	     	'order' => 'ASC',

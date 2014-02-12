@@ -103,7 +103,18 @@
 	
 	
 	function addStartUp(){
-		echo 'addd';
+		$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
+		  $resp = recaptcha_check_answer ($privatekey,
+										$_SERVER["REMOTE_ADDR"],
+										$_POST["recaptcha_challenge_field"],
+										$_POST["recaptcha_response_field"]);
+		
+		  if (!$resp->is_valid) {
+			// What happens when the CAPTCHA was entered incorrectly
+				echo '0';
+			  }else{
+				echo '1';
+			}
 		die();
 	}
 	
@@ -773,3 +784,6 @@ function myCapchIsValid(){
   }
 	
 }
+
+
+	

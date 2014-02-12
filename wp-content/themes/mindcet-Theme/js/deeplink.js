@@ -56,19 +56,41 @@ $('#aboutUs .close,.aboutUsMask').on('click',this,function(){
 $('#cbtm').on('click',this,function(){
 		sendMessage();
 	});	
-
-//addStartUp();
+//capchSeccess=false;
+$('#new_post').attr("capchSeccess",'false');
+$('#new_post').submit(function(e){
+	if($('#new_post').attr("capchSeccess")=='false'){
+		addStartUp();
+		e.preventDefault();
+	}
+});
 
 });//dom ready
 
 function addStartUp(){
+	
+	recaptcha_challenge=$("input#recaptcha_challenge_field").val();
+	recaptcha_response=$("input#recaptcha_response_field").val();
+	
 	jQuery.post('wp-admin/admin-ajax.php', {
 				action: 'addStartUp',
+				recaptcha_challenge_field:recaptcha_challenge,
+				recaptcha_response_field:recaptcha_response,
+				
 			}
 			, function(data) {
-					alert(data);	
-			});	
-
+				console.log(data);
+					if(data==1){
+						$('#new_post').attr("capchSeccess",'true');
+						$('#submit').click();
+						return true;
+					}else{
+						alert('captcha is not valid');
+						$('#new_post').attr("capchSeccess",'false');
+						return false;	
+					}	
+			});
+		
 }
 
 
@@ -78,7 +100,12 @@ function setStar(){
 				action: 'addLike',
 			}
 			, function(data) {
-					alert(data);	
+					if(data=='fail'){
+						alert('captcha is incorrect. please try again');
+						return false;
+					}else{
+						return true;
+					}	
 			});	
 
 }

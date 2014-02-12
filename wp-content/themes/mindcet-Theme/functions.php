@@ -246,6 +246,7 @@
 		
 		
 		array_push($allVotes,$vote);
+        $vote=array();
 		endforeach;
 		return json_encode($allVotes);
 	}

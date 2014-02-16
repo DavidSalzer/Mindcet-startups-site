@@ -823,7 +823,7 @@ function enable_scroll() {
 
     var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),$(".inventDescription .mainArea .movie iframe").height(),$(".inventDescription .mainArea .movie iframe").width());
     if (videoIframe != undefined)
-        html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480) + '</div>';
+        html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),$(".inventDescription .mainArea .movie iframe").height(),$(".inventDescription .mainArea .movie iframe").width()) + '</div>';
     if(allTech[tid].founder){
             html += '<div class="name ellipsis"><b>Founders:</b> ' + allTech[tid].founder + '</div>';
         }else{

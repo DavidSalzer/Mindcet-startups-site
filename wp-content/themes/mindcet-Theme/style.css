@@ -1500,13 +1500,17 @@ visibility: hidden;
     color: #21cb89;
 }
 
-.inventorPopUp .triangle {
+.triangle{
     position: absolute;
     background-image: url(img/triangle.png);
     width: 50px;
+     height: 57px;
+}
+.inventorPopUp .triangle {
+    
     left: -32px;
     bottom: 138px;
-    height: 57px;
+   
 }
 
 
@@ -2704,12 +2708,10 @@ body {
 }
 
 #contactUsForm .triangle {
-    position: absolute;
-    background-image: url(img/triangle.png);
-    width: 50px;
+    
     left: 28px;
     bottom: -37px;
-    height: 57px;
+   
     -webkit-transform: rotateZ(-90deg);
     -ms-transform:  rotateZ(-90deg);
 
@@ -3332,3 +3334,66 @@ margin-bottom: 5px;
 }
 
 iframe[src="about:blank"]{display:none;}
+
+#newsletter-btn{
+    position: fixed;
+top: 420px;
+left: 0;
+background-color: #ffffff;
+width: 63px;
+height: 65px;
+background-image: url(img/newsletter.png);
+z-index: 16;
+border-radius: 0px 31px 31px 0px;
+}
+
+#newsletter-btn:hover , #newsletter-btn.selected{
+    background-color: #1fcd88;
+}
+
+#newsletter-popup{
+    width: 586px;
+height: 208px;
+background-color: #ffffff;
+position: fixed;
+top: 352px;
+left: 96px;
+color: #e76c76;
+display: none;
+}
+
+#newsletter-popup-title{
+    text-align: center;
+margin-top: 27px;
+font-size: 24px;
+margin-bottom: 16px;
+}
+
+#newsletter-popup input{
+    width: 496px;
+height: 43px;
+font-size: 19px;
+font-family: sans;
+line-height: 45px;
+border: 2px solid #e8e8e8;
+border-radius: 3px;
+margin-left: 42px;
+text-indent: 15px;
+}
+#newsletter-popup-error{
+    position: absolute;
+bottom: 20px;
+left: 42px;
+font-size: 15px;
+display: none;
+}
+
+#newsletter-popup-sign-btn{
+    margin-right: 0px;
+bottom: 20px;
+
+}
+#newsletter-popup .triangle{
+    left: -35px;
+    top: 72px;
+}

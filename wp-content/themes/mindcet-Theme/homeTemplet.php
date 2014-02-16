@@ -13,6 +13,10 @@
 set_post_thumbnail( 165, 176177178179 );
 ?>
 
+
+<div id="newsletter-btn"></div>
+
+
 <div class="page-wrap">
 
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -155,7 +159,7 @@ do_action('wp_insert_post', 'wp_insert_post');
     
             <!-- post Category -->
             <fieldset class="formfield">
-                <input type="email" id="email" value="" tabindex="11" name="email" placeholder="Your E-Mail"/> *
+                <input type="email" id="email" value="" tabindex="11" name="email" placeholder="Your E-Mail"/> 
             </fieldset>
             
             <!-- post name -->

@@ -2569,6 +2569,9 @@ margin-left: 135px;*/
 }
 
 .inventDescription .mainArea .movie iframe {
+
+	height:300px;
+	width: 480px;
     /*display: none;*/
 }
 

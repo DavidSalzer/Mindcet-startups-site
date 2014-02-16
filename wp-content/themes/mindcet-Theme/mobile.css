@@ -185,16 +185,42 @@ select#categoryNav, select#tagsNav{
 
 /*----------------------Invent----------------*/
 
-
+.inventDescription, .mapDescription{
+    width: 100%;
+height: 100%;
+margin: 0;
+}
 
 
 
 
 /*--------------------logo menu-----------------------*/
+/*--------------------single startup-----------------------*/
+.inventDescription .title.ellipsis, .mapDescription .title.ellipsis {
+
+	left: 44px;
+
+}
+.inventDescription .slogen, .mapDescription .slogen {
+
+	left: 18px;
+	width: 300px;
+
+}
+
+.inventDescription .mainArea .movie iframe{
+
+	height: 148px;
+	width: 188px;
+
+}
+
 
 
 
 
 /*****************marker popup**********************/
+
+
 
 

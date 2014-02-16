@@ -7,6 +7,8 @@
     <meta property="og:description" content="What's your favorite EdTech startup?"/>
     <meta property="og:updated_time" content="1391001033173" /> 
     <!--<meta property="og:image" content="http://mindcet.co.il.tigris.nethost.co.il/wp-content/uploads/2014/01/final-logo1.png"/>-->
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
      <link rel="image_src" href="http://globaledtechawards.org/wp-content/themes/mindcet-Theme/img/thumbnail%20logo.gif"/>
 	<?php if (is_search()) { ?>
@@ -37,6 +39,8 @@
 	<link rel="shortcut icon"  type="image/x-icon" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.ico">
 	
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
+    <link rel="stylesheet" media="all and (max-width: 1023px)"  href="http://localhost/Mindcet-startups-site/wp-content/themes/mindcet-Theme/mobile.css" type="text/css" />
+    <!--<link rel="stylesheet" media="all and (max-width: 1023px)"  href="http://mindcet.co.il.tigris.nethost.co.il/wp-content/themes/mindcet-Theme/mobile.css" type="text/css" />-->
 	
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 

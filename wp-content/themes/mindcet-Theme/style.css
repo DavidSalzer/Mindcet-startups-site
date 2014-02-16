@@ -3336,6 +3336,7 @@ margin-bottom: 5px;
 iframe[src="about:blank"]{display:none;}
 
 #newsletter-btn{
+    cursor: pointer;
     position: fixed;
 top: 420px;
 left: 0;

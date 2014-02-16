@@ -185,7 +185,11 @@ select#categoryNav, select#tagsNav{
 
 /*----------------------Invent----------------*/
 
-
+.inventDescription, .mapDescription{
+    width: 100%;
+height: 100%;
+margin: 0;
+}
 
 
 

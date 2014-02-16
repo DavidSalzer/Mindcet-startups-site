@@ -821,7 +821,7 @@ function enable_scroll() {
     $('#inventLikeCount').attr('data-href',allTech[tid].permalink);
 
 
-    var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480);
+    var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),$inventDescription, 300,480);
     if (videoIframe != undefined)
         html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480) + '</div>';
     if(allTech[tid].founder){

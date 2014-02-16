@@ -3,18 +3,18 @@
 
 /*------------------header and general-------------------------*/
 .header {
-height: 118px;
+height: 58px;
 }
 .timer {
-    height: 65px;
-    top: -65px;
-    line-height: 65px;
-    width: 100%;
+   height: 32px;
+top: -74px;
+line-height: 32px;
+width: 100%;
 }
 .countdown-area h3 {
     top: 0;
     display: inline;
-    font-size: 43px;
+    font-size: 20px;
     content: "";/*change*/
 }
 .daysRemind {
@@ -28,15 +28,21 @@ height: 118px;
     margin-top: 0;
 }
 .logoCet ,.socialTab {
-    width: 74px;
-    height: 74px;
-    border-radius: 50px;
-    background-image: none;
-    background-color: #fff;
+   width: 37px;
+height: 37px;
+border-radius: 50px;
+background-image: none;
+background-color: #fff;
 }
 .tagLogo:first-child {
-    left: 50%;
-    margin-left: -208px;
+   left: 50%;
+margin-left: -128px;
+width: 37px;
+height: 37px;
+border-radius: 50px;
+background-image: none;
+background-color: #fff;
+top: -42px;
 }
 .topImgLink {
     width: 80%;
@@ -44,24 +50,23 @@ height: 118px;
     top: 0;
 }
 .socialTab span {
-background-image: url(img/social_icons.png);/*consider to change*/
-background-size: 176px;/*consider to change*/
-background-position: 8px 12px;
+background-image: url(img/social_icons.png);
+background-position: -1px 3px;
+background-size: 117px;
 }
 
 .socialTab span.twitter {
-background-position: -49px 12px;
+background-position: -40px 3px;
 }
 
 .socialTab span.linkin {
-background-position: -120px 12px;
+background-position: -80px 3px;
 }
 .socialTabs {
-    float: none;
-    margin: auto;
-    left: 0;
-    width: 263px;
-    height: 100%;
+   top: -43px;
+position: relative;
+float: none;
+margin-right: 96px;
 }
 .logoAndSocial {
     position: relative;
@@ -76,6 +81,16 @@ background-position: -120px 12px;
 .topMenu ul {
     width: 60%;
     left: 0;
+}
+
+#newsletter-btn{
+   width: 37px;
+height: 37px;
+border-radius: 50px;
+position: absolute;
+top: -164px;
+left: 237px;
+z-index: 50;
 }
 /*-----------------------home page------------------*/
 

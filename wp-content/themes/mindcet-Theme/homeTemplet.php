@@ -422,7 +422,7 @@ do_action('wp_insert_post', 'wp_insert_post');
         $caunter=0;
       echo "<div id='scrollInventorCon'><span class='placholderSlide'></span><ul class='inventList'>";
         foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
-    <?php	if($caunter==2){
+    <?php	if($caunter==3){
                     echo "</ul><ul class='inventList'>";
                 }else{
                 }
@@ -432,7 +432,7 @@ do_action('wp_insert_post', 'wp_insert_post');
         <?php the_title(); ?>
         </a> </h2>
     </li>
-    <?php	if($caunter==2){
+    <?php	if($caunter==3){
                 $caunter=0;
                }?>
     <?php $caunter++; endforeach; 

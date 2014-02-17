@@ -856,7 +856,7 @@ function enable_scroll() {
    
     $('.inventDescription-append').append($inventDescription);
 
-     $(".socialArea").prepend('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button social" data-url="'+allTech[tid].permalink+'" data-text="'+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?" data-count="vertical">Tweet</a>');
+     $(".socialArea").prepend('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button social" data-size="small" data-url="'+allTech[tid].permalink+'" data-text="'+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?" data-count="vertical">Tweet</a>');
         if($('#single-startup-zone').hasClass('twitterF')){
             twttr.widgets.load();
         }

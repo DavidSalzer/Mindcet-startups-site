@@ -24,14 +24,15 @@ set_post_thumbnail( 165, 176177178179 );
   <section  class="home">
     <?php  echo get_the_post_thumbnail( $page->ID, 'full',array('class'=>'mainPageBg'));?>
       <!--<div class="fb-like" data-href="http://localhost/Mindcet-startups-site/" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>-->
-    <div id="fb-like-site" class="fb-img">
+   
+       <div id="fb-like-site" class="fb-img">
 		<div class="fb-like" data-href="<?php echo site_url(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false">
 		</div>
 	</div>
 
-    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-count="horizontal" data-url="<?php echo site_url(); ?>">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="small" data-count="horizontal" data-url="<?php echo site_url(); ?>">Tweet</a>
 
-    <div class="entry">
+        <div class="entry">
         <div class="entry-design">
           <a href="<?php echo $pageUrl->guid;?>" id="offerStartUp">Add a Startup</a>
            
@@ -43,6 +44,7 @@ set_post_thumbnail( 165, 176177178179 );
             <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52d6681e180b98e3"></script>-->
             <!-- AddThis Button END -->
              </div> </div>
+    
       <!----form inventors--->
     <?php 
   if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post"&& isset($_POST['submit'])) {

@@ -187,6 +187,12 @@ background-position-y: 8px;
 .leftScroll-arrow, .rightScroll-arrow{
     margin: 90px auto 0;
 }
+#scrollInventorCon .placholderSlide{
+    width: 29px;
+}
+.placholderSlide{
+    width: 29px;
+}
 .inventList{
     width: 50%;
     

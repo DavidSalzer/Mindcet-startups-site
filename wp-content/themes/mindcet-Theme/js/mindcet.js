@@ -413,6 +413,7 @@ $(document).ready(function (e) {
     });
 
     $(window).on('resize',function(){
+        resizOfferStartUpDiv();
     //  h=screen.height;
     //  $('.mask').css('height',h+'px');
     });
@@ -429,6 +430,7 @@ $(document).ready(function (e) {
     popuopInvent(tid);
     e.preventDefault()
     return false;
+    
  });
 
  $('.inventDescription .close').on('click', this, function () {
@@ -500,6 +502,8 @@ $(document).ready(function (e) {
 
     $("#newsletter-btn").on("click",openNewsletter);
     $("#newsletter-popup-sign-btn").on("click",signToNewsletter);
+
+    resizOfferStartUpDiv();
 }); //dom ready
 
 
@@ -1358,3 +1362,6 @@ function getFile(id){
       }
   }
  
+  function resizOfferStartUpDiv(){
+      $("#offerStartUp").css("line-height",$("#offerStartUp").height()+"px");
+  }

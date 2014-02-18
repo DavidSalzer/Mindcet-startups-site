@@ -190,7 +190,7 @@
            	
            </nav>
     
-        <div id="sign-header-mobile">Sign Your Startup</div>
+        
     
     </header>
  <?php if(!is_front_page()):?>     

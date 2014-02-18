@@ -50,6 +50,13 @@ $(document).ready(function (e) {
     $('.inventorPopUp .close').on('click', this, function () {
         $('.inventorPopUp').fadeOut(300, 'easeInOutBack');
         $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
+        //display of mobile
+        if($("#offer-zone").width()==$("body").width()){
+            $(".header").show();
+            $(".topNav").show();
+            $(".page-wrap").removeClass("mobile");
+            $("#sign-header-mobile").hide();
+        }
       //  return false;
     });
 
@@ -521,6 +528,9 @@ function openOfferPopUp() {
     if($("#offer-zone").width()==$("body").width()){
         $(".header").hide();
         $(".topNav").hide();
+        $(".page-wrap").addClass("mobile");
+        $("#sign-header-mobile").show();
+        $("#formPart2").show();
     }
     
     $('html, body').animate({

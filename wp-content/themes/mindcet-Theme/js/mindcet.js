@@ -363,15 +363,17 @@ $(document).ready(function (e) {
     updateMenuUrl();
     //hide popup when scrolling down
     $(document).on('scroll', this, function () {
-        console.log($(document).scrollTop());
-        setTimeout(function(){
-        if ($(document).scrollTop() > 550) {
-           $('#offer-zone').fadeOut("slow");
-          $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
+         //display of mobile
+        if($("#offer-zone").width()!=$("body").width()){
+            console.log($(document).scrollTop());
+            setTimeout(function(){
+            if ($(document).scrollTop() > 550) {
+               $('#offer-zone').fadeOut("slow");
+              $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
 
+            }
+            },500);
         }
-        },500);
-
     });
     $('.inventList li').on('click', this, function () {
         tid = $(this).attr('idtec');
@@ -515,6 +517,12 @@ function openOfferPopUp() {
     ga('send', 'event', 'button', 'click', 'add invent - 1');
 
     $('.inventorPopUp').fadeIn(400, 'easeInOutBack');
+    //display of mobile
+    if($("#offer-zone").width()==$("body").width()){
+        $(".header").hide();
+        $(".topNav").hide();
+    }
+    
     $('html, body').animate({
         scrollTop: $("#offer-zone").offset().top - 154
     }, 500, function () { enable_scroll() });

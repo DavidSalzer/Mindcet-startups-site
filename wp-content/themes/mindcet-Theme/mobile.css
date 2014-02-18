@@ -323,9 +323,18 @@ margin-left: 3px;
 margin-top: 2px;
 }
 /*-----------------------form--------------------------------*/
-
-
-
+.inventorPopUp{
+    top: 0px;
+left: 0px;
+z-index: 51;
+width: 100%;
+}
+#formPart2{
+    display: block;
+}
+.inventorPopUp .triangle{
+    display: none;
+}
 
 /*-------------------------footer--------------------------*/
 #footer{

@@ -362,7 +362,7 @@ top: 6px;
     height: 26px;
 line-height: 26px;
 font-size: 15px;
-width: 100%;
+width: 91%;/*  pini   -for the *       */
 }
 .categories-input{
     font-size: 15px;
@@ -374,7 +374,7 @@ select#category, select#tags{
     font-size: 15px;
 height: 26px;
 line-height: 26px;
-width: 100%;
+width: 91%;/*  pini   -for the *       */
 }
 .input-border{
     width: 100%;
@@ -394,6 +394,7 @@ text-indent: 15px;
 width: 34%;
 position: absolute;
 right: 0;
+padding-left: 25px;
 }
 .popInvent input[type="file"]{
     height: 26px !important;
@@ -705,4 +706,13 @@ width: 100%;
 #marker-popup iframe {
 width: 100%;
 
+}
+ #validate-select-error {
+
+left: 0;
+}
+ #validate-slogen-error {
+width: 100%;
+
+left: 0;
 }

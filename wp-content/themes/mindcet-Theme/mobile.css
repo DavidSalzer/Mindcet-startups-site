@@ -456,22 +456,24 @@ margin: 0;
 /*--------------------single startup-----------------------*/
 .inventDescription .topArea, .mapDescription .topArea {
 width: 100%;
-/* background-color: cyan; */
+background-color: cyan;
 
 top:0px;
-min-height: 150px;
+height: auto;
 text-align: center;
 }
 .inventDescription .startup-popup-logo, .mapDescription .startup-popup-logo {
 width: 100%;
-height:  30%;
+height: 60px;
 position: relative;
-top:25px;
+
 margin: 0px;
 padding-bottom: 0px;
 border-bottom: 0px;
-padding-top: 0px;
+padding-top: 15px;
+padding-bottom: 15px;
 text-align: center;
+
 }
 .inventDescription .title.ellipsis, .mapDescription .title.ellipsis {
 width: 100%;
@@ -479,7 +481,8 @@ width: 100%;
 text-align: center;
 display: block;
 position: relative;
-top: 30px;
+margin-top: 20px;
+top:0;
 }
 
 
@@ -490,17 +493,17 @@ top: 30px;
 width: 100%;
 text-align: center;
 position: relative;
-top: 30px;
+top: 0;
 margin-bottom: 0;
-	
-
+margin-top: 20px;	
+padding-bottom: 10px;
 }
 .inventDescription .socialArea {
 	min-height:  70px;
 	top: 0px;
 width: 100%;
 position: relative;
-/* background-color: brown; */
+background-color: brown;
 text-align: center;
 }
 
@@ -520,37 +523,37 @@ border-bottom: none;
 }
 #fbCount {
 
-width: 56px;
-height: 62px;
+width: 56px !important;
+height: 62px ;
 
-display: inline-block;
+display: inline-block !important;
 margin-left: 0;
 padding-top: 25px;
 padding-left: 0;
 padding-bottom: 0;
 margin-bottom: 0;
-border-right: 1px solid gray;
+
 border-bottom: none;
 }
 
-.socialArea .fb, .form-end-message .fb {
+.inventDescription.socialArea .fb, .inventDescription.form-end-message .fb {
 
 display: none;
 }
-.socialArea .linkedin, .form-end-message .linkedin {
+.inventDescription.socialArea .linkedin, .inventDescription.form-end-message .linkedin {
 
 display: none;
 
 }
-.socialArea .twitter, .form-end-message .twitter {
+.inventDescription.socialArea .twitter, .inventDescription.form-end-message .twitter {
 
 display: none;
 }
 .inventDescription .mainArea, .mapDescription .mainArea {
 
 width: 100%;
-top:0px;
-/* background-color: aquamarine; */
+
+background-color: aquamarine;
 display: block;
 
 margin-left: 0px;
@@ -558,7 +561,7 @@ padding-bottom: 0px;
 padding-right: 0px;
 height: auto;
 text-align: center;
-
+border-top: 1px solid rgb(175, 171, 171);
 }
 .inventDescription .mainArea .movie {
 
@@ -590,8 +593,8 @@ top: 40px;
 }
 .inventDescription .mainArea .description, .mapDescription .mainArea .description {
 float: none;
-width: 95%;
-margin-left: 10px;
+width: 85%;
+margin-left: 7.5%;
 text-align: left;
 position: relative;
 margin-top:60px;
@@ -644,8 +647,9 @@ margin-left: 0;
 #marker-popup .startups-gallery {
 float: none;
 position: relative;
-margin-top: 80%;
-width: 100%;
+margin-top: 25px;
+width: 85%;
+margin-left:7.5%;
 }
 #marker-popup .startups-gallery .startups-gallery-header {
 height: 35px;
@@ -657,6 +661,48 @@ font-size: 20px;
 }
 #marker-popup .startups-gallery-item {
 min-height: 62px;
-width: 80%;
+
+}
+#marker-popup .popup-title {
+
+margin-top: 10px;
+
 }
 
+.mapDescription .mainArea .description {
+
+margin-top: 0px;
+}
+
+.socialArea .fb, .socialArea .twitter, .socialArea .linkedin {
+margin: 10px;
+margin-left: 3px;
+margin-right: 3px;
+display: inline-block;
+border: none;
+padding-top: 44px;
+height: 10px;
+}
+
+.socialArea .twitter{
+border-left: 2px solid gray;
+border-right: 2px solid gray;
+
+padding-left: 9px;
+padding-right: 9px;
+}
+.mapDescription .socialArea {
+width: auto;
+position: relative;
+top: 0;
+text-align: center;
+
+}
+#marker-popup .facebook-comments {
+
+width: 100%;
+}
+#marker-popup iframe {
+width: 100%;
+
+}

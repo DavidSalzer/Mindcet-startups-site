@@ -1271,13 +1271,7 @@ function buildMarkerPopupHTML(key) {
     var tweetUrl='http://twitter.com/intent/tweet?text='+ saveVotesData[key].title +' favorite EdTech startup. ';
     var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+ saveVotesData[key].parmalink+'&amp;title=Global EdTech Startup Awards 2014&summary='+ saveVotesData[key].title+' favorite EdTech startup.';
     
-   var html= '       <div class="socialArea">    ';
-    html+='              <div data-url="'+fbUrl+'" id="inventLikeFb"class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
-    html+='             <div data-url="'+tweetUrl+'" id="inventTwiiwer" class="social twitter" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
-    html+='             <div data-url="'+linkedinUrl+'" id="inventLinkedin" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
-    html += '          </div>    ';
-
-     html += '<div class="topArea">    '
+   var html = '<div class="topArea">    '
     if (saveVotesData[key].logo)
         html += '<div class="startup-popup-logo">  <img class="wp-post-image logo" src="' + saveVotesData[key].logo[0] + '" alt="' + saveVotesData[key].title + ' logo">   </div> ';
     html += '</div>    ';
@@ -1316,6 +1310,12 @@ function buildMarkerPopupHTML(key) {
     html += '   </div>';
     html += '</div>';
  
+	html+= '       <div class="socialArea">    ';
+    html+='              <div  data-url="'+fbUrl+'" id="inventLikeFb"class="social fb mapSocial" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
+    html+='             <div  data-url="'+tweetUrl+'" id="inventTwiiwer" class="social twitter mapSocial" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
+    html+='             <div  data-url="'+linkedinUrl+'" id="inventLinkedin" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
+    html += '          </div>    ';
+	
     var $inventDescription = $(html);
     $('.popupDescription-append').empty().append($inventDescription);
 

@@ -530,25 +530,32 @@ select#category, select#tags {
     text-align: center;
 }
 
+top:0px;
+height: auto;
+text-align: center;
+}
 .inventDescription .startup-popup-logo, .mapDescription .startup-popup-logo {
-    width: 100%;
-    height: 30%;
-    position: relative;
-    top: 25px;
-    margin: 0px;
-    padding-bottom: 0px;
-    border-bottom: 0px;
-    padding-top: 0px;
-    text-align: center;
+width: 100%;
+height: 60px;
+position: relative;
+
+margin: 0px;
+padding-bottom: 0px;
+border-bottom: 0px;
+padding-top: 15px;
+padding-bottom: 15px;
+text-align: center;
+
 }
 
 .inventDescription .title.ellipsis, .mapDescription .title.ellipsis {
-    width: 100%;
-    left: 0px;
-    text-align: center;
-    display: block;
-    position: relative;
-    top: 30px;
+width: 100%;
+	left: 0px;
+text-align: center;
+display: block;
+position: relative;
+margin-top: 20px;
+top:0;
 }
 
 
@@ -562,13 +569,22 @@ select#category, select#tags {
     margin-bottom: 0;
 }
 
+	left: 0;
+width: 100%;
+text-align: center;
+position: relative;
+top: 0;
+margin-bottom: 0;
+margin-top: 20px;	
+padding-bottom: 10px;
+}
 .inventDescription .socialArea {
-    min-height: 70px;
-    top: 0px;
-    width: 100%;
-    position: relative;
-    /* background-color: brown; */
-    text-align: center;
+	height:  auto;
+	top: 0px;
+width: 100%;
+position: relative;
+ /* background-color: brown; */
+ text-align: center;
 }
 
 #twittCount {
@@ -586,29 +602,33 @@ select#category, select#tags {
 }
 
 #fbCount {
-    width: 56px;
-    height: 62px;
-    display: inline-block;
-    margin-left: 0;
-    padding-top: 25px;
-    padding-left: 0;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    border-right: 1px solid gray;
-    border-bottom: none;
+
+width: 56px !important;
+height: 62px ;
+
+display: inline-block !important;
+margin-left: 0;
+padding-top: 25px;
+padding-left: 0;
+padding-bottom: 0;
+margin-bottom: 0;
+
+border-bottom: none;
 }
 
-.socialArea .fb, .form-end-message .fb {
+.inventDescription .socialArea .fb, .inventDescription .form-end-message .fb {
     display: none;
 }
 
 .socialArea .linkedin, .form-end-message .linkedin {
     display: none;
 }
+.inventDescription .socialArea .linkedin, .inventDescription .form-end-message .linkedin {
 
 .socialArea .twitter, .form-end-message .twitter {
     display: none;
 }
+.inventDescription .socialArea .twitter, .inventDescription .form-end-message .twitter {
 
 .inventDescription .mainArea, .mapDescription .mainArea {
     width: 100%;
@@ -622,11 +642,17 @@ select#category, select#tags {
     text-align: center;
 }
 
-.inventDescription .mainArea .movie {
-    width: 100%;
-    position: relative;
-    top: 25px;
-    margin: 0;
+width: 100%;
+
+/* background-color: aquamarine; */
+display: block;
+
+margin-left: 0px;
+padding-bottom: 0px;
+padding-right: 0px;
+height: auto;
+text-align: center;
+border-top: 1px solid rgb(175, 171, 171);
 }
 
 .inventDescription .mainArea .movie iframe {
@@ -654,6 +680,13 @@ select#category, select#tags {
     position: relative;
     margin-top: 60px;
 }
+.inventDescription .mainArea .description, .mapDescription .mainArea .description {
+float: none;
+width: 85%;
+margin-left: 7.5%;
+text-align: left;
+position: relative;
+margin-top:60px;
 
 .inventDescription .mainArea .gallery, .mapDescription .mainArea .gallery {
     width: 100%;
@@ -696,10 +729,11 @@ select#category, select#tags {
 
 
 #marker-popup .startups-gallery {
-    float: none;
-    position: relative;
-    margin-top: 80%;
-    width: 100%;
+float: none;
+position: relative;
+margin-top: 25px;
+width: 85%;
+margin-left:7.5%;
 }
 
 #marker-popup .startups-gallery .startups-gallery-header {
@@ -711,78 +745,49 @@ select#category, select#tags {
 }
 
 #marker-popup .startups-gallery-item {
-    min-height: 62px;
-    width: 80%;
+min-height: 62px;
+
+}
+#marker-popup .popup-title {
+
+margin-top: 10px;
+
 }
 
-/******************judge popup*********************/
+.mapDescription .mainArea .description {
 
-.judgeDescription {
-    width: 97%;
-    height: 430px;
-    background-color: #ebebeb;
-    z-index: 16;
-    display: inline-block;
-    left: 0;
-    right: 0;
-    margin: auto;
-    position: absolute;
-    display: none;
-    z-index: 100;
+margin-top: 0px;
 }
 
-.judgeDescriptionLeft {
-    width: 100%;
+.mapDescription .socialArea .fb, .mapDescription .socialArea .twitter, .mapDescription .socialArea .linkedin {
+margin: 10px;
+margin-left: 3px;
+margin-right: 3px;
+display: inline-block;
+border: none;
+padding-top: 44px;
+height: 10px;
 }
 
-.judgeDescriptionRight {
-    width: 85%;
-    height: 280px;
-    top: 151px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    position: absolute;
-    display: inline-block;
-    z-index: 1;
-}
+.mapDescription .socialArea .twitter{
+border-left: 2px solid gray;
+border-right: 2px solid gray;
 
-.judgeDescription-name {
-    width: 100%;
-    font-size: 15px;
-    height: 20px;
-    background: #838383;
-    color: #fff;
-    padding: 0;
-    line-height: 20px;
-    text-indent: 10px;
+padding-left: 9px;
+padding-right: 9px;
 }
+.mapDescription .socialArea {
+width: auto;
+position: relative;
+top: 0;
+text-align: center;
 
-.judgeDescription-role {
-    font-size: 15px;
-    background-color: #fff;
-    line-height: 20px;
-    color: #828282;
-    width: 100%;
-    position: relative;
-    padding: 0 0;
-    text-indent: 10px;
-    position: relative;
 }
+#marker-popup .facebook-comments {
 
-.judgeDescription-full {
-    width: 100%;
-    height: 200px;
-    font-size: 18px;
-    margin-top: 17px;
-    line-height: 23px;
+width: 100%;
 }
+#marker-popup iframe {
+width: 100%;
 
-.judgeDescriptionMargin {
-    width: 100%;
-    height: 170px;
-    background-color: #fff;
-    position: absolute;
-    top: 0;
-    right: 0;
 }

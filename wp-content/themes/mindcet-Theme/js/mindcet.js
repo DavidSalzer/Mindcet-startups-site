@@ -906,7 +906,9 @@ function enable_scroll() {
            setTimeout(function(){twttr.widgets.load();},2000);
         }
     //facebookCommentsLink()
-    
+    if($("#offer-zone").width()==$("body").width()){
+	$(".mask").height($("#single-startup-zone").height());
+	}
     return false;
 };
 

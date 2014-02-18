@@ -400,7 +400,7 @@ margin: 0;
 /*--------------------single startup-----------------------*/
 .inventDescription .topArea, .mapDescription .topArea {
 width: 100%;
-background-color: cyan;
+/* background-color: cyan; */
 
 top:0px;
 min-height: 150px;
@@ -444,7 +444,7 @@ margin-bottom: 0;
 	top: 0px;
 width: 100%;
 position: relative;
-background-color: brown;
+/* background-color: brown; */
 text-align: center;
 }
 
@@ -487,7 +487,7 @@ display: none;
 
 width: 100%;
 top:0px;
-background-color: aquamarine;
+/* background-color: aquamarine; */
 display: block;
 
 margin-left: 0px;

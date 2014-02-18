@@ -456,7 +456,7 @@ margin: 0;
 /*--------------------single startup-----------------------*/
 .inventDescription .topArea, .mapDescription .topArea {
 width: 100%;
-background-color: cyan;
+/* background-color: cyan; */
 
 top:0px;
 min-height: 150px;
@@ -500,7 +500,7 @@ margin-bottom: 0;
 	top: 0px;
 width: 100%;
 position: relative;
-background-color: brown;
+/* background-color: brown; */
 text-align: center;
 }
 
@@ -543,13 +543,13 @@ display: none;
 
 width: 100%;
 top:0px;
-background-color: aquamarine;
+/* background-color: aquamarine; */
 display: block;
 
 margin-left: 0px;
 padding-bottom: 0px;
 padding-right: 0px;
-min-height: 920px;
+height: auto;
 text-align: center;
 
 }
@@ -587,7 +587,8 @@ width: 95%;
 margin-left: 10px;
 text-align: left;
 position: relative;
-top: 60px;
+margin-top:60px;
+
 }
 .inventDescription .mainArea .gallery, .mapDescription .mainArea .gallery {
 width: 100%;
@@ -595,10 +596,12 @@ float: none;
 
 position: relative;
 margin-left: 0;
-top: 80px;
+
 left: 20%;
 margin: 0;
 display:inline-block;
+max-height: 373px;
+margin-top: 40px;
 }
 
 .inventDescription .mainArea .gallery div, .mapDescription .mainArea .gallery div {
@@ -615,6 +618,22 @@ border: 0;
 width: 95%;
 height: 95%;
 }
+
+
+
+#comments-frame {
+width: 100%;
+min-height: 60px;
+margin-left: 0;
+
+}
+
+
+
+
+/*****************marker popup**********************/
+
+
 #marker-popup .startups-gallery {
 float: none;
 position: relative;
@@ -633,19 +652,4 @@ font-size: 20px;
 min-height: 62px;
 width: 80%;
 }
-
-#comments-frame {
-width: 100%;
-min-height: 65PX;
-margin-left: 0;
-
-}
-
-
-
-
-/*****************marker popup**********************/
-
-
-
 

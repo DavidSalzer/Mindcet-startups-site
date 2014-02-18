@@ -117,17 +117,24 @@ background-size: 94%;
 background-position: 1px 4px;
 }
 
-.sign-header-mobile{
+#sign-header-mobile{
     width: 100%;
-    height: 50px;
-    background-color: #21cc8a;
-    color: #ffffff;
+height: 50px;
+background-color: #21cc8a;
+color: #ffffff;
+display: none;
+text-align: center;
+line-height: 50px;
+font-size: 25px;
 }
 /*-----------------------home page------------------*/
 
 #page-wrap, .page-wrap {
     width: 100%;
     margin-top: 103px;
+}
+.page-wrap.mobile{
+    margin-top: 0;
 }
 .page-wrap .home {
    min-width: 100%;
@@ -335,6 +342,7 @@ margin-top: 2px;
 left: 0px;
 z-index: 51;
 width: 100%;
+height: auto;
 }
 #formPart2{
     display: block;
@@ -343,6 +351,54 @@ width: 100%;
     display: none;
 }
 
+.inventorPopUp .close{
+    right: 7px;
+top: 6px;
+}
+.popInvent{
+    margin: 19px 21px 0 23px;
+}
+.popInvent input, .popInvent textarea{
+    height: 26px;
+line-height: 26px;
+font-size: 15px;
+width: 100%;
+}
+.categories-input{
+    font-size: 15px;
+}
+.categories{
+    font-size: 15px;
+}
+select#category, select#tags{
+    font-size: 15px;
+height: 26px;
+line-height: 26px;
+width: 100%;
+}
+.input-border{
+    width: 100%;
+height: 26px;
+position: relative;
+}
+.title-logo{
+    width: 63%;
+height: 26px;
+line-height: 26px;
+font-size: 15px;
+}
+.popInvent .upload{
+line-height: 26px;
+font-size: 15px;
+text-indent: 15px;
+width: 34%;
+position: absolute;
+right: 0;
+}
+.popInvent input[type="file"]{
+    height: 26px !important;
+width: 93px !important;
+}
 /*-------------------------footer--------------------------*/
 #footer{
     height: 60px;

@@ -2,6 +2,7 @@
    var fileMesg='file is too big, Please ensure that file size is less than 2Mb.';
 // JavaScript Document
 var fromMarker=null;
+var isMobile=false;
 $(document).ready(function (e) {
     
     initMap();
@@ -15,12 +16,20 @@ $(document).ready(function (e) {
     //$('#fb-like-site').click();
            
     $('#inventScrollR').on('click', this, function () {
-        scrollVal = $('#scrollInventorCon').scrollLeft() + 500;
+        var offsetToScroll=$(".inventList").width()*2;
+        if(isMobile){
+            offsetToScroll=$(".inventList").width();
+        }
+        scrollVal = $('#scrollInventorCon').scrollLeft() + offsetToScroll;
         $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
     });
 
     $('#inventScrollL').on('click', this, function () {
-        scrollVal = $('#scrollInventorCon').scrollLeft() - 500;
+        var offsetToScroll=$(".inventList").width()*2;
+        if(isMobile){
+            offsetToScroll=$(".inventList").width();
+        }
+        scrollVal = $('#scrollInventorCon').scrollLeft() - offsetToScroll;
         $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
     });
     $('#judgesR').on('click', this, function () {
@@ -51,7 +60,7 @@ $(document).ready(function (e) {
         $('.inventorPopUp').fadeOut(300, 'easeInOutBack');
         $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
         //display of mobile
-        if($("#offer-zone").width()==$("body").width()){
+        if(isMobile){
             $(".header").show();
             $(".topNav").show();
             $(".page-wrap").removeClass("mobile");
@@ -371,7 +380,7 @@ $(document).ready(function (e) {
     //hide popup when scrolling down
     $(document).on('scroll', this, function () {
          //display of mobile
-        if($("#offer-zone").width()!=$("body").width()){
+        if(!isMobile){
             console.log($(document).scrollTop());
             setTimeout(function(){
             if ($(document).scrollTop() > 550) {
@@ -423,6 +432,8 @@ $(document).ready(function (e) {
 
     $(window).on('resize',function(){
         resizOfferStartUpDiv();
+        dispalyOption();
+        setStartupUl();
     //  h=screen.height;
     //  $('.mask').css('height',h+'px');
     });
@@ -513,6 +524,8 @@ $(document).ready(function (e) {
     $("#newsletter-popup-sign-btn").on("click",signToNewsletter);
 
     resizOfferStartUpDiv();
+    dispalyOption();
+    setStartupUl();
 }); //dom ready
 
 
@@ -525,7 +538,7 @@ function openOfferPopUp() {
 
     $('.inventorPopUp').fadeIn(400, 'easeInOutBack');
     //display of mobile
-    if($("#offer-zone").width()==$("body").width()){
+    if(isMobile){
         $(".header").hide();
         $(".topNav").hide();
         $(".page-wrap").addClass("mobile");
@@ -1380,6 +1393,45 @@ function getFile(id){
       }
   }
  
+  //set offerStartUp btn for mobile
   function resizOfferStartUpDiv(){
       $("#offerStartUp").css("line-height",$("#offerStartUp").height()+"px");
+  }
+
+  function setStartupUl(){
+   
+    var numOfLiInUl=3;
+    //display of mobile
+    if(isMobile){
+        numOfLiInUl=2;    
+    }
+
+    var html='<ul class="inventList">  ';
+    $(".inventList li").each(function(i){
+        //if insert to exist ul or create new 
+        if(i%numOfLiInUl==0){
+            html+='</ul><ul class="inventList">';
+        }
+        html+=$(this).get(0).outerHTML;
+        
+    });
+    html+='</ul>';
+    
+     $(".inventList").remove();
+
+    // 
+    // if($(html).find(".inventList:last").html()==""){
+    //    $html.last().remove();
+    //}
+
+    $("#scrollInventorCon .placholderSlide:first").after(html);
+    $(".inventList:first").remove();
+  }
+
+  //update if in mobile design or pc.  
+  function dispalyOption(){
+      isMobile=false;
+      if($("#offer-zone").width()==$("body").width()){
+          isMobile=true;
+      }
   }

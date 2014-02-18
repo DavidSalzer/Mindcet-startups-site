@@ -193,6 +193,8 @@ background-position-y: 8px;
 }
 #scrollInventorCon {
     height: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .rightScroll, .leftScroll{

@@ -391,7 +391,7 @@ $(document).ready(function (e) {
             },500);
         }
     });
-    $('.inventList li').on('click', this, function () {
+    $('#scrollInventorCon').on('click', ".inventList li", function () {
         tid = $(this).attr('idtec');
         popuopInvent(tid);
         //setIframe();

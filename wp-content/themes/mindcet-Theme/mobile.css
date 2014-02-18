@@ -456,7 +456,7 @@ margin: 0;
 /*--------------------single startup-----------------------*/
 .inventDescription .topArea, .mapDescription .topArea {
 width: 100%;
-background-color: cyan;
+/* background-color: cyan; */
 
 top:0px;
 height: auto;
@@ -499,12 +499,12 @@ margin-top: 20px;
 padding-bottom: 10px;
 }
 .inventDescription .socialArea {
-	min-height:  70px;
+	height:  auto;
 	top: 0px;
 width: 100%;
 position: relative;
-background-color: brown;
-text-align: center;
+ /* background-color: brown; */
+ text-align: center;
 }
 
 #twittCount {
@@ -536,16 +536,16 @@ margin-bottom: 0;
 border-bottom: none;
 }
 
-.inventDescription.socialArea .fb, .inventDescription.form-end-message .fb {
+.inventDescription .socialArea .fb, .inventDescription .form-end-message .fb {
 
 display: none;
 }
-.inventDescription.socialArea .linkedin, .inventDescription.form-end-message .linkedin {
+.inventDescription .socialArea .linkedin, .inventDescription .form-end-message .linkedin {
 
 display: none;
 
 }
-.inventDescription.socialArea .twitter, .inventDescription.form-end-message .twitter {
+.inventDescription .socialArea .twitter, .inventDescription .form-end-message .twitter {
 
 display: none;
 }
@@ -553,7 +553,7 @@ display: none;
 
 width: 100%;
 
-background-color: aquamarine;
+/* background-color: aquamarine; */
 display: block;
 
 margin-left: 0px;
@@ -674,7 +674,7 @@ margin-top: 10px;
 margin-top: 0px;
 }
 
-.socialArea .fb, .socialArea .twitter, .socialArea .linkedin {
+.mapDescription .socialArea .fb, .mapDescription .socialArea .twitter, .mapDescription .socialArea .linkedin {
 margin: 10px;
 margin-left: 3px;
 margin-right: 3px;
@@ -684,7 +684,7 @@ padding-top: 44px;
 height: 10px;
 }
 
-.socialArea .twitter{
+.mapDescription .socialArea .twitter{
 border-left: 2px solid gray;
 border-right: 2px solid gray;
 

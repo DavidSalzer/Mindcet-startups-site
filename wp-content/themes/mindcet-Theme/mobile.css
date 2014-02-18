@@ -415,9 +415,9 @@ select#categoryNav, select#tagsNav {
 
 .popInvent input, .popInvent textarea {
     height: 26px;
-line-height: 26px;
-font-size: 15px;
-width: 91%;/*  pini   -for the *       */
+    line-height: 26px;
+    font-size: 15px;
+    width: 91%; /*  pini   -for the *       */
 }
 
 .categories-input {
@@ -430,9 +430,9 @@ width: 91%;/*  pini   -for the *       */
 
 select#category, select#tags {
     font-size: 15px;
-height: 26px;
-line-height: 26px;
-width: 91%;/*  pini   -for the *       */
+    height: 26px;
+    line-height: 26px;
+    width: 91%; /*  pini   -for the *       */
 }
 
 .input-border {
@@ -455,7 +455,7 @@ width: 91%;/*  pini   -for the *       */
     width: 34%;
     position: absolute;
     right: 0;
-padding-left: 25px;
+    padding-left: 25px;
 }
 
 .popInvent input[type="file"] {
@@ -531,32 +531,29 @@ padding-left: 25px;
     text-align: center;
 }
 
-top:0px;
-height: auto;
-text-align: center;
+top:0px; height: auto; text-align: center;
 }
+
 .inventDescription .startup-popup-logo, .mapDescription .startup-popup-logo {
-width: 100%;
-height: 60px;
-position: relative;
-
-margin: 0px;
-padding-bottom: 0px;
-border-bottom: 0px;
-padding-top: 15px;
-padding-bottom: 15px;
-text-align: center;
-
+    width: 100%;
+    height: 60px;
+    position: relative;
+    margin: 0px;
+    padding-bottom: 0px;
+    border-bottom: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
 }
 
 .inventDescription .title.ellipsis, .mapDescription .title.ellipsis {
-width: 100%;
-	left: 0px;
-text-align: center;
-display: block;
-position: relative;
-margin-top: 20px;
-top:0;
+    width: 100%;
+    left: 0px;
+    text-align: center;
+    display: block;
+    position: relative;
+    margin-top: 20px;
+    top: 0;
 }
 
 
@@ -570,22 +567,16 @@ top:0;
     margin-bottom: 0;
 }
 
-	left: 0;
-width: 100%;
-text-align: center;
-position: relative;
-top: 0;
-margin-bottom: 0;
-margin-top: 20px;	
-padding-bottom: 10px;
+left: 0; width: 100%; text-align: center; position: relative; top: 0; margin-bottom: 0; margin-top: 20px; padding-bottom: 10px;
 }
+
 .inventDescription .socialArea {
-	height:  auto;
-	top: 0px;
-width: 100%;
-position: relative;
- /* background-color: brown; */
- text-align: center;
+    height: auto;
+    top: 0px;
+    width: 100%;
+    position: relative;
+    /* background-color: brown; */
+    text-align: center;
 }
 
 #twittCount {
@@ -603,18 +594,15 @@ position: relative;
 }
 
 #fbCount {
-
-width: 56px !important;
-height: 62px ;
-
-display: inline-block !important;
-margin-left: 0;
-padding-top: 25px;
-padding-left: 0;
-padding-bottom: 0;
-margin-bottom: 0;
-
-border-bottom: none;
+    width: 56px !important;
+    height: 62px;
+    display: inline-block !important;
+    margin-left: 0;
+    padding-top: 25px;
+    padding-left: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
 }
 
 .inventDescription .socialArea .fb, .inventDescription .form-end-message .fb {
@@ -624,13 +612,17 @@ border-bottom: none;
 .socialArea .linkedin, .form-end-message .linkedin {
     display: none;
 }
+
 .inventDescription .socialArea .linkedin, .inventDescription .form-end-message .linkedin {
 }
+
 .socialArea .twitter, .form-end-message .twitter {
     display: none;
 }
+
 .inventDescription .socialArea .twitter, .inventDescription .form-end-message .twitter {
 }
+
 .inventDescription .mainArea, .mapDescription .mainArea {
     width: 100%;
     top: 0px;
@@ -668,6 +660,7 @@ border-bottom: none;
     position: relative;
     margin-top: 60px;
 }
+
 .inventDescription .mainArea .description, .mapDescription .mainArea .description {
     float: none;
     width: 85%;
@@ -676,6 +669,7 @@ border-bottom: none;
     position: relative;
     margin-top: 60px;
 }
+
 .inventDescription .mainArea .gallery, .mapDescription .mainArea .gallery {
     width: 100%;
     float: none;
@@ -714,11 +708,11 @@ border-bottom: none;
 
 
 #marker-popup .startups-gallery {
-float: none;
-position: relative;
-margin-top: 25px;
-width: 85%;
-margin-left:7.5%;
+    float: none;
+    position: relative;
+    margin-top: 25px;
+    width: 85%;
+    margin-left: 7.5%;
 }
 
 #marker-popup .startups-gallery .startups-gallery-header {
@@ -730,60 +724,56 @@ margin-left:7.5%;
 }
 
 #marker-popup .startups-gallery-item {
-min-height: 62px;
-
+    min-height: 62px;
 }
+
 #marker-popup .popup-title {
-
-margin-top: 10px;
-
+    margin-top: 10px;
 }
 
 .mapDescription .mainArea .description {
-
-margin-top: 0px;
+    margin-top: 0px;
 }
 
 .mapDescription .socialArea .fb, .mapDescription .socialArea .twitter, .mapDescription .socialArea .linkedin {
-margin: 10px;
-margin-left: 3px;
-margin-right: 3px;
-display: inline-block;
-border: none;
-padding-top: 44px;
-height: 10px;
+    margin: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    display: inline-block;
+    border: none;
+    padding-top: 44px;
+    height: 10px;
 }
 
-.mapDescription .socialArea .twitter{
-border-left: 2px solid gray;
-border-right: 2px solid gray;
-
-padding-left: 9px;
-padding-right: 9px;
+.mapDescription .socialArea .twitter {
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    padding-left: 9px;
+    padding-right: 9px;
 }
+
 .mapDescription .socialArea {
-width: auto;
-position: relative;
-top: 0;
-text-align: center;
-
+    width: auto;
+    position: relative;
+    top: 0;
+    text-align: center;
 }
+
 #marker-popup .facebook-comments {
-
-width: 100%;
+    width: 100%;
 }
+
 #marker-popup iframe {
-width: 100%;
-
+    width: 100%;
 }
+
 #validate-select-error {
-
-left: 0;
+    left: 0;
 }
- #validate-slogen-error {
-width: 100%;
 
-left: 0;
+#validate-slogen-error {
+    width: 100%;
+    left: 0;
 }
 /******************judge popup*********************/
 
@@ -803,12 +793,13 @@ left: 0;
 
 .judgeDescriptionLeft {
     width: 100%;
+    background-image: none;
 }
 
 .judgeDescriptionRight {
-    width: 85%;
+    width: 83%;
     height: 280px;
-    top: 151px;
+    top: 150px;
     left: 0;
     right: 0;
     margin: auto;
@@ -846,6 +837,7 @@ left: 0;
     font-size: 18px;
     margin-top: 17px;
     line-height: 23px;
+    font-size: 13px;
 }
 
 .judgeDescriptionMargin {
@@ -855,4 +847,20 @@ left: 0;
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.judgeDescription-img img {
+    max-width: 90px;
+    max-height: 90px;
+    box-shadow: #A8A6A6 1px 1px 1px 0px;
+    position: absolute;
+    top: 35px;
+    left: -161px;
+    bottom: 182px;
+    border: solid 4px #fff;
+    z-index: 1;
+}
+
+.judgeDescription .close{
+    display: none;
 }

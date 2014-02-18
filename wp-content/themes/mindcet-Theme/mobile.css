@@ -393,6 +393,7 @@ background-color: cyan;
 
 top:0px;
 min-height: 150px;
+text-align: center;
 }
 .inventDescription .startup-popup-logo, .mapDescription .startup-popup-logo {
 width: 100%;
@@ -410,7 +411,8 @@ width: 100%;
 	left: 0px;
 text-align: center;
 display: block;
-top: 20%;
+position: relative;
+top: 30px;
 }
 
 
@@ -420,8 +422,8 @@ top: 20%;
 	left: 0;
 width: 100%;
 text-align: center;
-
-top: 20%;
+position: relative;
+top: 30px;
 margin-bottom: 0;
 	
 
@@ -432,27 +434,30 @@ margin-bottom: 0;
 width: 100%;
 position: relative;
 background-color: brown;
+text-align: center;
 }
 
 #twittCount {
-	display: block;
-	margin-left: 0;
+	display: inline-block;
+	margin-left: 6px;
 padding-top: 0;
 
 padding-bottom: 0;
 margin-top: 0;
 margin-bottom: 0;
+border: none;
 }
 #fbCount {
 
-display: block;
+display:inline-block;
 	margin-left: 0;
 padding-top: 0;
 padding-left: 0;
 padding-bottom: 0;
 
 margin-bottom: 0;
-
+border-right: 1px solid gray;
+border-bottom:none;
 }
 .socialArea .fb, .form-end-message .fb {
 
@@ -478,12 +483,14 @@ margin-left: 0px;
 padding-bottom: 0px;
 padding-right: 0px;
 min-height: 920px;
+text-align: center;
 
 }
 .inventDescription .mainArea .movie {
 
-width: 260px;
-height: 160px;
+width: 100%;
+position: relative;
+top: 25px;
 margin: 0;
 
 }
@@ -491,21 +498,81 @@ margin: 0;
 
 	height: 160px;
 width: 260px;
-position: relative;
-top: 10%;
-left: 12%;
+position: static;
 
+
+
+}
+.inventDescription .mainArea .name.ellipsis, .mapDescription .mainArea .name.ellipsis {
+clear: both;
+margin: 0;
+float: none;
+text-align: center;
+
+padding: 0;
+width: 100%;
+position: relative;
+top: 40px;
+}
+.inventDescription .mainArea .description, .mapDescription .mainArea .description {
+float: none;
+width: 95%;
+margin-left: 10px;
+text-align: left;
+position: relative;
+top: 60px;
 }
 .inventDescription .mainArea .gallery, .mapDescription .mainArea .gallery {
 width: 100%;
 float: none;
 
+position: relative;
+margin-left: 0;
+top: 80px;
+left: 20%;
+margin: 0;
+display:inline-block;
 }
 
-.facebook-comments{
-background-color: antiquewhite;
+.inventDescription .mainArea .gallery div, .mapDescription .mainArea .gallery div {
+display: block;
+float: none;
+width: 185px;
+height: 120px;
+margin-left: 0;
+border: 0;
 }
 
+.mainArea .gallery-img {
+
+width: 95%;
+height: 95%;
+}
+#marker-popup .startups-gallery {
+float: none;
+position: relative;
+margin-top: 80%;
+width: 100%;
+}
+#marker-popup .startups-gallery .startups-gallery-header {
+height: 35px;
+
+}
+.startups-gallery .startups-gallery-header span {
+font-size: 20px;
+
+}
+#marker-popup .startups-gallery-item {
+min-height: 62px;
+width: 80%;
+}
+
+#comments-frame {
+width: 100%;
+min-height: 65PX;
+margin-left: 0;
+
+}
 
 
 

@@ -22,7 +22,10 @@ $('.contactUs').on('click',this,function(e){
 	
 	$('#aboutUs').slideUp();
 	console.log(e);
-	$('#contactUsForm').css({'left':(e.pageX-50)+'px','top':(e.pageY-760)+'px'});
+    if (isMobile=false)
+    {
+	    $('#contactUsForm').css({'left':(e.pageX-50)+'px','top':(e.pageY-760)+'px'});
+    }
 	$('#contactUsForm form').show();
 	$('#contactUsForm').fadeIn();
 	return false;

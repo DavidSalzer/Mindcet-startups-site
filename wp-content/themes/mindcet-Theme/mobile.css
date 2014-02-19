@@ -192,15 +192,15 @@
 
 
 
-/*--------------------logo menu-----------------------*/
-/*--------------------single startup-----------------------*/
-.inventDescription .topArea, .mapDescription .topArea {
-    width: 100%;
-   /*  background-color: cyan; */
-    top: 0px;
-   height: auto;
-    text-align: center;
-}
+    /*--------------------logo menu-----------------------*/
+    /*--------------------single startup-----------------------*/
+    .inventDescription .topArea, .mapDescription .topArea {
+        width: 100%;
+        /*  background-color: cyan; */
+        top: 0px;
+        height: auto;
+        text-align: center;
+    }
 
     #sum-menu-mobile {
         background-color: #ffffff;
@@ -217,54 +217,53 @@
 
 
 
-.inventDescription .slogen, .mapDescription .slogen {
-    left: 0;
-top: 0;
-width: 100%;
-text-align: center;
-position: relative;
+    .inventDescription .slogen, .mapDescription .slogen {
+        left: 0;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        margin-top: 10px;
+        margin-bottom: 0;
+        display: block;
+    }
 
-margin-top: 10px;
-margin-bottom: 0;
-display: block;
-}
 
+    .inventDescription .socialArea {
+        height: auto;
+        top: 0px;
+        margin-top: 50px;
+        width: 100%;
+        position: relative;
+        /* background-color: brown; */
+        text-align: center;
+    }
 
-.inventDescription .socialArea {
-    height: auto;
-    top: 0px;
-	margin-top: 50px;
-    width: 100%;
-    position: relative;
-    /* background-color: brown; */
-    text-align: center;
-}
+    #twittCount {
+        width: 56px;
+        height: 62px;
+        display: inline-block;
+        margin-left: 0;
+        padding-top: 0;
+        padding-left: 10px;
+        padding-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-left: 1px solid gray;
+        border-bottom: none;
+    }
 
-#twittCount {
-    width: 56px;
-    height: 62px;
-    display: inline-block;
-    margin-left: 0;
-    padding-top: 0;
-    padding-left: 10px;
-    padding-bottom: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    border-left: 1px solid gray;
-    border-bottom: none;
-}
-
-#fbCount {
-    width: 56px !important;
-    height: 62px;
-    display: inline-block !important;
-    margin-left: 0;
-    padding-top: 25px;
-    padding-left: 0;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    border-bottom: none;
-}
+    #fbCount {
+        width: 56px !important;
+        height: 62px;
+        display: inline-block !important;
+        margin-left: 0;
+        padding-top: 25px;
+        padding-left: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: none;
+    }
 
     #sum-menu-mobile a {
         text-decoration: none;
@@ -272,7 +271,7 @@ display: block;
     }
 
 
-#sum-menu-mobile li {
+    #sum-menu-mobile li {
         width: 70px;
         font-size: 11px;
         height: 24px;
@@ -1026,7 +1025,7 @@ display: block;
 
     /*--------------------logo menu-----------------------*/
     /*--------------------single startup-----------------------*/
-   
+
 
 
 
@@ -1064,7 +1063,7 @@ display: block;
 
 
 
-   
+
 
 
 
@@ -1346,7 +1345,7 @@ display: block;
 
     #marker-popup .facebook-comments {
         width: 100%!important;
-		margin-left:0;
+        margin-left: 0;
     }
 
 
@@ -1367,16 +1366,16 @@ display: block;
 
     .judgeDescription {
         width: 95%;
-height: 94%;
-background-color: #ebebeb;
-left: 0;
-right: 0;
-margin: auto;
-position: fixed;
-display: none;
-top: 0;
-z-index: 100;
-bottom: 0;
+        height: 94%;
+        background-color: #ebebeb;
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: fixed;
+        display: none;
+        top: 0;
+        z-index: 100;
+        bottom: 0;
     }
 
     .judgeDescriptionLeft {
@@ -1459,4 +1458,50 @@ bottom: 0;
     .inventorPopUp {
         font-size: 15px;
     }
-}
+
+    /**********************contact-us***************/
+
+    #contactUsForm .triangle {
+        display: none;
+    }
+
+    #contactUsForm {
+        position: absolute;
+        width: 100%;
+        bottom: 1360px;
+        height: auto;
+        left: 0;
+        z-index: 15;
+        box-shadow: none;
+    }
+
+    #contactUsForm form input {
+        width: 84%;
+        margin-bottom: 20px;
+        height: 30px;
+        font-size: 15px;
+        padding-left: 13px;
+        font-family: sans;
+        border: 2px solid #e8e8e8;
+        border-radius: 3px;
+    }
+
+    #contactUsForm form textarea {
+        width: 81%;
+        height: 150px;
+        font-size: 15px;
+        padding: 12px;       
+        font-family: sans;
+        border: 2px solid #e8e8e8;
+        border-radius: 3px;
+    }
+
+    #contactUsForm #cbtm {
+        background: #e76c76;
+        color: #fff;
+        border: none;
+        width: 110px;
+        float: right;
+        margin: 20px 29px;
+        text-indent: -13px;
+    }

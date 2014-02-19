@@ -1228,12 +1228,12 @@ function initMap() {
     var options = {
         streetViewControl: false,
         center: new google.maps.LatLng(0, 0),
-        zoom: 1,
+        zoom: 0,
     //    disableDefaultUI: true,
     //disableDoubleClickZoom: true,
         draggable: false,
       //  maxZoom:1,
-        minZoom:1
+        minZoom:0
 
     };
  

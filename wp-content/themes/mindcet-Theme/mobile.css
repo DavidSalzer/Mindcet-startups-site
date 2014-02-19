@@ -2,10 +2,11 @@
     /*add to index!!!! <link rel="stylesheet" media="all and (max-width: 1023px)"  href="css/mobile.css" type="text/css" />*/
 
     /*------------------header and general-------------------------*/
-body.freeze{
-    overflow: hidden;
-}    
-.header {
+    body.freeze {
+        overflow: hidden;
+    }
+
+    .header {
         height: 58px;
     }
 
@@ -195,15 +196,15 @@ body.freeze{
 
 
 
-/*--------------------logo menu-----------------------*/
-/*--------------------single startup-----------------------*/
-.inventDescription .topArea, .mapDescription .topArea {
-    width: 100%;
-   /*  background-color: cyan; */
-    top: 0px;
-   height: auto;
-    text-align: center;
-}
+    /*--------------------logo menu-----------------------*/
+    /*--------------------single startup-----------------------*/
+    .inventDescription .topArea, .mapDescription .topArea {
+        width: 100%;
+        /*  background-color: cyan; */
+        top: 0px;
+        height: auto;
+        text-align: center;
+    }
 
     #sum-menu-mobile {
         background-color: #ffffff;
@@ -220,54 +221,53 @@ body.freeze{
 
 
 
-.inventDescription .slogen, .mapDescription .slogen {
-    left: 0;
-top: 0;
-width: 100%;
-text-align: center;
-position: relative;
+    .inventDescription .slogen, .mapDescription .slogen {
+        left: 0;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        margin-top: 10px;
+        margin-bottom: 0;
+        display: block;
+    }
 
-margin-top: 10px;
-margin-bottom: 0;
-display: block;
-}
 
+    .inventDescription .socialArea {
+        height: auto;
+        top: 0px;
+        margin-top: 50px;
+        width: 100%;
+        position: relative;
+        /* background-color: brown; */
+        text-align: center;
+    }
 
-.inventDescription .socialArea {
-    height: auto;
-    top: 0px;
-	margin-top: 50px;
-    width: 100%;
-    position: relative;
-    /* background-color: brown; */
-    text-align: center;
-}
+    #twittCount {
+        width: 56px;
+        height: 62px;
+        display: inline-block;
+        margin-left: 0;
+        padding-top: 0;
+        padding-left: 10px;
+        padding-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-left: 1px solid gray;
+        border-bottom: none;
+    }
 
-#twittCount {
-    width: 56px;
-    height: 62px;
-    display: inline-block;
-    margin-left: 0;
-    padding-top: 0;
-    padding-left: 10px;
-    padding-bottom: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    border-left: 1px solid gray;
-    border-bottom: none;
-}
-
-#fbCount {
-    width: 56px !important;
-    height: 62px;
-    display: inline-block !important;
-    margin-left: 0;
-    padding-top: 25px;
-    padding-left: 0;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    border-bottom: none;
-}
+    #fbCount {
+        width: 56px !important;
+        height: 62px;
+        display: inline-block !important;
+        margin-left: 0;
+        padding-top: 25px;
+        padding-left: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: none;
+    }
 
     #sum-menu-mobile a {
         text-decoration: none;
@@ -275,7 +275,7 @@ display: block;
     }
 
 
-#sum-menu-mobile li {
+    #sum-menu-mobile li {
         width: 70px;
         font-size: 11px;
         height: 24px;
@@ -343,8 +343,33 @@ display: block;
         height: 140px;
     }
 
+    #newsletter-popup-title {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
 
+    #newsletter-popup input {
+        width: 81%;
+        height: 28px;
+        font-size: 15px;
+        font-family: sans;
+        line-height: 15px;
+        border: 2px solid #e8e8e8;
+        border-radius: 3px;
+        margin-left: 29px;
+        text-indent: 15px;
+    }
 
+    #newsletter-popup-sign-btn {
+        margin-right: 0px;
+        bottom: -6px;
+        height: 25px;
+        margin-bottom: 23px;
+        margin-top: 8px;
+        width: 84px;
+    }
 
     #newsletter-popup .triangle {
         top: -38px;
@@ -353,11 +378,11 @@ display: block;
         -ms-transform: rotateZ(90deg);
     }
 
-
-
-
-
-
+    #newsletter-popup-sign-btn .nav-page-img {
+        background-size: 40px;
+        width: 27px;
+        line-height: 26px;
+    }
 
     #marker-popup .facebook-comments {
         width: 100% !important;
@@ -371,16 +396,16 @@ display: block;
 
     #sign-header-mobile {
         width: 100%;
-height: 50px;
-background-color: #21cc8a;
-color: #ffffff;
-display: none;
-text-align: center;
-line-height: 50px;
-font-size: 25px;
-position: fixed;
-z-index: 1;    
-}
+        height: 50px;
+        background-color: #21cc8a;
+        color: #ffffff;
+        display: none;
+        text-align: center;
+        line-height: 50px;
+        font-size: 25px;
+        position: fixed;
+        z-index: 1;
+    }
     /*-----------------------home page------------------*/
 
     #page-wrap, .page-wrap {
@@ -747,18 +772,18 @@ margin-top: -3px;
     /*-----------------------form--------------------------------*/
     .inventorPopUp {
         top: 0px;
-left: 0px;
-z-index: 51;
-width: 100%;
-height: 100%;
-position: fixed;
+        left: 0px;
+        z-index: 51;
+        width: 100%;
+        height: 100%;
+        position: fixed;
     }
 
-#offer-zone-inner{
-    height: 100%;
-width: 100%;
-overflow-y: scroll;
-}
+    #offer-zone-inner {
+        height: 100%;
+        width: 100%;
+        overflow-y: scroll;
+    }
 
     #formPart2 {
         display: block;
@@ -1047,7 +1072,7 @@ left: auto;
 
     /*--------------------logo menu-----------------------*/
     /*--------------------single startup-----------------------*/
-   
+
 
 
 
@@ -1085,7 +1110,7 @@ left: auto;
 
 
 
-   
+
 
 
 
@@ -1227,10 +1252,10 @@ left: auto;
         margin-top: 40px;
     }
 
-.inventDescription .mainArea .gallery{
-    width: auto;
-    left: 0%;
-}
+    .inventDescription .mainArea .gallery {
+        width: auto;
+        left: 0%;
+    }
 
 
     .inventDescription .mainArea .gallery div, .mapDescription .mainArea .gallery div {
@@ -1370,7 +1395,7 @@ left: auto;
 
     #marker-popup .facebook-comments {
         width: 100%!important;
-		margin-left:0;
+        margin-left: 0;
     }
 
 
@@ -1404,16 +1429,16 @@ left: 22px;
 
     .judgeDescription {
         width: 95%;
-height: 94%;
-background-color: #ebebeb;
-left: 0;
-right: 0;
-margin: auto;
-position: fixed;
-display: none;
-top: 0;
-z-index: 100;
-bottom: 0;
+        height: 94%;
+        background-color: #ebebeb;
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: fixed;
+        display: none;
+        top: 0;
+        z-index: 100;
+        bottom: 0;
     }
 
     .judgeDescriptionLeft {
@@ -1496,4 +1521,54 @@ bottom: 0;
     .inventorPopUp {
         font-size: 15px;
     }
-}
+
+    /**********************contact-us***************/
+
+    #contactUsForm .triangle {
+        display: none;
+    }
+
+    #contactUsForm {
+        position: absolute;
+        width: 100%;
+        bottom: 1360px;
+        height: auto;
+        left: 0;
+        z-index: 15;
+        box-shadow: none;
+    }
+
+    #contactUsForm form input {
+        width: 84%;
+        margin-bottom: 20px;
+        height: 30px;
+        font-size: 15px;
+        padding-left: 13px;
+        font-family: sans;
+        border: 2px solid #e8e8e8;
+        border-radius: 3px;
+    }
+
+    #contactUsForm form textarea {
+        width: 81%;
+        height: 150px;
+        font-size: 15px;
+        padding: 12px;
+        font-family: sans;
+        border: 2px solid #e8e8e8;
+        border-radius: 3px;
+    }
+
+    #contactUsForm #cbtm {
+        background: #e76c76;
+        color: #fff;
+        border: none;
+        width: 110px;
+        float: right;
+        margin: 20px 29px;
+        text-indent: -13px;
+    }
+
+    /********************newsletter**********************/
+
+

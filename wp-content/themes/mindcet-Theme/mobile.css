@@ -788,6 +788,7 @@
 
     .categories {
         font-size: 15px;
+        margin: 5px 0 10px 0;
     }
 
 
@@ -799,6 +800,7 @@
         width: 97%; /*  pini   -need space for the *       */
         background-position: 240px 6px;
         background-size: 7% 58%;
+        margin: 0px 0 21px 0;
     }
 
     .inventorPopUp {
@@ -816,7 +818,8 @@
 
 
     .page-number {
-        bottom: 10px;
+        bottom: 14px;
+        left: 26px;
     }
 
 

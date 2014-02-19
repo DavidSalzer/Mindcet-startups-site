@@ -1,7 +1,6 @@
 @media all and (max-width: 1023px) {
     /*add to index!!!! <link rel="stylesheet" media="all and (max-width: 1023px)"  href="css/mobile.css" type="text/css" />*/
 
-
     /*------------------header and general-------------------------*/
     .header {
         height: 58px;
@@ -28,10 +27,20 @@
         font-size: 43px;
     }
 
+
+
+
+
     .topNav {
         margin-top: -29px;
         height: 42px;
     }
+
+
+
+
+
+
 
     .logoCet, .socialTab {
         width: 37px;
@@ -40,6 +49,12 @@
         background-image: none;
         background-color: #fff;
     }
+
+
+
+
+
+
 
     .tagLogo:first-child {
         width: 37px;
@@ -56,6 +71,12 @@
         right: 190px;
     }
 
+
+
+
+
+
+
     .topImgLink {
         width: 80%;
         height: auto;
@@ -64,19 +85,39 @@
         padding: 0;
     }
 
+
+
+
+
     .socialTab span {
         background-image: url(img/social_icons.png);
         background-position: -1px 3px;
         background-size: 117px;
     }
 
+
+
+
+
     .socialTab span.twitter {
         background-position: -40px 3px;
     }
 
+
+
+
+
+
     .socialTab span.linkin {
         background-position: -80px 3px;
     }
+
+
+
+
+
+
+
 
     .socialTabs {
         top: 38px;
@@ -94,11 +135,36 @@
         width: 78%;
     }
 
+
+
+
+
+
     .topMenu {
         width: 100%;
         bottom: 6px;
         position: absolute;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     .topMenu ul {
         width: 94%;
@@ -117,6 +183,16 @@
         left: 0px;
     }
 
+
+
+
+
+
+
+
+
+
+
     #sum-menu-mobile {
         background-color: #ffffff;
         position: absolute;
@@ -128,6 +204,10 @@
         color: #000000;
     }
 
+
+
+
+
     #sum-menu-mobile li {
         width: 70px;
         font-size: 11px;
@@ -135,26 +215,32 @@
         line-height: 24px;
     }
 
+
+
+
     #sum-menu-mobile a {
         text-decoration: none;
         color: #000;
     }
+
+
+
 
     #sum-menu-mobile .aboutUs {
         border-top: 1px solid #ebebeb;
         border-bottom: 1px solid #ebebeb;
     }
 
-    #sign-header-mobile {
-        width: 100%;
-        height: 50px;
-        background-color: #21cc8a;
-        color: #ffffff;
-        display: none;
-        text-align: center;
-        line-height: 50px;
-        font-size: 25px;
-    }
+
+
+
+
+
+
+
+
+
+
 
     #newsletter-btn {
         width: 37px;
@@ -178,12 +264,25 @@
         height: 140px;
     }
 
+
+
+
     #newsletter-popup .triangle {
         top: -38px;
         left: 238px;
         -webkit-transform: rotateZ(90deg);
         -ms-transform: rotateZ(90deg);
     }
+
+
+
+
+
+
+
+
+
+
 
     #sign-header-mobile {
         width: 100%;
@@ -202,9 +301,20 @@
         margin-top: 103px;
     }
 
+
+
+
+
+
+
+
     .page-wrap.mobile {
         margin-top: 0;
     }
+
+
+
+
 
     .page-wrap .home {
         min-width: 100%;
@@ -212,12 +322,24 @@
         height: auto;
     }
 
+
+
+
+
+
+
+
+
+
     .mainPageBg {
         width: 100%;
         height: auto;
         z-index: 0;
         position: relative;
     }
+
+
+
 
     .home .entry {
         line-height: 0;
@@ -229,10 +351,14 @@
         margin-top: -16%;
     }
 
+
+
+
     .entry-design {
         height: 100%;
         padding: 0;
     }
+
 
     #offerStartUp {
         position: relative;
@@ -244,9 +370,20 @@
         height: 100%;
     }
 
+
+
+
+
+
+
+
+
     #fb-like-site {
         display: none;
     }
+
+
+
 
     #twitter-widget-0 {
         display: none;
@@ -299,9 +436,11 @@
         width: 29px;
     }
 
+
+
+
     .inventList {
         width: 50%;
-        height: 252px;
     }
 
     .inventList li {
@@ -314,15 +453,32 @@
         font-size: 15px;
     }
 
+
+
+
+
     .inventList li h2 a {
         width: 100%;
         height: 22px;
         line-height: 22px;
     }
 
+
+
+
+
+
     .img-wrap {
         height: 100%;
     }
+
+
+
+
+
+
+
+
 
     .google-map {
         width: 100%;
@@ -361,25 +517,42 @@
         display: inline-block;
     }
 
+
+
+
     #best-logo-frame {
         height: 70px;
         width: 70px;
         margin-top: 0;
     }
 
+
+
     .best-logo {
         max-width: 70px;
         max-height: 70px;
     }
 
+
+
+
+
+
     .best-description {
         padding: 10px 10px;
     }
+
+
+
 
     .middelBanner {
         position: relative;
         height: 22px;
     }
+
+
+
+
 
     .middelBanner h2 {
         height: 22px;
@@ -387,9 +560,19 @@
         line-height: 22px;
     }
 
+
+
+
+
     .inventorNav {
         height: 23px;
     }
+
+
+
+
+
+
 
     .judgesAvantar {
         width: 79px;
@@ -408,6 +591,9 @@
         font-size: 14px;
     }
 
+
+
+
     .page-wrap.contect p {
         line-height: 21px;
     }
@@ -417,32 +603,48 @@
         font-weight: normal;
     }
 
+
     .mapping {
         margin-top: 0;
     }
+
 
     .page-wrap.judges {
         height: 153px;
     }
 
+
+
+
+
     .judges .leftScroll-arrow, .judges .rightScroll-arrow {
         margin-top: 62px;
     }
 
+
+
     .judge-pic {
         height: 78px;
     }
+
 
     .judgesAvantar img {
         height: auto;
         max-height: 100%;
     }
 
+
+
+
     .judgesAvantar h2 {
         height: 10px;
         line-height: 10px;
         font-size: 11px;
     }
+
+
+
+
 
     .judgestext {
         height: 19px;
@@ -461,22 +663,33 @@
         height: auto;
     }
 
+
+
     #formPart2 {
         display: block;
     }
 
+
     .inventorPopUp .triangle {
         display: none;
     }
+
+
+
 
     .inventorPopUp .close {
         right: 7px;
         top: 6px;
     }
 
+
+
+
     .popInvent {
         margin: 19px 21px 0 23px;
     }
+
+
 
     .popInvent input, .popInvent textarea {
         height: 26px;
@@ -485,17 +698,37 @@
         width: 91%; /*  pini   -need space for the *       */
     }
 
+
+
+
+
+
+
+
+
+
     .categories-input .categories span.astro {
         display: none;
     }
+
+
+
+
+
 
     .categories-input {
         font-size: 15px;
     }
 
+
+
+
+
     .categories {
         font-size: 15px;
     }
+
+
 
     select#category, select#tags {
         font-size: 15px;
@@ -504,21 +737,61 @@
         width: 91%; /*  pini   -need space for the *       */
     }
 
+    .inventorPopUp {
+        font-size: 15px;
+    }
+
+
+
+
+    .popInvent input, .popInvent textarea {
+        width: 96%;
+    }
+
+
+
+
+    .page-number {
+        bottom: 10px;
+    }
+
+
+
+    .next-page .nav-page-img {
+        background-size: 58px;
+        background-position: 100% 47%;
+        width: 35px;
+        text-indent: -33%;
+        font-size: 15px;
+        line-height: 36px;
+    }
+
+
+
+
     .next-page {
         right: 0;
-        left: 210px;
-        width: 90px;
-        height: 30px;
+        left: 205px;
+        width: 94px;
+        height: 35px;
         position: relative;
         font-size: 18px;
         bottom: 0;
+        margin-bottom: 23px;
+        margin-top: 4px;
     }
+
 
     .input-border {
         width: 100%;
         height: 26px;
         position: relative;
     }
+
+
+
+
+
 
     .title-logo {
         width: 63%;
@@ -527,15 +800,25 @@
         font-size: 15px;
     }
 
+
+
+
+
     .popInvent .upload {
+        background-size: 20% 80%;
+        background-position-x: 3px;
         line-height: 26px;
         font-size: 15px;
-        text-indent: 15px;
+        text-indent: 23px;
         width: 34%;
         position: absolute;
         right: 0;
-        padding-left: 25px;
+        padding-left: 0;
     }
+
+
+
+
 
     .popInvent input[type="file"] {
         height: 26px !important;
@@ -546,9 +829,18 @@
         height: 60px;
     }
 
+
+
+
+
+
     .footerMenu {
         display: none;
     }
+
+
+
+
 
     .unitedNav {
         width: 100%;
@@ -564,6 +856,9 @@
         padding: 0;
     }
 
+
+
+
     .copyr {
         width: 100%;
         height: 100%;
@@ -571,11 +866,31 @@
         text-align: center;
     }
 
+
+
+
+
+
+
+
+
+
+
+
     .copyr div {
         display: inline-block;
         top: 5px;
         position: relative;
     }
+
+
+
+
+
+
+
+
+
 
     #all-rights-reserved-cambium {
         display: inline-block;
@@ -600,6 +915,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*--------------------logo menu-----------------------*/
     /*--------------------single startup-----------------------*/
     .inventDescription .topArea, .mapDescription .topArea {
@@ -609,6 +945,11 @@
         min-height: 150px;
         text-align: center;
     }
+
+
+
+
+
 
     .inventDescription .startup-popup-logo, .mapDescription .startup-popup-logo {
         width: 100%;
@@ -622,6 +963,7 @@
         text-align: center;
     }
 
+
     .inventDescription .title.ellipsis, .mapDescription .title.ellipsis {
         width: 100%;
         left: 0px;
@@ -631,6 +973,13 @@
         margin-top: 20px;
         top: 0;
     }
+
+
+
+
+
+
+
 
 
 
@@ -644,6 +993,8 @@
     }
 
 
+
+
     .inventDescription .socialArea {
         height: auto;
         top: 0px;
@@ -652,6 +1003,8 @@
         /* background-color: brown; */
         text-align: center;
     }
+
+
 
     #twittCount {
         width: 56px;
@@ -667,6 +1020,9 @@
         border-bottom: none;
     }
 
+
+
+
     #fbCount {
         width: 56px !important;
         height: 62px;
@@ -679,6 +1035,14 @@
         border-bottom: none;
     }
 
+
+
+
+
+
+
+
+
     .inventDescription .socialArea .fb, .inventDescription .form-end-message .fb {
         display: none;
     }
@@ -687,8 +1051,20 @@
         display: none;
     }
 
+
+
+
+
+
+
+
+
     .inventDescription .socialArea .linkedin, .inventDescription .form-end-message .linkedin {
     }
+
+
+
+
 
     .socialArea .twitter, .form-end-message .twitter {
         display: none;
@@ -709,11 +1085,17 @@
         text-align: center;
     }
 
+
+
+
+
+
     .inventDescription .mainArea .movie iframe {
         height: 160px;
         width: 260px;
         position: static;
     }
+
 
     .inventDescription .mainArea .name.ellipsis, .mapDescription .mainArea .name.ellipsis {
         clear: both;
@@ -726,14 +1108,8 @@
         top: 40px;
     }
 
-    .inventDescription .mainArea .description, .mapDescription .mainArea .description {
-        float: none;
-        width: 95%;
-        margin-left: 10px;
-        text-align: left;
-        position: relative;
-        margin-top: 60px;
-    }
+
+
 
     .inventDescription .mainArea .description, .mapDescription .mainArea .description {
         float: none;
@@ -743,6 +1119,7 @@
         position: relative;
         margin-top: 60px;
     }
+
 
     .inventDescription .mainArea .gallery, .mapDescription .mainArea .gallery {
         width: 100%;
@@ -756,6 +1133,9 @@
         margin-top: 40px;
     }
 
+
+
+
     .inventDescription .mainArea .gallery div, .mapDescription .mainArea .gallery div {
         display: block;
         float: none;
@@ -765,10 +1145,28 @@
         border: 0;
     }
 
+
+
+
     .mainArea .gallery-img {
         width: 95%;
         height: 95%;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -778,7 +1176,19 @@
         margin-left: 0;
     }
 
+
+
+
+
+
+
     /*****************marker popup**********************/
+
+
+
+
+
+
 
 
     #marker-popup .startups-gallery {
@@ -793,21 +1203,47 @@
         height: 35px;
     }
 
+
+
+
     .startups-gallery .startups-gallery-header span {
         font-size: 20px;
     }
+
+
+
+
+
 
     #marker-popup .startups-gallery-item {
         min-height: 62px;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     #marker-popup .popup-title {
         margin-top: 10px;
     }
 
+
+
+
+
     .mapDescription .mainArea .description {
         margin-top: 0px;
     }
+
 
     .mapDescription .socialArea .fb, .mapDescription .socialArea .twitter, .mapDescription .socialArea .linkedin {
         margin: 10px;
@@ -826,6 +1262,7 @@
         padding-right: 9px;
     }
 
+
     .mapDescription .socialArea {
         width: auto;
         position: relative;
@@ -833,9 +1270,11 @@
         text-align: center;
     }
 
+
     #marker-popup .facebook-comments {
         width: 100%;
     }
+
 
     #marker-popup iframe {
         width: 100%;
@@ -845,6 +1284,7 @@
         left: 0;
     }
 
+
     #validate-slogen-error {
         width: 100%;
         left: 0;
@@ -852,7 +1292,7 @@
     /******************judge popup*********************/
 
     .judgeDescription {
-        width: 97%;
+        width: 85%;
         height: 430px;
         background-color: #ebebeb;
         z-index: 16;
@@ -862,6 +1302,7 @@
         margin: auto;
         position: absolute;
         display: none;
+        top: -175px;
         z-index: 100;
     }
 
@@ -871,7 +1312,7 @@
     }
 
     .judgeDescriptionRight {
-        width: 83%;
+        width: 80%;
         height: 280px;
         top: 150px;
         left: 0;
@@ -890,7 +1331,7 @@
         color: #fff;
         padding: 0;
         line-height: 20px;
-        text-indent: 10px;
+        text-indent: 5px;
     }
 
     .judgeDescription-role {
@@ -901,8 +1342,9 @@
         width: 100%;
         position: relative;
         padding: 0 0;
-        text-indent: 10px;
+        text-indent: 5px;
         position: relative;
+        font-weight: normal;
     }
 
     .judgeDescription-full {
@@ -922,10 +1364,6 @@
         right: 0;
     }
 
-    .judgesContenar {
-        overflow-x: scroll;
-        overflow-y: hidden;
-    }
 
     .judgeDescription-img img {
         max-width: 90px;
@@ -933,13 +1371,19 @@
         box-shadow: #A8A6A6 1px 1px 1px 0px;
         position: absolute;
         top: 35px;
-        left: -161px;
+        left: -123px;
         bottom: 182px;
         border: solid 4px #fff;
         z-index: 1;
     }
 
     .judgeDescription .close {
-        display: none;
+        right: 10px;
+    }
+
+    /*****************sign-up*******************/
+
+    .inventorPopUp {
+        font-size: 15px;
     }
 }

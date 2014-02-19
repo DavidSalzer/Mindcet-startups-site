@@ -58,17 +58,26 @@ $(document).ready(function (e) {
         //openOfferPopUp();
         e.preventDefault();
 
+        if(isMobile){
+            $("body").addClass("freeze");
+            $("#page-number-1").html("1/2");
+        }
+        else{
+            $("#page-number-1").html("1/3");
+        }
     });
 
     $('.inventorPopUp .close').on('click', this, function () {
         $('.inventorPopUp').fadeOut(300, 'easeInOutBack');
         $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
+
         //display of mobile
         if(isMobile){
             $(".header").show();
             $(".topNav").show();
             $(".page-wrap").removeClass("mobile");
             $("#sign-header-mobile").hide();
+            $("body").removeClass("freeze");
         }
       //  return false;
     });

@@ -804,6 +804,7 @@ left: 0; width: 100%; text-align: center; position: relative; top: 0; margin-bot
     margin: auto;
     position: absolute;
     display: none;
+    top: -175px;
     z-index: 100;
 }
 
@@ -876,6 +877,3 @@ left: 0; width: 100%; text-align: center; position: relative; top: 0; margin-bot
     z-index: 1;
 }
 
-.judgeDescription .close{
-    display: none;
-}

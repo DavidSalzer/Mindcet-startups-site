@@ -173,7 +173,7 @@ do_action('wp_insert_post', 'wp_insert_post');
                     <input type="email" id="founderMail" value="" tabindex="14" name="founderMail" placeholder="Founder E-Mail" />
                 
                 <!-- post slogen -->
-                    <input type="text" id="slogen" value="" tabindex="15" name="slogen" placeholder="Startup mission up to 140 characters" /> *
+                    <input type="text" id="slogen" value="" tabindex="15" name="slogen" placeholder="Startup mission up to 140 characters" /><span>*</span>
                 
                 <fieldset class="categories-input">
                      <div class="categories">Startup's categories <span class="astro">*</span>
@@ -235,12 +235,12 @@ do_action('wp_insert_post', 'wp_insert_post');
             
                 <!-- post Content -->
                 <!--<fieldset class="formfield">-->
-               <textarea id="description" tabindex="20" name="description" cols="30" rows="1" placeholder="About the startup"></textarea> *
+               <textarea id="description" tabindex="20" name="description" cols="30" rows="1" placeholder="About the startup"></textarea><span>*</span>
                 <!--</fieldset>-->
 
                 <!-- post Category -->
                 <!--<fieldset class="formfield">-->
-                    <input type="url" id="site" value="" tabindex="21" name="site" placeholder="Link to website"/> *
+                    <input type="url" id="site" value="" tabindex="21" name="site" placeholder="Link to website"/><span>*</span>
                 <!--</fieldset>-->
         
                 <!-- post Category -->

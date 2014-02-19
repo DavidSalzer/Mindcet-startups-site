@@ -198,7 +198,7 @@
     width: 100%;
    /*  background-color: cyan; */
     top: 0px;
-    min-height: 150px;
+   height: auto;
     text-align: center;
 }
 
@@ -223,22 +223,20 @@ top: 0;
 width: 100%;
 text-align: center;
 position: relative;
-margin-top: 15px;
+
+margin-top: 10px;
 margin-bottom: 0;
 display: block;
 }
 
-<<<<<<< .mine
 
-=======
-
->>>>>>> .theirs
 .inventDescription .socialArea {
     height: auto;
     top: 0px;
+	margin-top: 50px;
     width: 100%;
     position: relative;
-   /*  background-color: brown; */
+    /* background-color: brown; */
     text-align: center;
 }
 
@@ -250,9 +248,21 @@ display: block;
     padding-top: 0;
     padding-left: 10px;
     padding-bottom: 0;
-   margin-top: 50px;
+    margin-top: 0;
     margin-bottom: 0;
     border-left: 1px solid gray;
+    border-bottom: none;
+}
+
+#fbCount {
+    width: 56px !important;
+    height: 62px;
+    display: inline-block !important;
+    margin-left: 0;
+    padding-top: 25px;
+    padding-left: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
     border-bottom: none;
 }
 
@@ -1006,14 +1016,7 @@ margin-top: 25px;
 
     /*--------------------logo menu-----------------------*/
     /*--------------------single startup-----------------------*/
-    .inventDescription .topArea, .mapDescription .topArea {
-        width: 100%;
-        /* background-color: cyan; */
-        top: 0px;
-        min-height: 150px;
-        text-align: center;
-    }
-
+   
 
 
 
@@ -1051,15 +1054,7 @@ margin-top: 25px;
 
 
 
-    .inventDescription .slogen, .mapDescription .slogen {
-        left: 0;
-        width: 100%;
-        text-align: center;
-        position: relative;
-        top: 30px;
-        margin-bottom: 0;
-    }
-
+   
 
 
 
@@ -1239,7 +1234,7 @@ margin-top: 25px;
 
 
     #comments-frame {
-        width: 100%;
+        width: 100% !important;
         min-height: 60px;
         margin-left: 0;
     }
@@ -1340,7 +1335,8 @@ margin-top: 25px;
 
 
     #marker-popup .facebook-comments {
-        width: 100%;
+        width: 100%!important;
+		margin-left:0;
     }
 
 

@@ -522,7 +522,8 @@ $(document).ready(function (e) {
 
     $("#newsletter-btn").on("click",openNewsletter);
     $("#newsletter-popup-sign-btn").on("click",signToNewsletter);
-
+    $(".tagLogo").on("click",openSubMenu);
+    $("body").on("click","div,span,ul",closeSubMenu);
     resizOfferStartUpDiv();
     dispalyOption();
     setStartupUl();
@@ -1436,4 +1437,16 @@ function getFile(id){
       if($("#offer-zone").width()==$("body").width()){
           isMobile=true;
       }
+  }
+
+  //open sub menu
+  function openSubMenu(){
+      if(isMobile){
+      $("#sum-menu-mobile").fadeIn();
+      return false;
+      }
+  }
+
+  function closeSubMenu(){
+      $("#sum-menu-mobile").fadeOut();
   }

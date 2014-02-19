@@ -1,733 +1,945 @@
-/*add to index!!!! <link rel="stylesheet" media="all and (max-width: 1023px)"  href="css/mobile.css" type="text/css" />*/
-
-
-/*------------------header and general-------------------------*/
-.header {
-height: 58px;
-}
-.timer {
-   height: 32px;
-top: -74px;
-line-height: 32px;
-width: 100%;
-}
-.countdown-area h3 {
-    top: 0;
-    display: inline;
-    font-size: 20px;
-    content: "";/*change*/
-}
-.daysRemind {
-    position: relative;
-    top: 0;
-    display: inline;
-    font-size: 43px;
-}
-.topNav {
-   margin-top: -29px;
-height: 42px;
-}
-.logoCet ,.socialTab {
-   width: 37px;
-height: 37px;
-border-radius: 50px;
-background-image: none;
-background-color: #fff;
-}
-.tagLogo:first-child {
-  width: 37px;
-height: 37px;
-border-radius: 50px;
-background-image: none;
-background-color: #fff;
-top: 38px;
-float: left;
-position: absolute;
-left: 0;
-margin-left: auto;
-margin-right: auto;
-right: 190px;
-}
-.topImgLink {
-    width: 80%;
-height: auto;
-top: 13px;
-left: 3px;
-padding: 0;
-}
-.socialTab span {
-background-image: url(img/social_icons.png);
-background-position: -1px 3px;
-background-size: 117px;
-}
-
-.socialTab span.twitter {
-background-position: -40px 3px;
-}
-
-.socialTab span.linkin {
-background-position: -80px 3px;
-}
-.socialTabs {
-   top: 38px;
-position: relative;
-float: none;
-margin-left: 0;
-margin-right: 0;
-}
-.logoAndSocial {
-    position: relative;
-height: 80px;
-margin: 0 auto;
-text-align: center;
-width: 78%;
-}
-.topMenu {
-   width: 100%;
-bottom: 6px;
-position: absolute;
-}
-.topMenu ul {
-    width: 94%;
-    left: 0;
-}
-
-.topMenu ul li {
-   height: 16px;
-line-height: 16px;
-font-size: 8px;
-padding-left: 6px;
-padding-right: 6px;
-}
-.topMenu ul li:last-child{
-    left: 0px;
-}
-#newsletter-btn{
-  width: 37px;
-height: 37px;
-border-radius: 50px;
-top: 38px;
-z-index: 50;
-left: 208px;
-right: 0;
-margin-left: auto;
-margin-right: auto;
-background-image: url(img/newsletter_grey.png);
-background-size: 94%;
-background-position: 1px 4px;
-}
-
-#newsletter-popup{
-    width: 100%;
-left: 0;
-top: 110px;
-height: 140px;
-}
-#newsletter-popup .triangle{
-    top: -38px;
-left: 238px;
--webkit-transform: rotateZ(90deg);
--ms-transform: rotateZ(90deg);
-}
-#sign-header-mobile{
-    width: 100%;
-height: 50px;
-background-color: #21cc8a;
-color: #ffffff;
-display: none;
-text-align: center;
-line-height: 50px;
-font-size: 25px;
-}
-/*-----------------------home page------------------*/
-
-#page-wrap, .page-wrap {
-    width: 100%;
-    margin-top: 103px;
-}
-.page-wrap.mobile{
-    margin-top: 0;
-}
-.page-wrap .home {
-   min-width: 100%;
-margin-top: 0;
-height: auto;
-}
-.mainPageBg {
-width: 100%;
-height: auto;
-z-index: 0;
-position: relative;
-}
-
-.home .entry{
-line-height: 0;
-padding: 0;
-width: 25%;
-margin-left: 11%;
-height: 10%;
-position: absolute;
-margin-top: -16%;
-}
-.entry-design{
-    height: 100%;
-padding: 0;
-}
-#offerStartUp{
-  position: relative;
-bottom: 0;
-left: 0;
-margin-top: 0;
-width: 100%;
-font-size: 9px;
-height: 100%;
-}
-#fb-like-site{
-    display: none;
-}
-#twitter-widget-0{
-   display: none;
-}
-.middelBanner, .inventorNav, .page-wrap.inventors, .mapping, .page-wrap.judges, .page-wrap.contect, #footer {
-    width: 100%;
-}
-select#categoryNav, select#tagsNav{
-    width: 50%;
-font-size: 11px;
-height: 23px;
-line-height: 23px;
-background-size: 19px;
-background-position-y: 8px;
-}
-
-.page-wrap.inventors, .rightScroll, .leftScroll, .inventList {
-    height: 229px;
-}
-#scrollInventorCon {
-    height: 100%;
-    overflow-x: scroll;
-    overflow-y: hidden;
-}
-
-.rightScroll, .leftScroll{
-    width: 29px;
-}
-.leftScroll-arrow, .rightScroll-arrow{
-    margin: 90px auto 0;
-}
-.leftScroll-arrow{
-    background-position-x: -8px;
-}
-.rightScroll-arrow {
-    background-position-x: -62px;
-}
-#scrollInventorCon .placholderSlide{
-    width: 29px;
-}
-.placholderSlide{
-    width: 29px;
-}
-.inventList{
-    width: 50%;
-height: 252px;    
-}
-.inventList li {
-    width: 100%;
-    height: 50%;
-}
-.inventList li h2{
-    height: 22px;
-font-size: 15px;
-}
-.inventList li h2 a {
-   width: 100%;
-height: 22px;
-line-height: 22px;
-}
-.img-wrap{
-    height: 100%;
-}
-.google-map {
-    width: 100%;
-}
-.best-invent {
-    width: 100%;
-    height: 124px;
-    background-color: #fff;
-}
-#best-invent-title {
-   width: 84%;
-height: 21px;
-line-height: 21px;
-padding: 0 8%;
-text-align: left;
-font-size: 13px;
-}
-#best-invent-logo {
-    width: 70px;
-height: 70px;
-padding: 0;
-display: inline-block;
-background-color: #fff;
-vertical-align: top;
-margin-left: 6%;
-margin-top: 12px;
-}
-#best-invent-description {
-    width: 67%;
-height: 80%;
-padding: 0;
-display: inline-block;
-}
-#best-logo-frame {
-   height: 70px;
-width: 70px;
-margin-top: 0;
-}
-.best-logo {
-    max-width: 70px;
-    max-height: 70px;
-}
-.best-description {
-   padding: 10px 10px;
-}
-.middelBanner {
-    position: relative;
-height: 22px;
-}
-.middelBanner h2{
-    height: 22px;
-font-size: 1em;
-line-height: 22px;
-}
-.inventorNav{
-    height: 23px;
-}
-.judgesAvantar {
-    width: 79px;
-height: 114px;
-}
-.page-wrap.contect {
-    /*height: 158px;*/
-    overflow: hidden;
-}
-.page-wrap.contect article{
-    padding: 0;
-width: 83%;
-margin-left: 31px;
-font-size: 14px;
-}
-.page-wrap.contect p{
-    line-height: 21px;
-}
-.page-wrap.contect .unreset span {
-    font-size: 25px !important;
-    font-weight: normal;
-}
-
-.mapping{
-    margin-top: 0;
-}
-
-.page-wrap.judges{
-    height: 153px;
-}
-
-.judges .leftScroll-arrow, .judges .rightScroll-arrow{
-    margin-top: 62px;
-}
-.judge-pic{
-    height: 78px;
-}
-.judgesAvantar img {
-    height: auto;
-    max-height: 100%;
-}
-.judgesAvantar h2{
-    height: 10px;
-line-height: 10px;
-font-size: 11px;
-}
-.judgestext{
-    height: 19px;
-line-height: 10px;
-padding: 0;
-font-size: 10px;
-margin-left: 3px;
-margin-top: 2px;
-}
-/*-----------------------form--------------------------------*/
-.inventorPopUp{
-    top: 0px;
-left: 0px;
-z-index: 51;
-width: 100%;
-height: auto;
-}
-#formPart2{
-    display: block;
-}
-.inventorPopUp .triangle{
-    display: none;
-}
-
-.inventorPopUp .close{
-    right: 7px;
-top: 6px;
-}
-.popInvent{
-    margin: 19px 21px 0 23px;
-}
-.popInvent input, .popInvent textarea{
-    height: 26px;
-line-height: 26px;
-font-size: 15px;
-width: 100%;
-}
-.categories-input{
-    font-size: 15px;
-}
-.categories{
-    font-size: 15px;
-}
-select#category, select#tags{
-    font-size: 15px;
-height: 26px;
-line-height: 26px;
-width: 100%;
-}
-.input-border{
-    width: 100%;
-height: 26px;
-position: relative;
-}
-.title-logo{
-    width: 63%;
-height: 26px;
-line-height: 26px;
-font-size: 15px;
-}
-.popInvent .upload{
-line-height: 26px;
-font-size: 15px;
-text-indent: 15px;
-width: 34%;
-position: absolute;
-right: 0;
-}
-.popInvent input[type="file"]{
-    height: 26px !important;
-width: 93px !important;
-}
-/*-------------------------footer--------------------------*/
-#footer{
-    height: 60px;
-}
-.footerMenu {
-    display: none;
-}
-
-.unitedNav{
-    width: 100%;
-}
-
-.logo_menu li{
-  height: 20px;
-width: 45px;
-margin: 5px 2px;
-}
-.footerNav{
-    padding: 0;
-}
-.copyr{
-    width: 100%;
-height: 100%;
-padding: 0;
-text-align: center;
-}
-.copyr div{
-    display: inline-block;
-top: 5px;
-position: relative;
-}
-#all-rights-reserved-cambium{
-    display: inline-block;
-top: 5px;
-}
-#my-logo{
-    display: none;
-}
-/*----------------------Invent----------------*/
-
-.inventDescription, .mapDescription{
-    width: 100%;
-height: auto;
-margin: 0;
-}
-
-.inventDescription .mainArea .gallery img:hover, .mapDescription .mainArea .gallery img:hover{
-     -webkit-transform: scale(1.5,1.5);
-    transform: scale(1.5,1.5);
-}
-
-
-
-/*--------------------logo menu-----------------------*/
-/*--------------------single startup-----------------------*/
-.inventDescription .topArea, .mapDescription .topArea {
-width: 100%;
-background-color: cyan;
-
-top:0px;
-height: auto;
-text-align: center;
-}
-.inventDescription .startup-popup-logo, .mapDescription .startup-popup-logo {
-width: 100%;
-height: 60px;
-position: relative;
-
-margin: 0px;
-padding-bottom: 0px;
-border-bottom: 0px;
-padding-top: 15px;
-padding-bottom: 15px;
-text-align: center;
-
-}
-.inventDescription .title.ellipsis, .mapDescription .title.ellipsis {
-width: 100%;
-	left: 0px;
-text-align: center;
-display: block;
-position: relative;
-margin-top: 20px;
-top:0;
-}
-
-
-
-.inventDescription .slogen, .mapDescription .slogen {
-
-	left: 0;
-width: 100%;
-text-align: center;
-position: relative;
-top: 0;
-margin-bottom: 0;
-margin-top: 20px;	
-padding-bottom: 10px;
-}
-.inventDescription .socialArea {
-	min-height:  70px;
-	top: 0px;
-width: 100%;
-position: relative;
-background-color: brown;
-text-align: center;
-}
-
-#twittCount {
-	width: 56px;
-height: 62px;
-
-display: inline-block;
-margin-left: 0;
-padding-top: 0;
-padding-left: 10px;
-padding-bottom: 0;
-margin-top: 0;
-margin-bottom: 0;
-border-left: 1px solid gray;
-border-bottom: none;
-}
-#fbCount {
-
-width: 56px !important;
-height: 62px ;
-
-display: inline-block !important;
-margin-left: 0;
-padding-top: 25px;
-padding-left: 0;
-padding-bottom: 0;
-margin-bottom: 0;
-
-border-bottom: none;
-}
-
-.inventDescription.socialArea .fb, .inventDescription.form-end-message .fb {
-
-display: none;
-}
-.inventDescription.socialArea .linkedin, .inventDescription.form-end-message .linkedin {
-
-display: none;
-
-}
-.inventDescription.socialArea .twitter, .inventDescription.form-end-message .twitter {
-
-display: none;
-}
-.inventDescription .mainArea, .mapDescription .mainArea {
-
-width: 100%;
-
-background-color: aquamarine;
-display: block;
-
-margin-left: 0px;
-padding-bottom: 0px;
-padding-right: 0px;
-height: auto;
-text-align: center;
-border-top: 1px solid rgb(175, 171, 171);
-}
-.inventDescription .mainArea .movie {
-
-width: 100%;
-position: relative;
-top: 25px;
-margin: 0;
-
-}
-.inventDescription .mainArea .movie iframe{
-
-	height: 160px;
-width: 260px;
-position: static;
-
-
-
-}
-.inventDescription .mainArea .name.ellipsis, .mapDescription .mainArea .name.ellipsis {
-clear: both;
-margin: 0;
-float: none;
-text-align: center;
-
-padding: 0;
-width: 100%;
-position: relative;
-top: 40px;
-}
-.inventDescription .mainArea .description, .mapDescription .mainArea .description {
-float: none;
-width: 85%;
-margin-left: 7.5%;
-text-align: left;
-position: relative;
-margin-top:60px;
-
-}
-.inventDescription .mainArea .gallery, .mapDescription .mainArea .gallery {
-width: 100%;
-float: none;
-
-position: relative;
-margin-left: 0;
-
-left: 20%;
-margin: 0;
-display:inline-block;
-max-height: 373px;
-margin-top: 40px;
-}
-
-.inventDescription .mainArea .gallery div, .mapDescription .mainArea .gallery div {
-display: block;
-float: none;
-width: 185px;
-height: 120px;
-margin-left: 0;
-border: 0;
-}
-
-.mainArea .gallery-img {
-
-width: 95%;
-height: 95%;
-}
-
-
-
-#comments-frame {
-width: 100%;
-min-height: 60px;
-margin-left: 0;
-
-}
-
-
-
-
-/*****************marker popup**********************/
-
-
-#marker-popup .startups-gallery {
-float: none;
-position: relative;
-margin-top: 25px;
-width: 85%;
-margin-left:7.5%;
-}
-#marker-popup .startups-gallery .startups-gallery-header {
-height: 35px;
-
-}
-.startups-gallery .startups-gallery-header span {
-font-size: 20px;
-
-}
-#marker-popup .startups-gallery-item {
-min-height: 62px;
-
-}
-#marker-popup .popup-title {
-
-margin-top: 10px;
-
-}
-
-.mapDescription .mainArea .description {
-
-margin-top: 0px;
-}
-
-.socialArea .fb, .socialArea .twitter, .socialArea .linkedin {
-margin: 10px;
-margin-left: 3px;
-margin-right: 3px;
-display: inline-block;
-border: none;
-padding-top: 44px;
-height: 10px;
-}
-
-.socialArea .twitter{
-border-left: 2px solid gray;
-border-right: 2px solid gray;
-
-padding-left: 9px;
-padding-right: 9px;
-}
-.mapDescription .socialArea {
-width: auto;
-position: relative;
-top: 0;
-text-align: center;
-
-}
-#marker-popup .facebook-comments {
-
-width: 100%;
-}
-#marker-popup iframe {
-width: 100%;
-
-}
-
-.judgesContenar{
-    overflow-x:scroll;
-    overflow-y: hidden; 
+@media all and (max-width: 1023px) {
+    /*add to index!!!! <link rel="stylesheet" media="all and (max-width: 1023px)"  href="css/mobile.css" type="text/css" />*/
+
+
+    /*------------------header and general-------------------------*/
+    .header {
+        height: 58px;
+    }
+
+    .timer {
+        height: 32px;
+        top: -74px;
+        line-height: 32px;
+        width: 100%;
+    }
+
+    .countdown-area h3 {
+        top: 0;
+        display: inline;
+        font-size: 20px;
+        content: ""; /*change*/
+    }
+
+    .daysRemind {
+        position: relative;
+        top: 0;
+        display: inline;
+        font-size: 43px;
+    }
+
+    .topNav {
+        margin-top: -29px;
+        height: 42px;
+    }
+
+    .logoCet, .socialTab {
+        width: 37px;
+        height: 37px;
+        border-radius: 50px;
+        background-image: none;
+        background-color: #fff;
+    }
+
+    .tagLogo:first-child {
+        width: 37px;
+        height: 37px;
+        border-radius: 50px;
+        background-image: none;
+        background-color: #fff;
+        top: 38px;
+        float: left;
+        position: absolute;
+        left: 0;
+        margin-left: auto;
+        margin-right: auto;
+        right: 190px;
+    }
+
+    .topImgLink {
+        width: 80%;
+        height: auto;
+        top: 13px;
+        left: 3px;
+        padding: 0;
+    }
+
+    .socialTab span {
+        background-image: url(img/social_icons.png);
+        background-position: -1px 3px;
+        background-size: 117px;
+    }
+
+    .socialTab span.twitter {
+        background-position: -40px 3px;
+    }
+
+    .socialTab span.linkin {
+        background-position: -80px 3px;
+    }
+
+    .socialTabs {
+        top: 38px;
+        position: relative;
+        float: none;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .logoAndSocial {
+        position: relative;
+        height: 80px;
+        margin: 0 auto;
+        text-align: center;
+        width: 78%;
+    }
+
+    .topMenu {
+        width: 100%;
+        bottom: 6px;
+        position: absolute;
+    }
+
+    .topMenu ul {
+        width: 94%;
+        left: 0;
+    }
+
+    .topMenu ul li {
+        height: 16px;
+        line-height: 16px;
+        font-size: 8px;
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .topMenu ul li:last-child {
+        left: 0px;
+    }
+
+    #sum-menu-mobile {
+        background-color: #ffffff;
+        position: absolute;
+        z-index: 1;
+        border: 1px solid #ebebeb;
+        right: -18px;
+        text-align: left;
+        text-indent: 4px;
+        color: #000000;
+    }
+
+    #sum-menu-mobile li {
+        width: 70px;
+        font-size: 11px;
+        height: 24px;
+        line-height: 24px;
+    }
+
+    #sum-menu-mobile a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    #sum-menu-mobile .aboutUs {
+        border-top: 1px solid #ebebeb;
+        border-bottom: 1px solid #ebebeb;
+    }
+
+    #sign-header-mobile {
+        width: 100%;
+        height: 50px;
+        background-color: #21cc8a;
+        color: #ffffff;
+        display: none;
+        text-align: center;
+        line-height: 50px;
+        font-size: 25px;
+    }
+
+    #newsletter-btn {
+        width: 37px;
+        height: 37px;
+        border-radius: 50px;
+        top: 38px;
+        z-index: 50;
+        left: 208px;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        background-image: url(img/newsletter_grey.png);
+        background-size: 94%;
+        background-position: 1px 4px;
+    }
+
+    #newsletter-popup {
+        width: 100%;
+        left: 0;
+        top: 110px;
+        height: 140px;
+    }
+
+    #newsletter-popup .triangle {
+        top: -38px;
+        left: 238px;
+        -webkit-transform: rotateZ(90deg);
+        -ms-transform: rotateZ(90deg);
+    }
+
+    #sign-header-mobile {
+        width: 100%;
+        height: 50px;
+        background-color: #21cc8a;
+        color: #ffffff;
+        display: none;
+        text-align: center;
+        line-height: 50px;
+        font-size: 25px;
+    }
+    /*-----------------------home page------------------*/
+
+    #page-wrap, .page-wrap {
+        width: 100%;
+        margin-top: 103px;
+    }
+
+    .page-wrap.mobile {
+        margin-top: 0;
+    }
+
+    .page-wrap .home {
+        min-width: 100%;
+        margin-top: 0;
+        height: auto;
+    }
+
+    .mainPageBg {
+        width: 100%;
+        height: auto;
+        z-index: 0;
+        position: relative;
+    }
+
+    .home .entry {
+        line-height: 0;
+        padding: 0;
+        width: 25%;
+        margin-left: 11%;
+        height: 10%;
+        position: absolute;
+        margin-top: -16%;
+    }
+
+    .entry-design {
+        height: 100%;
+        padding: 0;
+    }
+
+    #offerStartUp {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        margin-top: 0;
+        width: 100%;
+        font-size: 9px;
+        height: 100%;
+    }
+
+    #fb-like-site {
+        display: none;
+    }
+
+    #twitter-widget-0 {
+        display: none;
+    }
+
+    .middelBanner, .inventorNav, .page-wrap.inventors, .mapping, .page-wrap.judges, .page-wrap.contect, #footer {
+        width: 100%;
+    }
+
+    select#categoryNav, select#tagsNav {
+        width: 50%;
+        font-size: 11px;
+        height: 23px;
+        line-height: 23px;
+        background-size: 19px;
+        background-position-y: 8px;
+    }
+
+    .page-wrap.inventors, .rightScroll, .leftScroll, .inventList {
+        height: 229px;
+    }
+
+    #scrollInventorCon {
+        height: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    .rightScroll, .leftScroll {
+        width: 29px;
+    }
+
+    .leftScroll-arrow, .rightScroll-arrow {
+        margin: 90px auto 0;
+    }
+
+    .leftScroll-arrow {
+        background-position-x: -8px;
+    }
+
+    .rightScroll-arrow {
+        background-position-x: -62px;
+    }
+
+    #scrollInventorCon .placholderSlide {
+        width: 29px;
+    }
+
+    .placholderSlide {
+        width: 29px;
+    }
+
+    .inventList {
+        width: 50%;
+        height: 252px;
+    }
+
+    .inventList li {
+        width: 100%;
+        height: 50%;
+    }
+
+    .inventList li h2 {
+        height: 22px;
+        font-size: 15px;
+    }
+
+    .inventList li h2 a {
+        width: 100%;
+        height: 22px;
+        line-height: 22px;
+    }
+
+    .img-wrap {
+        height: 100%;
+    }
+
+    .google-map {
+        width: 100%;
+    }
+
+    .best-invent {
+        width: 100%;
+        height: 124px;
+        background-color: #fff;
+    }
+
+    #best-invent-title {
+        width: 84%;
+        height: 21px;
+        line-height: 21px;
+        padding: 0 8%;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    #best-invent-logo {
+        width: 70px;
+        height: 70px;
+        padding: 0;
+        display: inline-block;
+        background-color: #fff;
+        vertical-align: top;
+        margin-left: 6%;
+        margin-top: 12px;
+    }
+
+    #best-invent-description {
+        width: 67%;
+        height: 80%;
+        padding: 0;
+        display: inline-block;
+    }
+
+    #best-logo-frame {
+        height: 70px;
+        width: 70px;
+        margin-top: 0;
+    }
+
+    .best-logo {
+        max-width: 70px;
+        max-height: 70px;
+    }
+
+    .best-description {
+        padding: 10px 10px;
+    }
+
+    .middelBanner {
+        position: relative;
+        height: 22px;
+    }
+
+    .middelBanner h2 {
+        height: 22px;
+        font-size: 1em;
+        line-height: 22px;
+    }
+
+    .inventorNav {
+        height: 23px;
+    }
+
+    .judgesAvantar {
+        width: 79px;
+        height: 114px;
+    }
+
+    .page-wrap.contect {
+        /*height: 158px;*/
+        overflow: hidden;
+    }
+
+    .page-wrap.contect article {
+        padding: 0;
+        width: 83%;
+        margin-left: 31px;
+        font-size: 14px;
+    }
+
+    .page-wrap.contect p {
+        line-height: 21px;
+    }
+
+    .page-wrap.contect .unreset span {
+        font-size: 25px !important;
+        font-weight: normal;
+    }
+
+    .mapping {
+        margin-top: 0;
+    }
+
+    .page-wrap.judges {
+        height: 153px;
+    }
+
+    .judges .leftScroll-arrow, .judges .rightScroll-arrow {
+        margin-top: 62px;
+    }
+
+    .judge-pic {
+        height: 78px;
+    }
+
+    .judgesAvantar img {
+        height: auto;
+        max-height: 100%;
+    }
+
+    .judgesAvantar h2 {
+        height: 10px;
+        line-height: 10px;
+        font-size: 11px;
+    }
+
+    .judgestext {
+        height: 19px;
+        line-height: 10px;
+        padding: 0;
+        font-size: 10px;
+        margin-left: 3px;
+        margin-top: 2px;
+    }
+    /*-----------------------form--------------------------------*/
+    .inventorPopUp {
+        top: 0px;
+        left: 0px;
+        z-index: 51;
+        width: 100%;
+        height: auto;
+    }
+
+    #formPart2 {
+        display: block;
+    }
+
+    .inventorPopUp .triangle {
+        display: none;
+    }
+
+    .inventorPopUp .close {
+        right: 7px;
+        top: 6px;
+    }
+
+    .popInvent {
+        margin: 19px 21px 0 23px;
+    }
+
+    .popInvent input, .popInvent textarea {
+        height: 26px;
+        line-height: 26px;
+        font-size: 15px;
+        width: 91%; /*  pini   -need space for the *       */
+    }
+
+    .categories-input .categories span.astro {
+        display: none;
+    }
+
+    .categories-input {
+        font-size: 15px;
+    }
+
+    .categories {
+        font-size: 15px;
+    }
+
+    select#category, select#tags {
+        font-size: 15px;
+        height: 26px;
+        line-height: 26px;
+        width: 91%; /*  pini   -need space for the *       */
+    }
+
+    .next-page {
+        right: 0;
+        left: 210px;
+        width: 90px;
+        height: 30px;
+        position: relative;
+        font-size: 18px;
+        bottom: 0;
+    }
+
+    .input-border {
+        width: 100%;
+        height: 26px;
+        position: relative;
+    }
+
+    .title-logo {
+        width: 63%;
+        height: 26px;
+        line-height: 26px;
+        font-size: 15px;
+    }
+
+    .popInvent .upload {
+        line-height: 26px;
+        font-size: 15px;
+        text-indent: 15px;
+        width: 34%;
+        position: absolute;
+        right: 0;
+        padding-left: 25px;
+    }
+
+    .popInvent input[type="file"] {
+        height: 26px !important;
+        width: 93px !important;
+    }
+    /*-------------------------footer--------------------------*/
+    #footer {
+        height: 60px;
+    }
+
+    .footerMenu {
+        display: none;
+    }
+
+    .unitedNav {
+        width: 100%;
+    }
+
+    .logo_menu li {
+        height: 20px;
+        width: 45px;
+        margin: 5px 2px;
+    }
+
+    .footerNav {
+        padding: 0;
+    }
+
+    .copyr {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        text-align: center;
+    }
+
+    .copyr div {
+        display: inline-block;
+        top: 5px;
+        position: relative;
+    }
+
+    #all-rights-reserved-cambium {
+        display: inline-block;
+        top: 5px;
+    }
+
+    #my-logo {
+        display: none;
+    }
+    /*----------------------Invent----------------*/
+
+    .inventDescription, .mapDescription {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+    .inventDescription .mainArea .gallery img:hover, .mapDescription .mainArea .gallery img:hover {
+        -webkit-transform: scale(1.5,1.5);
+        transform: scale(1.5,1.5);
+    }
+
+
+
+    /*--------------------logo menu-----------------------*/
+    /*--------------------single startup-----------------------*/
+    .inventDescription .topArea, .mapDescription .topArea {
+        width: 100%;
+        /* background-color: cyan; */
+        top: 0px;
+        min-height: 150px;
+        text-align: center;
+    }
+
+    .inventDescription .startup-popup-logo, .mapDescription .startup-popup-logo {
+        width: 100%;
+        height: 60px;
+        position: relative;
+        margin: 0px;
+        padding-bottom: 0px;
+        border-bottom: 0px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+
+    .inventDescription .title.ellipsis, .mapDescription .title.ellipsis {
+        width: 100%;
+        left: 0px;
+        text-align: center;
+        display: block;
+        position: relative;
+        margin-top: 20px;
+        top: 0;
+    }
+
+
+
+    .inventDescription .slogen, .mapDescription .slogen {
+        left: 0;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        top: 30px;
+        margin-bottom: 0;
+    }
+
+
+    .inventDescription .socialArea {
+        height: auto;
+        top: 0px;
+        width: 100%;
+        position: relative;
+        /* background-color: brown; */
+        text-align: center;
+    }
+
+    #twittCount {
+        width: 56px;
+        height: 62px;
+        display: inline-block;
+        margin-left: 0;
+        padding-top: 0;
+        padding-left: 10px;
+        padding-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-left: 1px solid gray;
+        border-bottom: none;
+    }
+
+    #fbCount {
+        width: 56px !important;
+        height: 62px;
+        display: inline-block !important;
+        margin-left: 0;
+        padding-top: 25px;
+        padding-left: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: none;
+    }
+
+    .inventDescription .socialArea .fb, .inventDescription .form-end-message .fb {
+        display: none;
+    }
+
+    .socialArea .linkedin, .form-end-message .linkedin {
+        display: none;
+    }
+
+    .inventDescription .socialArea .linkedin, .inventDescription .form-end-message .linkedin {
+    }
+
+    .socialArea .twitter, .form-end-message .twitter {
+        display: none;
+    }
+
+    .inventDescription .socialArea .twitter, .inventDescription .form-end-message .twitter {
+    }
+
+    .inventDescription .mainArea, .mapDescription .mainArea {
+        width: 100%;
+        top: 0px;
+        /* background-color: aquamarine; */
+        display: block;
+        margin-left: 0px;
+        padding-bottom: 0px;
+        padding-right: 0px;
+        height: auto;
+        text-align: center;
+    }
+
+    .inventDescription .mainArea .movie iframe {
+        height: 160px;
+        width: 260px;
+        position: static;
+    }
+
+    .inventDescription .mainArea .name.ellipsis, .mapDescription .mainArea .name.ellipsis {
+        clear: both;
+        margin: 0;
+        float: none;
+        text-align: center;
+        padding: 0;
+        width: 100%;
+        position: relative;
+        top: 40px;
+    }
+
+    .inventDescription .mainArea .description, .mapDescription .mainArea .description {
+        float: none;
+        width: 95%;
+        margin-left: 10px;
+        text-align: left;
+        position: relative;
+        margin-top: 60px;
+    }
+
+    .inventDescription .mainArea .description, .mapDescription .mainArea .description {
+        float: none;
+        width: 85%;
+        margin-left: 7.5%;
+        text-align: left;
+        position: relative;
+        margin-top: 60px;
+    }
+
+    .inventDescription .mainArea .gallery, .mapDescription .mainArea .gallery {
+        width: 100%;
+        float: none;
+        position: relative;
+        margin-left: 0;
+        left: 20%;
+        margin: 0;
+        display: inline-block;
+        max-height: 373px;
+        margin-top: 40px;
+    }
+
+    .inventDescription .mainArea .gallery div, .mapDescription .mainArea .gallery div {
+        display: block;
+        float: none;
+        width: 185px;
+        height: 120px;
+        margin-left: 0;
+        border: 0;
+    }
+
+    .mainArea .gallery-img {
+        width: 95%;
+        height: 95%;
+    }
+
+
+
+    #comments-frame {
+        width: 100%;
+        min-height: 60px;
+        margin-left: 0;
+    }
+
+    /*****************marker popup**********************/
+
+
+    #marker-popup .startups-gallery {
+        float: none;
+        position: relative;
+        margin-top: 25px;
+        width: 85%;
+        margin-left: 7.5%;
+    }
+
+    #marker-popup .startups-gallery .startups-gallery-header {
+        height: 35px;
+    }
+
+    .startups-gallery .startups-gallery-header span {
+        font-size: 20px;
+    }
+
+    #marker-popup .startups-gallery-item {
+        min-height: 62px;
+    }
+
+    #marker-popup .popup-title {
+        margin-top: 10px;
+    }
+
+    .mapDescription .mainArea .description {
+        margin-top: 0px;
+    }
+
+    .mapDescription .socialArea .fb, .mapDescription .socialArea .twitter, .mapDescription .socialArea .linkedin {
+        margin: 10px;
+        margin-left: 3px;
+        margin-right: 3px;
+        display: inline-block;
+        border: none;
+        padding-top: 44px;
+        height: 10px;
+    }
+
+    .mapDescription .socialArea .twitter {
+        border-left: 2px solid gray;
+        border-right: 2px solid gray;
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+    .mapDescription .socialArea {
+        width: auto;
+        position: relative;
+        top: 0;
+        text-align: center;
+    }
+
+    #marker-popup .facebook-comments {
+        width: 100%;
+    }
+
+    #marker-popup iframe {
+        width: 100%;
+    }
+
+    #validate-select-error {
+        left: 0;
+    }
+
+    #validate-slogen-error {
+        width: 100%;
+        left: 0;
+    }
+    /******************judge popup*********************/
+
+    .judgeDescription {
+        width: 97%;
+        height: 430px;
+        background-color: #ebebeb;
+        z-index: 16;
+        display: inline-block;
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: absolute;
+        display: none;
+        z-index: 100;
+    }
+
+    .judgeDescriptionLeft {
+        width: 100%;
+        background-image: none;
+    }
+
+    .judgeDescriptionRight {
+        width: 83%;
+        height: 280px;
+        top: 150px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: absolute;
+        display: inline-block;
+        z-index: 1;
+    }
+
+    .judgeDescription-name {
+        width: 100%;
+        font-size: 15px;
+        height: 20px;
+        background: #838383;
+        color: #fff;
+        padding: 0;
+        line-height: 20px;
+        text-indent: 10px;
+    }
+
+    .judgeDescription-role {
+        font-size: 15px;
+        background-color: #fff;
+        line-height: 20px;
+        color: #828282;
+        width: 100%;
+        position: relative;
+        padding: 0 0;
+        text-indent: 10px;
+        position: relative;
+    }
+
+    .judgeDescription-full {
+        width: 100%;
+        height: 200px;
+        margin-top: 17px;
+        line-height: 23px;
+        font-size: 13px;
+    }
+
+    .judgeDescriptionMargin {
+        width: 100%;
+        height: 170px;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .judgesContenar {
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    .judgeDescription-img img {
+        max-width: 90px;
+        max-height: 90px;
+        box-shadow: #A8A6A6 1px 1px 1px 0px;
+        position: absolute;
+        top: 35px;
+        left: -161px;
+        bottom: 182px;
+        border: solid 4px #fff;
+        z-index: 1;
+    }
+
+    .judgeDescription .close {
+        display: none;
+    }
 }

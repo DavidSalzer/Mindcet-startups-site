@@ -776,7 +776,9 @@ footer .tagLogo {
     width: 1024px;
     margin: 0 auto;
 }
-
+#sum-menu-mobile{
+    display: none;
+}
 .timer {
     height: 115px;
     width: 60%;
@@ -3401,3 +3403,5 @@ bottom: 20px;
     left: -35px;
     top: 72px;
 }
+
+@import("mobile.css")

@@ -12,10 +12,13 @@
 	// Add RSS links to <head> section
 	automatic_feed_links();
 	
+    wp_enqueue_style( 'mobile', get_template_directory_uri()."/mobile.css" );
 	
 	
 	// Load jQuery
 	if ( !is_admin() ) {
+
+
 	   wp_deregister_script('jquery');
 	   wp_register_script('jquery', ("http://code.jquery.com/jquery-1.10.1.min.js"), false);
 	   wp_enqueue_script('jquery');

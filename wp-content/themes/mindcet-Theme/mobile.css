@@ -1202,7 +1202,10 @@ margin-top: 25px;
         margin-top: 40px;
     }
 
-
+.inventDescription .mainArea .gallery{
+    width: auto;
+    left: 0%;
+}
 
 
     .inventDescription .mainArea .gallery div, .mapDescription .mainArea .gallery div {

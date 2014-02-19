@@ -1152,6 +1152,7 @@ width: 222px;
 
 .judges .leftScroll-arrow, .judges .rightScroll-arrow {
     margin-top: 135px;
+    width: 100%;
 }
 
 .inventorNav {
@@ -2261,7 +2262,7 @@ margin-top: 10px;
 
 .fb_iframe_widget span {
     overflow: visible!important;
-    width: 450px!important;
+    /*width: 450px!important;*/
 }
 
 .fb-like {
@@ -2289,12 +2290,12 @@ margin-top: 10px;
 
 .fb-like span {
     z-index: 9999 !important;
-    width: 500px !important;
+    /*width: 500px !important;*/
     overflow: visible;
 }
 
 .fb_edge_widget_with_comment span.fb_edge_comment_widget {
-    left: -300px !important;
+    /*left: -300px !important;*/
     display: none;
 }
 
@@ -2856,7 +2857,7 @@ body {
 }
 
 .google-map {
-    width: 400px;
+    width: 687px;
     height: 514px;
     float: left;
     display: inline-block;

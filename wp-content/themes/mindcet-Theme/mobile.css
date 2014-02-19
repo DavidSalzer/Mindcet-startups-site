@@ -417,9 +417,12 @@ select#categoryNav, select#tagsNav {
     height: 26px;
     line-height: 26px;
     font-size: 15px;
-    width: 91%; /*  pini   -for the *       */
+    width: 91%; /*  pini   -need space for the *       */
 }
+.categories-input .categories span.astro {
 
+display: none;
+}
 .categories-input {
     font-size: 15px;
 }
@@ -432,9 +435,22 @@ select#category, select#tags {
     font-size: 15px;
     height: 26px;
     line-height: 26px;
-    width: 91%; /*  pini   -for the *       */
+    width: 91%; /*  pini   -need space for the *       */
 }
 
+.next-page {
+right: 0;
+left: 210px;
+width: 90px;
+height: 30px;
+
+position: relative;
+
+font-size: 18px;
+
+bottom: 0;
+
+}
 .input-border {
     width: 100%;
     height: 26px;

@@ -1488,6 +1488,9 @@ visibility: hidden;
     width: 66PX;
 }
 /*-----------------------form--------------------*/
+#sign-header-mobile{
+    display: none;
+}
 .inventorPopUp {
     position: absolute;
     display: none;

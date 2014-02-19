@@ -3,6 +3,10 @@
 // JavaScript Document
 var fromMarker=null;
 var isMobile=false;
+ var logoSrc = null;
+    var ImgSrc1 = null;
+    var ImgSrc2 = null;
+    var ImgSrc3 = null;
 $(document).ready(function (e) {
     
     initMap();
@@ -74,82 +78,22 @@ $(document).ready(function (e) {
     $('.next-page').on('click', this, function () {
         if ($('#formPart1').is(":visible")) {
             if (form1Validate()) {
-                ga('send', 'event', 'button', 'click', 'add invent - 2');
-                $('#formPart1').hide();
-                $('#formPart2').show();
-                $('.last-page').css("display", "inline-block");
-                $('#page-number-1').hide();
-                $('#page-number-2').show();
-				
+                if(isMobile){
+                    if (form2Validate()) {
+				        showPreviewForm();                
+                    }
+                }
+                else{
+                    showForm2();
+                }
+               
             }
             return true;
         }
 
         else if ($('#formPart2').is(":visible")) {
             if (form2Validate()) {
-				$('.capchArea').show();
-				$('.inventorPopUp').css('height','775px');
-				$('.triangle').css('bottom','250px');
-                ga('send', 'event', 'button', 'click', 'add invent - 3');
-                $('#formPart2').hide();
-                $('#page-number-2').hide();
-                $('.next-page').css("display", "none");
-                $('#formPart3').show();
-                $('#page-number-3').show();
-                $('.submit input').css("display", "inline-block");
-
-                if (document.getElementById("title").value) { var title = document.getElementById("title").value; } else { title = "no title"; }
-                //var logo = document.getElementById("logo").addEventListener('change', handleFileSelect, false);
-                
-
-                var youtubeUrl = document.getElementById("youtubeUrl").value;
-                var invetName = document.getElementById("invetName").value;
-                var description = document.getElementById("description").value;
-                //var img1 = document.getElementById("img-1").addEventListener('change', handleFileSelect, false);
-                var founderShow = document.getElementById("founder").value;
-
-
-                var html = '       <div class="topArea">    '
-                html += '           <div class="title ellipsis">' + title + '</div>';
-                if(founderShow)
-                html += '           <div class="name ellipsis"><b>Founders:</b> ' + founderShow + '</div>';
-                
-                // html +=                 logo;
-                if (logoSrc != null)
-                    html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
-                html += '       </div>    ';
-
-                html += '       <div class="mainArea">    ';
-                html += '           <div class="description">' + description + '</div>';
-
-                
-
-                html += '           <div class="gallery">    ';
-                if(youtubeUrl){
-                    html+='         <div >'+getEmbedMovie(getMovieDataByURL(youtubeUrl),77,119)+'</div>';
-                }
-                if (ImgSrc1 != null)
-                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc1 + '" alt="' + title + ' img1">  </div>  ';
-                if (ImgSrc2 != null)
-                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc2 + '" alt="' + title + ' img2">  </div>   ';
-                if (ImgSrc3 != null)
-                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc3 + '" alt="' + title + ' img3"> </div>    ';
-                html += '           </div>    ';
-                html += '       </div>    ';
-                html += '       <div class="bottomArea">    ';
-                html += '           <label for="ads">';
-                html += '               <input type="checkbox" id="ads" name="ads" value="yes" checked>';
-                html += '               <span></span>I wish to receive interesting information about new EdTech startups.<br><br>';
-                html += '           </label>    ';
-                html += '           <label for="terms">';
-                html += '               <input type="checkbox" id="terms" name="terms" checked>';
-                html += '               <span></span> I accept the <a href="#" id="terms" target="_blank">terms</a> of the Global EdTech Startups Awards.<br>';
-                html += '           </label>    ';
-                html += '       </div>    ';
-
-                var $inventDescription = $(html);
-                $inventDescription.find('iframe').addClass("gallery-img");
-                $('#formPart3').empty().prepend($inventDescription);
+				showPreviewForm();                
             }
         }
 
@@ -193,10 +137,7 @@ $(document).ready(function (e) {
         return false;
     });
 
-    var logoSrc = null;
-    var ImgSrc1 = null;
-    var ImgSrc2 = null;
-    var ImgSrc3 = null;
+   
 
     
     $("#logo").change(function (e) {
@@ -1140,6 +1081,81 @@ function showHighlight(){
     $('#best-invent-description').empty().append(html);
 }
 
+function showForm2(){
+    ga('send', 'event', 'button', 'click', 'add invent - 2');
+    $('#formPart1').hide();
+    $('#formPart2').show();
+    $('.last-page').css("display", "inline-block");
+    $('#page-number-1').hide();
+    $('#page-number-2').show();
+}
+function showPreviewForm(){
+    $('.capchArea').show();
+				$('.inventorPopUp').css('height','775px');
+				$('.triangle').css('bottom','250px');
+                ga('send', 'event', 'button', 'click', 'add invent - 3');
+                $('#formPart1').hide();
+                $('#formPart2').hide();
+                $('#page-number-1').hide();
+                $('#page-number-2').hide();
+                $('.next-page').css("display", "none");
+                $('#formPart3').show();
+                $('#page-number-3').show();
+                $('.submit input').css("display", "inline-block");
+
+                if (document.getElementById("title").value) { var title = document.getElementById("title").value; } else { title = "no title"; }
+                //var logo = document.getElementById("logo").addEventListener('change', handleFileSelect, false);
+                
+
+                var youtubeUrl = document.getElementById("youtubeUrl").value;
+                var invetName = document.getElementById("invetName").value;
+                var description = document.getElementById("description").value;
+                //var img1 = document.getElementById("img-1").addEventListener('change', handleFileSelect, false);
+                var founderShow = document.getElementById("founder").value;
+
+
+                var html = '       <div class="topArea">    '
+                html += '           <div class="title ellipsis">' + title + '</div>';
+                if(founderShow)
+                html += '           <div class="name ellipsis"><b>Founders:</b> ' + founderShow + '</div>';
+                
+                // html +=                 logo;
+                if (logoSrc != null)
+                    html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
+                html += '       </div>    ';
+
+                html += '       <div class="mainArea">    ';
+                html += '           <div class="description">' + description + '</div>';
+
+                
+
+                html += '           <div class="gallery">    ';
+                if(youtubeUrl){
+                    html+='         <div >'+getEmbedMovie(getMovieDataByURL(youtubeUrl),77,119)+'</div>';
+                }
+                if (ImgSrc1 != null)
+                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc1 + '" alt="' + title + ' img1">  </div>  ';
+                if (ImgSrc2 != null)
+                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc2 + '" alt="' + title + ' img2">  </div>   ';
+                if (ImgSrc3 != null)
+                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc3 + '" alt="' + title + ' img3"> </div>    ';
+                html += '           </div>    ';
+                html += '       </div>    ';
+                html += '       <div class="bottomArea">    ';
+                html += '           <label for="ads">';
+                html += '               <input type="checkbox" id="ads" name="ads" value="yes" checked>';
+                html += '               <span></span>I wish to receive interesting information about new EdTech startups.<br><br>';
+                html += '           </label>    ';
+                html += '           <label for="terms">';
+                html += '               <input type="checkbox" id="terms" name="terms" checked>';
+                html += '               <span></span> I accept the <a href="#" id="terms" target="_blank">terms</a> of the Global EdTech Startups Awards.<br>';
+                html += '           </label>    ';
+                html += '       </div>    ';
+
+                var $inventDescription = $(html);
+                $inventDescription.find('iframe').addClass("gallery-img");
+                $('#formPart3').empty().prepend($inventDescription);
+}
 function showForm4(){
    
     if ($('#formPart4').hasClass('show')){
@@ -1215,7 +1231,7 @@ function initMap() {
         zoom: 1,
     //    disableDefaultUI: true,
     //disableDoubleClickZoom: true,
-        draggable: true,
+        draggable: false,
       //  maxZoom:1,
         minZoom:1
 
@@ -1442,7 +1458,7 @@ function getFile(id){
   //open sub menu
   function openSubMenu(){
       if(isMobile){
-      $("#sum-menu-mobile").fadeIn();
+      $("#sum-menu-mobile").toggle();
       return false;
       }
   }

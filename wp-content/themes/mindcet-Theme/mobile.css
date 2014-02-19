@@ -541,7 +541,7 @@ bottom: 0;
 /*--------------------single startup-----------------------*/
 .inventDescription .topArea, .mapDescription .topArea {
     width: 100%;
-    /* background-color: cyan; */
+   /*  background-color: cyan; */
     top: 0px;
     min-height: 150px;
     text-align: center;
@@ -576,14 +576,13 @@ top:0px; height: auto; text-align: center;
 
 .inventDescription .slogen, .mapDescription .slogen {
     left: 0;
-    width: 100%;
-    text-align: center;
-    position: relative;
-    top: 30px;
-    margin-bottom: 0;
-}
-
-left: 0; width: 100%; text-align: center; position: relative; top: 0; margin-bottom: 0; margin-top: 20px; padding-bottom: 10px;
+top: 0;
+width: 100%;
+text-align: center;
+position: relative;
+margin-top: 15px;
+margin-bottom: 0;
+display: block;
 }
 
 .inventDescription .socialArea {
@@ -591,7 +590,7 @@ left: 0; width: 100%; text-align: center; position: relative; top: 0; margin-bot
     top: 0px;
     width: 100%;
     position: relative;
-    /* background-color: brown; */
+   /*  background-color: brown; */
     text-align: center;
 }
 
@@ -603,7 +602,7 @@ left: 0; width: 100%; text-align: center; position: relative; top: 0; margin-bot
     padding-top: 0;
     padding-left: 10px;
     padding-bottom: 0;
-    margin-top: 0;
+   margin-top: 50px;
     margin-bottom: 0;
     border-left: 1px solid gray;
     border-bottom: none;
@@ -619,6 +618,7 @@ left: 0; width: 100%; text-align: center; position: relative; top: 0; margin-bot
     padding-bottom: 0;
     margin-bottom: 0;
     border-bottom: none;
+	margin-top: 50px;
 }
 
 .inventDescription .socialArea .fb, .inventDescription .form-end-message .fb {
@@ -642,7 +642,7 @@ left: 0; width: 100%; text-align: center; position: relative; top: 0; margin-bot
 .inventDescription .mainArea, .mapDescription .mainArea {
     width: 100%;
     top: 0px;
-    /* background-color: aquamarine; */
+   /*  background-color: aquamarine; */
     display: block;
     margin-left: 0px;
     padding-bottom: 0px;
@@ -650,7 +650,15 @@ left: 0; width: 100%; text-align: center; position: relative; top: 0; margin-bot
     height: auto;
     text-align: center;
 }
+.inventDescription .mainArea .movie {
 
+width: 100%;
+position: relative;
+
+margin: 0;
+margin-top: 25px;
+
+}
 .inventDescription .mainArea .movie iframe {
     height: 160px;
     width: 260px;
@@ -715,10 +723,18 @@ left: 0; width: 100%; text-align: center; position: relative; top: 0; margin-bot
 
 
 #comments-frame {
-    width: 100%;
+   width: 100% !important;
     min-height: 60px;
     margin-left: 0;
 }
+
+/* .fb_iframe_widget span {
+width: 100% !important;
+}
+
+.fb_iframe_widget iframe {
+width: 100% !important;
+} */
 
 /*****************marker popup**********************/
 
@@ -776,11 +792,11 @@ left: 0; width: 100%; text-align: center; position: relative; top: 0; margin-bot
 }
 
 #marker-popup .facebook-comments {
-    width: 100%;
+    width: 100% !important;
 }
 
 #marker-popup iframe {
-    width: 100%;
+    width: 100% !important;
 }
 
 #validate-select-error {

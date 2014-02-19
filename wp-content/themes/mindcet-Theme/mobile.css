@@ -2,10 +2,11 @@
     /*add to index!!!! <link rel="stylesheet" media="all and (max-width: 1023px)"  href="css/mobile.css" type="text/css" />*/
 
     /*------------------header and general-------------------------*/
-body.freeze{
-    overflow: hidden;
-}    
-.header {
+    body.freeze {
+        overflow: hidden;
+    }
+
+    .header {
         height: 58px;
     }
 
@@ -342,8 +343,33 @@ body.freeze{
         height: 140px;
     }
 
+    #newsletter-popup-title {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
 
+    #newsletter-popup input {
+        width: 81%;
+        height: 28px;
+        font-size: 15px;
+        font-family: sans;
+        line-height: 15px;
+        border: 2px solid #e8e8e8;
+        border-radius: 3px;
+        margin-left: 29px;
+        text-indent: 15px;
+    }
 
+    #newsletter-popup-sign-btn {
+        margin-right: 0px;
+        bottom: -6px;
+        height: 25px;
+        margin-bottom: 23px;
+        margin-top: 8px;
+        width: 84px;
+    }
 
     #newsletter-popup .triangle {
         top: -38px;
@@ -352,11 +378,11 @@ body.freeze{
         -ms-transform: rotateZ(90deg);
     }
 
-
-
-
-
-
+    #newsletter-popup-sign-btn .nav-page-img {
+        background-size: 40px;
+        width: 27px;
+        line-height: 26px;
+    }
 
     #marker-popup .facebook-comments {
         width: 100% !important;
@@ -370,16 +396,16 @@ body.freeze{
 
     #sign-header-mobile {
         width: 100%;
-height: 50px;
-background-color: #21cc8a;
-color: #ffffff;
-display: none;
-text-align: center;
-line-height: 50px;
-font-size: 25px;
-position: fixed;
-z-index: 1;    
-}
+        height: 50px;
+        background-color: #21cc8a;
+        color: #ffffff;
+        display: none;
+        text-align: center;
+        line-height: 50px;
+        font-size: 25px;
+        position: fixed;
+        z-index: 1;
+    }
     /*-----------------------home page------------------*/
 
     #page-wrap, .page-wrap {
@@ -744,18 +770,18 @@ z-index: 1;
     /*-----------------------form--------------------------------*/
     .inventorPopUp {
         top: 0px;
-left: 0px;
-z-index: 51;
-width: 100%;
-height: 100%;
-position: fixed;
+        left: 0px;
+        z-index: 51;
+        width: 100%;
+        height: 100%;
+        position: fixed;
     }
 
-#offer-zone-inner{
-    height: 100%;
-width: 100%;
-overflow-y: scroll;
-}
+    #offer-zone-inner {
+        height: 100%;
+        width: 100%;
+        overflow-y: scroll;
+    }
 
     #formPart2 {
         display: block;
@@ -848,9 +874,9 @@ overflow-y: scroll;
 
 
     .page-number {
-       bottom: 28px;
-left: 26px;
-position: relative;
+        bottom: 28px;
+        left: 26px;
+        position: relative;
     }
 
 
@@ -1216,10 +1242,10 @@ position: relative;
         margin-top: 40px;
     }
 
-.inventDescription .mainArea .gallery{
-    width: auto;
-    left: 0%;
-}
+    .inventDescription .mainArea .gallery {
+        width: auto;
+        left: 0%;
+    }
 
 
     .inventDescription .mainArea .gallery div, .mapDescription .mainArea .gallery div {
@@ -1504,7 +1530,7 @@ position: relative;
         width: 81%;
         height: 150px;
         font-size: 15px;
-        padding: 12px;       
+        padding: 12px;
         font-family: sans;
         border: 2px solid #e8e8e8;
         border-radius: 3px;
@@ -1519,3 +1545,7 @@ position: relative;
         margin: 20px 29px;
         text-indent: -13px;
     }
+
+    /********************newsletter**********************/
+
+

@@ -162,7 +162,7 @@
                     	<img src="<?php echo get_theme_mod('link_ImgBg'); ?>" title="<?php echo get_theme_mod('link_ImgBg_text');?>" class="topImgLink">
                     </span>
                     <ul id="sum-menu-mobile">
-                    <li ><a href="<?php echo site_url();?>">Home Page</a></li>
+                    <li ><span onclick="window.location='<?php echo site_url();?>'">Home Page</span></li>
                     <li class="aboutUs">About Us</li>
                     <li class="contactUs">Contact Us</li>
                 </ul>

@@ -1488,6 +1488,9 @@ visibility: hidden;
     width: 66PX;
 }
 /*-----------------------form--------------------*/
+#sign-header-mobile{
+    display: none;
+}
 .inventorPopUp {
     position: absolute;
     display: none;
@@ -2853,7 +2856,7 @@ body {
 }
 
 .google-map {
-    width: 687px;
+    width: 400px;
     height: 514px;
     float: left;
     display: inline-block;

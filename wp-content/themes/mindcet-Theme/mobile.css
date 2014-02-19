@@ -439,14 +439,37 @@ select#category, select#tags {
     width: 91%; /*  pini   -need space for the *       */
 }
 
+.inventorPopUp {
+    font-size: 15px;
+}
+
+.popInvent input,.popInvent textarea {
+    width: 96%;
+}
+
+.page-number{
+    bottom: 10px;
+}
+
+.next-page .nav-page-img {
+    background-size: 58px;
+    background-position: 100% 47%;
+    width: 35px;
+    text-indent: -33%;
+    font-size: 15px;
+    line-height: 36px;
+}
+
 .next-page {
     right: 0;
-    left: 210px;
-    width: 90px;
-    height: 30px;
+    left: 205px;
+    width: 94px;
+    height: 35px;
     position: relative;
     font-size: 18px;
     bottom: 0;
+    margin-bottom: 23px;
+    margin-top: 4px;
 }
 
 .input-border {
@@ -463,13 +486,15 @@ select#category, select#tags {
 }
 
 .popInvent .upload {
+    background-size: 20% 80%;
+    background-position-x: 3px;
     line-height: 26px;
     font-size: 15px;
-    text-indent: 15px;
+    text-indent: 23px;
     width: 34%;
     position: absolute;
     right: 0;
-    padding-left: 25px;
+    padding-left: 0;
 }
 
 .popInvent input[type="file"] {
@@ -878,4 +903,10 @@ left: 0; width: 100%; text-align: center; position: relative; top: 0; margin-bot
 
 .judgeDescription .close {
     right: 10px;
+}
+
+/*****************sign-up*******************/
+
+.inventorPopUp {
+    font-size: 15px;
 }

@@ -149,191 +149,193 @@ do_action('wp_insert_post', 'wp_insert_post');
 
 ?>
     <div id="offer-zone" class="inventorPopUp">
-        <div id="sign-header-mobile">Sign Your Startup</div>
-        <span class="close"></span>
-        <span class="triangle"></span>
-        <form id="new_post" name="new_post" class="popInvent" method="post" action="" class="wpcf7-form" enctype="multipart/form-data">
+        <div id="offer-zone-inner">
+            <div id="sign-header-mobile">Sign Your Startup</div>
+            <span class="close"></span>
+            <span class="triangle"></span>
+            <form id="new_post" name="new_post" class="popInvent" method="post" action="" class="wpcf7-form" enctype="multipart/form-data">
         
-            <div id="formPart1">
-                <!-- post Category -->
-                    <input type="text" id="invetName" value="" tabindex="10" name="invetName" placeholder="Your name" />                 
+                <div id="formPart1">
+                    <!-- post Category -->
+                        <input type="text" id="invetName" value="" tabindex="10" name="invetName" placeholder="Your name" />*                 
     
-                <!-- post Category -->
-                <fieldset class="formfield">
-                    <input type="email" id="email" value="" tabindex="11" name="email" placeholder="Your E-Mail"/> 
-                </fieldset>
+                    <!-- post Category -->
+                    <fieldset class="formfield">
+                        <input type="email" id="email" value="" tabindex="11" name="email" placeholder="Your E-Mail"/> *
+                    </fieldset>
             
-                <!-- post name -->                
-                    <input type="text" id="title" value="" tabindex="12" name="title" placeholder="StartUp name" /> 
+                    <!-- post name -->                
+                        <input type="text" id="title" value="" tabindex="12" name="title" placeholder="StartUp name" /> *
                 
-                <!-- post Category -->
-                    <input type="text" id="founder" value="" tabindex="13" name="founder" placeholder="Founder" />
+                    <!-- post Category -->
+                        <input type="text" id="founder" value="" tabindex="13" name="founder" placeholder="Founder" />
                         
-                 <!-- post Category -->
-                    <input type="email" id="founderMail" value="" tabindex="14" name="founderMail" placeholder="Founder E-Mail" />
+                     <!-- post Category -->
+                        <input type="email" id="founderMail" value="" tabindex="14" name="founderMail" placeholder="Founder E-Mail" />
                 
-                <!-- post slogen -->
-                    <input type="text" id="slogen" value="" tabindex="15" name="slogen" placeholder="Startup mission up to 140 characters" />*
+                    <!-- post slogen -->
+                        <input type="text" id="slogen" value="" tabindex="15" name="slogen" placeholder="Startup mission up to 140 characters" />*
                 
-                <fieldset class="categories-input">
-                     <div class="categories">Startup's categories <span class="astro">*</span>
-                 		    <div id="validate-select-error" class="validate-error">* Please select at least one </div>
-                 		    <br>
-                     </div>
-                 <?php 
-					    $args = array(
-					      'orderby' => 'name',
-					      'order' => 'ASC',
-					      'hide_empty'=>0
-					      );
-					    $categories = get_categories($args);
-					     ?>
-					    <select name="category" id="category" >
+                    <fieldset class="categories-input">
+                         <div class="categories">Startup's categories <span class="astro">*</span>
+                 		        <div id="validate-select-error" class="validate-error">* Please select at least one </div>
+                 		        <br>
+                         </div>
+                     <?php 
+					        $args = array(
+					          'orderby' => 'name',
+					          'order' => 'ASC',
+					          'hide_empty'=>0
+					          );
+					        $categories = get_categories($args);
+					         ?>
+					        <select name="category" id="category" >
                   	
-                    	    <option value="none">Select Sector</option>
-                        <?php  foreach($categories as $category) { ?>
-                        	      <option value="<?php echo $category->term_id;?>"><?php echo $category->name ;?></option>
-            	    <?php } ?>
-               		    </select>
+                    	        <option value="none">Select Sector</option>
+                            <?php  foreach($categories as $category) { ?>
+                        	          <option value="<?php echo $category->term_id;?>"><?php echo $category->name ;?></option>
+            	        <?php } ?>
+               		        </select>
                     
-                        <select name="tags" id="tags" >
-                  			    <option value="none">Select product category</option>
-					    <?php 
-					    $arg=array('hide_empty'=>false,'orderby'=>'name','order' => 'ASC');
-					    $tags = get_tags($arg);
-					    foreach ( $tags as $tag ) {
-						    $tag_link = get_tag_link( $tag->term_id );
-					    ?>	
-                    	    <?php 
-							    $nameTag=$tag->name;
-						    if(strtolower($nameTag)=='other'){ 
-							    $last= '<option value="'.$tag->name.'">'.$tag->name.'</option>';
-							    }else{
-						    ?>
-						     <option value="<?php echo $tag->name;?>"><?php echo $tag->name ;?></option>
-						    <?php }?>
-            	    <?php }
-						    echo $last;
-				     ?>
+                            <select name="tags" id="tags" >
+                  			        <option value="none">Select product category</option>
+					        <?php 
+					        $arg=array('hide_empty'=>false,'orderby'=>'name','order' => 'ASC');
+					        $tags = get_tags($arg);
+					        foreach ( $tags as $tag ) {
+						        $tag_link = get_tag_link( $tag->term_id );
+					        ?>	
+                    	        <?php 
+							        $nameTag=$tag->name;
+						        if(strtolower($nameTag)=='other'){ 
+							        $last= '<option value="'.$tag->name.'">'.$tag->name.'</option>';
+							        }else{
+						        ?>
+						         <option value="<?php echo $tag->name;?>"><?php echo $tag->name ;?></option>
+						        <?php }?>
+            	        <?php }
+						        echo $last;
+				         ?>
                 
-               		    </select>
+               		        </select>
                  
                 
-                    <?php /*?><label class="styleCheckbox"></label>					
-					        <input type="checkbox" id="<?php echo $category->slug;?>" name="<?php echo $category->slug;?>" value="<?php echo $category->term_id;?>">
-                            <span></span><?php echo $category->name ;?>
-                        </label><?php */?>
+                        <?php /*?><label class="styleCheckbox"></label>					
+					            <input type="checkbox" id="<?php echo $category->slug;?>" name="<?php echo $category->slug;?>" value="<?php echo $category->term_id;?>">
+                                <span></span><?php echo $category->name ;?>
+                            </label><?php */?>
             	
         
-              </fieldset>            
-            </div>
-        
-            <div id="formPart2">    
-            
-            
-                <!-- post Category -->
-            
-                <!-- post Content -->
-                <!--<fieldset class="formfield">-->
-               <textarea id="description" tabindex="20" name="description" cols="30" rows="1" placeholder="About the startup"></textarea>*
-                <!--</fieldset>-->
-
-                <!-- post Category -->
-                <!--<fieldset class="formfield">-->
-                    <input type="url" id="site" value="" tabindex="21" name="site" placeholder="Link to website"/>*
-                <!--</fieldset>-->
-        
-                <!-- post Category -->
-                <fieldset class="formfield">
-                    <input type="url" id="youtubeUrl" value="" tabindex="22" name="youtubeUrl" placeholder="Link to video (YouTube/Vimeo)"/>
-                </fieldset>
-
-                <fieldset class="formfield input-border">
-                    <span class="title-logo logoimg">Logo</span>
-                    <div class="upload" onclick="getFile('#logo')">Select file</div>
-                    <div class="input-outer">
-                        <input type="file" id="logo" value="Upload" name="logo" tabindex="23" name="logo" placeholder="" onchange="sub(this)"/>
-                    </div>
-                </fieldset>
-        
-                <!-- post Category -->
-            
-                <fieldset class="formfield input-border">
-                    <span class="title-logo img1">Add a photo</span>
-                    <div class="upload" onclick="getFile('#img-1')">Select file</div>
-                    <div class="input-outer">
-                        <input type="file" id="img-1" value="" tabindex="24" name="img-1" placeholder="" onchange="sub(this)" />
-                    </div>
-                </fieldset>
-
-                <!-- post Category -->
-            
-                <fieldset class="formfield input-border">
-                    <span class="title-logo img2">Add a photo</span>
-                    <div class="upload" onclick="getFile('#img-2')">Select file</div>
-                    <div class="input-outer">
-                        <input type="file" id="img-2" value="" tabindex="25" name="img-2" placeholder="" onchange="sub(this)"/>
-                    </div>
-                </fieldset>
-
-                <!-- post Category -->
-            
-                <fieldset class="formfield input-border">
-                    <span class="title-logo img3">Add a photo</span>
-                    <div class="upload" onclick="getFile('#img-3')">Select file</div>
-                    <div class="input-outer">
-                        <input type="file" id="img-3" value="" tabindex="26" name="img-3" placeholder="" />
-                    </div>
-                </fieldset>
-
-            </div>
-            
-            <div id="formPart3">
-
-            </div>
-            <?php  $res=(empty($fileEr))?'good':'bad';?>
-            <div id="formPart4" class="<?php echo $res;if(isset($_POST['submit']))echo ' show'?>">
-            	    <?php if(!empty($error['initiator'])){echo $error['initiator'];}else{?>
-        
-                <div class="form-end-message">
-                    Yippee! <br><br>The startup you added submitted for approval and will be uploaded in a few minutes. 
-                    You're more than welcome to share the competition with your friends! <br>
-                    <div class="planes"></div>
-                
-                    <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url();?>&p[images][0]=&p[title]=&p[summary]" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
-
-                    <a href="http://twitter.com/intent/tweet?text=<?php echo site_url();?>" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>
-
-                    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url();?>" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
-                
-
+                  </fieldset>            
                 </div>
         
-			       
-        		    <?php }?>	
-            </div>
-        <div class='capchArea'>	
-				    <?php myCapch() ?>
-         	    </div> 
-    
-            <fieldset class="submit">
-                <input type="submit" value="Submit" tabindex="40" id="submit" name="submit" />
-            </fieldset>
-    
-            <input type="hidden" name="action" value="new_post" />
-            <?php wp_nonce_field( 'new-post' ); ?>
+                <div id="formPart2">    
+            
+            
+                    <!-- post Category -->
+            
+                    <!-- post Content -->
+                    <!--<fieldset class="formfield">-->
+                   <textarea id="description" tabindex="20" name="description" cols="30" rows="1" placeholder="About the startup"></textarea>*
+                    <!--</fieldset>-->
+
+                    <!-- post Category -->
+                    <!--<fieldset class="formfield">-->
+                        <input type="url" id="site" value="" tabindex="21" name="site" placeholder="Link to website"/>*
+                    <!--</fieldset>-->
         
-        </form>
-        <div id="validate-general-error" class="validate-error">* please insert a valid text </div>
-        <div id="validate-checkbox-error" class="validate-error">* please check it out... </div>
-        <div id="validate-description-error" class="validate-error">* please insert less than 200 words to description field </div>
-        <div id="validate-img-error" class="validate-error">* file is too big, Please ensure that file size is less than 2Mb </div>
-        <div id="validate-slogen-error" class="validate-error">* please insert text with maximum 140 characters mission field </div>
-        <span id="page-number-1" class="page-number">1/3</span>
-        <span id="page-number-2" class="page-number">2/3</span>
-        <span id="page-number-3" class="page-number">3/3</span>
-        <div class="last-page"><div class="nav-page-img">Back</div></div>
-        <div class="next-page"><div class="nav-page-img">Next</div></div>
+                    <!-- post Category -->
+                    <fieldset class="formfield">
+                        <input type="url" id="youtubeUrl" value="" tabindex="22" name="youtubeUrl" placeholder="Link to video (YouTube/Vimeo)"/>
+                    </fieldset>
+
+                    <fieldset class="formfield input-border">
+                        <span class="title-logo logoimg">Logo</span>
+                        <div class="upload" onclick="getFile('#logo')">Select file</div>
+                        <div class="input-outer">
+                            <input type="file" id="logo" value="Upload" name="logo" tabindex="23" name="logo" placeholder="" onchange="sub(this)"/>
+                        </div>
+                    </fieldset>
+        
+                    <!-- post Category -->
+            
+                    <fieldset class="formfield input-border">
+                        <span class="title-logo img1">Add a photo</span>
+                        <div class="upload" onclick="getFile('#img-1')">Select file</div>
+                        <div class="input-outer">
+                            <input type="file" id="img-1" value="" tabindex="24" name="img-1" placeholder="" onchange="sub(this)" />
+                        </div>
+                    </fieldset>
+
+                    <!-- post Category -->
+            
+                    <fieldset class="formfield input-border">
+                        <span class="title-logo img2">Add a photo</span>
+                        <div class="upload" onclick="getFile('#img-2')">Select file</div>
+                        <div class="input-outer">
+                            <input type="file" id="img-2" value="" tabindex="25" name="img-2" placeholder="" onchange="sub(this)"/>
+                        </div>
+                    </fieldset>
+
+                    <!-- post Category -->
+            
+                    <fieldset class="formfield input-border">
+                        <span class="title-logo img3">Add a photo</span>
+                        <div class="upload" onclick="getFile('#img-3')">Select file</div>
+                        <div class="input-outer">
+                            <input type="file" id="img-3" value="" tabindex="26" name="img-3" placeholder="" />
+                        </div>
+                    </fieldset>
+
+                </div>
+            
+                <div id="formPart3">
+
+                </div>
+                <?php  $res=(empty($fileEr))?'good':'bad';?>
+                <div id="formPart4" class="<?php echo $res;if(isset($_POST['submit']))echo ' show'?>">
+            	        <?php if(!empty($error['initiator'])){echo $error['initiator'];}else{?>
+        
+                    <div class="form-end-message">
+                        Yippee! <br><br>The startup you added submitted for approval and will be uploaded in a few minutes. 
+                        You're more than welcome to share the competition with your friends! <br>
+                        <div class="planes"></div>
+                
+                        <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url();?>&p[images][0]=&p[title]=&p[summary]" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
+
+                        <a href="http://twitter.com/intent/tweet?text=<?php echo site_url();?>" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>
+
+                        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url();?>" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
+                
+
+                    </div>
+        
+			       
+        		        <?php }?>	
+                </div>
+            <div class='capchArea'>	
+				        <?php myCapch() ?>
+         	        </div> 
+    
+                <fieldset class="submit">
+                    <input type="submit" value="Submit" tabindex="40" id="submit" name="submit" />
+                </fieldset>
+    
+                <input type="hidden" name="action" value="new_post" />
+                <?php wp_nonce_field( 'new-post' ); ?>
+        
+            </form>
+            <div id="validate-general-error" class="validate-error">* please insert a valid text </div>
+            <div id="validate-checkbox-error" class="validate-error">* please check it out... </div>
+            <div id="validate-description-error" class="validate-error">* please insert less than 200 words to description field </div>
+            <div id="validate-img-error" class="validate-error">* file is too big, Please ensure that file size is less than 2Mb </div>
+            <div id="validate-slogen-error" class="validate-error">* please insert text with maximum 140 characters mission field </div>
+            <span id="page-number-1" class="page-number">1/3</span>
+            <span id="page-number-2" class="page-number">2/3</span>
+            <span id="page-number-3" class="page-number">3/3</span>
+            <div class="last-page"><div class="nav-page-img">Back</div></div>
+            <div class="next-page"><div class="nav-page-img">Next</div></div>
+        </div>
     </div>
       
       <!-- end form -->

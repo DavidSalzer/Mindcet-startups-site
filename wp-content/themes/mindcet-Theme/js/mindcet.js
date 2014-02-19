@@ -1214,7 +1214,7 @@ function initMap() {
         zoom: 1,
     //    disableDefaultUI: true,
     //disableDoubleClickZoom: true,
-        draggable: false,
+        draggable: true,
       //  maxZoom:1,
         minZoom:1
 

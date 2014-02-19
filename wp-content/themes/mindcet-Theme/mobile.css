@@ -117,6 +117,18 @@ background-size: 94%;
 background-position: 1px 4px;
 }
 
+#newsletter-popup{
+    width: 100%;
+left: 0;
+top: 110px;
+height: 140px;
+}
+#newsletter-popup .triangle{
+    top: -38px;
+left: 238px;
+-webkit-transform: rotateZ(90deg);
+-ms-transform: rotateZ(90deg);
+}
 #sign-header-mobile{
     width: 100%;
 height: 50px;
@@ -203,6 +215,12 @@ background-position-y: 8px;
 .leftScroll-arrow, .rightScroll-arrow{
     margin: 90px auto 0;
 }
+.leftScroll-arrow{
+    background-position-x: -8px;
+}
+.rightScroll-arrow {
+    background-position-x: -62px;
+}
 #scrollInventorCon .placholderSlide{
     width: 29px;
 }
@@ -211,7 +229,7 @@ background-position-y: 8px;
 }
 .inventList{
     width: 50%;
-    
+height: 252px;    
 }
 .inventList li {
     width: 100%;
@@ -707,4 +725,9 @@ width: 100%;
 #marker-popup iframe {
 width: 100%;
 
+}
+
+.judgesContenar{
+    overflow-x:scroll;
+    overflow-y: hidden; 
 }

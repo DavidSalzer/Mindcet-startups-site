@@ -39,7 +39,7 @@
 	<link rel="shortcut icon"  type="image/x-icon" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.ico">
 	
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
-    <link rel="stylesheet" media="all and (max-width: 1023px)"  href="http://localhost/Mindcet-startups-site/wp-content/themes/mindcet-Theme/mobile.css" type="text/css" />
+    <!--<link rel="stylesheet" media="all and (max-width: 1023px)"  href="http://localhost/Mindcet-startups-site/wp-content/themes/mindcet-Theme/mobile.css" type="text/css" />-->
     <!--<link rel="stylesheet" media="all and (max-width: 1023px)"  href="http://mindcet.co.il.tigris.nethost.co.il/wp-content/themes/mindcet-Theme/mobile.css" type="text/css" />-->
 	
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
@@ -161,6 +161,11 @@
                 	<span class="logoCet">
                     	<img src="<?php echo get_theme_mod('link_ImgBg'); ?>" title="<?php echo get_theme_mod('link_ImgBg_text');?>" class="topImgLink">
                     </span>
+                    <ul id="sum-menu-mobile">
+                    <li ><a href="<?php echo site_url();?>">Home Page</a></li>
+                    <li class="aboutUs">About Us</li>
+                    <li class="contactUs">Contact Us</li>
+                </ul>
                 </a>
                 <div class="timer">
                 <?php get_sidebar('countdown');?>
@@ -170,8 +175,11 @@
                     <div class="socialTab" onClick="openInNewWindow('http://twitter.com/intent/tweet?text=<?php echo site_url(); ?>%0D%0AGlobal EdTech Startup Awards 2014%0D%0AWhat\'s your favorite EdTech startup? ' , 100, 100)"><span class="twitter"></span></div>
                     <div class="socialTab" onClick="openInNewWindow('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2014&p[summary]=What\'s your favorite EdTech startup?' , 100, 100)"><span class="facebook"></span></div>
                 </div>
+
+                
 			</div>
           </div>
+        
 		<nav class="topNav">
            <?php
 		$defaults = array(

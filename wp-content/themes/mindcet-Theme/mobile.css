@@ -285,31 +285,30 @@ display: block;
     }
 
 
-.inventDescription .mainArea, .mapDescription .mainArea {
-    width: 100%;
-    top: 0px;
-   /*  background-color: aquamarine; */
-    display: block;
-    margin-left: 0px;
-    padding-bottom: 0px;
-    padding-right: 0px;
-    height: auto;
-    text-align: center;
-}
-.inventDescription .mainArea .movie {
+    .inventDescription .mainArea, .mapDescription .mainArea {
+        width: 100%;
+        top: 0px;
+        /*  background-color: aquamarine; */
+        display: block;
+        margin-left: 0px;
+        padding-bottom: 0px;
+        padding-right: 0px;
+        height: auto;
+        text-align: center;
+    }
 
-width: 100%;
-position: relative;
+    .inventDescription .mainArea .movie {
+        width: 100%;
+        position: relative;
+        margin: 0;
+        margin-top: 25px;
+    }
 
-margin: 0;
-margin-top: 25px;
-
-}
-.inventDescription .mainArea .movie iframe {
-    height: 160px;
-    width: 260px;
-    position: static;
-}
+    .inventDescription .mainArea .movie iframe {
+        height: 160px;
+        width: 260px;
+        position: static;
+    }
 
 
 
@@ -357,13 +356,13 @@ margin-top: 25px;
 
 
 
-#marker-popup .facebook-comments {
-    width: 100% !important;
-}
+    #marker-popup .facebook-comments {
+        width: 100% !important;
+    }
 
-#marker-popup iframe {
-    width: 100% !important;
-}
+    #marker-popup iframe {
+        width: 100% !important;
+    }
 
 
 
@@ -810,6 +809,7 @@ margin-top: 25px;
 
     .categories {
         font-size: 15px;
+        margin: 5px 0 10px 0;
     }
 
 
@@ -818,7 +818,10 @@ margin-top: 25px;
         font-size: 15px;
         height: 26px;
         line-height: 26px;
-        width: 91%; /*  pini   -need space for the *       */
+        width: 97%; /*  pini   -need space for the *       */
+        background-position: 240px 6px;
+        background-size: 7% 58%;
+        margin: 0px 0 21px 0;
     }
 
     .inventorPopUp {
@@ -836,7 +839,8 @@ margin-top: 25px;
 
 
     .page-number {
-        bottom: 10px;
+        bottom: 14px;
+        left: 26px;
     }
 
 

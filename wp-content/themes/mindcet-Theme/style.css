@@ -1870,17 +1870,21 @@ font-family: sans-serif;*/
 }
 
 /*.validate-error{*/
-#validate-general-error, #validate-description-error, #validate-img-error, #validate-slogen-error, #validate-checkbox-error {
-    color: #e76c76;
-    font-size: 15px;
-    font-family: sans-serif;
+#validate-area{
     position: absolute;
-    width: 500px;
-    text-align: left;
-    text-indent: 6px;
-    bottom: 90px;
-    left: 34px;
-    display: none;
+top: -2px;
+}
+#validate-general-error, #validate-description-error, #validate-img-error, #validate-slogen-error, #validate-checkbox-error {
+   color: #e76c76;
+font-size: 14px;
+font-family: sans-serif;
+position: relative;
+width: 500px;
+text-align: left;
+text-indent: 6px;
+left: 34px;
+display: none;
+margin-top: 5px;
 }
 
 #validate-description-error {

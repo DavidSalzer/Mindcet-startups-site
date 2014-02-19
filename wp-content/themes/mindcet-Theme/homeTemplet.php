@@ -151,6 +151,13 @@ do_action('wp_insert_post', 'wp_insert_post');
     <div id="offer-zone" class="inventorPopUp">
         <div id="offer-zone-inner">
             <div id="sign-header-mobile">Sign Your Startup</div>
+            <div id="validate-area">
+                <div id="validate-general-error" class="validate-error">* please insert a valid text </div>
+                <div id="validate-checkbox-error" class="validate-error">* please check it out... </div>
+                <div id="validate-description-error" class="validate-error">* please insert less than 200 words to description field </div>
+                <div id="validate-img-error" class="validate-error">* file is too big, Please ensure that file size is less than 2Mb </div>
+                <div id="validate-slogen-error" class="validate-error">* please insert text with maximum 140 characters mission field </div>
+            </div>            
             <span class="close"></span>
             <span class="triangle"></span>
             <form id="new_post" name="new_post" class="popInvent" method="post" action="" class="wpcf7-form" enctype="multipart/form-data">
@@ -325,16 +332,13 @@ do_action('wp_insert_post', 'wp_insert_post');
                 <?php wp_nonce_field( 'new-post' ); ?>
         
             </form>
-            <div id="validate-general-error" class="validate-error">* please insert a valid text </div>
-            <div id="validate-checkbox-error" class="validate-error">* please check it out... </div>
-            <div id="validate-description-error" class="validate-error">* please insert less than 200 words to description field </div>
-            <div id="validate-img-error" class="validate-error">* file is too big, Please ensure that file size is less than 2Mb </div>
-            <div id="validate-slogen-error" class="validate-error">* please insert text with maximum 140 characters mission field </div>
-            <span id="page-number-1" class="page-number">1/3</span>
-            <span id="page-number-2" class="page-number">2/3</span>
-            <span id="page-number-3" class="page-number">3/3</span>
-            <div class="last-page"><div class="nav-page-img">Back</div></div>
-            <div class="next-page"><div class="nav-page-img">Next</div></div>
+            <div id="nav-area">
+                <span id="page-number-1" class="page-number">1/3</span>
+                <span id="page-number-2" class="page-number">2/3</span>
+                <span id="page-number-3" class="page-number">3/3</span>
+                <div class="last-page"><div class="nav-page-img">Back</div></div>
+                <div class="next-page"><div class="nav-page-img">Next</div></div>
+            </div>
         </div>
     </div>
       

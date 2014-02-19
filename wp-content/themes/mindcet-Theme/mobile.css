@@ -574,7 +574,8 @@ z-index: 1;
 
     .best-invent {
         width: 100%;
-        height: 124px;
+        height: 261px;
+
         background-color: #fff;
     }
 
@@ -600,7 +601,7 @@ z-index: 1;
 
     #best-invent-description {
         width: 67%;
-        height: 80%;
+        height: 86%;
         padding: 0;
         display: inline-block;
     }
@@ -635,7 +636,8 @@ z-index: 1;
 
     .middelBanner {
         position: relative;
-        height: 22px;
+height: 22px;
+margin-top: -3px;
     }
 
 
@@ -849,13 +851,21 @@ overflow-y: scroll;
 
 
     .page-number {
-       bottom: 28px;
-left: 26px;
+     bottom: 6px;
+left: 25px;
 position: relative;
     }
 
-
-
+#offer-zone-inner .next-page{
+    position: absolute;
+right: 32px;
+margin-bottom: 10px;
+margin-right: 0;
+left: auto;
+}
+#nav-area{
+    position: relative;
+}
     .next-page .nav-page-img {
         background-size: 58px;
         background-position: 100% 47%;
@@ -1367,9 +1377,15 @@ position: relative;
     #marker-popup iframe {
         width: 100%;
     }
-
+#validate-area{
+    position: relative;
+top: 45px;
+width: 100%;
+}
     #validate-select-error {
-        left: 0;
+        top: 15px;
+left: -18px;
+font-size: 11px;
     }
 
 
@@ -1377,6 +1393,13 @@ position: relative;
         width: 100%;
         left: 0;
     }
+#validate-general-error, #validate-description-error, #validate-img-error, #validate-slogen-error, #validate-checkbox-error{
+    width: 84%;
+left: 22px;
+}
+#validate-slogen-error{
+    bottom: 0;
+}
     /******************judge popup*********************/
 
     .judgeDescription {

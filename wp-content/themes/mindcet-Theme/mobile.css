@@ -192,15 +192,15 @@
 
 
 
-/*--------------------logo menu-----------------------*/
-/*--------------------single startup-----------------------*/
-.inventDescription .topArea, .mapDescription .topArea {
-    width: 100%;
-   /*  background-color: cyan; */
-    top: 0px;
-    min-height: 150px;
-    text-align: center;
-}
+    /*--------------------logo menu-----------------------*/
+    /*--------------------single startup-----------------------*/
+    .inventDescription .topArea, .mapDescription .topArea {
+        width: 100%;
+        /*  background-color: cyan; */
+        top: 0px;
+        min-height: 150px;
+        text-align: center;
+    }
 
     #sum-menu-mobile {
         background-color: #ffffff;
@@ -217,44 +217,39 @@
 
 
 
-.inventDescription .slogen, .mapDescription .slogen {
-    left: 0;
-top: 0;
-width: 100%;
-text-align: center;
-position: relative;
-margin-top: 15px;
-margin-bottom: 0;
-display: block;
-}
+    .inventDescription .slogen, .mapDescription .slogen {
+        left: 0;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        margin-top: 15px;
+        margin-bottom: 0;
+        display: block;
+    }
 
-<<<<<<< .mine
+    <<<<<<< .mine ======= > > > > > > > .theirs .inventDescription .socialArea {
+        height: auto;
+        top: 0px;
+        width: 100%;
+        position: relative;
+        /*  background-color: brown; */
+        text-align: center;
+    }
 
-=======
-
->>>>>>> .theirs
-.inventDescription .socialArea {
-    height: auto;
-    top: 0px;
-    width: 100%;
-    position: relative;
-   /*  background-color: brown; */
-    text-align: center;
-}
-
-#twittCount {
-    width: 56px;
-    height: 62px;
-    display: inline-block;
-    margin-left: 0;
-    padding-top: 0;
-    padding-left: 10px;
-    padding-bottom: 0;
-   margin-top: 50px;
-    margin-bottom: 0;
-    border-left: 1px solid gray;
-    border-bottom: none;
-}
+    #twittCount {
+        width: 56px;
+        height: 62px;
+        display: inline-block;
+        margin-left: 0;
+        padding-top: 0;
+        padding-left: 10px;
+        padding-bottom: 0;
+        margin-top: 50px;
+        margin-bottom: 0;
+        border-left: 1px solid gray;
+        border-bottom: none;
+    }
 
     #sum-menu-mobile a {
         text-decoration: none;
@@ -270,31 +265,30 @@ display: block;
     }
 
 
-.inventDescription .mainArea, .mapDescription .mainArea {
-    width: 100%;
-    top: 0px;
-   /*  background-color: aquamarine; */
-    display: block;
-    margin-left: 0px;
-    padding-bottom: 0px;
-    padding-right: 0px;
-    height: auto;
-    text-align: center;
-}
-.inventDescription .mainArea .movie {
+    .inventDescription .mainArea, .mapDescription .mainArea {
+        width: 100%;
+        top: 0px;
+        /*  background-color: aquamarine; */
+        display: block;
+        margin-left: 0px;
+        padding-bottom: 0px;
+        padding-right: 0px;
+        height: auto;
+        text-align: center;
+    }
 
-width: 100%;
-position: relative;
+    .inventDescription .mainArea .movie {
+        width: 100%;
+        position: relative;
+        margin: 0;
+        margin-top: 25px;
+    }
 
-margin: 0;
-margin-top: 25px;
-
-}
-.inventDescription .mainArea .movie iframe {
-    height: 160px;
-    width: 260px;
-    position: static;
-}
+    .inventDescription .mainArea .movie iframe {
+        height: 160px;
+        width: 260px;
+        position: static;
+    }
 
 
 
@@ -342,13 +336,13 @@ margin-top: 25px;
 
 
 
-#marker-popup .facebook-comments {
-    width: 100% !important;
-}
+    #marker-popup .facebook-comments {
+        width: 100% !important;
+    }
 
-#marker-popup iframe {
-    width: 100% !important;
-}
+    #marker-popup iframe {
+        width: 100% !important;
+    }
 
 
 
@@ -802,7 +796,9 @@ margin-top: 25px;
         font-size: 15px;
         height: 26px;
         line-height: 26px;
-        width: 91%; /*  pini   -need space for the *       */
+        width: 97%; /*  pini   -need space for the *       */
+        background-position: 240px 6px;
+        background-size: 7% 58%;
     }
 
     .inventorPopUp {

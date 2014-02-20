@@ -163,7 +163,7 @@ font-size: 13px;
 		width: 25px;
 		height: 37px;
 		margin-top: -18px;
-		margin-left: 14px;
+		margin-left: 11px;
 		-webkit-transform: rotateZ(270deg);
 	}
 
@@ -434,6 +434,94 @@ font-size: 13px;
 
     #sign-header-mobile {
     }
+
+.recaptchatable #recaptcha_image{
+    width: 95% !important;
+}
+.recaptchatable #recaptcha_response_field{
+    width: 100% !important;
+}
+.recaptchatable #recaptcha_image #recaptcha_challenge_image{
+     width: 100% !important;
+}
+#recaptcha_area, #recaptcha_table{
+    width: 100% !important;
+    margin: auto;
+}
+.capchArea{
+    position: relative;
+left: 0;
+right: 0;
+margin-left: auto;
+margin-right: auto;
+}
+.last-page, .next-page, .submit input{
+    width: 89px;
+height: 27px;
+line-height: 27;
+font-size: 14px;
+right: 0;
+text-indent: 0;
+}
+.submit{
+   position: relative;
+right: 0;
+float: none;
+width: auto;
+height: auto;
+z-index: 1;
+}
+.popInvent input[type="submit"]{
+    float: none;
+position: absolute;
+bottom: 0;
+margin-bottom: 0;
+width: 89px;
+height: 28px;
+}
+.bottomArea{
+    font-size: 11px;
+}
+
+#formPart1, #formPart2, #formPart3, #formPart4{
+    width: 100%;
+    height: 100%;
+}
+.form-end-message{
+    width: 100%;
+margin-top: 90px;
+font-size: 16px;
+}
+.form-end-message .fb, .form-end-message .twitter{
+    position: relative;
+float: none;
+display: inline-block;
+margin: 0;
+}
+.form-end-message .linkedin{
+    position: relative;
+}
+#form-end-social{
+    
+}
+.form-end-message .twitter,.form-end-message .linkedin{
+   display: inline-block;
+float: none;
+background-size: 160px;
+}
+.form-end-message .fb{
+    background-position-x: 15px;
+}
+.form-end-message .twitter{
+    background-position-x: 51%;
+padding-left: 10px;
+padding-right: 10px;
+
+}
+.form-end-message .linkedin{
+    background-position-x: 116%;
+padding-left: 10px;
+}
     /*-----------------------home page------------------*/
 
     #page-wrap, .page-wrap {
@@ -909,11 +997,11 @@ font-size: 13px;
     }
 
     #offer-zone-inner .next-page {
-        position: absolute;
-        right: 32px;
-        margin-bottom: 10px;
-        margin-right: 0;
-        left: auto;
+       position: absolute;
+right: 32px;
+margin-bottom: 16px;
+margin-right: 0;
+left: auto;
     }
 
     #nav-area {
@@ -922,11 +1010,11 @@ font-size: 13px;
 
     .next-page .nav-page-img {
         background-size: 58px;
-        background-position: 100% 47%;
-        width: 35px;
-        text-indent: -33%;
-        font-size: 15px;
-        line-height: 36px;
+background-position: 100% 47%;
+width: 35px;
+text-indent: -33%;
+font-size: 15px;
+line-height: 27px;
     }
 
 
@@ -935,8 +1023,7 @@ font-size: 13px;
     .next-page {
         right: 0;
         left: 205px;
-        width: 94px;
-        height: 35px;
+        
         position: relative;
         font-size: 18px;
         bottom: 0;
@@ -1286,7 +1373,7 @@ font-size: 13px;
         display: none;
     }
 
-    .socialArea .linkedin, .form-end-message .linkedin {
+    .socialArea .linkedin{
         display: none;
     }
 
@@ -1305,7 +1392,7 @@ font-size: 13px;
 
 
 
-    .socialArea .twitter, .form-end-message .twitter {
+    .socialArea .twitter{
         display: none;
     }
 

@@ -52,6 +52,7 @@ $(document).ready(function (e) {
         openOfferPopUp();
         $('#formPart4').removeClass('show');
         $('#formPart4').hide();
+        $('.popInvent input[type="submit"]').hide();
         $('#formPart1').show();
         $('.next-page').css("display", "inline-block");
         $('#page-number-1').show();
@@ -65,6 +66,8 @@ $(document).ready(function (e) {
         else{
             $("#page-number-1").html("1/3");
         }
+        return false;
+
     });
 
     $('.inventorPopUp .close').on('click', this, function () {
@@ -448,7 +451,7 @@ $(document).ready(function (e) {
 
    $('.mask').on('click', this, function (e) {
 	  if($('#newsletter-btn').hasClass('selected')){
-		//$('#newsletter-btn').click();
+		    closeNewsletter();
 		return;
 	} 
 	   
@@ -691,7 +694,7 @@ function updateMenuUrl() {
     //$(".footerMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
 
     //add event to offer menu to open the offer popup
-    $('a[href^="#offer-zone"]').on("click", openOfferPopUp);
+    $('a[href^="#offer-zone"]').on("click", function(){$('#offerStartUp').click();});
 
     //scroll smooth
     $('a[href^="#"]').click(function () {    // Change to needed selector
@@ -1124,7 +1127,12 @@ function showForm2(){
 }
 function showPreviewForm(){
     $('.capchArea').show();
-				$('.inventorPopUp').css('height','775px');
+				if(isMobile){
+				    $('#page-number-3').html("2/2");
+				}
+                else{
+                    $('.inventorPopUp').css('height','775px');
+                }
 				$('.triangle').css('bottom','250px');
                 ga('send', 'event', 'button', 'click', 'add invent - 3');
                 $('#formPart1').hide();
@@ -1139,7 +1147,7 @@ function showPreviewForm(){
                 if (document.getElementById("title").value) { var title = document.getElementById("title").value; } else { title = "no title"; }
                 //var logo = document.getElementById("logo").addEventListener('change', handleFileSelect, false);
                 
-
+                var slogen=document.getElementById("slogen").value;
                 var youtubeUrl = document.getElementById("youtubeUrl").value;
                 var invetName = document.getElementById("invetName").value;
                 var description = document.getElementById("description").value;
@@ -1149,6 +1157,7 @@ function showPreviewForm(){
 
                 var html = '       <div class="topArea">    '
                 html += '           <div class="title ellipsis">' + title + '</div>';
+                html+='             <div class="slogen">'+ slogen+' </div>';
                 if(founderShow)
                 html += '           <div class="name ellipsis"><b>Founders:</b> ' + founderShow + '</div>';
                 
@@ -1433,6 +1442,12 @@ function getFile(id){
     $('body').css('overflow','hidden');
     $("#newsletter-popup").show();
     $('.mask').fadeIn(200, 'easeInOutBack').css('height',h+'px');;
+  }
+
+  function closeNewsletter(){
+      $("#newsletter-btn").removeClass("selected");
+    $("#newsletter-popup").hide();
+     $('.mask').fadeOut('fast');
   }
 
   function signToNewsletter(){

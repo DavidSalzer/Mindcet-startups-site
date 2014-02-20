@@ -447,6 +447,12 @@ $(document).ready(function (e) {
     });
 
    $('.mask').on('click', this, function (e) {
+	  if($('#newsletter-btn').hasClass('selected')){
+		//$('#newsletter-btn').click();
+		return;
+	} 
+	   
+	   
      if($(e.target).attr("class") != "undefind" && $(e.target).attr("class").indexOf('mask')==0) { 
            $("#newsletter-popup").hide();
             //if from invent
@@ -1435,8 +1441,12 @@ function getFile(id){
 						mail:emailUser,
 						action: 'registerNews'
 					}
-					, function(data) {
-						alert(data);
+					,
+					function(data) {
+						if(data==1){
+							$('#newsletter-btn').removeClass();
+							 $("#newsletter-popup,.mask").hide();
+						}
 			});	
 		
       }

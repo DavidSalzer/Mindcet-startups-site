@@ -112,10 +112,11 @@
 	add_action( 'wp_ajax_nopriv_registerNews', 'registerNews' ); 
 	
 	function registerNews(){
-	require_once( get_template_directory().'/inc/Mailchimp.php');
+	$email=$_REQUEST['mail'];
+ 	require_once( get_template_directory().'/inc/Mailchimp.php');
 		 $listId='8366e2458d';
 		 $merge_vars=array(
-			 'FNAME' => $name
+			 'FNAME' =>'anonimus register'
 		);
 		 $apiKey='129c1db8a40f40aa3417c7d277581b9f-us6';
 		$mailChimp=new Mailchimp($apiKey);
@@ -133,6 +134,7 @@
 				echo 2;
 			}
 		die();
+	
 	
 	}
 	

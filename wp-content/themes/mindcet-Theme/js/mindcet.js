@@ -1433,7 +1433,7 @@ function getFile(id){
 			
 			jQuery.post('wp-admin/admin-ajax.php', {
 						mail:emailUser,
-						action: 'registerNews',
+						action: 'registerNews'
 					}
 					, function(data) {
 						alert(data);

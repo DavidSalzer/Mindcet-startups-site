@@ -1,3 +1,16 @@
+@media all and (max-width: 1023px) {
+    #scrollInventorCon {
+        height: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    .judgesContenar {
+        height: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+}
+
 @media all and (max-width: 767px) {
     /*add to index!!!! <link rel="stylesheet" media="all and (max-width: 1023px)"  href="css/mobile.css" type="text/css" />*/
 

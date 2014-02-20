@@ -503,6 +503,9 @@ function openOfferPopUp() {
     ga('send', 'event', 'button', 'click', 'add invent - 1');
 
     $('.inventorPopUp').fadeIn(400, 'easeInOutBack');
+    
+    
+
     //display of mobile
     if(isMobile){
         $(".header").hide();

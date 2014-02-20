@@ -157,7 +157,15 @@ font-size: 13px;
         width: 78%;
     }
 
+	#sum-menu-mobile .triangle {
 
+
+		width: 25px;
+		height: 37px;
+		margin-top: -18px;
+		margin-left: 14px;
+		-webkit-transform: rotateZ(270deg);
+	}
 
 
 

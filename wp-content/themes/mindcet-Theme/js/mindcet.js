@@ -1351,7 +1351,16 @@ function getFile(id){
   function signToNewsletter(){
       var mail=$("#newsletter-popup input")
       if(emailValidate(mail)){
-          //send ajax
+         emailUser=$('#registerNews').val();
+			
+			jQuery.post('wp-admin/admin-ajax.php', {
+						mail:emailUser,
+						action: 'registerNews',
+					}
+					, function(data) {
+						alert(data);
+			});	
+		
       }
       else{
           $("#newsletter-popup-error").fadeIn(200, 'easeInOutBack');

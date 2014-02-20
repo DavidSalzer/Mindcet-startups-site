@@ -101,6 +101,34 @@
 	add_action( 'wp_ajax_addStartUp', 'addStartUp' );
 	add_action( 'wp_ajax_nopriv_addStartUp', 'addStartUp' ); 
 	
+	add_action( 'wp_ajax_registerNews', 'registerNews' );
+	add_action( 'wp_ajax_nopriv_registerNews', 'registerNews' ); 
+	
+	function registerNews(){
+	require_once( get_template_directory().'/inc/Mailchimp.php');
+		 $listId='8366e2458d';
+		 $merge_vars=array(
+			 'FNAME' => $name
+		);
+		 $apiKey='129c1db8a40f40aa3417c7d277581b9f-us6';
+		$mailChimp=new Mailchimp($apiKey);
+		//$mailChimp->lists->su
+		$result=$mailChimp->lists->subscribe($listId, array('email'=>$email),
+											$merge_vars,
+											false,
+											true,
+											true,
+											false
+										   );
+		if($result) {
+			echo 1;
+		}else{
+				echo 2;
+			}
+		die();
+	
+	}
+	
 	
 	function addStartUp(){
 		$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
@@ -723,7 +751,7 @@ function getCssForLink(){
 
 
 function mailChimp($email,$name){
-	 require( get_template_directory().'/inc/Mailchimp.php');
+	 require_once( get_template_directory().'/inc/Mailchimp.php');
 	 $listId='8366e2458d';
 	 $merge_vars=array(
 		 'FNAME' => $name

@@ -132,7 +132,7 @@
         <div id="newsletter-popup">
             <span class="triangle"></span>
             <div id="newsletter-popup-title">Sign for Our Newsletter</div>
-            <input type="email" value="" name="email" placeholder="E-Mail"/> 
+            <input type="email" value="" name="email" placeholder="E-Mail" id="registerNews"/> 
             <div id="newsletter-popup-error">*please insert a valid text</div>
             <div id="newsletter-popup-sign-btn" class="next-page"><div class="nav-page-img">Sign</div></div>            
         </div>

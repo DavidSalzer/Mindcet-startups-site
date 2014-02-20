@@ -522,6 +522,10 @@ padding-right: 10px;
     background-position-x: 116%;
 padding-left: 10px;
 }
+#formPart3 .slogen,#formPart3 .name {
+    text-align: left;
+text-indent: 0;
+}
     /*-----------------------home page------------------*/
 
     #page-wrap, .page-wrap {

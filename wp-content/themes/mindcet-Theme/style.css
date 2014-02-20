@@ -3326,6 +3326,7 @@ select#tagsNav {
     padding: 7px;
     display: flex;
     display: -ms-flexbox;
+    display: -webkit-box;
     flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     justify-content: flex-start;
@@ -3459,6 +3460,7 @@ select#category.needSelect, select#tags.needSelect {
 }
 
 .leftSide {
+   
     flex: 2;
     -ms-flex: 2;
 }

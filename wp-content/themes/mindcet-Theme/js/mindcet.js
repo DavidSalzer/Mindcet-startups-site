@@ -53,6 +53,7 @@ $(document).ready(function (e) {
         $('#formPart4').removeClass('show');
         $('#formPart4').hide();
         $('.popInvent input[type="submit"]').hide();
+        $(".capchArea").hide();
         $('#formPart1').show();
         $('.next-page').css("display", "inline-block");
         $('#page-number-1').show();
@@ -95,7 +96,7 @@ $(document).ready(function (e) {
 				        showPreviewForm();                
                     }
                     else{
-                        $('html, body').animate({
+                        $('#offer-zone-inner').animate({
                             scrollTop: 0
                         }, 1000);
                     }
@@ -106,7 +107,7 @@ $(document).ready(function (e) {
                
             }
             else{
-                $('html, body').animate({
+                $('#offer-zone-inner').animate({
                     scrollTop: 0
                 }, 1000);
             }
@@ -118,7 +119,7 @@ $(document).ready(function (e) {
 				showPreviewForm();                
             }
             else{
-                $('html, body').animate({
+                $('#offer-zone-inner').animate({
                     scrollTop: 0
                 }, 1000);
             }
@@ -144,7 +145,9 @@ $(document).ready(function (e) {
         else if ($('#formPart3').is(":visible")) {
 			$('.capchArea').hide();
 			$('.inventorPopUp').css('height','666px');
-			$('.triangle').css('bottom','138px');
+			if(!isMobile){
+                $('.triangle').css('bottom','138px');
+            }
             $('#formPart3').hide();
             $('#page-number-3').hide();
             $('#page-number-2').show();
@@ -1133,7 +1136,9 @@ function showPreviewForm(){
                 else{
                     $('.inventorPopUp').css('height','775px');
                 }
-				$('.triangle').css('bottom','250px');
+				if(!isMobile){
+                    $('.triangle').css('bottom','250px');
+                }
                 ga('send', 'event', 'button', 'click', 'add invent - 3');
                 $('#formPart1').hide();
                 $('#formPart2').hide();
@@ -1441,7 +1446,8 @@ function getFile(id){
     h=$(window).height();
     $('body').css('overflow','hidden');
     $("#newsletter-popup").show();
-    $('.mask').fadeIn(200, 'easeInOutBack').css('height',h+'px');;
+    $("#newsletter-popup-sign-btn").show();
+    $('.mask').fadeIn(200, 'easeInOutBack').css('height',h+'px');
   }
 
   function closeNewsletter(){

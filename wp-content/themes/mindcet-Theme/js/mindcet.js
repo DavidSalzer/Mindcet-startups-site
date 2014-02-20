@@ -1124,7 +1124,10 @@ function showForm2(){
 }
 function showPreviewForm(){
     $('.capchArea').show();
-				if(!isMobile){
+				if(isMobile){
+				    $('#page-number-3').html("2/2");
+				}
+                else{
                     $('.inventorPopUp').css('height','775px');
                 }
 				$('.triangle').css('bottom','250px');

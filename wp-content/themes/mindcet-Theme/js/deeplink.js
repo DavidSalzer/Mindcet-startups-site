@@ -81,7 +81,7 @@ function addStartUp(){
 	jQuery.post('wp-admin/admin-ajax.php', {
 				action: 'addStartUp',
 				recaptcha_challenge_field:recaptcha_challenge,
-				recaptcha_response_field:recaptcha_response,
+				recaptcha_response_field:recaptcha_response
 				
 			}
 			, function(data) {

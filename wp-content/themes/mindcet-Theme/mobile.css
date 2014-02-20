@@ -896,7 +896,7 @@ font-size: 13px;
 
 
     .popInvent input, .popInvent textarea {
-        width: 96%;
+        width: 94%;
     }
 
 
@@ -1198,7 +1198,8 @@ font-size: 13px;
 
 
     .inventDescription .startup-popup-logo, .mapDescription .startup-popup-logo {
-        width: 100%;
+        width: 40%;
+		left: 30%;
         height: 60px;
         position: relative;
         margin: 0px;
@@ -1726,3 +1727,12 @@ margin-top: 12px;
 #aboutUs .media iframe{
     width: 100%;
 }
+
+/*****************************terms & conditions page  *****/
+
+	#post-503{
+
+		padding: 5%;
+		width: 90%;
+		font-size: 18px;
+	}

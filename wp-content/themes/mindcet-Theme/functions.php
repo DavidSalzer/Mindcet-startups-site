@@ -12,7 +12,12 @@
 	// Add RSS links to <head> section
 	automatic_feed_links();
 	
-	
+	add_action('init', 'myStartSession', 1);
+	function myStartSession() {
+		if(!session_id()) {
+			session_start();
+		}
+	}
 	
 	// Load jQuery
 	if ( !is_admin() ) {
@@ -142,6 +147,9 @@
 				echo '0';
 			  }else{
 				echo '1';
+				
+				$_SESSION['capch']='capch';
+
 			}
 		die();
 	}

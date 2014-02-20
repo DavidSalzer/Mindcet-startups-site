@@ -47,6 +47,11 @@ set_post_thumbnail( 165, 176177178179 );
     <?php 
   if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post"&& isset($_POST['submit'])) {
 	 //get the category
+	 
+	 if($_SESSION['capch']!='capch'){
+				 $error['initiator']= "<div class='form-end-message'>Oops!<br><br> Something got wrong, please try again</div><div class='planes'></div>";	
+
+	}
 
 	/* $args = array(
 			'orderby' => 'name',
@@ -128,6 +133,11 @@ set_post_thumbnail( 165, 176177178179 );
 		
 		//uploadFile($pid);
 			$fileEr=fileUp($pid);	
+			
+			//destroy session
+			$_SESSION['capch']=='';
+			unset($_SESSION['capch']);
+
 			
 			// subscrib to mailchimp
 			if(isset($_POST['ads']) && $_POST['ads']=='yes')

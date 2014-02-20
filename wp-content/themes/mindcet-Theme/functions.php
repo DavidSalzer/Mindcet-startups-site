@@ -18,7 +18,7 @@
 			session_start();
 		}
 	}
-	
+	wp_enqueue_style( 'mobile', get_template_directory_uri()."/mobile.css" );
 	// Load jQuery
 	if ( !is_admin() ) {
 

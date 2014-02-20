@@ -789,7 +789,7 @@ function myCapch(){
 			?>
 			  <script type="text/javascript">
 		 var RecaptchaOptions = {
-			theme : 'clean'
+			theme : 'white'
 		 };
 		 </script>
 		<?php

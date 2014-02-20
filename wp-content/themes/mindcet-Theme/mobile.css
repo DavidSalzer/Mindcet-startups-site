@@ -426,6 +426,23 @@ font-size: 13px;
 
     #sign-header-mobile {
     }
+
+.recaptchatable #recaptcha_image{
+    width: 95% !important;
+}
+.recaptchatable #recaptcha_response_field{
+    width: 100% !important;
+}
+.recaptchatable #recaptcha_image #recaptcha_challenge_image{
+     width: 100% !important;
+}
+#recaptcha_area, #recaptcha_table{
+    width: 100% !important;
+    margin: auto;
+}
+.capchArea{
+    margin-left: -8%;
+}
     /*-----------------------home page------------------*/
 
     #page-wrap, .page-wrap {

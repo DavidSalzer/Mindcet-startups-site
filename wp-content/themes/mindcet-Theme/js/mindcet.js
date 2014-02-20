@@ -1124,7 +1124,9 @@ function showForm2(){
 }
 function showPreviewForm(){
     $('.capchArea').show();
-				$('.inventorPopUp').css('height','775px');
+				if(!isMobile){
+                    $('.inventorPopUp').css('height','775px');
+                }
 				$('.triangle').css('bottom','250px');
                 ga('send', 'event', 'button', 'click', 'add invent - 3');
                 $('#formPart1').hide();

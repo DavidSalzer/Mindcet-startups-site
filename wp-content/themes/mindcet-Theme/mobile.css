@@ -989,9 +989,10 @@
 
     #formPart3 .topArea {
 		width: 100%;
+		position: relative;
 		height: auto;
 		/* margin: 0;
-		position: relative;
+		
 		display: block; */
 		text-align: center;
 	}
@@ -1000,18 +1001,18 @@
 		padding-top: 80px;
 		font-size: 24px;
 		/* display: block;
-		position: relative; */
+		*/
 		width: 100%;
 		height: auto;
-		
+		position: relative;
 	}
 	
 	#formPart3 .name {
-		
+		position: relative;
 		float: none;
 		/* 
 		
-		position: relative;
+		
 		display: block;
 		height: auto; */
 		width: 100%;
@@ -1028,7 +1029,7 @@
 		line-height: 55px;
 		display: block;
 		margin-bottom: 0; */
-		margin-top: 65px;
+		margin-top: 10px;
 		/* margin-right: 25px; */
 		width: 100%;
 	}

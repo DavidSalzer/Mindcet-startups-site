@@ -77,6 +77,7 @@
 	
 	<!-- Don't forget analytics -->
    <section id="contactUsForm">
+       <div id="contact-us-mobile-header" class="mobile-header">Contact Us</div>
                   <div class="loading">
                   	Sending...
                   </div>

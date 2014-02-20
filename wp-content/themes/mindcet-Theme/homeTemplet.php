@@ -160,7 +160,7 @@ do_action('wp_insert_post', 'wp_insert_post');
 ?>
     <div id="offer-zone" class="inventorPopUp">
         <div id="offer-zone-inner">
-            <div id="sign-header-mobile">Sign Your Startup</div>
+            <div id="sign-header-mobile" class="mobile-header">Sign Your Startup</div>
             <div id="validate-area">
                 <div id="validate-general-error" class="validate-error">* please insert a valid text </div>
                 <div id="validate-checkbox-error" class="validate-error">* please check it out... </div>

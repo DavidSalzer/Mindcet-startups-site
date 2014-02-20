@@ -22,8 +22,10 @@ $('.contactUs').on('click',this,function(e){
 	
 	$('#aboutUs').slideUp();
 	console.log(e);
-    if (isMobile=false)
-    {
+    if (isMobile){
+       $("#contact-us-mobile-header").show(); 
+    }
+    else{
 	    $('#contactUsForm').css({'left':(e.pageX-50)+'px','top':(e.pageY-760)+'px'});
     }
 	$('#contactUsForm form').show();
@@ -46,6 +48,7 @@ $('#contactUsForm .close').on('click',this,function(){
 	$('#contactUsForm').slideUp();
 	$('body').css('overflow','auto');
 	$('#aboutUs').hide();
+    $("#contact-us-mobile-header").hide(); 
 });
 
 $('#aboutUs .close,.aboutUsMask').on('click',this,function(){

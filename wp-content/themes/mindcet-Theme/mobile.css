@@ -1,11 +1,29 @@
 @media all and (max-width: 1023px) {
+    #scrollInventorCon {
+        height: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    .judgesContenar {
+        height: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+}
+
+@media all and (max-width: 767px) {
     /*add to index!!!! <link rel="stylesheet" media="all and (max-width: 1023px)"  href="css/mobile.css" type="text/css" />*/
 
-    /*------------------header and general-------------------------*/
+/*@viewport{
+    user-zoom:fixed;
+     zoom:1.0;
+     max-zoom:1.0;
+     min-zoom:1.0;
+    }*/    
+/*------------------header and general-------------------------*/
     body.freeze {
         overflow: hidden;
     }
-
     .header {
         height: 58px;
     }
@@ -393,8 +411,7 @@
     }
 
 
-
-    #sign-header-mobile {
+    .mobile-header {
         width: 100%;
         height: 50px;
         background-color: #21cc8a;
@@ -405,6 +422,9 @@
         font-size: 25px;
         position: fixed;
         z-index: 1;
+    }
+
+    #sign-header-mobile {
     }
     /*-----------------------home page------------------*/
 
@@ -600,7 +620,6 @@
     .best-invent {
         width: 100%;
         height: 261px;
-
         background-color: #fff;
     }
 
@@ -661,8 +680,8 @@
 
     .middelBanner {
         position: relative;
-height: 22px;
-margin-top: -3px;
+        height: 22px;
+        margin-top: -3px;
     }
 
 
@@ -876,21 +895,23 @@ margin-top: -3px;
 
 
     .page-number {
-     bottom: 6px;
-left: 25px;
-position: relative;
+        bottom: 6px;
+        left: 25px;
+        position: relative;
     }
 
-#offer-zone-inner .next-page{
-    position: absolute;
-right: 32px;
-margin-bottom: 10px;
-margin-right: 0;
-left: auto;
-}
-#nav-area{
-    position: relative;
-}
+    #offer-zone-inner .next-page {
+        position: absolute;
+        right: 32px;
+        margin-bottom: 10px;
+        margin-right: 0;
+        left: auto;
+    }
+
+    #nav-area {
+        position: relative;
+    }
+
     .next-page .nav-page-img {
         background-size: 58px;
         background-position: 100% 47%;
@@ -1049,6 +1070,7 @@ left: auto;
     /*-------------------------footer--------------------------*/
     #footer {
         height: 60px;
+        min-width: 100%;
     }
 
 
@@ -1490,15 +1512,17 @@ left: auto;
     #marker-popup iframe {
         width: 100%;
     }
-#validate-area{
-    position: relative;
-top: 45px;
-width: 100%;
-}
+
+    #validate-area {
+        position: relative;
+        top: 45px;
+        width: 100%;
+    }
+
     #validate-select-error {
         top: 15px;
-left: -18px;
-font-size: 11px;
+        left: -18px;
+        font-size: 11px;
     }
 
 
@@ -1506,13 +1530,15 @@ font-size: 11px;
         width: 100%;
         left: 0;
     }
-#validate-general-error, #validate-description-error, #validate-img-error, #validate-slogen-error, #validate-checkbox-error{
-    width: 84%;
-left: 22px;
-}
-#validate-slogen-error{
-    bottom: 0;
-}
+
+    #validate-general-error, #validate-description-error, #validate-img-error, #validate-slogen-error, #validate-checkbox-error {
+        width: 84%;
+        left: 22px;
+    }
+
+    #validate-slogen-error {
+        bottom: 0;
+    }
     /******************judge popup*********************/
 
     .judgeDescription {
@@ -1617,13 +1643,17 @@ left: 22px;
     }
 
     #contactUsForm {
-        position: absolute;
-        width: 100%;
-        bottom: 1360px;
-        height: auto;
-        left: 0;
-        z-index: 15;
-        box-shadow: none;
+        position: fixed;
+width: 100%;
+height: 100%;
+left: 0;
+z-index: 50;
+box-shadow: none;
+top: 0;
+    }
+
+    #contactUsForm form {
+        margin: 72px 0 0 30px;
     }
 
     #contactUsForm form input {
@@ -1657,6 +1687,33 @@ left: 22px;
         text-indent: -13px;
     }
 }
-    /********************newsletter**********************/
+/********************about us**********************/
+#aboutUs{
+    width: 100%;
+overflow-y: scroll;
+position: absolute;
+height: 100%;
+margin: 0;
+overflow-x: hidden;
+}
+#aboutUs article {
+margin: 15px 20px 15px 20px;
+}
+#aboutUs .gallery img:hover{
+    -webkit-transform: scale(1.5,1.5);
+-moz-transform: scale(1.5,1.5);
+-ms-transform:scale(1.5,1.5);
+transform: scale(1.5,1.5);
+}
+#aboutUs .gallery{
+    display: block;
+}
+#aboutUs .gallery img{
+    margin: auto;
+display: block;
+margin-top: 12px;
+}
 
-
+#aboutUs .media iframe{
+    width: 100%;
+}

@@ -978,7 +978,96 @@ font-size: 13px;
     .popInvent input[type="file"] {
         height: 26px !important;
         width: 93px !important;
-    }
+		
+	}	
+		/* from here - page 2/2 "preview"  form num 3 in the html code*/
+		
+		
+	#formPart3 {
+		width: 100%;
+	}
+
+    #formPart3 .topArea {
+		width: 100%;
+		position: relative;
+		height: auto;
+		/* margin: 0;
+		
+		display: block; */
+		text-align: center;
+	}
+	
+	#formPart3 .topArea .title {
+		padding-top: 80px;
+		font-size: 24px;
+		/* display: block;
+		*/
+		width: 100%;
+		height: auto;
+		position: relative;
+	}
+	
+	#formPart3 .name {
+		position: relative;
+		float: none;
+		/* 
+		
+		
+		display: block;
+		height: auto; */
+		width: 100%;
+		padding-top: 12px;
+	}
+	
+	#formPart3 .startup-logo-form {
+		/* height: auto; */
+		position: absolute;
+		right: 0;
+		top: 0;
+		/* overflow: hidden;
+		text-align: center;
+		line-height: 55px;
+		display: block;
+		margin-bottom: 0; */
+		margin-top: 10px;
+		/* margin-right: 25px; */
+		width: 100%;
+	}
+	
+	#formPart3 .mainArea {
+		width: 100%;
+		height: auto;
+	
+		text-align: -webkit-left;
+	}
+	
+	#formPart3 .mainArea .description {
+		/*  */
+		
+		/* margin-bottom: 10px; */
+		/*  */
+		text-align: left;
+		float: none;
+		width: 100%;
+		margin-top: 12px;
+		height: auto;
+		/* margin-right: 0; */
+		position: relative;
+		/* display: block; */
+		margin-left: 0;
+	}
+	
+	#formPart3 .mainArea .gallery {
+		margin: 0;
+		
+		right: 0;
+		position: relative;
+	
+		margin-top: 20px;
+		left: 76px;
+		float: none;
+	
+}
     /*-------------------------footer--------------------------*/
     #footer {
         height: 60px;

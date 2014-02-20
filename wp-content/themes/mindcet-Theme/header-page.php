@@ -6,7 +6,8 @@
     <meta property="og:title" content="Global EdTech Startup Awards 2014" />
     <meta property="og:description" content="What's your favorite EdTech startup?"/>
     <meta property="og:updated_time" content="1391001033173" />    <!--<meta property="og:image" content="http://mindcet.co.il.tigris.nethost.co.il/wp-content/uploads/2014/01/final-logo1.png"/>-->
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <meta name="viewport" content="width=device-width">
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
      <link rel="image_src" href="<?php echo site_url();?>" /><!--/wp-content/uploads/2014/01/final-logo1.png" />-->
 
 	<?php if (is_search()) { ?>

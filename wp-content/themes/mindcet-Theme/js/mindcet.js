@@ -91,11 +91,21 @@ $(document).ready(function (e) {
                     if (form2Validate()) {
 				        showPreviewForm();                
                     }
+                    else{
+                        $('html, body').animate({
+                            scrollTop: 0
+                        }, 1000);
+                    }
                 }
                 else{
                     showForm2();
                 }
                
+            }
+            else{
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 1000);
             }
             return true;
         }
@@ -103,6 +113,11 @@ $(document).ready(function (e) {
         else if ($('#formPart2').is(":visible")) {
             if (form2Validate()) {
 				showPreviewForm();                
+            }
+            else{
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 1000);
             }
         }
 

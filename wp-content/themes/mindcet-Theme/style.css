@@ -2090,6 +2090,7 @@ font-family: sans-serif;*/
     color: #fff;
     height: 200px;
     border-top: 2px solid #b3b3b3;
+    min-width: 1024px;
 }
 
 .footerLogos {
@@ -3550,4 +3551,5 @@ iframe[src="about:blank"] {
     top: 72px;
 }
 
-@import("mobile.css")
+/*@import("mobile.css")*/
+

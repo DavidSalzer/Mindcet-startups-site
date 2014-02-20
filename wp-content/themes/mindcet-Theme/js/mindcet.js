@@ -2,6 +2,11 @@
    var fileMesg='file is too big, Please ensure that file size is less than 2Mb.';
 // JavaScript Document
 var fromMarker=null;
+var isMobile=false;
+ var logoSrc = null;
+    var ImgSrc1 = null;
+    var ImgSrc2 = null;
+    var ImgSrc3 = null;
 $(document).ready(function (e) {
     
     initMap();
@@ -15,12 +20,20 @@ $(document).ready(function (e) {
     //$('#fb-like-site').click();
            
     $('#inventScrollR').on('click', this, function () {
-        scrollVal = $('#scrollInventorCon').scrollLeft() + 500;
+        var offsetToScroll=$(".inventList").width()*2;
+        if(isMobile){
+            offsetToScroll=$(".inventList").width();
+        }
+        scrollVal = $('#scrollInventorCon').scrollLeft() + offsetToScroll;
         $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
     });
 
     $('#inventScrollL').on('click', this, function () {
-        scrollVal = $('#scrollInventorCon').scrollLeft() - 500;
+        var offsetToScroll=$(".inventList").width()*2;
+        if(isMobile){
+            offsetToScroll=$(".inventList").width();
+        }
+        scrollVal = $('#scrollInventorCon').scrollLeft() - offsetToScroll;
         $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
     });
     $('#judgesR').on('click', this, function () {
@@ -45,11 +58,27 @@ $(document).ready(function (e) {
         //openOfferPopUp();
         e.preventDefault();
 
+        if(isMobile){
+            $("body").addClass("freeze");
+            $("#page-number-1").html("1/2");
+        }
+        else{
+            $("#page-number-1").html("1/3");
+        }
     });
 
     $('.inventorPopUp .close').on('click', this, function () {
         $('.inventorPopUp').fadeOut(300, 'easeInOutBack');
         $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
+
+        //display of mobile
+        if(isMobile){
+            $(".header").show();
+            $(".topNav").show();
+            $(".page-wrap").removeClass("mobile");
+            $("#sign-header-mobile").hide();
+            $("body").removeClass("freeze");
+        }
       //  return false;
     });
 
@@ -58,82 +87,22 @@ $(document).ready(function (e) {
     $('.next-page').on('click', this, function () {
         if ($('#formPart1').is(":visible")) {
             if (form1Validate()) {
-                ga('send', 'event', 'button', 'click', 'add invent - 2');
-                $('#formPart1').hide();
-                $('#formPart2').show();
-                $('.last-page').css("display", "inline-block");
-                $('#page-number-1').hide();
-                $('#page-number-2').show();
-				
+                if(isMobile){
+                    if (form2Validate()) {
+				        showPreviewForm();                
+                    }
+                }
+                else{
+                    showForm2();
+                }
+               
             }
             return true;
         }
 
         else if ($('#formPart2').is(":visible")) {
             if (form2Validate()) {
-				$('.capchArea').show();
-				$('.inventorPopUp').css('height','775px');
-				$('.triangle').css('bottom','250px');
-                ga('send', 'event', 'button', 'click', 'add invent - 3');
-                $('#formPart2').hide();
-                $('#page-number-2').hide();
-                $('.next-page').css("display", "none");
-                $('#formPart3').show();
-                $('#page-number-3').show();
-                $('.submit input').css("display", "inline-block");
-
-                if (document.getElementById("title").value) { var title = document.getElementById("title").value; } else { title = "no title"; }
-                //var logo = document.getElementById("logo").addEventListener('change', handleFileSelect, false);
-                
-
-                var youtubeUrl = document.getElementById("youtubeUrl").value;
-                var invetName = document.getElementById("invetName").value;
-                var description = document.getElementById("description").value;
-                //var img1 = document.getElementById("img-1").addEventListener('change', handleFileSelect, false);
-                var founderShow = document.getElementById("founder").value;
-
-
-                var html = '       <div class="topArea">    '
-                html += '           <div class="title ellipsis">' + title + '</div>';
-                if(founderShow)
-                html += '           <div class="name ellipsis"><b>Founders:</b> ' + founderShow + '</div>';
-                
-                // html +=                 logo;
-                if (logoSrc != null)
-                    html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
-                html += '       </div>    ';
-
-                html += '       <div class="mainArea">    ';
-                html += '           <div class="description">' + description + '</div>';
-
-                
-
-                html += '           <div class="gallery">    ';
-                if(youtubeUrl){
-                    html+='         <div >'+getEmbedMovie(getMovieDataByURL(youtubeUrl),77,119)+'</div>';
-                }
-                if (ImgSrc1 != null)
-                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc1 + '" alt="' + title + ' img1">  </div>  ';
-                if (ImgSrc2 != null)
-                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc2 + '" alt="' + title + ' img2">  </div>   ';
-                if (ImgSrc3 != null)
-                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc3 + '" alt="' + title + ' img3"> </div>    ';
-                html += '           </div>    ';
-                html += '       </div>    ';
-                html += '       <div class="bottomArea">    ';
-                html += '           <label for="ads">';
-                html += '               <input type="checkbox" id="ads" name="ads" value="yes" checked>';
-                html += '               <span></span>I wish to receive interesting information about new EdTech startups.<br><br>';
-                html += '           </label>    ';
-                html += '           <label for="terms">';
-                html += '               <input type="checkbox" id="terms" name="terms" checked>';
-                html += '               <span></span> I accept the <a href="#" id="terms" target="_blank">terms</a> of the Global EdTech Startups Awards.<br>';
-                html += '           </label>    ';
-                html += '       </div>    ';
-
-                var $inventDescription = $(html);
-                $inventDescription.find('iframe').addClass("gallery-img");
-                $('#formPart3').empty().prepend($inventDescription);
+				showPreviewForm();                
             }
         }
 
@@ -177,10 +146,7 @@ $(document).ready(function (e) {
         return false;
     });
 
-    var logoSrc = null;
-    var ImgSrc1 = null;
-    var ImgSrc2 = null;
-    var ImgSrc3 = null;
+   
 
     
     $("#logo").change(function (e) {
@@ -363,17 +329,19 @@ $(document).ready(function (e) {
     updateMenuUrl();
     //hide popup when scrolling down
     $(document).on('scroll', this, function () {
-        console.log($(document).scrollTop());
-        setTimeout(function(){
-        if ($(document).scrollTop() > 550) {
-           $('#offer-zone').fadeOut("slow");
-          $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
+         //display of mobile
+        if(!isMobile){
+            console.log($(document).scrollTop());
+            setTimeout(function(){
+            if ($(document).scrollTop() > 550) {
+               $('#offer-zone').fadeOut("slow");
+              $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
 
+            }
+            },500);
         }
-        },500);
-
     });
-    $('.inventList li').on('click', this, function () {
+    $('#scrollInventorCon').on('click', ".inventList li", function () {
         tid = $(this).attr('idtec');
         popuopInvent(tid);
         //setIframe();
@@ -413,6 +381,9 @@ $(document).ready(function (e) {
     });
 
     $(window).on('resize',function(){
+        resizOfferStartUpDiv();
+        dispalyOption();
+        setStartupUl();
     //  h=screen.height;
     //  $('.mask').css('height',h+'px');
     });
@@ -429,6 +400,7 @@ $(document).ready(function (e) {
     popuopInvent(tid);
     e.preventDefault()
     return false;
+    
  });
 
  $('.inventDescription .close').on('click', this, function () {
@@ -500,6 +472,11 @@ $(document).ready(function (e) {
 
     $("#newsletter-btn").on("click",openNewsletter);
     $("#newsletter-popup-sign-btn").on("click",signToNewsletter);
+    $(".tagLogo").on("click",openSubMenu);
+    $("body").on("click","div,span,ul",closeSubMenu);
+    resizOfferStartUpDiv();
+    dispalyOption();
+    setStartupUl();
 }); //dom ready
 
 
@@ -511,6 +488,15 @@ function openOfferPopUp() {
     ga('send', 'event', 'button', 'click', 'add invent - 1');
 
     $('.inventorPopUp').fadeIn(400, 'easeInOutBack');
+    //display of mobile
+    if(isMobile){
+        $(".header").hide();
+        $(".topNav").hide();
+        $(".page-wrap").addClass("mobile");
+        $("#sign-header-mobile").show();
+        $("#formPart2").show();
+    }
+    
     $('html, body').animate({
         scrollTop: $("#offer-zone").offset().top - 154
     }, 500, function () { enable_scroll() });
@@ -821,9 +807,9 @@ function enable_scroll() {
     $('#inventLikeCount').attr('data-href',allTech[tid].permalink);
 
 
-    var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480);
+    var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),$(".inventDescription .mainArea .movie iframe").height(),$(".inventDescription .mainArea .movie iframe").width());
     if (videoIframe != undefined)
-        html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),300,480) + '</div>';
+        html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),$(".inventDescription .mainArea .movie iframe").height(),$(".inventDescription .mainArea .movie iframe").width()) + '</div>';
     if(allTech[tid].founder){
             html += '<div class="name ellipsis"><b>Founders:</b> ' + allTech[tid].founder + '</div>';
         }else{
@@ -856,7 +842,7 @@ function enable_scroll() {
    
     $('.inventDescription-append').append($inventDescription);
 
-     $(".socialArea").prepend('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button social" data-url="'+allTech[tid].permalink+'" data-text="'+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?" data-count="vertical">Tweet</a>');
+     $(".socialArea").prepend('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button social" data-size="small" data-url="'+allTech[tid].permalink+'" data-text="'+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?" data-count="vertical">Tweet</a>');
         if($('#single-startup-zone').hasClass('twitterF')){
             twttr.widgets.load();
         }
@@ -871,7 +857,9 @@ function enable_scroll() {
            setTimeout(function(){twttr.widgets.load();},2000);
         }
     //facebookCommentsLink()
-    
+    if($("#offer-zone").width()==$("body").width()){
+	$(".mask").height($("#single-startup-zone").height());
+	}
     return false;
 };
 
@@ -1102,6 +1090,81 @@ function showHighlight(){
     $('#best-invent-description').empty().append(html);
 }
 
+function showForm2(){
+    ga('send', 'event', 'button', 'click', 'add invent - 2');
+    $('#formPart1').hide();
+    $('#formPart2').show();
+    $('.last-page').css("display", "inline-block");
+    $('#page-number-1').hide();
+    $('#page-number-2').show();
+}
+function showPreviewForm(){
+    $('.capchArea').show();
+				$('.inventorPopUp').css('height','775px');
+				$('.triangle').css('bottom','250px');
+                ga('send', 'event', 'button', 'click', 'add invent - 3');
+                $('#formPart1').hide();
+                $('#formPart2').hide();
+                $('#page-number-1').hide();
+                $('#page-number-2').hide();
+                $('.next-page').css("display", "none");
+                $('#formPart3').show();
+                $('#page-number-3').show();
+                $('.submit input').css("display", "inline-block");
+
+                if (document.getElementById("title").value) { var title = document.getElementById("title").value; } else { title = "no title"; }
+                //var logo = document.getElementById("logo").addEventListener('change', handleFileSelect, false);
+                
+
+                var youtubeUrl = document.getElementById("youtubeUrl").value;
+                var invetName = document.getElementById("invetName").value;
+                var description = document.getElementById("description").value;
+                //var img1 = document.getElementById("img-1").addEventListener('change', handleFileSelect, false);
+                var founderShow = document.getElementById("founder").value;
+
+
+                var html = '       <div class="topArea">    '
+                html += '           <div class="title ellipsis">' + title + '</div>';
+                if(founderShow)
+                html += '           <div class="name ellipsis"><b>Founders:</b> ' + founderShow + '</div>';
+                
+                // html +=                 logo;
+                if (logoSrc != null)
+                    html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
+                html += '       </div>    ';
+
+                html += '       <div class="mainArea">    ';
+                html += '           <div class="description">' + description + '</div>';
+
+                
+
+                html += '           <div class="gallery">    ';
+                if(youtubeUrl){
+                    html+='         <div >'+getEmbedMovie(getMovieDataByURL(youtubeUrl),77,119)+'</div>';
+                }
+                if (ImgSrc1 != null)
+                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc1 + '" alt="' + title + ' img1">  </div>  ';
+                if (ImgSrc2 != null)
+                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc2 + '" alt="' + title + ' img2">  </div>   ';
+                if (ImgSrc3 != null)
+                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc3 + '" alt="' + title + ' img3"> </div>    ';
+                html += '           </div>    ';
+                html += '       </div>    ';
+                html += '       <div class="bottomArea">    ';
+                html += '           <label for="ads">';
+                html += '               <input type="checkbox" id="ads" name="ads" value="yes" checked>';
+                html += '               <span></span>I wish to receive interesting information about new EdTech startups.<br><br>';
+                html += '           </label>    ';
+                html += '           <label for="terms">';
+                html += '               <input type="checkbox" id="terms" name="terms" checked>';
+                html += '               <span></span> I accept the <a href="#" id="terms" target="_blank">terms</a> of the Global EdTech Startups Awards.<br>';
+                html += '           </label>    ';
+                html += '       </div>    ';
+
+                var $inventDescription = $(html);
+                $inventDescription.find('iframe').addClass("gallery-img");
+                $('#formPart3').empty().prepend($inventDescription);
+}
 function showForm4(){
    
     if ($('#formPart4').hasClass('show')){
@@ -1247,13 +1310,7 @@ function buildMarkerPopupHTML(key) {
     var tweetUrl='http://twitter.com/intent/tweet?text='+ saveVotesData[key].title +' favorite EdTech startup. ';
     var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+ saveVotesData[key].parmalink+'&amp;title=Global EdTech Startup Awards 2014&summary='+ saveVotesData[key].title+' favorite EdTech startup.';
     
-   var html= '       <div class="socialArea">    ';
-    html+='              <div data-url="'+fbUrl+'" id="inventLikeFb"class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
-    html+='             <div data-url="'+tweetUrl+'" id="inventTwiiwer" class="social twitter" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
-    html+='             <div data-url="'+linkedinUrl+'" id="inventLinkedin" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
-    html += '          </div>    ';
-
-     html += '<div class="topArea">    '
+   var html = '<div class="topArea">    '
     if (saveVotesData[key].logo)
         html += '<div class="startup-popup-logo">  <img class="wp-post-image logo" src="' + saveVotesData[key].logo[0] + '" alt="' + saveVotesData[key].title + ' logo">   </div> ';
     html += '</div>    ';
@@ -1292,6 +1349,12 @@ function buildMarkerPopupHTML(key) {
     html += '   </div>';
     html += '</div>';
  
+	html+= '       <div class="socialArea">    ';
+    html+='              <div  data-url="'+fbUrl+'" id="inventLikeFb"class="social fb mapSocial" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
+    html+='             <div  data-url="'+tweetUrl+'" id="inventTwiiwer" class="social twitter mapSocial" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
+    html+='             <div  data-url="'+linkedinUrl+'" id="inventLinkedin" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
+    html += '          </div>    ';
+	
     var $inventDescription = $(html);
     $('.popupDescription-append').empty().append($inventDescription);
 
@@ -1367,3 +1430,57 @@ function getFile(id){
       }
   }
  
+  //set offerStartUp btn for mobile
+  function resizOfferStartUpDiv(){
+      $("#offerStartUp").css("line-height",$("#offerStartUp").height()+"px");
+  }
+
+  function setStartupUl(){
+   
+    var numOfLiInUl=3;
+    //display of mobile
+    if(isMobile){
+        numOfLiInUl=2;    
+    }
+
+    var html='<ul class="inventList">  ';
+    $(".inventList li").each(function(i){
+        //if insert to exist ul or create new 
+        if(i%numOfLiInUl==0){
+            html+='</ul><ul class="inventList">';
+        }
+        html+=$(this).get(0).outerHTML;
+        
+    });
+    html+='</ul>';
+    
+     $(".inventList").remove();
+
+    // 
+    // if($(html).find(".inventList:last").html()==""){
+    //    $html.last().remove();
+    //}
+
+    $("#scrollInventorCon .placholderSlide:first").after(html);
+    $(".inventList:first").remove();
+  }
+
+  //update if in mobile design or pc.  
+  function dispalyOption(){
+      isMobile=false;
+      if($("#offer-zone").width()==$("body").width()){
+          isMobile=true;
+      }
+  }
+
+  //open sub menu
+  function openSubMenu(){
+      if(isMobile){
+      $("#sum-menu-mobile").toggle();
+      return false;
+      }
+  }
+
+  function closeSubMenu(){
+      $("#sum-menu-mobile").fadeOut();
+  }

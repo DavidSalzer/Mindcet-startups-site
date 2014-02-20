@@ -21,6 +21,8 @@
 	
 	// Load jQuery
 	if ( !is_admin() ) {
+
+
 	   wp_deregister_script('jquery');
 	   wp_register_script('jquery', ("http://code.jquery.com/jquery-1.10.1.min.js"), false);
 	   wp_enqueue_script('jquery');

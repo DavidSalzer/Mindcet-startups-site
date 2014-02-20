@@ -37,7 +37,7 @@
 	<link rel="shortcut icon" href="/favicon.ico">
 	
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
-	
+	<link rel="stylesheet" media="all and (max-width: 1023px)"  href="http://localhost/Mindcet-startups-site/wp-content/themes/mindcet-Theme/mobile.css" type="text/css" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
     <script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js#xfbml=1&amp;appId=162470583945071"></script>
@@ -119,7 +119,7 @@
                 <div class="timer">
                 <?php get_sidebar('countdown');?>
                 </div>
-                <div class="socialTabs">
+                <div class="socialTabs cf">
                     <div class="socialTab" onClick="openInNewWindow('http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2014&summary=What\'s your favorite EdTech startup?', 100, 100)"><span class="linkin"></span></div>
                     <div class="socialTab" onClick="openInNewWindow('http://twitter.com/intent/tweet?text=<?php echo site_url(); ?>%0D%0AGlobal EdTech Startup Awards 2014%0D%0AWhat\'s your favorite EdTech startup? ' , 100, 100)"><span class="twitter"></span></div>
                     <div class="socialTab" onClick="openInNewWindow('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2014&p[summary]=What\'s your favorite EdTech startup?' , 100, 100)"><span class="facebook"></span></div>

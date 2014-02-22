@@ -8,12 +8,20 @@ var isMobile=false;
     var ImgSrc2 = null;
     var ImgSrc3 = null;
 $(document).ready(function (e) {
-    
-    initMap();
+     $("#newsletter-btn").on("click",openNewsletter);
+    $("#newsletter-popup-sign-btn").on("click",signToNewsletter);
+    $(".tagLogo").on("click",openSubMenu);
+    $("body").on("click","div,span,ul",closeSubMenu);
+
+    resizOfferStartUpDiv();
+    dispalyOption();
+    setStartupUl();
+
+initMap();
     showForm4();    
     showArrowsStartups();
     showArrowsJudges();
-    showHighlight();
+    
 
     //facebook click twice: like+unlike to fix align
     //$('#fb-like-site').click();
@@ -497,13 +505,8 @@ $(document).ready(function (e) {
         return false;
     });
 
-    $("#newsletter-btn").on("click",openNewsletter);
-    $("#newsletter-popup-sign-btn").on("click",signToNewsletter);
-    $(".tagLogo").on("click",openSubMenu);
-    $("body").on("click","div,span,ul",closeSubMenu);
-    resizOfferStartUpDiv();
-    dispalyOption();
-    setStartupUl();
+   showHighlight();
+    
 }); //dom ready
 
 
@@ -1113,11 +1116,14 @@ function showArrowsJudges(){
 }
 
 function showHighlight(){
-    var best=allTech["fev"];
-    var html = '<img class="best-logo" src="'+allTech[best].logo[0]+'" alt="'+allTech[best].title+' logo">';
-    $('#best-logo-frame').empty().append(html);
-    var html = '<div class="best-description">'+allTech[best].descript+'</div>';
-    $('#best-invent-description').empty().append(html);
+    //if homepage
+    if(window.location.search.length==0){
+        var best=allTech["fev"];
+        var html = '<img class="best-logo" src="'+allTech[best].logo[0]+'" alt="'+allTech[best].title+' logo">';
+        $('#best-logo-frame').empty().append(html);
+        var html = '<div class="best-description">'+allTech[best].descript+'</div>';
+        $('#best-invent-description').empty().append(html);
+    }
 }
 
 function showForm2(){
@@ -1250,47 +1256,48 @@ var markers = [];
 var favoritesByMarker = [];
  
 function initMap() {
+ if($("#map").length!=0){
+        // Create an array of styles.
+        var styles = [
+            {
+                "featureType": "landscape",
+                "stylers": [
+                { "color": "#5cb480" }
+            ]
+            }, {
+                "featureType": "water",
+                "stylers": [
+                { "color": "#0c4480" },
+                { "lightness": 75 }
+            ]
+            }
+        ];
  
-    // Create an array of styles.
-    var styles = [
-        {
-            "featureType": "landscape",
-            "stylers": [
-            { "color": "#5cb480" }
-        ]
-        }, {
-            "featureType": "water",
-            "stylers": [
-            { "color": "#0c4480" },
-            { "lightness": 75 }
-        ]
-        }
-    ];
+        // Create a new StyledMapType object, passing it the array of styles,
+        // as well as the name to be displayed on the map type control.
+        var styledMap = new google.maps.StyledMapType(styles,
+        { name: "Styled Map" });
  
-    // Create a new StyledMapType object, passing it the array of styles,
-    // as well as the name to be displayed on the map type control.
-    var styledMap = new google.maps.StyledMapType(styles,
-    { name: "Styled Map" });
- 
-    var options = {
-        streetViewControl: false,
-        center: new google.maps.LatLng(0, 0),
-        zoom: 1,
-    //    disableDefaultUI: true,
-    //disableDoubleClickZoom: true,
-        draggable: false,
-      //  maxZoom:1,
-        minZoom:1
+        var options = {
+            streetViewControl: false,
+            center: new google.maps.LatLng(0, 0),
+            zoom: 1,
+        //    disableDefaultUI: true,
+        //disableDoubleClickZoom: true,
+            draggable: false,
+          //  maxZoom:1,
+            minZoom:1
 
-    };
+        };
  
-    map = new google.maps.Map(document.getElementById("map"), options);
+        map = new google.maps.Map(document.getElementById("map"), options);
  
-    //Associate the styled map with the MapTypeId and set it to display.
-    map.mapTypes.set('map_style', styledMap);
-    map.setMapTypeId('map_style');
+        //Associate the styled map with the MapTypeId and set it to display.
+        map.mapTypes.set('map_style', styledMap);
+        map.setMapTypeId('map_style');
  
-    setMarkers(saveVotesData);
+        setMarkers(saveVotesData);
+    }
 }
 var placeInsaveVotesData = 0;
 var savePlaceInVotesData = [];
@@ -1517,7 +1524,8 @@ function getFile(id){
   //update if in mobile design or pc.  
   function dispalyOption(){
       isMobile=false;
-      if($("#offer-zone").width()==$("body").width()){
+      if($(".header").height()==58){
+      //if($("#offer-zone").width()==$("body").width()){
           isMobile=true;
       }
   }

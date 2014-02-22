@@ -96,6 +96,13 @@
             </div>
         </div>
     </div>
+        <div id="newsletter-popup">
+            <span class="triangle"></span>
+            <div id="newsletter-popup-title">Sign for Our Newsletter</div>
+            <input type="email" value="" name="email" placeholder="E-Mail" id="registerNews"/> 
+            <div id="newsletter-popup-error">*please insert a valid text</div>
+            <div id="newsletter-popup-sign-btn" class="next-page"><div class="nav-page-img">Sign</div></div>            
+        </div>
     </div>
     <header>
     	<div class="header cf">
@@ -116,6 +123,12 @@
                 	<span class="logoCet">
                     	<img src="<?php echo get_theme_mod('link_ImgBg'); ?>" title="<?php echo get_theme_mod('link_ImgBg_text');?>" class="topImgLink">
                     </span>
+
+                    <ul id="sum-menu-mobile"> <span class="triangle"></span>
+                        <li ><span onclick="window.location='<?php echo site_url();?>'">Home Page</span></li>
+                        <li class="aboutUs">About Us</li>
+                        <li class="contactUs">Contact Us</li>
+                    </ul>
                 </a>
                 <div class="timer">
                 <?php get_sidebar('countdown');?>

@@ -82,7 +82,8 @@
 		'startupMenu'=>'home startup menu',
 		'footerMenu'=>'footer menu',
 		'footerMenuPage'=>'footer menu for page',
-		'logoMenu'=>'logos menu'
+		'logoMenu'=>'logos menu',
+        'sponsersLogoMenu'=>'sponsers logo menu'
 		));
 	
 	}

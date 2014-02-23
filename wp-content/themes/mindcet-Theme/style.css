@@ -3329,6 +3329,8 @@ select#tagsNav {
     flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     justify-content: flex-start;
+    -webkit-flex-wrap: wrap;
+    display: -webkit-box;
 }
 
 #marker-popup .startups-gallery-item p {
@@ -3363,6 +3365,11 @@ select#tagsNav {
     -ms-flex-pack: center;
     align-items: center;
     -ms-flex-align: center;
+    display: -webkit-box;
+-webkit-order: 0;
+-webkit-justify-content: center;
+-webkit-align-items: center;
+-webkit-flex: 1;
 }
 
 #marker-popup .startups-gallery .startups-gallery-item-frame .gallery-img {

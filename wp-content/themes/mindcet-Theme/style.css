@@ -2086,6 +2086,7 @@ font-family: sans-serif;*/
 }
 /*----------------footer----*/
 #footer {
+
     background: #f5f5f5;
     color: #fff;
     height: 200px;
@@ -2094,9 +2095,21 @@ font-family: sans-serif;*/
 }
 
 .footerLogos {
+
     background-color: #f5f5f5;
     width: 100%;
     margin: auto;
+}
+
+.footerLogos p {
+
+	color: gray;
+	position: absolute;
+	
+	font-size: 32px;
+	margin-left: 15%;
+	margin-top: 1%;
+	
 }
 
 .footerMenu ul li {
@@ -2177,7 +2190,7 @@ font-family: sans-serif;*/
 }
 
 .maskall {
-    position: fixed;
+    position: fixed; 
     z-index: 51;
     display: none;
     top: 0px;
@@ -2874,6 +2887,12 @@ body {
     display: none !important;
 }
 /*--------------------logo menu-----------------------*/
+.logo_menu{
+	display: inline-block;
+	margin-left: 23%;
+}
+}
+
 .logo_menu ul {
     display: block;
     text-align: center;
@@ -2896,6 +2915,7 @@ body {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+	
 }
 
 .logo_menu li {
@@ -2952,7 +2972,6 @@ body {
     /* max-width: 100%; */
     max-height: 100%;
 }
-
 
 #map {
     width: 646px;

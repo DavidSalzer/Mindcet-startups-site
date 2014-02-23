@@ -2190,7 +2190,7 @@ font-family: sans-serif;*/
 }
 
 .maskall {
-    position: fixed;
+    position: fixed; 
     z-index: 51;
     display: none;
     top: 0px;

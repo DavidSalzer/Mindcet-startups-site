@@ -54,7 +54,7 @@ font-size: 13px;
 
 
     .topNav {
-        margin-top: -29px;
+        margin-top: 1px;
         height: 42px;
     }
 
@@ -151,7 +151,7 @@ font-size: 13px;
 
     .logoAndSocial {
         position: relative;
-        height: 80px;
+        height: 100%;
         margin: 0 auto;
         text-align: center;
         width: 78%;

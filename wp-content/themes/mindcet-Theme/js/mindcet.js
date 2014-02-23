@@ -1523,10 +1523,19 @@ function getFile(id){
 
   //update if in mobile design or pc.  
   function dispalyOption(){
+      var $header=$(".header");
       isMobile=false;
       if($(".header").height()==58){
       //if($("#offer-zone").width()==$("body").width()){
           isMobile=true;
+          if($header.hasClass("cf")){
+              $header.removeClass("cf");
+          }
+      }
+      else{
+          if(!$header.hasClass("cf")){
+              $header.addClass("cf");
+          }
       }
   }
 

@@ -1,6 +1,6 @@
 </div>
             <div id="footer">
-            <div class="footerLogos">
+            <div class="footerLogos"> <p>Partners:</p>
             	    <?php
 					$defaults = array(
 						'theme_location'  =>'logoMenu',
@@ -63,7 +63,7 @@
                         <div id="all-rights-reserved-cambium">&copy;<?php echo "  " ;echo date("Y"); echo " MindCET."; ?></div>
                         <div>All rights reserved</div>
                     </div>
-                    <a id="my-logo" href="http://www.cambium.co.il" class="devby">developed by </a>
+                    <a id="my-logo" href="http://www.cambium.co.il" class="devby"><p>developed by</p></a>
                 </div>
            </nav>
         

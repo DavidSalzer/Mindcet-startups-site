@@ -864,7 +864,7 @@ function enable_scroll() {
     h=$(window).height();
     $('body').css('overflow','hidden');
 
-    $('.mask').fadeIn(200, 'easeInOutBack').css('height',h+'px');;
+    $('.mask').fadeIn(200, 'easeInOutBack').css('height','100%');;
     $('.inventDescription').fadeIn(100, 'easeInOutBack');
     $('.mask').addClass('mask-invent');
     $('html, body').animate({

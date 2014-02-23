@@ -223,6 +223,19 @@ font-size: 13px;
 
 
     /*--------------------logo menu-----------------------*/
+	.logo_menu{
+	
+		width: 75%;
+	}
+	
+	.footerLogos p {
+	
+	font-size: 12px;
+	margin-left:5%;
+	margin-top: 2%;
+	
+}
+	
     /*--------------------single startup-----------------------*/
     .inventDescription .topArea, .mapDescription .topArea {
         width: 100%;
@@ -1169,7 +1182,7 @@ line-height: 27px;
 }
     /*-------------------------footer--------------------------*/
     #footer {
-        height: 60px;
+        height: auto;
         min-width: 100%;
     }
 
@@ -1225,6 +1238,7 @@ line-height: 27px;
         display: inline-block;
         top: 5px;
         position: relative;
+		padding-bottom: 9px;
     }
 
 
@@ -1242,8 +1256,25 @@ line-height: 27px;
     }
 
     #my-logo {
-        display: none;
+		
+		width: 100%;
+		height: auto;
+		background-color: hsl(0, 0%, 19%);
+		line-height: 18px;
+		text-indent: 0;
+		text-align: center;
+		position: initial;
+		left: 0px;
+		font-size: 12px;
+		background-position: 50% center;
+		background-size: 65px;
+		
     }
+	
+	#my-logo p{
+		
+		margin-right: 133px;
+	}
     /*----------------------Invent----------------*/
 
     .inventDescription, .mapDescription {
@@ -1281,6 +1312,7 @@ line-height: 27px;
 
 
     /*--------------------logo menu-----------------------*/
+	
     /*--------------------single startup-----------------------*/
 
 
@@ -1436,6 +1468,7 @@ line-height: 27px;
         width: 100%;
         position: relative;
         top: 40px;
+		white-space: initial;
     }
 
 
@@ -1787,7 +1820,7 @@ top: 0;
         margin: 20px 29px;
         text-indent: -13px;
     }
-}
+
 /********************about us**********************/
 #aboutUs{
     width: 100%;
@@ -1817,7 +1850,7 @@ margin-top: 12px;
 
 
 
-/* jdkghfjdghfjkghdfjkghdfkgjhfgjkhdfg */
+
 
 
 #aboutUs .media iframe{
@@ -1832,3 +1865,4 @@ margin-top: 12px;
 		width: 90%;
 		font-size: 13px;
 	}
+}

@@ -466,6 +466,7 @@ initMap();
    $('.mask').on('click', this, function (e) {
 	  if($('#newsletter-btn').hasClass('selected')){
 		    closeNewsletter();
+            $('body').css('overflow','auto');
 		return;
 	} 
 	   

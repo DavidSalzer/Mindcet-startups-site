@@ -13,8 +13,8 @@ $(document).ready(function (e) {
     $(".tagLogo").on("click",openSubMenu);
     $("body").on("click","div,span,ul",closeSubMenu);
 
-    $("#single-startup-zone").on("swipeleft",getPrevStartup);
-    $("#single-startup-zone").on("swiperight",getNextStartup);
+    Hammer($("#single-startup-zone").get(0)).on("swipeleft",getPrevStartup);
+    Hammer($("#single-startup-zone").get(0)).on("swiperight",getNextStartup);
 
     resizOfferStartUpDiv();
     dispalyOption();
@@ -25,7 +25,9 @@ initMap();
     showArrowsStartups();
     showArrowsJudges();
     
-
+    if($(".ui-loader").length>0){
+        $(".ui-loader").remove();
+    }
     //facebook click twice: like+unlike to fix align
     //$('#fb-like-site').click();
     //$('#fb-like-site').click();

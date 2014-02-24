@@ -1294,6 +1294,9 @@ background-repeat: no-repeat;*/
     margin: auto;
 }
 
+#tagsNav-button span,#categoryNav-button span{
+    display: none;
+}
 #scrollInventorCon {
     white-space: nowrap;
     overflow: hidden;

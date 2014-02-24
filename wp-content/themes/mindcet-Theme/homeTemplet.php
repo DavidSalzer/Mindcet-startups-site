@@ -552,12 +552,13 @@ do_action('wp_insert_post', 'wp_insert_post');
 <?php $term=get_page_by_title('Competition terms and condition');echo $term->guid;?>
 </div>
 <script>
-     allTech=<?php echo getAllStartup(); ?>;
-     allJudges=<?php echo getAllJudges(); ?>;
-	 allVotes=<?php echo getAllVotes(); ?>;
-     popupall(allTech);
-     popupallJ(allJudges);
-	 popupallV(allVotes);
+    allTech=<?php echo getAllStartup(); ?>;
+    allTechArray=Object.keys(allTech);
+    allJudges=<?php echo getAllJudges(); ?>;
+	allVotes=<?php echo getAllVotes(); ?>;
+    popupall(allTech);
+    popupallJ(allJudges);
+	popupallV(allVotes);
     
 	$('#formPart3').on('click','#terms',function(){
 		urlhide=$('#urlHide').text();

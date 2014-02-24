@@ -13,6 +13,9 @@ $(document).ready(function (e) {
     $(".tagLogo").on("click",openSubMenu);
     $("body").on("click","div,span,ul",closeSubMenu);
 
+    $("#single-startup-zone").on("swipeleft",getPrevStartup);
+    $("#single-startup-zone").on("swiperight",getNextStartup);
+
     resizOfferStartUpDiv();
     dispalyOption();
     setStartupUl();
@@ -870,7 +873,7 @@ function enable_scroll() {
     $('html, body').animate({
        // scrollTop: $("#invent-close").offset().top - 25
     }, 1);
-
+    $('.inventDescription-append').empty();
     var $inventDescription = $(html);
    
     $('.inventDescription-append').append($inventDescription);
@@ -1549,4 +1552,20 @@ function getFile(id){
 
   function closeSubMenu(){
       $("#sum-menu-mobile").fadeOut();
+  }
+
+  function getNextStartup(){
+      var currentId=$(".startup-popup-logo img").attr("postid");
+      var currentIndex=allTechArray.indexOf(currentId);
+      if(currentIndex<allTechArray.length-2){
+        popuopInvent(allTechArray[currentIndex+1]);
+      }
+  }
+
+  function getPrevStartup(){
+      var currentId=$(".startup-popup-logo img").attr("postid");
+      var currentIndex=allTechArray.indexOf(currentId);
+      if(currentIndex!=0){
+        popuopInvent(allTechArray[currentIndex-1]);
+      }
   }

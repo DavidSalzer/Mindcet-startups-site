@@ -1379,7 +1379,7 @@ function buildMarkerPopupHTML(key) {
        
        if(allTech[saveVotesData[key].favId[favorite]].logo[0]){
          html += '<div class="startups-gallery-item-frame">';
-            html +='<a href="'+ allTech[saveVotesData[key].favId[favorite]].siteUrl+'"" target="_blank" >';
+            html +='<a href="#"  class="mapOpenInvent" date-id="'+allTech[saveVotesData[key].favId[favorite]].techId+'">';
             html += '<img class="gallery-img" src="' + allTech[saveVotesData[key].favId[favorite]].logo[0] + '" alt="Class Messenger">';
             html +='</a>';
          html += '   </div>';

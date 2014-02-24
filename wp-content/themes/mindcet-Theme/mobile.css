@@ -1334,13 +1334,14 @@ line-height: 27px;
 		height: 90px;
 		width: 14%;	
 		position: fixed;
-		top: 50%;
+		top: 182px;
+        z-index: 1;
 	}
 
 	.inventDescription  #nextImageR{
 	
-		margin-left: 86%;
-		background-position-x: -60px;
+		background-position-x: -54px;
+right: 0px;
 	}
 
     .inventDescription .startup-popup-logo, .mapDescription .startup-popup-logo {

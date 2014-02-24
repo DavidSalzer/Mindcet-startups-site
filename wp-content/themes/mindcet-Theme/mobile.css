@@ -1192,10 +1192,15 @@ line-height: 27px;
 
 
     .footerMenu {
-        display: none;
+       display: inline-block;
+width: 20%;
     }
 
-
+.footerMenu ul li:last-child{
+    height: 20px;
+width: 100%;
+padding: 0;
+}
 
 
 
@@ -1859,7 +1864,7 @@ margin-top: 12px;
 
 /*****************************terms & conditions page  *****/
 
-	#post-503{
+	.post.pageTemplet{
 
 		padding: 5%;
 		width: 90%;

@@ -1321,11 +1321,31 @@ line-height: 27px;
     /*--------------------logo menu-----------------------*/
 	
     /*--------------------single startup-----------------------*/
+	.inventDescription .invent-next{
+	
+		position: fixed;
+		width: 100%;
+		height: auto;
+		display: -webkit-box;
+		top: 50%;
+	
+	}
 
+	 .inventDescription .nextImage{
+	
+		background-image: url(img/startup_page_arrows.png);
+		background-repeat: no-repeat;
+		height: 90px;
+		width: 14%;	
+		position: fixed;
+		top: 50%;
+	}
 
-
-
-
+	.inventDescription  #nextImageR{
+	
+		margin-left: 86%;
+		background-position-x: -60px;
+	}
 
     .inventDescription .startup-popup-logo, .mapDescription .startup-popup-logo {
         width: 40%;

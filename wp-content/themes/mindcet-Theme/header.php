@@ -98,6 +98,7 @@
     <div id="single-startup-zone"class="inventDescription">
         <div class="inventContener">
         	<span id="invent-close" class="close"></span>
+			<div class="nextImage"></div><div class="nextImage" id="nextImageR"></div>
       	<div class="inventDescription-append"></div>
         </div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -122,12 +123,12 @@
         <div id="marker-popup" class="mapDescription">
         <div class="inventContener">
           <span id="invent-close" class="map close"></span>
+		<div class="nextImage"></div><div class="nextImage" id="nextImageR"></div>
             <div class="popupDescription-append">
          
             </div>
             <div class="facebook-comments">
             <iframe src="" id="comments-marker">
-        
         	</iframe>
             </div>
         </div>

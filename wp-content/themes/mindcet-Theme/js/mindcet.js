@@ -18,6 +18,9 @@ $(document).ready(function (e) {
     $(".tagLogo").on("click",openSubMenu);
     $("body").on("click","div,span,ul",closeSubMenu);
 
+    $("#single-startup-zone").on("swipeleft",getPrevStartup);
+    $("#single-startup-zone").on("swiperight",getNextStartup);
+
     resizOfferStartUpDiv();
     dispalyOption();
     setStartupUl();
@@ -468,6 +471,7 @@ initMap();
    $('.mask').on('click', this, function (e) {
 	  if($('#newsletter-btn').hasClass('selected')){
 		    closeNewsletter();
+            $('body').css('overflow','auto');
 		return;
 	} 
 	   
@@ -875,7 +879,7 @@ function enable_scroll() {
     $('html, body').animate({
        // scrollTop: $("#invent-close").offset().top - 25
     }, 1);
-
+    $('.inventDescription-append').empty();
     var $inventDescription = $(html);
    
     $('.inventDescription-append').append($inventDescription);
@@ -1384,7 +1388,7 @@ function buildMarkerPopupHTML(key) {
        
        if(allTech[saveVotesData[key].favId[favorite]].logo[0]){
          html += '<div class="startups-gallery-item-frame">';
-            html +='<a href="'+ allTech[saveVotesData[key].favId[favorite]].siteUrl+'"" target="_blank" >';
+            html +='<a href="#"  class="mapOpenInvent" date-id="'+allTech[saveVotesData[key].favId[favorite]].techId+'">';
             html += '<img class="gallery-img" src="' + allTech[saveVotesData[key].favId[favorite]].logo[0] + '" alt="Class Messenger">';
             html +='</a>';
          html += '   </div>';
@@ -1528,10 +1532,19 @@ function getFile(id){
 
   //update if in mobile design or pc.  
   function dispalyOption(){
+      var $header=$(".header");
       isMobile=false;
       if($(".header").height()==58){
       //if($("#offer-zone").width()==$("body").width()){
           isMobile=true;
+          if($header.hasClass("cf")){
+              $header.removeClass("cf");
+          }
+      }
+      else{
+          if(!$header.hasClass("cf")){
+              $header.addClass("cf");
+          }
       }
   }
 
@@ -1545,4 +1558,20 @@ function getFile(id){
 
   function closeSubMenu(){
       $("#sum-menu-mobile").fadeOut();
+  }
+
+  function getNextStartup(){
+      var currentId=$(".startup-popup-logo img").attr("postid");
+      var currentIndex=allTechArray.indexOf(currentId);
+      if(currentIndex<allTechArray.length-2){
+        popuopInvent(allTechArray[currentIndex+1]);
+      }
+  }
+
+  function getPrevStartup(){
+      var currentId=$(".startup-popup-logo img").attr("postid");
+      var currentIndex=allTechArray.indexOf(currentId);
+      if(currentIndex!=0){
+        popuopInvent(allTechArray[currentIndex-1]);
+      }
   }

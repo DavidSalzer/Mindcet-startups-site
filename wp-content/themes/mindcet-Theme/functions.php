@@ -30,7 +30,10 @@
 	  
 	  wp_register_script('easing', ("http://malsup.github.io/jquery.easing.1.3.js"), false);
 	   wp_enqueue_script('easing');
-	 
+	  
+      wp_register_script('jquery.mobile-1.4.1.min', get_template_directory_uri()."/js/jquery.mobile-1.4.1.min.js", false);
+	   wp_enqueue_script('jquery.mobile-1.4.1.min');
+
 	    wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
 	   wp_enqueue_script('mindcetjs');
 	  

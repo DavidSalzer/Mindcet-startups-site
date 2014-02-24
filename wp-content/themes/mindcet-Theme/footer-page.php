@@ -19,25 +19,29 @@
 					?>
             
             
-                <?php /*?><a href="http://www3.cet.ac.il/" target="_blank" class="">
-                	<span class="logoMatach"></span>
-                </a>
-                <!--<a href="<?php echo site_url();?>" target="_blank" class="mindcet">-->
-                <a href="http://www.mindcet.org/" target="_blank" class="mindcet">
-                
-                	<span class="logoMindcet"></span>
-                </a>
-                <a href="https://angel.co/socraticlabs" class="" target="_blank">
-                	<span class="logoCet"></span>
-                </a>
-                <a href="http://paueducation.com/en/content/pierre-antoine-ullmo" target="_blank" class="">
-                	<span class="logoPau"></span>
-                </a>
-                <a href="http://www.edtechincubator.com/" target="_blank" class="">
-                	<span class="logoEdTech"></span>
-                </a<?php */?>
+              
+            </div>
+                <div class="footerLogos"><p>Sponsers:</p>
+            	<?php
+				$defaults = array(
+					'theme_location'  =>'sponsersLogoMenu',
+					'menu'            => 'sponsersLogoMenu',
+					'container'       => 'div',
+					'container_class' => 'logo_menu',
+					'menu_class'      => 'menu',
+					'echo'            => false,
+					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+				);
+					
+				$menu =wp_nav_menu( $defaults );
+				$menu = str_replace('<a',"<a target='_blank'",$menu);
+				echo $menu;
+					
+				?>
+            
                 
             </div>
+
         	<nav class="footerNav">
                 <div class="unitedNav">
                  

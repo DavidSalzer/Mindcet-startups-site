@@ -1562,7 +1562,8 @@ function getFile(id){
       $("#sum-menu-mobile").fadeOut();
   }
 
-  function getNextStartup(){
+  function getNextStartup(e){
+      e.preventDefault();
       var currentId=$(".startup-popup-logo img").attr("postid");
       var currentIndex=allTechArray.indexOf(currentId);
       if(currentIndex<allTechArray.length-2){
@@ -1570,7 +1571,8 @@ function getFile(id){
       }
   }
 
-  function getPrevStartup(){
+  function getPrevStartup(e){
+      e.preventDefault();
       var currentId=$(".startup-popup-logo img").attr("postid");
       var currentIndex=allTechArray.indexOf(currentId);
       if(currentIndex!=0){

@@ -8,7 +8,12 @@ var isMobile=false;
     var ImgSrc2 = null;
     var ImgSrc3 = null;
 $(document).ready(function (e) {
-     $("#newsletter-btn").on("click",openNewsletter);
+
+	$(".invent-next").on("swipe",function(){alert("You swiped ")});
+					
+	
+	
+    $("#newsletter-btn").on("click",openNewsletter);
     $("#newsletter-popup-sign-btn").on("click",signToNewsletter);
     $(".tagLogo").on("click",openSubMenu);
     $("body").on("click","div,span,ul",closeSubMenu);

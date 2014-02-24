@@ -20,6 +20,8 @@ $(document).ready(function (e) {
 
     Hammer($("#single-startup-zone").get(0)).on("swipeleft",getPrevStartup);
     Hammer($("#single-startup-zone").get(0)).on("swiperight",getNextStartup);
+    $("#nextImageL").on("click",getNextStartup);
+    $("#nextImageR").on("click",getPrevStartup);
 
     resizOfferStartUpDiv();
     dispalyOption();

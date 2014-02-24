@@ -312,7 +312,7 @@ initMap();
     });
 
     //----------/end of form
-
+/* fgdfgdfhfghdf */
 
     $('.judgeDescription').on('click','.close', this, function () {
         $('.judgeDescription').empty().append('<span class="close"></span>');

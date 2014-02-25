@@ -3418,7 +3418,7 @@ display: -webkit-flex;
 }
 
 .img-wrap {
-    width: 100%;
+    /* width: 100%;
     height: 161px;
     display: flex;
     display: -webkit-box;
@@ -3438,7 +3438,7 @@ display: -webkit-flex;
     -moz-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .mask.mask-judge {

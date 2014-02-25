@@ -714,10 +714,11 @@ text-indent: 0;
 
 
     .img-wrap {
-        height: 60%;
+        height: 100%;
 width: 60%;
 margin-left: 20%;
-margin-top: 10%;
+margin-top: -10%;
+
     }
 
 

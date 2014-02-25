@@ -336,7 +336,7 @@ initMap();
         $('.inventorPopUp .close').click();
         tid = $(this).attr('judgeId');
         $('body').css('overflow','hidden');
-		$('body').bind('touchmove', function(e){e.preventDefault()});
+		//$('body').bind('touchmove', function(e){e.preventDefault()});
         $()
         $('.mask').show();
         $('.mask').addClass('mask-judge');
@@ -1466,7 +1466,7 @@ function getFile(id){
     $("#newsletter-btn").addClass("selected");
     h=$(window).height();
     $('body').css('overflow','hidden');
-	$('body').bind('touchmove', function(e){e.preventDefault()});
+	//$('body').bind('touchmove', function(e){e.preventDefault()});
     $("#newsletter-popup").show();
     $("#newsletter-popup-sign-btn").show();
     $('.mask').fadeIn(200, 'easeInOutBack').css('height',h+'px');
@@ -1476,7 +1476,7 @@ function getFile(id){
       $("#newsletter-btn").removeClass("selected");
     $("#newsletter-popup").hide();
      $('.mask').fadeOut('fast');
-	 $('body').unbind('touchmove');
+	 //$('body').unbind('touchmove');
   }
 
   function signToNewsletter(){

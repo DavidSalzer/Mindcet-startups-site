@@ -321,13 +321,13 @@ initMap();
     $('.judgeDescription').on('click','.close', this, function () {
         $('.judgeDescription').empty().append('<span class="close"></span>');
         $('.judgeDescription').slideUp(1000, 'easeInOutBack');
-        $('.mask').removeClass('mask-judge');
+       /*  $('.mask').removeClass('mask-judge'); */////בוטל
         $('.mask').hide();
         $('body').css('overflow','auto');
         return false;
     });
 
-    $('body').on('click','.mask-judge', this, function () {
+    $('body').on('click','.mask', this, function () {////שונה
             $('.judgeDescription .close').click();      
             return false;
         });
@@ -336,11 +336,14 @@ initMap();
         $('.inventorPopUp .close').click();
         tid = $(this).attr('judgeId');
         $('body').css('overflow','hidden');
-		//$('body').bind('touchmove', function(e){e.preventDefault()});
-        $()
+		
         $('.mask').show();
-        $('.mask').addClass('mask-judge');
-        
+        /* $('.mask').addClass('mask-judge'); */////בוטל
+		
+	
+		$('.mask').fadeIn(200, 'easeInOutBack').css('height','100%'); ////נוסף
+			
+		
         $('.judgeDescription').slideDown(1000, 'easeInOutBack');
         var html = '       <div class="judgeDescriptionLeft">';
         html += '       <div class="judgeDescription-img">'+ allJudges[tid].imgProfile + '</div>    ';
@@ -878,7 +881,7 @@ function enable_scroll() {
     h=$(window).height();
     $('body').css('overflow','hidden');
 
-    $('.mask').fadeIn(200, 'easeInOutBack').css('height','100%');;
+   
     $('.inventDescription').fadeIn(100, 'easeInOutBack');
     $('.mask').addClass('mask-invent');
     $('html, body').animate({
@@ -1469,7 +1472,7 @@ function getFile(id){
 	//$('body').bind('touchmove', function(e){e.preventDefault()});
     $("#newsletter-popup").show();
     $("#newsletter-popup-sign-btn").show();
-    $('.mask').fadeIn(200, 'easeInOutBack').css('height',h+'px');
+    $('.mask').fadeIn(200, 'easeInOutBack').css('height','100%');
   }
 
   function closeNewsletter(){

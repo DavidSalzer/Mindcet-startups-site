@@ -321,13 +321,13 @@ initMap();
     $('.judgeDescription').on('click','.close', this, function () {
         $('.judgeDescription').empty().append('<span class="close"></span>');
         $('.judgeDescription').slideUp(1000, 'easeInOutBack');
-       /*  $('.mask').removeClass('mask-judge'); */////בוטל
+         $('.mask').removeClass('mask-judge');
         $('.mask').hide();
         $('body').css('overflow','auto');
         return false;
     });
 
-    $('body').on('click','.mask', this, function () {////שונה
+    $('body').on('click','.mask-judge', this, function () {////שונה
             $('.judgeDescription .close').click();      
             return false;
         });
@@ -338,7 +338,7 @@ initMap();
         $('body').css('overflow','hidden');
 		
         $('.mask').show();
-        /* $('.mask').addClass('mask-judge'); */////בוטל
+         $('.mask').addClass('mask-judge'); 
 		
 	
 		$('.mask').fadeIn(200, 'easeInOutBack').css('height','100%'); ////נוסף
@@ -503,6 +503,7 @@ initMap();
             //$('.inventDescription .close').click();
             // $('#marker-popup').hide();
     }
+    $('body').css('overflow','auto');
     });
 
      $('#marker-popup').on('click', ".close", function () {
@@ -881,7 +882,7 @@ function enable_scroll() {
     h=$(window).height();
     $('body').css('overflow','hidden');
 
-   
+   $('.mask').fadeIn(200, 'easeInOutBack');//.css('height',h+'px');
     $('.inventDescription').fadeIn(100, 'easeInOutBack');
     $('.mask').addClass('mask-invent');
     $('html, body').animate({
@@ -907,7 +908,7 @@ function enable_scroll() {
            setTimeout(function(){twttr.widgets.load();},2000);
         }
     //facebookCommentsLink()
-    if($("#offer-zone").width()==$("body").width()){
+    if(isMobile){
 	$(".mask").height($("#single-startup-zone").height());
 	}
     return false;
@@ -1426,7 +1427,7 @@ function buildMarkerPopupHTML(key) {
     h=$(window).height();
     $('body').css('overflow','hidden');
     
-    $('.mask').fadeIn(200, 'easeInOutBack').css('height',h+'px');;
+    $('.mask').fadeIn(200, 'easeInOutBack');//.css('height',h+'px');;
     $('#marker-popup').fadeIn(100, 'easeInOutBack');
     //$('.mask').addClass('mask-invent');
     $('html, body').animate({

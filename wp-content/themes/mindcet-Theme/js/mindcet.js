@@ -17,7 +17,7 @@ $(document).ready(function (e) {
     $("#newsletter-popup-sign-btn").on("click",signToNewsletter);
     $(".tagLogo").on("click",openSubMenu);
     $("body").on("click","div,span,ul",closeSubMenu);
-
+    $("#newsletter-popup").on("click",function(e){e.preventDefault(); return false;})
     Hammer($("#single-startup-zone").get(0)).on("swipeleft",getPrevStartup);
     Hammer($("#single-startup-zone").get(0)).on("swiperight",getNextStartup);
     $("#nextImageL").on("click",getNextStartup);
@@ -481,29 +481,34 @@ initMap();
 		    closeNewsletter();
             $('body').css('overflow','auto');
 		return;
-	} 
+	    } 
 	   
 	   
      if($(e.target).attr("class") != "undefind" && $(e.target).attr("class").indexOf('mask')==0) { 
-           $("#newsletter-popup").hide();
+           //$("#newsletter-popup").hide();
+            
+            $('body').css('overflow','auto');
+           
+           //if($("#newsletter-btn").hasClass("selected")){
+           //     $("#newsletter-btn").removeClass("selected");
+           // }
+           // $("#newsletter-popup-error").hide(); 
             //if from invent
             if($(e.target).hasClass("mask-invent")){
                 $('.inventDescription .close').click();
+                return;
             }
             //from marker
             else{
                 $('#marker-popup .close').click();
             }
-            $('.mask').fadeOut(800, 'easeInOutBack');
-            if($("#newsletter-btn").hasClass("selected")){
-                $("#newsletter-btn").removeClass("selected");
-            }
-            $("#newsletter-popup-error").hide();
+           // $('.mask').fadeOut(800, 'easeInOutBack');
+            
 
             //$('.inventDescription .close').click();
             // $('#marker-popup').hide();
     }
-    $('body').css('overflow','auto');
+    
     });
 
      $('#marker-popup').on('click', ".close", function () {
@@ -1295,16 +1300,19 @@ function initMap() {
         // as well as the name to be displayed on the map type control.
         var styledMap = new google.maps.StyledMapType(styles,
         { name: "Styled Map" });
- 
+         var mapZoom=1;
+         if(isMobile){
+             mapZoom=0;
+         }
         var options = {
             streetViewControl: false,
             center: new google.maps.LatLng(0, 0),
-            zoom: 1,
+            zoom: mapZoom,
         //    disableDefaultUI: true,
         //disableDoubleClickZoom: true,
             draggable: false,
           //  maxZoom:1,
-            minZoom:1
+            minZoom:mapZoom
 
         };
  
@@ -1495,8 +1503,9 @@ function getFile(id){
 					,
 					function(data) {
 						if(data==1){
-							$('#newsletter-btn').removeClass();
-							 $("#newsletter-popup,.mask").hide();
+							//$('#newsletter-btn').removeClass();
+							// $("#newsletter-popup,.mask").hide();
+                            $('.mask').click();
 						}
 			});	
 		

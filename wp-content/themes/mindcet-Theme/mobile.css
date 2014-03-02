@@ -718,8 +718,8 @@ text-indent: 0;
 
 	.inventList li img{
 	
-		max-width: 60%;
-		max-height: 60%;
+		max-width: 90%;
+		max-height: 90%;
 		width: auto;
 		height: auto;
 		position: absolute;
@@ -734,7 +734,9 @@ text-indent: 0;
    
 
 
-
+.img-wrap{
+    height: 81%;
+}
 
 
 
@@ -862,7 +864,7 @@ text-indent: 0;
     }
 
     .page-wrap.contect .unreset span {
-        font-size: 25px !important;
+        /*font-size: 25px !important;*/
         font-weight: normal;
     }
 

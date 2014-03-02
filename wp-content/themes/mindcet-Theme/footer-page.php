@@ -21,7 +21,7 @@
             
               
             </div>
-                <div class="footerLogos"><p>Sponsers:</p>
+                <div class="footerLogos"><p>Sponsors:</p>
             	<?php
 				$defaults = array(
 					'theme_location'  =>'sponsersLogoMenu',

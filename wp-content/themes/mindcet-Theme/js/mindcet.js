@@ -796,20 +796,8 @@ function enable_scroll() {
         domLikes=domLikes.toLowerCase();
         permalink=allTech[tid].permalink;
         
-        //  $('#like-frame').attr("src",globalUrl+'likeCount.htm?url='+allTech[tid].permalink);
-        //$('#twittCount').attr('data-url',allTech[tid].permalink);
-        //$('#twittCount').attr('data-text',allTech[tid].title+' Startup name is my favorite EdTech startup. What\'s yours?');
         $('#twittCount').remove();
-        
-        //$('#single-startup-zone .inventContener').append('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button" data-url="'+allTech[tid].permalink+'" data-text="'+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?" data-count="vertical">Tweet</a>');
-        //if($('#single-startup-zone').hasClass('twitterF')){
-        //    twttr.widgets.load();
-        //}
-        //$('#single-startup-zone').addClass('twitterF');
-        //
-        //
-        //$('#single-startup-zone .inventContener').append('<div class="fb-like" data-href="'+allTech[tid].permalink+'&postid='+allTech[tid].techId+'&logo='+allTech[tid].logo[0]+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false" id="fbCount"></div>');
-        //
+
         setTimeout(function(){FB.XFBML.parse()},2000);
       
         $('#comments-frame').attr("src",globalUrl+'comment.php?url='+domComments+'&text='+allTech[tid].title+'&img='+allTech[tid].logo[0]+'&url='+allTech[tid].permalink);
@@ -819,10 +807,8 @@ function enable_scroll() {
         domLikes=document.URL.split("#")[0]+'?'+allTech[tid].techId+'#'+allTech[tid].techId;
         $('.fb-like.invent').attr("data-href",permalink);
         $('#id'+allTech[tid].techId).show();
-        //http://www.facebook.com/sharer/sharer.php?s=100&p[url]=&p[images][0]=&p[title]=&p[summary]=
-        //var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+domUrl+'&p[images][0]=&p[title]='+domUrl+'&p[summary]='+domUrl;
         var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+allTech[tid].permalink+'&p[title]=Global EdTech Startup Awards 2014&p[summary]='+allTech[tid].title +' is my favorite EdTech startup. What\'s yours?&p[images][0]='+allTech[tid].logo[0];//'&p[summary]='+ascii(domUrl)+
-        var tweetUrl='http://twitter.com/intent/tweet?text='+allTech[tid].title +' is my favorite EdTech startup. Whart\'s yours?';
+        var tweetUrl='http://twitter.com/intent/tweet?text=@'+allTech[tid].title +' is my favorite EdTech startup. Whart\'s yours?'+allTech[tid].permalink+' &hashtags=Edtech,Startups,Education ';
         var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+allTech[tid].permalink+'&amp;title=Global EdTech Startup Awards 2014&summary='+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?';
         console.log(tid);
         console.log(allTech[tid]);
@@ -898,7 +884,7 @@ function enable_scroll() {
    
     $('.inventDescription-append').append($inventDescription);
 
-     $(".socialArea").prepend('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button social" data-size="small" data-url="'+allTech[tid].permalink+'" data-text="'+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?" data-count="vertical">Tweet</a>');
+     $(".socialArea").prepend('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button social" data-size="small" data-url="'+allTech[tid].permalink+'" data-text="@'+allTech[tid].title+' is my favorite EdTech startup. What\'s yours? #Edtech #Startups #Education" data-count="vertical">Tweet</a>');
         if($('#single-startup-zone').hasClass('twitterF')){
             twttr.widgets.load();
         }

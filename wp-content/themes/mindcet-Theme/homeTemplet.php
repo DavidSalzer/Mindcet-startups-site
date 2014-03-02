@@ -30,7 +30,7 @@ set_post_thumbnail( 165, 176177178179 );
 		</div>
 	</div>
 
-        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="small" data-count="horizontal" data-url="<?php echo site_url(); ?>">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="small" data-count="horizontal" data-url="<?php echo site_url(); ?>" data-text="What's your favorite EdTech startup? Global EdTech Startup Awards 2014. &#35;Edtech #Startups #Education">Tweet</a>
 
         <div class="entry">
         <div class="entry-design">

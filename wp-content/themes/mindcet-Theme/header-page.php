@@ -135,7 +135,7 @@
                 </div>
                 <div class="socialTabs cf">
                     <div class="socialTab" onClick="openInNewWindow('http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2014&summary=What\'s your favorite EdTech startup?', 100, 100)"><span class="linkin"></span></div>
-                    <div class="socialTab" onClick="openInNewWindow('http://twitter.com/intent/tweet?text=<?php echo site_url(); ?>%0D%0AGlobal EdTech Startup Awards 2014%0D%0AWhat\'s your favorite EdTech startup? ' , 100, 100)"><span class="twitter"></span></div>
+                    <div class="socialTab" onClick="openInNewWindow('http://twitter.com/intent/tweet?text=What\'s your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014%0D%0A. #Edtech #Startups #Education <?php echo site_url(); ?>' , 100, 100)"><span class="twitter"></span></div>
                     <div class="socialTab" onClick="openInNewWindow('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2014&p[summary]=What\'s your favorite EdTech startup?' , 100, 100)"><span class="facebook"></span></div>
                 </div>
 			</div>

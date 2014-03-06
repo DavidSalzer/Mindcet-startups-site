@@ -431,6 +431,13 @@ font-size: 13px;
         line-height: 26px;
     }
 
+#newsletter-popup-error{
+    left: 30px;
+}
+#newsletter-success{
+    font-size: 20px;
+margin-top: 50px;
+}
     #marker-popup .facebook-comments {
         width: 100% !important;
     }

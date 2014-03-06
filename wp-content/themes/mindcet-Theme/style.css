@@ -3609,11 +3609,19 @@ iframe[src="about:blank"] {
     margin-right: 0px;
     bottom: 20px;
 }
-
+#newsletter-popup-sign-btn .nav-page-img{
+    text-indent: -51%;
+}
 #newsletter-popup .triangle {
     left: -35px;
     top: 72px;
 }
-
+#newsletter-success {
+    text-align: center;
+    margin-top: 81px;
+    font-size: 24px;
+    margin-bottom: 16px;
+    position: relative;
+}
 /*@import("mobile.css")*/
 

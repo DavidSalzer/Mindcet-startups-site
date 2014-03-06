@@ -138,6 +138,7 @@
             <span class="triangle"></span>
             <div id="newsletter-popup-title">Sign up for our newsletter</div>
             <input type="email" value="" name="email" placeholder="E-Mail" id="registerNews"/> 
+            <div id="newsletter-success">Thank you for subscribing to our newsletter.</div>
             <div id="newsletter-popup-error">*please insert a valid text</div>
             <div id="newsletter-popup-sign-btn" class="next-page"><div class="nav-page-img">Sign up</div></div>            
         </div>

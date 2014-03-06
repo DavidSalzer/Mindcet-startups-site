@@ -70,7 +70,7 @@ $table_prefix  = 'wp_';
  * de_DE.mo to wp-content/languages and set WPLANG to 'de_DE' to enable German
  * language support.
  */
-define ('WPLANG', 'he_IL');
+//define ('WPLANG', 'he_IL');
 
 /**
  * For developers: WordPress debugging mode.

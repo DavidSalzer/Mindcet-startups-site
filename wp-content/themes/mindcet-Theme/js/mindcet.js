@@ -1129,6 +1129,7 @@ function showHighlight(){
     if(window.location.search.length==0){
         var best=allTech["fev"];
         if(best){
+            $('#best-invent-title').text('Highlight of the day');
             var html = '<img class="best-logo" src="'+allTech[best].logo[0]+'" alt="'+allTech[best].title+' logo">';
             $('#best-logo-frame').empty().append(html);
             var html = '<div class="best-description">'+allTech[best].descript+'</div>';

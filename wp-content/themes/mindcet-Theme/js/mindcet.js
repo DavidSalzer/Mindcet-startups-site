@@ -425,7 +425,7 @@ initMap();
     });
 
     $(window).on('resize',function(){
-        alert("resize");
+        //aalert("resize");
         resizOfferStartUpDiv();
         dispalyOption();
         setStartupUl();
@@ -1519,11 +1519,8 @@ function getFile(id){
   }
  
   //set offerStartUp btn for mobile
-  function resizOfferStartUpDiv(){
-      //alert("offerStartUp");
-      alert($("#offerStartUp").css("height"));
-      //$("#offerStartUp").css("background-color","red");
-      $("#offerStartUp").css("line-height","20px");
+  function resizOfferStartUpDiv(){      
+      $("#offerStartUp").css("line-height",$("#offerStartUp").height()+"px");
   }
 
   function setStartupUl(){

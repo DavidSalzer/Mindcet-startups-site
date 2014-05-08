@@ -1128,10 +1128,12 @@ function showHighlight(){
     //if homepage
     if(window.location.search.length==0){
         var best=allTech["fev"];
-        var html = '<img class="best-logo" src="'+allTech[best].logo[0]+'" alt="'+allTech[best].title+' logo">';
-        $('#best-logo-frame').empty().append(html);
-        var html = '<div class="best-description">'+allTech[best].descript+'</div>';
-        $('#best-invent-description').empty().append(html);
+        if(best){
+            var html = '<img class="best-logo" src="'+allTech[best].logo[0]+'" alt="'+allTech[best].title+' logo">';
+            $('#best-logo-frame').empty().append(html);
+            var html = '<div class="best-description">'+allTech[best].descript+'</div>';
+            $('#best-invent-description').empty().append(html);
+        }
     }
 }
 

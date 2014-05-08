@@ -470,19 +470,21 @@ do_action('wp_insert_post', 'wp_insert_post');
     
 </div>
     <div class="best-invent">
-        <div id="best-invent-title">
-            Highlights of the day
+         <div id="best-invent-title">
+            <?php echo get_theme_mod('fev_h1');?>
         </div>
         
         <div id="best-invent-logo">
             <div id="best-logo-frame">
+            <img class="best-logo" src="<?php echo get_theme_mod('fev_img');?>" alt="TextmyBrain logo">
                 <!--<div class="best-logo"></div>-->
             </div>
         </div>
         <div id="best-invent-description">
+        <?php echo get_theme_mod('fev_text');?>
             <!--<div class="best-description"></div>-->
         </div>
-</div>
+    </div>
 </div>
 <div  class="middelBanner">
   <h2> The Judges</h2>

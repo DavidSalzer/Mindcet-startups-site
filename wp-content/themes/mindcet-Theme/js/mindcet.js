@@ -45,7 +45,23 @@ initMap();
             offsetToScroll=$(".inventList").width();
         }
         scrollVal = $('#scrollInventorCon').scrollLeft() + offsetToScroll;
+		
         $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
+		
+		var allW=($('.inventList').length*222)-(72*2)-444;
+		
+		if(scrollVal<=0){
+			$('.leftScroll-arrow').hide();
+		}else{
+			$('.leftScroll-arrow').show();
+		}
+		
+		if(scrollVal>allW){
+			$('.rightScroll-arrow').hide();
+		}else{
+			$('.rightScroll-arrow').show();
+		}
+		
     });
 
     $('#inventScrollL').on('click', this, function () {
@@ -55,7 +71,21 @@ initMap();
         }
         scrollVal = $('#scrollInventorCon').scrollLeft() - offsetToScroll;
         $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
-    });
+    	if(scrollVal<=0){
+			$('.leftScroll-arrow').hide();
+		}else{
+			$('.leftScroll-arrow').show();
+		}
+		
+		var allW=($('.inventList').length*222)-(72*2)-444;
+		if(scrollVal>allW){
+			$('.rightScroll-arrow').hide();
+		}else{
+			$('.rightScroll-arrow').show();
+		}
+
+	});
+	
     $('#judgesR').on('click', this, function () {
         scrollVal = $('.judgesContenar').scrollLeft() + 300;
         $('.judgesContenar').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
@@ -1111,7 +1141,7 @@ function validateLogo(img) {
 function showArrowsStartups(){
  if ($(".inventors .inventList li").length > 12){
      $("#inventScrollR .rightScroll-arrow").show();
-     $("#inventScrollL .leftScroll-arrow").show();
+    // $("#inventScrollL .leftScroll-arrow").show();
  }else{
      $("#inventScrollR .rightScroll-arrow").hide();
      $("#inventScrollL .leftScroll-arrow").hide();

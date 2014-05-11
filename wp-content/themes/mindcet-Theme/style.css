@@ -1251,6 +1251,7 @@ margin: auto;
     cursor: pointer;
 }
 
+
 .rightScroll {
     width: 72px;
     height: 606px;
@@ -1271,14 +1272,21 @@ margin: auto;
     display: none;
     background-image: url(img/slide-arrows.png);
     background-repeat: no-repeat;
-    background-position: 16px;
+    background-position: 0px;
     width: 40px;
-    margin: 270px auto 0;
+    margin: auto auto;
     height: 40px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
-
+.leftScroll-arrow{
+	display:none;
+}
 .rightScroll-arrow {
-    background-position: -38px
+    background-position: -50px;
 }
 
 .judges .leftScroll-arrow, .judges .rightScroll-arrow {
@@ -2305,6 +2313,7 @@ font-size: 26px;
     width: 124px;
 height: 83px;
 display: inline-block;
+
 right: 0;
 float: right;
 margin-top: 10px;

@@ -1252,6 +1252,7 @@ margin: auto;
 }
 
 
+
 .rightScroll {
     width: 72px;
     height: 606px;
@@ -1291,7 +1292,10 @@ margin: auto;
 
 .judges .leftScroll-arrow, .judges .rightScroll-arrow {
     margin-top: 135px;
-    width: 100%;
+    width: 40px;
+}
+#judgesL .leftScroll-arrow{
+	display:none;
 }
 
 .inventorNav {

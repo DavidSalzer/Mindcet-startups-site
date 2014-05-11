@@ -89,12 +89,25 @@ initMap();
     $('#judgesR').on('click', this, function () {
         scrollVal = $('.judgesContenar').scrollLeft() + 300;
         $('.judgesContenar').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
+		
+		if(scrollVal<=0){
+			$('#judgesL .leftScroll-arrow').hide();
+		}else{
+			$('#judgesL .leftScroll-arrow').show();
+		}
+		
     });
 
     $('#judgesL').on('click', this, function () {
         scrollVal = $('.judgesContenar').scrollLeft() - 300;
         $('.judgesContenar').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
-    });
+    
+		if(scrollVal<=0){
+			$('#judgesL .leftScroll-arrow').hide();
+		}else{
+			$('#judgesL .leftScroll-arrow').show();
+		}
+	});
 
     //-------form------
 
@@ -1150,7 +1163,7 @@ function showArrowsStartups(){
 function showArrowsJudges(){
  if ($(".judgesContenar .judgesAvantar").length > 5){
      $("#judgesR .rightScroll-arrow").show();
-     $("#judgesL .leftScroll-arrow").show();
+     //$("#judgesL .leftScroll-arrow").show();
  }   
 }
 

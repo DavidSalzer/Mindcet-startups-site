@@ -51,15 +51,15 @@ initMap();
 		var allW=($('.inventList').length*222)-(72*2)-444;
 		
 		if(scrollVal<=0){
-			$('.leftScroll-arrow').hide();
+			$('#inventScrollL .leftScroll-arrow').hide();
 		}else{
-			$('.leftScroll-arrow').show();
+			$('#inventScrollL .leftScroll-arrow').show();
 		}
 		
 		if(scrollVal>allW){
-			$('.rightScroll-arrow').hide();
+			$('#inventScrollR .rightScroll-arrow').hide();
 		}else{
-			$('.rightScroll-arrow').show();
+			$('#inventScrollR .rightScroll-arrow').show();
 		}
 		
     });
@@ -72,16 +72,16 @@ initMap();
         scrollVal = $('#scrollInventorCon').scrollLeft() - offsetToScroll;
         $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
     	if(scrollVal<=0){
-			$('.leftScroll-arrow').hide();
+			$('#inventScrollL .leftScroll-arrow').hide();
 		}else{
-			$('.leftScroll-arrow').show();
+			$('#inventScrollL .leftScroll-arrow').show();
 		}
 		
 		var allW=($('.inventList').length*222)-(72*2)-444;
 		if(scrollVal>allW){
-			$('.rightScroll-arrow').hide();
+			$('#inventScrollR .rightScroll-arrow').hide();
 		}else{
-			$('.rightScroll-arrow').show();
+			$('#inventScrollR .rightScroll-arrow').show();
 		}
 
 	});

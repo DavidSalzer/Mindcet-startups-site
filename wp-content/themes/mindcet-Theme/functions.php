@@ -23,20 +23,20 @@
 	if ( !is_admin() ) {
 
 
-	   //wp_deregister_script('jquery');
-	   //wp_register_script('jquery', ("http://code.jquery.com/jquery-1.10.1.min.js"), false);
-	   //wp_enqueue_script('jquery');
+	   wp_deregister_script('jquery');
+	   wp_register_script('jquery', ("http://code.jquery.com/jquery-1.10.1.min.js"), false);
+	   wp_enqueue_script('jquery');
 	 
-//	  
+	  
 	  wp_register_script('easing', ("http://malsup.github.io/jquery.easing.1.3.js"), false);
 	   wp_enqueue_script('easing');
 
           wp_register_script('hammer.min', get_template_directory_uri()."/js/hammer.min.js", false);
 	   wp_enqueue_script('hammer.min');
 
-	   // wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
-	   //wp_enqueue_script('mindcetjs');
-	  //
+	    wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
+	   wp_enqueue_script('mindcetjs');
+	  
 		wp_register_script('deep', (get_template_directory_uri()."/js/deeplink.js"), false);
 	   wp_enqueue_script('deep');
 		

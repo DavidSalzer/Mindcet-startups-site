@@ -45,7 +45,30 @@ $(document).ready(function (e) {
             offsetToScroll = $(".inventList").width();
         }
         scrollVal = $('#scrollInventorCon').scrollLeft() + offsetToScroll;
+
         $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
+
+        allLi = $('.inventList').length;
+        liW = $('.inventList').width();
+        //plac=$('.placholderSlide').length; alwasw==2
+        plcW = $('.placholderSlide').width();
+        //$('.scrollInventorCon').width()
+        allW = (allLi * liW) + (2 * plcW) - $('#scrollInventorCon').width();
+        console.log(scrollVal + 'allw: ' + allW);
+        //var allW=($('.inventList').length*222)-(72*2)-444;
+
+        if (scrollVal <= 0) {
+            $('#inventScrollL .leftScroll-arrow').hide();
+        } else {
+            $('#inventScrollL .leftScroll-arrow').show();
+        }
+
+        if (scrollVal >= allW) {
+            $('#inventScrollR .rightScroll-arrow').hide();
+        } else {
+            $('#inventScrollR .rightScroll-arrow').show();
+        }
+
     });
 
     $('#inventScrollL').on('click', this, function () {
@@ -55,7 +78,61 @@ $(document).ready(function (e) {
         }
         scrollVal = $('#scrollInventorCon').scrollLeft() - offsetToScroll;
         $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
+
+        allLi = $('.inventList').length;
+        liW = $('.inventList').width();
+        //plac=$('.placholderSlide').length; alwasw==2
+        plcW = $('.placholderSlide').width();
+        allW = (allLi * liW) - (2 * plcW) - liW;
+        // console.log(scrollVal+'allw: '+allW);
+        //var allW=($('.inventList').length*222)-(72*2)-444;
+
+        if (scrollVal <= 0) {
+            $('#inventScrollL .leftScroll-arrow').hide();
+        } else {
+            $('#inventScrollL .leftScroll-arrow').show();
+        }
+
+        //var allW=($('.inventList').length*222)-(72*2)-444;
+        if (scrollVal > allW) {
+            $('#inventScrollR .rightScroll-arrow').hide();
+        } else {
+            $('#inventScrollR .rightScroll-arrow').show();
+        }
+
     });
+    //$('#inventScrollR').on('click', this, function () {
+    //    var offsetToScroll = $(".inventList").width() * 2;
+    //    if (isMobile) {
+    //        offsetToScroll = $(".inventList").width();
+    //    }
+    //    scrollVal = $('#scrollInventorCon').scrollLeft() + offsetToScroll;
+
+    //    $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
+
+    //    //checkInventScrollR(scrollVal);
+
+
+    //});
+
+    //$('#inventScrollL').on('click', this, function () {
+    //    var offsetToScroll = $(".inventList").width() * 2;
+    //    if (isMobile) {
+    //        offsetToScroll = $(".inventList").width();
+    //    }
+    //    scrollVal = $('#scrollInventorCon').scrollLeft() - offsetToScroll;
+    //    $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
+    //    //checkInventScrollL(scrollVal);
+
+
+    //});
+
+    //$("#scrollInventorCon").on("scroll", function () {       
+    //    checkInventScroll();    
+    //}).finish(function () {
+    //    checkInventScroll();   
+    //});
+
     $('#judgesR').on('click', this, function () {
         scrollVal = $('.judgesContenar').scrollLeft() + 300;
         $('.judgesContenar').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
@@ -1091,7 +1168,7 @@ function validateSite(input) {
         $("#validate-general-error").show();
         return false;
     }
-    
+
 }
 
 function validateLogo(img) {
@@ -1108,12 +1185,39 @@ function validateLogo(img) {
 function showArrowsStartups() {
     if ($(".inventors .inventList li").length > 12) {
         $("#inventScrollR .rightScroll-arrow").show();
-        $("#inventScrollL .leftScroll-arrow").show();
+        $("#inventScrollL .leftScroll-arrow").hide();
     } else {
         $("#inventScrollR .rightScroll-arrow").hide();
         $("#inventScrollL .leftScroll-arrow").hide();
     }
 }
+
+//function checkInventScroll() {
+//     var offsetToScroll = $(".inventList").width() * 2;
+//        if (isMobile) {
+//            offsetToScroll = $(".inventList").width();
+//        }
+//        var scrollVal = $('#scrollInventorCon').scrollLeft() + offsetToScroll;
+
+//    allLi = $('.inventList').length;
+//    liW = $('.inventList').width();
+//    plcW = $('.placholderSlide').width();
+//    allW = (allLi * liW) + (2 * plcW) - $('#scrollInventorCon').width();
+//    console.log(scrollVal + 'allw: ' + allW);
+
+//    if ($('#scrollInventorCon').scrollLeft() <= 0) {
+//        $('#inventScrollL .leftScroll-arrow').hide();
+//    } else {
+//        $('#inventScrollL .leftScroll-arrow').show();
+//    }
+
+//    if (scrollVal > allW) {
+//        $('#inventScrollR .rightScroll-arrow').hide();
+//    } else {
+//        $('#inventScrollR .rightScroll-arrow').show();
+//    }
+//}
+
 function showArrowsJudges() {
     if ($(".judgesContenar .judgesAvantar").length > 5) {
         $("#judgesR .rightScroll-arrow").show();
@@ -1346,6 +1450,7 @@ function checkBounds(map) {
     }
 
 }
+
 
 var placeInsaveVotesData = 0;
 var savePlaceInVotesData = [];

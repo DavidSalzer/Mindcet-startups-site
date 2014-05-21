@@ -9,6 +9,11 @@
         overflow-x: scroll;
         overflow-y: hidden;
     }
+ .leftScroll-arrow, .rightScroll-arrow {
+        
+        display: none !important;
+    }
+
 }
 
 @media all and (max-width: 767px) {
@@ -678,6 +683,7 @@ text-indent: 0;
 
     .leftScroll-arrow, .rightScroll-arrow {
         margin: 90px auto 0;
+        display: none;
     }
 
     .leftScroll-arrow {

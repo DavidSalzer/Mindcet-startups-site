@@ -23,20 +23,20 @@
 	if ( !is_admin() ) {
 
 
-	   wp_deregister_script('jquery');
-	   wp_register_script('jquery', ("http://code.jquery.com/jquery-1.10.1.min.js"), false);
-	   wp_enqueue_script('jquery');
+	   //wp_deregister_script('jquery');
+	   //wp_register_script('jquery', ("http://code.jquery.com/jquery-1.10.1.min.js"), false);
+	   //wp_enqueue_script('jquery');
 	 
-	  
+//	  
 	  wp_register_script('easing', ("http://malsup.github.io/jquery.easing.1.3.js"), false);
 	   wp_enqueue_script('easing');
 
           wp_register_script('hammer.min', get_template_directory_uri()."/js/hammer.min.js", false);
 	   wp_enqueue_script('hammer.min');
 
-	    wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
-	   wp_enqueue_script('mindcetjs');
-	  
+	   // wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
+	   //wp_enqueue_script('mindcetjs');
+	  //
 		wp_register_script('deep', (get_template_directory_uri()."/js/deeplink.js"), false);
 	   wp_enqueue_script('deep');
 		
@@ -712,7 +712,7 @@ function mytheme_customize_register( $wp_customize ) {
 	  
 	  $wp_customize->add_setting( 'fev_h1', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
          array(
-            'default' => 'Highlights of the day', //Default setting/value to save
+            'default' => '', //Default setting/value to save
 		     ) 
       );  	  
 	  
@@ -799,8 +799,8 @@ function myCapch(){
 		<?php
 			
 			// Get a key from https://www.google.com/recaptcha/admin/create
-			$publickey = "6LdQPu4SAAAAACRzwW4h8VQtluCUAqLiMrhRQNKp";
-			$privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
+			$publickey = "6Lc_Pu4SAAAAAPo3yZJ8UQkagt5Wm_tA4W5x8Qpz";
+			$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
 			
 			# the response from reCAPTCHA
 			$resp = null;

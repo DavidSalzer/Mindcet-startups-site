@@ -1,159 +1,69 @@
-   var maxSize=2;//mb
-   var fileMesg='file is too big, Please ensure that file size is less than 2Mb.';
+var maxSize = 2; //mb
+var fileMesg = 'file is too big, Please ensure that file size is less than 2Mb.';
 // JavaScript Document
-var fromMarker=null;
-var isMobile=false;
- var logoSrc = null;
-    var ImgSrc1 = null;
-    var ImgSrc2 = null;
-    var ImgSrc3 = null;
+var fromMarker = null;
+var isMobile = false;
+var logoSrc = null;
+var ImgSrc1 = null;
+var ImgSrc2 = null;
+var ImgSrc3 = null;
 $(document).ready(function (e) {
 
-    $(".invent-next").on("swipe",function(){alert("You swiped ")});
-                    
-    
-    
-    $("#newsletter-btn").on("click",openNewsletter);
-    $("#newsletter-popup-sign-btn").on("click",signToNewsletter);
-    $(".tagLogo").on("click",openSubMenu);
-    $("body").on("click","div,span,ul",closeSubMenu);
-    $("#newsletter-popup").on("click",function(e){e.preventDefault(); return false;})
-    Hammer($("#single-startup-zone").get(0)).on("swipeleft",getPrevStartup);
-    Hammer($("#single-startup-zone").get(0)).on("swiperight",getNextStartup);
-    $("#nextImageL").on("click",getNextStartup);
-    $("#nextImageR").on("click",getPrevStartup);
+    $(".invent-next").on("swipe", function () { alert("You swiped ") });
+
+
+
+    $("#newsletter-btn").on("click", openNewsletter);
+    $("#newsletter-popup-sign-btn").on("click", signToNewsletter);
+    $(".tagLogo").on("click", openSubMenu);
+    $("body").on("click", "div,span,ul", closeSubMenu);
+    $("#newsletter-popup").on("click", function (e) { e.preventDefault(); return false; })
+    Hammer($("#single-startup-zone").get(0)).on("swipeleft", getPrevStartup);
+    Hammer($("#single-startup-zone").get(0)).on("swiperight", getNextStartup);
+    $("#nextImageL").on("click", getNextStartup);
+    $("#nextImageR").on("click", getPrevStartup);
 
     resizOfferStartUpDiv();
     dispalyOption();
     setStartupUl();
 
-initMap();
-    showForm4();    
+    initMap();
+    showForm4();
     showArrowsStartups();
     showArrowsJudges();
-    
-    if($(".ui-loader").length>0){
+
+    if ($(".ui-loader").length > 0) {
         $(".ui-loader").remove();
     }
     //facebook click twice: like+unlike to fix align
     //$('#fb-like-site').click();
     //$('#fb-like-site').click();
-           
+
     $('#inventScrollR').on('click', this, function () {
-        var offsetToScroll=$(".inventList").width()*2;
-        if(isMobile){
-            offsetToScroll=$(".inventList").width();
+        var offsetToScroll = $(".inventList").width() * 2;
+        if (isMobile) {
+            offsetToScroll = $(".inventList").width();
         }
         scrollVal = $('#scrollInventorCon').scrollLeft() + offsetToScroll;
-        
         $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
-        
-        allLi=$('.inventList').length;      
-        liW=$('.inventList').width();
-        //plac=$('.placholderSlide').length; alwasw==2
-        plcW=$('.placholderSlide').width();
-        //$('.scrollInventorCon').width()
-        allW=(allLi*liW)+(2*plcW)-$('#scrollInventorCon').width();
-        console.log(scrollVal+'allw: '+allW);
-        //var allW=($('.inventList').length*222)-(72*2)-444;
-        
-        if(scrollVal<=0){
-            $('#inventScrollL .leftScroll-arrow').hide();
-        }else{
-            $('#inventScrollL .leftScroll-arrow').show();
-        }
-        
-        if(scrollVal>=allW){
-            $('#inventScrollR .rightScroll-arrow').hide();
-        }else{
-            $('#inventScrollR .rightScroll-arrow').show();
-        }
-        
     });
 
     $('#inventScrollL').on('click', this, function () {
-        var offsetToScroll=$(".inventList").width()*2;
-        if(isMobile){
-            offsetToScroll=$(".inventList").width();
+        var offsetToScroll = $(".inventList").width() * 2;
+        if (isMobile) {
+            offsetToScroll = $(".inventList").width();
         }
         scrollVal = $('#scrollInventorCon').scrollLeft() - offsetToScroll;
         $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
-        
-       allLi=$('.inventList').length;      
-        liW=$('.inventList').width();
-        //plac=$('.placholderSlide').length; alwasw==2
-        plcW=$('.placholderSlide').width();
-        allW=(allLi*liW)-(2*plcW)-liW;
-       // console.log(scrollVal+'allw: '+allW);
-        //var allW=($('.inventList').length*222)-(72*2)-444;
-
-        if(scrollVal<=0){
-            $('#inventScrollL .leftScroll-arrow').hide();
-        }else{
-            $('#inventScrollL .leftScroll-arrow').show();
-        }
-        
-        //var allW=($('.inventList').length*222)-(72*2)-444;
-        if(scrollVal>allW){
-            $('#inventScrollR .rightScroll-arrow').hide();
-        }else{
-            $('#inventScrollR .rightScroll-arrow').show();
-        }
-
     });
-    
     $('#judgesR').on('click', this, function () {
         scrollVal = $('.judgesContenar').scrollLeft() + 300;
         $('.judgesContenar').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
-        
-        jcon=$('.judgesContenar .placholderSlide').length;
-        conw=$('.judgesContenar .placholderSlide').width();
-        av=$('.judgesContenar .judgesAvantar').length;
-        avw=$('.judgesContenar .judgesAvantar').width();//border and margin
-
-
-
-        allw=(jcon*conw)+(av*avw)-$('#judgesCon').width();
-
-        console.log(scrollVal+' '+allw);
-        if(scrollVal<=0){
-            $('#judgesL .leftScroll-arrow').hide();
-        }else{
-            $('#judgesL .leftScroll-arrow').show();
-        }
-
-        if(scrollVal>allw){
-            $('#judgesR .rightScroll-arrow').hide();
-        }else{
-            $('#judgesR .rightScroll-arrow').show();
-        }
-        
     });
 
     $('#judgesL').on('click', this, function () {
         scrollVal = $('.judgesContenar').scrollLeft() - 300;
         $('.judgesContenar').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
-        
-        jcon=$('.judgesContenar .placholderSlide').length;
-        conw=$('.judgesContenar .placholderSlide').width();
-        av=$('.judgesContenar .judgesAvantar').length;
-        avw=$('.judgesContenar .judgesAvantar').width();//border and margin
-
-
-
-        allw=(jcon*conw)+(av*avw)-$('#judgesCon').width();
-     console.log(scrollVal+' '+allw);
-
-        $('#judgesR .rightScroll-arrow').show();
-
-        if(scrollVal<=0){
-            $('#judgesL .leftScroll-arrow').hide();
-        }else{
-            $('#judgesL .leftScroll-arrow').show();
-        }
-
-
-
     });
 
     //-------form------
@@ -170,11 +80,11 @@ initMap();
         //openOfferPopUp();
         e.preventDefault();
 
-        if(isMobile){
+        if (isMobile) {
             $("body").addClass("freeze");
             $("#page-number-1").html("1/2");
         }
-        else{
+        else {
             $("#page-number-1").html("1/3");
         }
         return false;
@@ -186,14 +96,14 @@ initMap();
         $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
 
         //display of mobile
-        if(isMobile){
+        if (isMobile) {
             $(".header").show();
             $(".topNav").show();
             $(".page-wrap").removeClass("mobile");
             $("#sign-header-mobile").hide();
             $("body").removeClass("freeze");
         }
-      //  return false;
+        //  return false;
     });
 
 
@@ -201,22 +111,22 @@ initMap();
     $('.next-page').on('click', this, function () {
         if ($('#formPart1').is(":visible")) {
             if (form1Validate()) {
-                if(isMobile){
+                if (isMobile) {
                     if (form2Validate()) {
-                        showPreviewForm();                
+                        showPreviewForm();
                     }
-                    else{
+                    else {
                         $('#offer-zone-inner').animate({
                             scrollTop: 0
                         }, 1000);
                     }
                 }
-                else{
+                else {
                     showForm2();
                 }
-               
+
             }
-            else{
+            else {
                 $('#offer-zone-inner').animate({
                     scrollTop: 0
                 }, 1000);
@@ -226,9 +136,9 @@ initMap();
 
         else if ($('#formPart2').is(":visible")) {
             if (form2Validate()) {
-                showPreviewForm();                
+                showPreviewForm();
             }
-            else{
+            else {
                 $('#offer-zone-inner').animate({
                     scrollTop: 0
                 }, 1000);
@@ -248,15 +158,15 @@ initMap();
             $('.next-page').css("display", "inline-block");
             $('#formPart1').show();
             $('#page-number-1').show();
-            
+
             return;
         }
 
         else if ($('#formPart3').is(":visible")) {
             $('.capchArea').hide();
-            $('.inventorPopUp').css('height','666px');
-            if(!isMobile){
-                $('.triangle').css('bottom','138px');
+            $('.inventorPopUp').css('height', '666px');
+            if (!isMobile) {
+                $('.triangle').css('bottom', '138px');
             }
             $('#formPart3').hide();
             $('#page-number-3').hide();
@@ -265,35 +175,35 @@ initMap();
             $('#formPart2').show();
             $('.next-page').show();
             $('.next-page').css("display", "inline-block");
-            
+
         }
 
         return;
     });
-    $('#new_post').on('submit', this, function(){
+    $('#new_post').on('submit', this, function () {
         if (document.getElementById(("ads")).checked && document.getElementById(("terms")).checked)
             return true;
         $("#validate-checkbox-error").show();
         return false;
     });
 
-   
 
-    
+
+
     $("#logo").change(function (e) {
-        
+
         //input.removeClass("error");
         $("#validate-img-error").hide();
         var size = document.getElementById("logo").files[0].size;
-        size=size/1024/1024;
-        if(size>maxSize){
+        size = size / 1024 / 1024;
+        if (size > maxSize) {
             $("#validate-img-error").show();
             return false;
         }
-        
-        
+
+
         var fileName = $(this).val();
-        var fileName = $(this).val().replace("C:\\fakepath\\","");
+        var fileName = $(this).val().replace("C:\\fakepath\\", "");
         $('.title-logo.logoimg').text(fileName);
 
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
@@ -317,15 +227,15 @@ initMap();
     $("#img-1").change(function (e) {
         $("#img-1").removeClass("error");
         var size = document.getElementById("img-1").files[0].size;
-        size=size/1024/1024;
-        if(size>maxSize){
+        size = size / 1024 / 1024;
+        if (size > maxSize) {
             $("#img-1").addClass("error");
             $("#validate-img-error").show();
             return;
         }
-        
+
         var fileName = $(this).val();
-        var fileName = $(this).val().replace("C:\\fakepath\\","");
+        var fileName = $(this).val().replace("C:\\fakepath\\", "");
         $('.title-logo.img1').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
             if (this.files && this.files[0]) {
@@ -347,14 +257,14 @@ initMap();
     $("#img-2").change(function (e) {
         $("#img-2").removeClass("error");
         var size = document.getElementById("img-2").files[0].size;
-        size=size/1024/1024;
-        if(size>maxSize){
+        size = size / 1024 / 1024;
+        if (size > maxSize) {
             $("#img-2").addClass("error");
             $("#validate-img-error").show();
             return;
         }
 
-        var fileName = $(this).val().replace("C:\\fakepath\\","");
+        var fileName = $(this).val().replace("C:\\fakepath\\", "");
         $('.title-logo.img2').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
             if (this.files && this.files[0]) {
@@ -376,15 +286,15 @@ initMap();
     $("#img-3").change(function (e) {
         $("#img-3").removeClass("error");
         var size = document.getElementById("img-3").files[0].size;
-        size=size/1024/1024;
-        if(size>maxSize){
+        size = size / 1024 / 1024;
+        if (size > maxSize) {
             $("#img-3").addClass("error");
             $("#validate-img-error").show();
             return;
         }
 
         var fileName = $(this).val();
-        var fileName = $(this).val().replace("C:\\fakepath\\","");
+        var fileName = $(this).val().replace("C:\\fakepath\\", "");
         $('.title-logo.img3').text(fileName);
         if ((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
 
@@ -408,38 +318,38 @@ initMap();
     //----------/end of form
 
 
-    $('.judgeDescription').on('click','.close', this, function () {
+    $('.judgeDescription').on('click', '.close', this, function () {
         $('.judgeDescription').empty().append('<span class="close"></span>');
         $('.judgeDescription').slideUp(1000, 'easeInOutBack');
-         $('.mask').removeClass('mask-judge');
+        $('.mask').removeClass('mask-judge');
         $('.mask').hide();
-        $('body').css('overflow','auto');
+        $('body').css('overflow', 'auto');
         return false;
     });
 
-    $('body').on('click','.mask-judge', this, function () {////שונה
-            $('.judgeDescription .close').click();      
-            return false;
-        });
+    $('body').on('click', '.mask-judge', this, function () {////שונה
+        $('.judgeDescription .close').click();
+        return false;
+    });
 
     $('.judgesAvantar').on('click', this, function () {
         $('.inventorPopUp .close').click();
         tid = $(this).attr('judgeId');
-        
+
         $('.mask').show();
-         $('.mask').addClass('mask-judge'); 
-        
-    
-        $('.mask').fadeIn(200, 'easeInOutBack').css('height','100%'); ////נוסף
-            
-        
+        $('.mask').addClass('mask-judge');
+
+
+        $('.mask').fadeIn(200, 'easeInOutBack').css('height', '100%'); ////נוסף
+
+
         $('.judgeDescription').slideDown(1000, 'easeInOutBack');
         var html = '       <div class="judgeDescriptionLeft">';
-        html += '       <div class="judgeDescription-img">'+ allJudges[tid].imgProfile + '</div>    ';
+        html += '       <div class="judgeDescription-img">' + allJudges[tid].imgProfile + '</div>    ';
         html += '               <div class="contactMe"><a href="mailto:' + allJudges[tid].email + '" >Contact Me</a></div>';
         html += '           </div>';
         html += '           <div class="judgeDescriptionRight">';
-           html += '                <div class="judgeDescription-name">' +  allJudges[tid].name + '</div>';
+        html += '                <div class="judgeDescription-name">' + allJudges[tid].name + '</div>';
         html += '               <div class="judgeDescription-role">' + allJudges[tid].role + '</div>';
         html += '               <div class="judgeDescription-full">' + allJudges[tid].descript + '</div>';
         html += '           </div>';
@@ -463,16 +373,16 @@ initMap();
     updateMenuUrl();
     //hide popup when scrolling down
     $(document).on('scroll', this, function () {
-         //display of mobile
-        if(!isMobile){
+        //display of mobile
+        if (!isMobile) {
             console.log($(document).scrollTop());
-            setTimeout(function(){
-            if ($(document).scrollTop() > 550) {
-               $('#offer-zone').fadeOut("slow");
-              $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
+            setTimeout(function () {
+                if ($(document).scrollTop() > 550) {
+                    $('#offer-zone').fadeOut("slow");
+                    $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
 
-            }
-            },500);
+                }
+            }, 500);
         }
     });
     $('#scrollInventorCon').on('click', ".inventList li", function () {
@@ -511,42 +421,42 @@ initMap();
         //    else{
         //        
         //    }
-        
+
     });
 
-    $(window).on('resize',function(){
+    $(window).on('resize', function () {
         //aalert("resize");
         resizOfferStartUpDiv();
         dispalyOption();
         setStartupUl();
-    //  h=screen.height;
-    //  $('.mask').css('height',h+'px');
+        //  h=screen.height;
+        //  $('.mask').css('height',h+'px');
     });
 
 
-    $('body').on('click','#inventLikeFb,#inventTwiiwer,#inventLinkedin',function(){
-        likeUrl=$(this).data('url');
+    $('body').on('click', '#inventLikeFb,#inventTwiiwer,#inventLinkedin', function () {
+        likeUrl = $(this).data('url');
         openInNewWindow(likeUrl);
     })
 
-    $('body').on('click','.mapOpenInvent',function(e){   
-    tid=$(this).attr('date-id');
-    $('#marker-popup').fadeOut(300, 'easeInOutBack');
-    popuopInvent(tid);
-    e.preventDefault()
-    return false;
-    
- });
+    $('body').on('click', '.mapOpenInvent', function (e) {
+        tid = $(this).attr('date-id');
+        $('#marker-popup').fadeOut(300, 'easeInOutBack');
+        popuopInvent(tid);
+        e.preventDefault()
+        return false;
 
- $('.inventDescription .close').on('click', this, function () {
+    });
+
+    $('.inventDescription .close').on('click', this, function () {
         $('#fbCount').remove();
         $('#twittCount').remove();
-        
+
         $('.mask').removeClass('mask-invent');
         $('.mask').fadeOut('fast');
-        $('body').css('overflow','auto');
-        
-        $('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
+        $('body').css('overflow', 'auto');
+
+        $('.inventDescription-append').empty(); //.append('<span id="invent-close" class="close"></span>');
         $('.inventDescription').fadeOut('fast');
         //$('#id'+allTech[tid].techId).hide();
         var scr = document.body.scrollTop;
@@ -555,71 +465,71 @@ initMap();
 
         document.body.scrollTop = scr;
         //$('html, body').animate({
-           // scrollTop: "550px"
-      //  }, 0.3);
-      
+        // scrollTop: "550px"
+        //  }, 0.3);
+
         //if come from marker popup
-        var markerId=$("#marker-popup").attr("marker-id");
-        if(markerId!=""){
-            buildMarkerPopupHTML(markerId);            
+        var markerId = $("#marker-popup").attr("marker-id");
+        if (markerId != "") {
+            buildMarkerPopupHTML(markerId);
         }
         return false;
     });
 
-   $('.mask').on('click', this, function (e) {
-      if($('#newsletter-btn').hasClass('selected')){
+    $('.mask').on('click', this, function (e) {
+        if ($('#newsletter-btn').hasClass('selected')) {
             closeNewsletter();
-            $('body').css('overflow','auto');
-        return;
-        } 
-       
-       
-     if($(e.target).attr("class") != "undefind" && $(e.target).attr("class").indexOf('mask')==0) { 
-           //$("#newsletter-popup").hide();
-            
-            $('body').css('overflow','auto');
-           
-           //if($("#newsletter-btn").hasClass("selected")){
-           //     $("#newsletter-btn").removeClass("selected");
-           // }
-           // $("#newsletter-popup-error").hide(); 
+            $('body').css('overflow', 'auto');
+            return;
+        }
+
+
+        if ($(e.target).attr("class") != "undefind" && $(e.target).attr("class").indexOf('mask') == 0) {
+            //$("#newsletter-popup").hide();
+
+            $('body').css('overflow', 'auto');
+
+            //if($("#newsletter-btn").hasClass("selected")){
+            //     $("#newsletter-btn").removeClass("selected");
+            // }
+            // $("#newsletter-popup-error").hide(); 
             //if from invent
-            if($(e.target).hasClass("mask-invent")){
+            if ($(e.target).hasClass("mask-invent")) {
                 $('.inventDescription .close').click();
                 return;
             }
             //from marker
-            else{
+            else {
                 $('#marker-popup .close').click();
             }
-           // $('.mask').fadeOut(800, 'easeInOutBack');
-            
+            // $('.mask').fadeOut(800, 'easeInOutBack');
+
 
             //$('.inventDescription .close').click();
             // $('#marker-popup').hide();
-    }
-    
+        }
+
     });
 
-     $('#marker-popup').on('click', ".close", function () {
+    $('#marker-popup').on('click', ".close", function () {
         //reset key-id to marker section
-        $("#marker-popup").attr("marker-id","");
-        
+        $("#marker-popup").attr("marker-id", "");
+
         //$('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
         $('#marker-popup').fadeOut(300, 'easeInOutBack');
         //$('#id'+allTech[tid].techId).hide();
-        window.location.hash='';
+        window.location.hash = '';
         //$('html, body').animate({
         //    scrollTop: "550px"
         //}, 1);
         //$('.mask').removeClass('mask-invent');
         $('.mask').fadeOut(800, 'easeInOutBack');
-        $('body').css('overflow','auto');
+        $('body').css('overflow', 'auto');
         return false;
     });
 
-   showHighlight();
-    
+    showHighlight();
+
 }); //dom ready
 
 
@@ -631,18 +541,18 @@ function openOfferPopUp() {
     ga('send', 'event', 'button', 'click', 'add invent - 1');
 
     $('.inventorPopUp').fadeIn(400, 'easeInOutBack');
-    
-    
+
+
 
     //display of mobile
-    if(isMobile){
+    if (isMobile) {
         $(".header").hide();
         $(".topNav").hide();
         $(".page-wrap").addClass("mobile");
         $("#sign-header-mobile").show();
         $("#formPart2").show();
     }
-    
+
     $('html, body').animate({
         scrollTop: $("#offer-zone").offset().top - 154
     }, 500, function () { enable_scroll() });
@@ -721,7 +631,7 @@ getMovieDataByURL = function (url) {
 }
 
 this.setMovieDataByURL = function (url) {
-    console.log(url);   
+    console.log(url);
     if (url.indexOf('youtu.be') > 0 || url.indexOf('?v=') > 0 || url.indexOf('iframe') > 0 && url.indexOf('youtu') > 0) {
         var reg = new RegExp('(?:https?://)?(?:www\\.)?(?:youtu\\.be/|youtube\\.com(?:/embed/|/v/|/watch\\?v=))([\\w-]{10,12})', 'g');
         var tubeId = reg.exec(url)[1];
@@ -813,7 +723,7 @@ function updateMenuUrl() {
     //$(".footerMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
 
     //add event to offer menu to open the offer popup
-    $('a[href^="#offer-zone"]').on("click", function(){$('#offerStartUp').click();});
+    $('a[href^="#offer-zone"]').on("click", function () { $('#offerStartUp').click(); });
 
     //scroll smooth
     $('a[href^="#"]').click(function () {    // Change to needed selector
@@ -867,87 +777,87 @@ function enable_scroll() {
 
 //////////////////////////
 
-  function popuopInvent (tid) {
-      //$('.inventDescription-append').empty();
-        if ($('#formPart4').is(":hidden")){
-            $('.inventorPopUp .close').click();
-        }
-        if(tid){
-            window.location.hash=tid;
-            ga('send', 'pageview',allTech[tid].title);
-        }
-        
-        globalUrl=document.URL.split("#")[0];
-        domUrl=document.URL;
-        domUrlTweet=domUrl.replace('#','%23');
-        domComments=ascii(domUrl);
-        domLikes=globalUrl+'?initiator='+allTech[tid].title;
-        domLikes=domLikes.split(" ").join("-");
-        domLikes=domLikes.toLowerCase();
-        permalink=allTech[tid].permalink;
-        
-        $('#twittCount').remove();
+function popuopInvent(tid) {
+    //$('.inventDescription-append').empty();
+    if ($('#formPart4').is(":hidden")) {
+        $('.inventorPopUp .close').click();
+    }
+    if (tid) {
+        window.location.hash = tid;
+        ga('send', 'pageview', allTech[tid].title);
+    }
 
-        setTimeout(function(){FB.XFBML.parse()},2000);
-      
-        $('#comments-frame').attr("src",globalUrl+'comment.php?url='+domComments+'&text='+allTech[tid].title+'&img='+allTech[tid].logo[0]+'&url='+allTech[tid].permalink);
-        
-        $('#inventTwitterCount').attr('data-url',allTech[tid].permalink).attr('data-text',allTech[tid].title);
-        
-        domLikes=document.URL.split("#")[0]+'?'+allTech[tid].techId+'#'+allTech[tid].techId;
-        $('.fb-like.invent').attr("data-href",permalink);
-        $('#id'+allTech[tid].techId).show();
-        var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+allTech[tid].permalink+'&p[title]=Global EdTech Startup Awards 2014&p[summary]='+allTech[tid].title +' is my favorite EdTech startup. What\'s yours?&p[images][0]='+allTech[tid].logo[0];//'&p[summary]='+ascii(domUrl)+
-        var tweetUrl='http://twitter.com/intent/tweet?text=@'+allTech[tid].title +' is my favorite EdTech startup. Whart\'s yours?'+allTech[tid].permalink+' &hashtags=Edtech,Startups,Education ';
-        var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+allTech[tid].permalink+'&amp;title=Global EdTech Startup Awards 2014&summary='+allTech[tid].title+' is my favorite EdTech startup. What\'s yours?';
-        console.log(tid);
-        console.log(allTech[tid]);
-        var html = '       <div class="topArea">    ';
-        if (allTech[tid].logo){
-            if (allTech[tid].siteUrl.length > 0){
-                html += ' <div class="startup-popup-logo"><a href="'+ allTech[tid].siteUrl +'"  target="_blank"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></a></div>';
-                }
-            else {
-                html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
-                }
+    globalUrl = document.URL.split("#")[0];
+    domUrl = document.URL;
+    domUrlTweet = domUrl.replace('#', '%23');
+    domComments = ascii(domUrl);
+    domLikes = globalUrl + '?initiator=' + allTech[tid].title;
+    domLikes = domLikes.split(" ").join("-");
+    domLikes = domLikes.toLowerCase();
+    permalink = allTech[tid].permalink;
+
+    $('#twittCount').remove();
+
+    setTimeout(function () { FB.XFBML.parse() }, 2000);
+
+    $('#comments-frame').attr("src", globalUrl + 'comment.php?url=' + domComments + '&text=' + allTech[tid].title + '&img=' + allTech[tid].logo[0] + '&url=' + allTech[tid].permalink);
+
+    $('#inventTwitterCount').attr('data-url', allTech[tid].permalink).attr('data-text', allTech[tid].title);
+
+    domLikes = document.URL.split("#")[0] + '?' + allTech[tid].techId + '#' + allTech[tid].techId;
+    $('.fb-like.invent').attr("data-href", permalink);
+    $('#id' + allTech[tid].techId).show();
+    var fbUrl = 'http://www.facebook.com/sharer/sharer.php?s=100&p[url]=' + allTech[tid].permalink + '&p[title]=Global EdTech Startup Awards 2014&p[summary]=' + allTech[tid].title + ' is my favorite EdTech startup. What\'s yours?&p[images][0]=' + allTech[tid].logo[0]; //'&p[summary]='+ascii(domUrl)+
+    var tweetUrl = 'http://twitter.com/intent/tweet?text=@' + allTech[tid].title + ' is my favorite EdTech startup. Whart\'s yours?' + allTech[tid].permalink + ' &hashtags=Edtech,Startups,Education ';
+    var linkedinUrl = 'http://www.linkedin.com/shareArticle?mini=true&amp;url=' + allTech[tid].permalink + '&amp;title=Global EdTech Startup Awards 2014&summary=' + allTech[tid].title + ' is my favorite EdTech startup. What\'s yours?';
+    console.log(tid);
+    console.log(allTech[tid]);
+    var html = '       <div class="topArea">    ';
+    if (allTech[tid].logo) {
+        if (allTech[tid].siteUrl.length > 0) {
+            html += ' <div class="startup-popup-logo"><a href="' + allTech[tid].siteUrl + '"  target="_blank"><img class="wp-post-image" postid="' + allTech[tid].techId + '" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></a></div>';
         }
-        else{
-            html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="'+allTech[tid].techId+'"></div>';
+        else {
+            html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="' + allTech[tid].techId + '" src="' + allTech[tid].logo[0] + '" alt="' + allTech[tid].title + '" ></div>';
         }
-    if (allTech[tid].siteUrl.length > 0){
+    }
+    else {
+        html += '<div class="startup-popup-logo"><img class="wp-post-image" postid="' + allTech[tid].techId + '"></div>';
+    }
+    if (allTech[tid].siteUrl.length > 0) {
         html += '               <a href="' + allTech[tid].siteUrl + '" class="title ellipsis" target="_blank">' + allTech[tid].title + '</a>';
-        }
+    }
     else {
         html += '               <div class="title ellipsis">' + allTech[tid].title + '</div>';
     }
     html += '               <div class="slogen">' + allTech[tid].slogen + '</div>';
     html += '       </div>    ';
 
-        html += '       <div class="socialArea">    ';
-      
-      html+='              <div data-url="'+fbUrl+'" id="inventLikeFb"class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
-     //  html+='              <a href="'+fbUrl+':void(0);" class="social fb" title="(Share on Facebook)"  target="_">Share on <span class="letter-space">Facbook</span></a>';
-        html+='             <div data-url="'+tweetUrl+'" id="inventTwiiwer" class="social twitter" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
-        html+='             <div data-url="'+linkedinUrl+'" id="inventLinkedin" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
-      // html+=              '<div id="inventLikeCount" class="fb-like" data-href="'+allTech[tid].permalink+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>';             
-       html += '          </div>    ';
+    html += '       <div class="socialArea">    ';
+
+    html += '              <div data-url="' + fbUrl + '" id="inventLikeFb"class="social fb" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
+    //  html+='              <a href="'+fbUrl+':void(0);" class="social fb" title="(Share on Facebook)"  target="_">Share on <span class="letter-space">Facbook</span></a>';
+    html += '             <div data-url="' + tweetUrl + '" id="inventTwiiwer" class="social twitter" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
+    html += '             <div data-url="' + linkedinUrl + '" id="inventLinkedin" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
+    // html+=              '<div id="inventLikeCount" class="fb-like" data-href="'+allTech[tid].permalink+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>';             
+    html += '          </div>    ';
 
 
 
     html += '       <div class="mainArea" id="inventpop">    ';
 
-    $('#inventLikeCount').attr('data-href',allTech[tid].permalink);
+    $('#inventLikeCount').attr('data-href', allTech[tid].permalink);
 
 
-    var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),$(".inventDescription .mainArea .movie iframe").height(),$(".inventDescription .mainArea .movie iframe").width());
+    var videoIframe = getEmbedMovie(getMovieDataByURL(allTech[tid].youtube), $(".inventDescription .mainArea .movie iframe").height(), $(".inventDescription .mainArea .movie iframe").width());
     if (videoIframe != undefined)
-        html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube),$(".inventDescription .mainArea .movie iframe").height(),$(".inventDescription .mainArea .movie iframe").width()) + '</div>';
-    if(allTech[tid].founder){
-            html += '<div class="name ellipsis"><b>Founders:</b> ' + allTech[tid].founder + '</div>';
-        }else{
-            html +='<br>';
-        }
-        html += '<div class="description">' + allTech[tid].descript + '</div>';
+        html += '            <div class="movie">' + getEmbedMovie(getMovieDataByURL(allTech[tid].youtube), $(".inventDescription .mainArea .movie iframe").height(), $(".inventDescription .mainArea .movie iframe").width()) + '</div>';
+    if (allTech[tid].founder) {
+        html += '<div class="name ellipsis"><b>Founders:</b> ' + allTech[tid].founder + '</div>';
+    } else {
+        html += '<br>';
+    }
+    html += '<div class="description">' + allTech[tid].descript + '</div>';
     html += '           <div class="gallery">    ';
     allTech[tid].startupImg.forEach(function (img) {
         if (img != "") {
@@ -959,38 +869,38 @@ function enable_scroll() {
 
     youtube = allTech[tid].youtube;
     startupImg = allTech[tid].startupImg;
-    
-    h=$(window).height();
-    $('body').css('overflow','hidden');
 
-   $('.mask').fadeIn(200, 'easeInOutBack');//.css('height',h+'px');
+    h = $(window).height();
+    $('body').css('overflow', 'hidden');
+
+    $('.mask').fadeIn(200, 'easeInOutBack'); //.css('height',h+'px');
     $('.inventDescription').fadeIn(100, 'easeInOutBack');
     $('.mask').addClass('mask-invent');
     $('html, body').animate({
-       // scrollTop: $("#invent-close").offset().top - 25
+        // scrollTop: $("#invent-close").offset().top - 25
     }, 1);
     $('.inventDescription-append').empty();
     var $inventDescription = $(html);
-   
+
     $('.inventDescription-append').append($inventDescription);
 
-     $(".socialArea").prepend('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button social" data-size="small" data-url="'+allTech[tid].permalink+'" data-text="@'+allTech[tid].title+' is my favorite EdTech startup. What\'s yours? #Edtech #Startups #Education" data-count="vertical">Tweet</a>');
-        if($('#single-startup-zone').hasClass('twitterF')){
-            twttr.widgets.load();
-        }
-        $('#single-startup-zone').addClass('twitterF');
-        
-        
-        $(".socialArea").prepend('<div class="fb-like social" data-href="'+allTech[tid].permalink+'&postid='+allTech[tid].techId+'&logo='+allTech[tid].logo[0]+'" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false" id="fbCount"></div>');
-        
+    $(".socialArea").prepend('<a href="https://twitter.com/share" id="twittCount" class="twitter-share-button social" data-size="small" data-url="' + allTech[tid].permalink + '" data-text="@' + allTech[tid].title + ' is my favorite EdTech startup. What\'s yours? #Edtech #Startups #Education" data-count="vertical">Tweet</a>');
+    if ($('#single-startup-zone').hasClass('twitterF')) {
+        twttr.widgets.load();
+    }
+    $('#single-startup-zone').addClass('twitterF');
+
+
+    $(".socialArea").prepend('<div class="fb-like social" data-href="' + allTech[tid].permalink + '&postid=' + allTech[tid].techId + '&logo=' + allTech[tid].logo[0] + '" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false" id="fbCount"></div>');
+
     //$('.inventDescription .mainArea .movie iframe').delay(200).fadeIn(500, 'easeInOutBack');
     //$('.inventDescription .mainArea').delay(600).fadeIn(200, 'easeInOutBack');
-     if($('#single-startup-zone').hasClass('twitterF')){
-           setTimeout(function(){twttr.widgets.load();},2000);
-        }
+    if ($('#single-startup-zone').hasClass('twitterF')) {
+        setTimeout(function () { twttr.widgets.load(); }, 2000);
+    }
     //facebookCommentsLink()
-    if(isMobile){
-    $(".mask").height($("#single-startup-zone").height());
+    if (isMobile) {
+        $(".mask").height($("#single-startup-zone").height());
     }
     return false;
 };
@@ -1023,45 +933,45 @@ function generalValidate() {
 }
 
 function form1Validate() {
-    
+
     $(".validate-error").hide();
-    
+
     //StartUp Name
     var title = validateEmptyInput($("#title"));
 
     //email not empty
-    var emailNotEmpty=validateEmptyInput($("#email"));
+    var emailNotEmpty = validateEmptyInput($("#email"));
 
     //Invet Name
     var invetName = validateEmptyInput($("#invetName"));
 
     //slogen
     //var slogen = validateEmptyInput($("#slogen"));
-    
+
     //slogen's length
     var slogen8 = slogenValidate($("#slogen"));
 
-    var selectOne=dropSelect();
+    var selectOne = dropSelect();
 
     //emails
     var email = emailValidate($("#email"));
     var emailFounder = emailValidate($("#founderMail"));
 
-    
-    
+
+
 
     //logo
     //var logo = validateLogo($(".title-logo.logoimg"));
 
-    if (selectOne==true &title & invetName & emailNotEmpty & (email == undefined || email) & (emailFounder == undefined || emailFounder)  & slogen8 )
+    if (selectOne == true & title & invetName & emailNotEmpty & (email == undefined || email) & (emailFounder == undefined || emailFounder) & slogen8)
         return true;
     return false;
 }
 
 function form2Validate() {
-    
+
     $(".validate-error").hide();
-    
+
     //StartUp Name
     var siteNotEmpty = validateEmptyInput($("#site"));
 
@@ -1117,52 +1027,52 @@ function emailValidate(input) {
     }
 }
 //validate description field
-function descriptionValidate(input){
+function descriptionValidate(input) {
     var words = $('#description').val().split(' ');
-     if ($('#description').val()=="" ){
+    if ($('#description').val() == "") {
         input.addClass("error");
         $("#validate-general-error").show();
         return false;
     }
-    else if (words.length>200 ){
+    else if (words.length > 200) {
         input.addClass("error");
         $("#validate-description-error").show();
         return false;
     }
-    else{
+    else {
         input.removeClass("error");
-           // $("#validate-description-error").hide();
-            //$("#validate-general-error").hide();
-            return true;
+        // $("#validate-description-error").hide();
+        //$("#validate-general-error").hide();
+        return true;
     }
 }
 
 //validate slogen field
-function slogenValidate(input){
+function slogenValidate(input) {
     var words = $('#slogen').val().split('');
-    if ( words.length>140 || input.val() == "") {
+    if (words.length > 140 || input.val() == "") {
         input.addClass("error");
         $("#validate-slogen-error").show();
-        if ( input.val() == "")
+        if (input.val() == "")
             $("#validate-general-error").show();
         return false;
     }
-    else{
+    else {
         input.removeClass("error");
         $("#validate-slogen-error").hide();
-        return true;        
+        return true;
     }
 }
 
 //validate selected
-function dropSelect(){
-    catVal=$('#category').val();
-    tagVal=$('#tags').val();
-    if(catVal=='none' && tagVal=='none'){
+function dropSelect() {
+    catVal = $('#category').val();
+    tagVal = $('#tags').val();
+    if (catVal == 'none' && tagVal == 'none') {
         $('select#category, select#tags').addClass('needSelect');
         $('#validate-select-error').show();
-            return false;    
-    }else{
+        return false;
+    } else {
         $('select#category, select#tags').removeClass('needSelect');
         $('#validate-select-error').hide();
         return true;
@@ -1177,14 +1087,11 @@ function validateSite(input) {
             input.val("http://" + input.val());
         }
     }
-    else{
+    else {
         $("#validate-general-error").show();
         return false;
     }
-    //var regexp = /^([a-z]([a-z]|\d|\+|-|\.)*):(\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?((\[(|(v[\da-f]{1,}\.(([a-z]|\d|-|\.|_|~)|[!\$&'\(\)\*\+,;=]|:)+))\])|((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=])*)(:\d*)?)(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*|(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)){0})(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
-    //if (!regexp.test(input.val())) {
-    //    alert("site no validate");
-    //}
+    
 }
 
 function validateLogo(img) {
@@ -1198,38 +1105,34 @@ function validateLogo(img) {
     return true;
 }
 
-function showArrowsStartups(){
- if ($(".inventors .inventList li").length > 12){
-     $("#inventScrollR .rightScroll-arrow").show();
-    // $("#inventScrollL .leftScroll-arrow").show();
- }else{
-     $("#inventScrollR .rightScroll-arrow").hide();
-     $("#inventScrollL .leftScroll-arrow").hide();
- } 
+function showArrowsStartups() {
+    if ($(".inventors .inventList li").length > 12) {
+        $("#inventScrollR .rightScroll-arrow").show();
+        $("#inventScrollL .leftScroll-arrow").show();
+    } else {
+        $("#inventScrollR .rightScroll-arrow").hide();
+        $("#inventScrollL .leftScroll-arrow").hide();
+    }
 }
-function showArrowsJudges(){
- if ($(".judgesContenar .judgesAvantar").length > 5){
-     $("#judgesR .rightScroll-arrow").show();
-     //$("#judgesL .leftScroll-arrow").show();
- }   
-}
-
-function showHighlight(){
-    //if homepage
-    if(window.location.search.length==0){
-        var best=allTech["fev"];
-        best=parseInt(best);
-        if(typeof best === 'number'){
-            $('#best-invent-title').text('Highlight of the day');
-            var html = '<img class="best-logo" src="'+allTech[best].logo[0]+'" alt="'+allTech[best].title+' logo">';
-            $('#best-logo-frame').empty().append(html);
-            var html = '<div class="best-description">'+allTech[best].descript+'</div>';
-            $('#best-invent-description').empty().append(html);
-        }
+function showArrowsJudges() {
+    if ($(".judgesContenar .judgesAvantar").length > 5) {
+        $("#judgesR .rightScroll-arrow").show();
+        $("#judgesL .leftScroll-arrow").show();
     }
 }
 
-function showForm2(){
+function showHighlight() {
+    //if homepage
+    if (window.location.search.length == 0) {
+        var best = allTech["fev"];
+        var html = '<img class="best-logo" src="' + allTech[best].logo[0] + '" alt="' + allTech[best].title + ' logo">';
+        $('#best-logo-frame').empty().append(html);
+        var html = '<div class="best-description">' + allTech[best].descript + '</div>';
+        $('#best-invent-description').empty().append(html);
+    }
+}
+
+function showForm2() {
     ga('send', 'event', 'button', 'click', 'add invent - 2');
     $('#formPart1').hide();
     $('#formPart2').show();
@@ -1237,85 +1140,85 @@ function showForm2(){
     $('#page-number-1').hide();
     $('#page-number-2').show();
 }
-function showPreviewForm(){
+function showPreviewForm() {
     $('.capchArea').show();
-                if(isMobile){
-                    $('#page-number-3').html("2/2");
-                }
-                else{
-                    $('.inventorPopUp').css('height','775px');
-                }
-                if(!isMobile){
-                    $('.triangle').css('bottom','250px');
-                }
-                ga('send', 'event', 'button', 'click', 'add invent - 3');
-                $('#formPart1').hide();
-                $('#formPart2').hide();
-                $('#page-number-1').hide();
-                $('#page-number-2').hide();
-                $('.next-page').css("display", "none");
-                $('#formPart3').show();
-                $('#page-number-3').show();
-                $('.submit input').css("display", "inline-block");
+    if (isMobile) {
+        $('#page-number-3').html("2/2");
+    }
+    else {
+        $('.inventorPopUp').css('height', '775px');
+    }
+    if (!isMobile) {
+        $('.triangle').css('bottom', '250px');
+    }
+    ga('send', 'event', 'button', 'click', 'add invent - 3');
+    $('#formPart1').hide();
+    $('#formPart2').hide();
+    $('#page-number-1').hide();
+    $('#page-number-2').hide();
+    $('.next-page').css("display", "none");
+    $('#formPart3').show();
+    $('#page-number-3').show();
+    $('.submit input').css("display", "inline-block");
 
-                if (document.getElementById("title").value) { var title = document.getElementById("title").value; } else { title = "no title"; }
-                //var logo = document.getElementById("logo").addEventListener('change', handleFileSelect, false);
-                
-                var slogen=document.getElementById("slogen").value;
-                var youtubeUrl = document.getElementById("youtubeUrl").value;
-                var invetName = document.getElementById("invetName").value;
-                var description = document.getElementById("description").value;
-                //var img1 = document.getElementById("img-1").addEventListener('change', handleFileSelect, false);
-                var founderShow = document.getElementById("founder").value;
+    if (document.getElementById("title").value) { var title = document.getElementById("title").value; } else { title = "no title"; }
+    //var logo = document.getElementById("logo").addEventListener('change', handleFileSelect, false);
+
+    var slogen = document.getElementById("slogen").value;
+    var youtubeUrl = document.getElementById("youtubeUrl").value;
+    var invetName = document.getElementById("invetName").value;
+    var description = document.getElementById("description").value;
+    //var img1 = document.getElementById("img-1").addEventListener('change', handleFileSelect, false);
+    var founderShow = document.getElementById("founder").value;
 
 
-                var html = '       <div class="topArea">    '
-                html += '           <div class="title ellipsis">' + title + '</div>';
-                html+='             <div class="slogen">'+ slogen+' </div>';
-                if(founderShow)
-                html += '           <div class="name ellipsis"><b>Founders:</b> ' + founderShow + '</div>';
-                
-                // html +=                 logo;
-                if (logoSrc != null)
-                    html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
-                html += '       </div>    ';
+    var html = '       <div class="topArea">    '
+    html += '           <div class="title ellipsis">' + title + '</div>';
+    html += '             <div class="slogen">' + slogen + ' </div>';
+    if (founderShow)
+        html += '           <div class="name ellipsis"><b>Founders:</b> ' + founderShow + '</div>';
 
-                html += '       <div class="mainArea">    ';
-                html += '           <div class="description">' + description + '</div>';
+    // html +=                 logo;
+    if (logoSrc != null)
+        html += '     <div class="startup-logo-form">  <img class="logo" src="' + logoSrc + '" alt="' + title + ' logo">   </div> ';
+    html += '       </div>    ';
 
-                
+    html += '       <div class="mainArea">    ';
+    html += '           <div class="description">' + description + '</div>';
 
-                html += '           <div class="gallery">    ';
-                if(youtubeUrl){
-                    html+='         <div >'+getEmbedMovie(getMovieDataByURL(youtubeUrl),77,119)+'</div>';
-                }
-                if (ImgSrc1 != null)
-                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc1 + '" alt="' + title + ' img1">  </div>  ';
-                if (ImgSrc2 != null)
-                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc2 + '" alt="' + title + ' img2">  </div>   ';
-                if (ImgSrc3 != null)
-                    html += '           <div>    <img class="gallery-img" src="' + ImgSrc3 + '" alt="' + title + ' img3"> </div>    ';
-                html += '           </div>    ';
-                html += '       </div>    ';
-                html += '       <div class="bottomArea">    ';
-                html += '           <label for="ads">';
-                html += '               <input type="checkbox" id="ads" name="ads" value="yes" checked>';
-                html += '               <span></span>I wish to receive interesting information about new EdTech startups.<br><br>';
-                html += '           </label>    ';
-                html += '           <label for="terms">';
-                html += '               <input type="checkbox" id="terms" name="terms" checked>';
-                html += '               <span></span> I accept the <a href="#" id="terms" target="_blank">terms</a> of the Global EdTech Startups Awards.<br>';
-                html += '           </label>    ';
-                html += '       </div>    ';
 
-                var $inventDescription = $(html);
-                $inventDescription.find('iframe').addClass("gallery-img");
-                $('#formPart3').empty().prepend($inventDescription);
+
+    html += '           <div class="gallery">    ';
+    if (youtubeUrl) {
+        html += '         <div >' + getEmbedMovie(getMovieDataByURL(youtubeUrl), 77, 119) + '</div>';
+    }
+    if (ImgSrc1 != null)
+        html += '           <div>    <img class="gallery-img" src="' + ImgSrc1 + '" alt="' + title + ' img1">  </div>  ';
+    if (ImgSrc2 != null)
+        html += '           <div>    <img class="gallery-img" src="' + ImgSrc2 + '" alt="' + title + ' img2">  </div>   ';
+    if (ImgSrc3 != null)
+        html += '           <div>    <img class="gallery-img" src="' + ImgSrc3 + '" alt="' + title + ' img3"> </div>    ';
+    html += '           </div>    ';
+    html += '       </div>    ';
+    html += '       <div class="bottomArea">    ';
+    html += '           <label for="ads">';
+    html += '               <input type="checkbox" id="ads" name="ads" value="yes" checked>';
+    html += '               <span></span>I wish to receive interesting information about new EdTech startups.<br><br>';
+    html += '           </label>    ';
+    html += '           <label for="terms">';
+    html += '               <input type="checkbox" id="terms" name="terms" checked>';
+    html += '               <span></span> I accept the <a href="#" id="terms" target="_blank">terms</a> of the Global EdTech Startups Awards.<br>';
+    html += '           </label>    ';
+    html += '       </div>    ';
+
+    var $inventDescription = $(html);
+    $inventDescription.find('iframe').addClass("gallery-img");
+    $('#formPart3').empty().prepend($inventDescription);
 }
-function showForm4(){
-   
-    if ($('#formPart4').hasClass('show')){
-         ga('send', 'event', 'button', 'click', 'add invent - success');
+function showForm4() {
+
+    if ($('#formPart4').hasClass('show')) {
+        ga('send', 'event', 'button', 'click', 'add invent - success');
         $('#offer-zone').show();
         $('.next-page').css("display", "none");
         $('.last-page').css("display", "none");
@@ -1326,20 +1229,19 @@ function showForm4(){
         $('#formPart4').show();
         //$('#formPart4').css("display", "inline-block");
     }
-    else{
-         $('#offer-zone').hide();
+    else {
+        $('#offer-zone').hide();
     }
 }
 
-function openInNewWindow(url, width, height)
-   {
-    var win=window.open(url, '_blank', menubar=0, height=100, width=100);
+function openInNewWindow(url, width, height) {
+    var win = window.open(url, '_blank', menubar = 0, height = 100, width = 100);
     //win.focus();
     return false;
 }
 
-function ascii(url){
-    var urlAscii=url.split('3').join('%33').split('1').join('%31').split('2').join('%32').split('4').join('%34').split('5').join('%35').split('6').join('%36').split('7').join('%37').split('8').join('%38').split('9').join('%39').split('0').join('%30').split('#').join('%23').split(':').join('%3A').split('/').join('%2F');
+function ascii(url) {
+    var urlAscii = url.split('3').join('%33').split('1').join('%31').split('2').join('%32').split('4').join('%34').split('5').join('%35').split('6').join('%36').split('7').join('%37').split('8').join('%38').split('9').join('%39').split('0').join('%30').split('#').join('%23').split(':').join('%3A').split('/').join('%2F');
     return urlAscii;
 }
 
@@ -1353,13 +1255,13 @@ function ascii(url){
 /////////////////////////////////////////////////////////////////////////end validation
 
 /////////////////////////////////////////////////////////////////////////start google map
- 
+
 var map;
 var markers = [];
 var favoritesByMarker = [];
- 
+
 function initMap() {
- if($("#map").length!=0){
+    if ($("#map").length != 0) {
         // Create an array of styles.
         var styles = [
             {
@@ -1375,36 +1277,76 @@ function initMap() {
             ]
             }
         ];
- 
+
         // Create a new StyledMapType object, passing it the array of styles,
         // as well as the name to be displayed on the map type control.
         var styledMap = new google.maps.StyledMapType(styles,
         { name: "Styled Map" });
-         var mapZoom=1;
-         if(isMobile){
-             mapZoom=0;
-         }
+        var mapZoom = 1;
+        if (isMobile) {
+            mapZoom = 0;
+        }
         var options = {
             streetViewControl: false,
             center: new google.maps.LatLng(0, 0),
             zoom: mapZoom,
-        //    disableDefaultUI: true,
-        //disableDoubleClickZoom: true,
+            //    disableDefaultUI: true,
+            //disableDoubleClickZoom: true,
             draggable: true,
-          //  maxZoom:1,
-            minZoom:mapZoom
+            //  maxZoom:1,
+            minZoom: mapZoom
 
         };
- 
+
         map = new google.maps.Map(document.getElementById("map"), options);
- 
+
+        google.maps.event.addListener(map, 'center_changed', function () {
+            checkBounds(map);
+        });
+
         //Associate the styled map with the MapTypeId and set it to display.
         map.mapTypes.set('map_style', styledMap);
         map.setMapTypeId('map_style');
- 
+
         setMarkers(saveVotesData);
     }
 }
+
+
+// If the map position is out of range, move it back
+function checkBounds(map) {
+
+    var latNorth = map.getBounds().getNorthEast().lat();
+    var latSouth = map.getBounds().getSouthWest().lat();
+    var newLat;
+
+    console.log("check bounds " + latNorth + " " + latSouth);
+
+    if (latNorth < 85 && latSouth > -85)     /* in both side -> it's ok */
+        return;
+    else {
+        if (latNorth > 85 && latSouth < -85)   /* out both side -> it's ok */
+            return;
+        else {
+
+            if (latNorth > 85)
+                newLat = map.getCenter().lat() - (latNorth - 85);   /* too north, centering */
+            if (latSouth < -85)
+                newLat = map.getCenter().lat() - (latSouth + 85);   /* too south, centering */
+        }
+
+
+    }
+
+    if (newLat) {
+        console.log("current center" + map.getCenter());
+        var newCenter = new google.maps.LatLng(newLat, map.getCenter().lng());
+        console.log("setting new center" + newCenter);
+        map.setCenter(newCenter);
+    }
+
+}
+
 var placeInsaveVotesData = 0;
 var savePlaceInVotesData = [];
 // Add a marker to the map and push to the array.
@@ -1414,18 +1356,18 @@ function addMarker(location) {
         map: map
     });
     markers.push(marker);
- 
+
     //save favorites linked to the marker
     savePlaceInVotesData[marker.__gm_id] = placeInsaveVotesData++;
- 
+
     google.maps.event.addListener(marker, 'click', function () {
         var key = savePlaceInVotesData[marker.__gm_id];
         buildMarkerPopupHTML(key);
     });
 }
- 
+
 function setMarkers(allMarkers) {
- 
+
     for (marker in allMarkers) {
         //convert to latLng
         var myLatlng = new google.maps.LatLng(parseFloat(allMarkers[marker].lat), parseFloat(allMarkers[marker].lon));
@@ -1438,128 +1380,120 @@ function setMarkers(allMarkers) {
         console.log(markers[i]);
     }
 }
- 
+
 function buildMarkerPopupHTML(key) {
 
-    ga('send', 'pageview',saveVotesData[key].title);
+    ga('send', 'pageview', saveVotesData[key].title);
     console.log(saveVotesData[key].logo[0]);
     console.log(saveVotesData[key].descript);
     console.log(saveVotesData[key].title);
-    var globalUrl=document.URL.split("#")[0];
-        domUrl=document.URL;
-        domUrlTweet=domUrl.replace('#','%23');
-        domComments=ascii(domUrl);
-        domLikes=globalUrl+'?votes='+saveVotesData[key].title;
-        domLikes=domLikes.split(" ").join("-");
-        domLikes=domLikes.toLowerCase();
-        permalink=saveVotesData[key].permalink;
+    var globalUrl = document.URL.split("#")[0];
+    domUrl = document.URL;
+    domUrlTweet = domUrl.replace('#', '%23');
+    domComments = ascii(domUrl);
+    domLikes = globalUrl + '?votes=' + saveVotesData[key].title;
+    domLikes = domLikes.split(" ").join("-");
+    domLikes = domLikes.toLowerCase();
+    permalink = saveVotesData[key].permalink;
 
-    $('#comments-marker').attr("src",globalUrl+'comment.php?url='+saveVotesData[key].parmalink+'&text='+saveVotesData[key].title+'&img='+saveVotesData[key].logo[0]+'&url='+saveVotesData[key].parmalink);
+    $('#comments-marker').attr("src", globalUrl + 'comment.php?url=' + saveVotesData[key].parmalink + '&text=' + saveVotesData[key].title + '&img=' + saveVotesData[key].logo[0] + '&url=' + saveVotesData[key].parmalink);
 
 
-    var fbUrl='http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+saveVotesData[key].parmalink+'&p[title]=Global EdTech Startup Awards 2014&p[summary]='+saveVotesData[key].title +'  favorite EdTech startup.?&p[images][0]='+ saveVotesData[key].logo[0];//'&p[summary]='+ascii(domUrl)+
-    var tweetUrl='http://twitter.com/intent/tweet?text='+ saveVotesData[key].title +' favorite EdTech startup. ';
-    var linkedinUrl='http://www.linkedin.com/shareArticle?mini=true&amp;url='+ saveVotesData[key].parmalink+'&amp;title=Global EdTech Startup Awards 2014&summary='+ saveVotesData[key].title+' favorite EdTech startup.';
-    
-   var html = '<div class="topArea">    '
+    var fbUrl = 'http://www.facebook.com/sharer/sharer.php?s=100&p[url]=' + saveVotesData[key].parmalink + '&p[title]=Global EdTech Startup Awards 2014&p[summary]=' + saveVotesData[key].title + '  favorite EdTech startup.?&p[images][0]=' + saveVotesData[key].logo[0]; //'&p[summary]='+ascii(domUrl)+
+    var tweetUrl = 'http://twitter.com/intent/tweet?text=' + saveVotesData[key].title + ' favorite EdTech startup. ';
+    var linkedinUrl = 'http://www.linkedin.com/shareArticle?mini=true&amp;url=' + saveVotesData[key].parmalink + '&amp;title=Global EdTech Startup Awards 2014&summary=' + saveVotesData[key].title + ' favorite EdTech startup.';
+
+    var html = '<div class="topArea">    '
     if (saveVotesData[key].logo)
         html += '<div class="startup-popup-logo">  <img class="wp-post-image logo" src="' + saveVotesData[key].logo[0] + '" alt="' + saveVotesData[key].title + ' logo">   </div> ';
     html += '</div>    ';
- 
+
     html += '<div class="mainArea">    ';
- 
+
     html += '<div class="popup-title">' + saveVotesData[key].title + '</div>';
- 
+
     html += '<div class="description"><p dir="ltr" style="text-align: left;">' + saveVotesData[key].descript + '</p></div>';
- 
+
     html += '<div class="startups-gallery">    ';
- 
+
     html += '<div class="startups-gallery-header">';
-//    html += '   <img class="gallery-img" src="'+ globalUrl +'wp-content/uploads/2014/01/final-logo2.png" alt="Class Messenger">';
+    //    html += '   <img class="gallery-img" src="'+ globalUrl +'wp-content/uploads/2014/01/final-logo2.png" alt="Class Messenger">';
     html += '   <span>Our Top 10 Startups</span>';
     html += '</div>';
- 
+
     for (var favorite in saveVotesData[key].favId) {
         console.log(allTech[saveVotesData[key].favId[favorite]]);
         html += '<div class="startups-gallery-item">';
-       
-       if(allTech[saveVotesData[key].favId[favorite]].logo[0]){
-         html += '<div class="startups-gallery-item-frame">';
-            html +='<a href="#"  class="mapOpenInvent" date-id="'+allTech[saveVotesData[key].favId[favorite]].techId+'">';
+
+        if (allTech[saveVotesData[key].favId[favorite]].logo[0]) {
+            html += '<div class="startups-gallery-item-frame">';
+            html += '<a href="#"  class="mapOpenInvent" date-id="' + allTech[saveVotesData[key].favId[favorite]].techId + '">';
             html += '<img class="gallery-img" src="' + allTech[saveVotesData[key].favId[favorite]].logo[0] + '" alt="Class Messenger">';
-            html +='</a>';
-         html += '   </div>';
-           
+            html += '</a>';
+            html += '   </div>';
+
         }
-        html += '<div class="leftSide"><span class="gallery-description title"><a href="#" class="mapOpenInvent" date-id="'+allTech[saveVotesData[key].favId[favorite]].techId+'">' + allTech[saveVotesData[key].favId[favorite]].title + '</a></span>';
+        html += '<div class="leftSide"><span class="gallery-description title"><a href="#" class="mapOpenInvent" date-id="' + allTech[saveVotesData[key].favId[favorite]].techId + '">' + allTech[saveVotesData[key].favId[favorite]].title + '</a></span>';
         html += '<span class="gallery-description">' + allTech[saveVotesData[key].favId[favorite]].slogen + '</span>';
-        if(allTech[saveVotesData[key].favId[favorite]].founder)
-        html += '<span class="gallery-description"><b>Founder: </b>' + allTech[saveVotesData[key].favId[favorite]].founder + '</span>';
+        if (allTech[saveVotesData[key].favId[favorite]].founder)
+            html += '<span class="gallery-description"><b>Founder: </b>' + allTech[saveVotesData[key].favId[favorite]].founder + '</span>';
         html += ' </div>  </div>';
     }
     html += '   </div>';
     html += '</div>';
- 
-    html+= '       <div class="socialArea">    ';
-    html+='              <div  data-url="'+fbUrl+'" id="inventLikeFb"class="social fb mapSocial" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
-    html+='             <div  data-url="'+tweetUrl+'" id="inventTwiiwer" class="social twitter mapSocial" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
-    html+='             <div  data-url="'+linkedinUrl+'" id="inventLinkedin" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
+
+    html += '       <div class="socialArea">    ';
+    html += '              <div  data-url="' + fbUrl + '" id="inventLikeFb"class="social fb mapSocial" title="(Share on Facebook)" >Share on <span class="letter-space">Facbook</span></div>';
+    html += '             <div  data-url="' + tweetUrl + '" id="inventTwiiwer" class="social twitter mapSocial" title="(Tweet This Link)" >Share on <span class="letter-space">Twitter</span></div>';
+    html += '             <div  data-url="' + linkedinUrl + '" id="inventLinkedin" class="social linkedin" title="(Share on Linkedin)" >Share on <span class="letter-space">LinkedIn</span></div>';
     html += '          </div>    ';
-    
+
     var $inventDescription = $(html);
     $('.popupDescription-append').empty().append($inventDescription);
 
     //add key-id to marker section
-    $("#marker-popup").attr("marker-id",key);
+    $("#marker-popup").attr("marker-id", key);
 
-    h=$(window).height();
-    $('body').css('overflow','hidden');
-    
-    $('.mask').fadeIn(200, 'easeInOutBack');//.css('height',h+'px');;
+    h = $(window).height();
+    $('body').css('overflow', 'hidden');
+
+    $('.mask').fadeIn(200, 'easeInOutBack'); //.css('height',h+'px');;
     $('#marker-popup').fadeIn(100, 'easeInOutBack');
     //$('.mask').addClass('mask-invent');
     $('html, body').animate({
         scrollTop: $("#invent-close").offset().top - 25
     }, 1);
-    
-    
 
 
-//$('body').on('click','.mapOpenInvent',function(e){
-//    tid=$(this).attr('date-id');
-//    $('#marker-popup').fadeOut(300, 'easeInOutBack');
-//    popuopInvent(tid);
-//    e.preventDefault()
-//    return false;
-// });
+
+
+    //$('body').on('click','.mapOpenInvent',function(e){
+    //    tid=$(this).attr('date-id');
+    //    $('#marker-popup').fadeOut(300, 'easeInOutBack');
+    //    popuopInvent(tid);
+    //    e.preventDefault()
+    //    return false;
+    // });
 }
- 
-//$("#marker-popup").on("click",".close",function(){
-//    $('#marker-popup').fadeOut(600, 'easeInOutBack');
-//});
-// 
- 
- 
+
 //////////////////////////////end google map///////////////////////////////////////////
 
 //upload file button - wotre for ie but now all browsers use it
-function getFile(id){
-   $(id).click();
- }
- function sub(obj){
+function getFile(id) {
+    $(id).click();
+}
+function sub(obj) {
     var file = obj.value;
     var fileName = file.split("\\");
-    document.getElementById("yourBtn").innerHTML = fileName[fileName.length-1];
+    document.getElementById("yourBtn").innerHTML = fileName[fileName.length - 1];
     document.myForm.submit();
     event.preventDefault();
-  }
+}
 
-  function openNewsletter(){
+function openNewsletter() {
     $("#newsletter-btn").addClass("selected");
-    h=$(window).height();
+    h = $(window).height();
     preventBodyToScroll();
-    //$('body').css('overflow','hidden');
-    //$('body').bind('touchmove', function(e){e.preventDefault()});
     $("#newsletter-popup-title").show();
     $("#registerNews").show();
     $("#newsletter-popup-sign-btn").show();
@@ -1567,138 +1501,129 @@ function getFile(id){
 
     $("#newsletter-popup").show();
     $("#newsletter-popup-sign-btn").show();
-    $('.mask').fadeIn(200, 'easeInOutBack').css('height','100%');
-  }
+    $('.mask').fadeIn(200, 'easeInOutBack').css('height', '100%');
+}
 
-  function closeNewsletter(){
-      $("#newsletter-btn").removeClass("selected");
+function closeNewsletter() {
+    $("#newsletter-btn").removeClass("selected");
     $("#newsletter-popup").hide();
-     $('.mask').fadeOut('fast');
-     bodyReturnScroll();
-     //$('body').unbind('touchmove');
-  }
+    $('.mask').fadeOut('fast');
+    bodyReturnScroll();
+}
 
-  function signToNewsletter(){
-      var mail=$("#newsletter-popup input")
-      if(emailValidate(mail)){
-         emailUser=$('#registerNews').val();
-            
-            jQuery.post('wp-admin/admin-ajax.php', {
-                        mail:emailUser,
-                        action: 'registerNews'
-                    }
-                    ,
-                    function(data) {
-                        if(data==1){
-                            //$('#newsletter-btn').removeClass();
-                            // $("#newsletter-popup,.mask").hide();
-                            //To do
-                            $("#newsletter-popup-title").hide();
-                            $("#registerNews").hide();
-                            $("#newsletter-popup-error").hide();
-                            $("#newsletter-popup-sign-btn").hide();
-                            $("#newsletter-success").show();
-                            setTimeout(function() {
-                                $('.mask').click();
-                            },2000);
-                            
-                            
-                        }
-            }); 
-        
-      }
-      else{
-          $("#newsletter-popup-error").fadeIn(200, 'easeInOutBack');
-      }
-  }
- 
-  //set offerStartUp btn for mobile
-  function resizOfferStartUpDiv(){      
-      $("#offerStartUp").css("line-height",$("#offerStartUp").height()+"px");
-  }
+function signToNewsletter() {
+    var mail = $("#newsletter-popup input")
+    if (emailValidate(mail)) {
+        emailUser = $('#registerNews').val();
 
-  function setStartupUl(){
-   
-    var numOfLiInUl=3;
+        jQuery.post('wp-admin/admin-ajax.php', {
+            mail: emailUser,
+            action: 'registerNews'
+        }
+					,
+					function (data) {
+					    if (data == 1) {
+					        //To do
+					        $("#newsletter-popup-title").hide();
+					        $("#registerNews").hide();
+					        $("#newsletter-popup-error").hide();
+					        $("#newsletter-popup-sign-btn").hide();
+					        $("#newsletter-success").show();
+					        setTimeout(function () {
+					            $('.mask').click();
+					        }, 2000);
+
+
+					    }
+					});
+
+    }
+    else {
+        $("#newsletter-popup-error").fadeIn(200, 'easeInOutBack');
+    }
+}
+
+//set offerStartUp btn for mobile
+function resizOfferStartUpDiv() {
+    $("#offerStartUp").css("line-height", $("#offerStartUp").height() + "px");
+}
+
+function setStartupUl() {
+    var numOfLiInUl = 3;
     //display of mobile
-    if(isMobile){
-        numOfLiInUl=2;    
+    if (isMobile) {
+        numOfLiInUl = 2;
     }
 
-    var html='<ul class="inventList">  ';
-    $(".inventList li").each(function(i){
+    var html = '<ul class="inventList">  ';
+    $(".inventList li").each(function (i) {
         //if insert to exist ul or create new 
-        if(i%numOfLiInUl==0){
-            html+='</ul><ul class="inventList">';
+        if (i % numOfLiInUl == 0) {
+            html += '</ul><ul class="inventList">';
         }
-        html+=$(this).get(0).outerHTML;
-        
-    });
-    html+='</ul>';
-    
-     $(".inventList").remove();
+        html += $(this).get(0).outerHTML;
 
-    // 
-    // if($(html).find(".inventList:last").html()==""){
-    //    $html.last().remove();
-    //}
+    });
+    html += '</ul>';
+
+    $(".inventList").remove();
 
     $("#scrollInventorCon .placholderSlide:first").after(html);
     $(".inventList:first").remove();
-  }
+}
 
-  //update if in mobile design or pc.  
-  function dispalyOption(){
-      var $header=$(".header");
-      isMobile=false;
-      if($(".header").height()==58){
-      //if($("#offer-zone").width()==$("body").width()){
-          isMobile=true;
-          if($header.hasClass("cf")){
-              $header.removeClass("cf");
-          }
-      }
-      else{
-          if(!$header.hasClass("cf")){
-              $header.addClass("cf");
-          }
-      }
-  }
+//update if in mobile design or pc.  
+function dispalyOption() {
+    var $header = $(".header");
+    isMobile = false;
+    if ($(".header").height() == 58) {
+        //if($("#offer-zone").width()==$("body").width()){
+        isMobile = true;
+        if ($header.hasClass("cf")) {
+            $header.removeClass("cf");
+        }
+    }
+    else {
+        if (!$header.hasClass("cf")) {
+            $header.addClass("cf");
+        }
+    }
+}
 
-  //open sub menu
-  function openSubMenu(){
-      if(isMobile){
-      $("#sum-menu-mobile").toggle();
-      return false;
-      }
-  }
+//open sub menu
+function openSubMenu() {
+    if (isMobile) {
+        $("#sum-menu-mobile").toggle();
+        return false;
+    }
+}
 
-  function closeSubMenu(){
-      $("#sum-menu-mobile").fadeOut();
-  }
+function closeSubMenu() {
+    $("#sum-menu-mobile").fadeOut();
+}
 
-  function getNextStartup(e){
-      e.preventDefault();
-      var currentId=$(".startup-popup-logo img").attr("postid");
-      var currentIndex=allTechArray.indexOf(currentId);
-      if(currentIndex<allTechArray.length-2){
-        popuopInvent(allTechArray[currentIndex+1]);
-      }
-  }
+function getNextStartup(e) {
+    e.preventDefault();
+    var currentId = $(".startup-popup-logo img").attr("postid");
+    var currentIndex = allTechArray.indexOf(currentId);
+    if (currentIndex < allTechArray.length - 2) {
+        popuopInvent(allTechArray[currentIndex + 1]);
+    }
+}
 
-  function getPrevStartup(e){
-      e.preventDefault();
-      var currentId=$(".startup-popup-logo img").attr("postid");
-      var currentIndex=allTechArray.indexOf(currentId);
-      if(currentIndex!=0){
-        popuopInvent(allTechArray[currentIndex-1]);
-      }
-  }
+function getPrevStartup(e) {
+    e.preventDefault();
+    var currentId = $(".startup-popup-logo img").attr("postid");
+    var currentIndex = allTechArray.indexOf(currentId);
+    if (currentIndex != 0) {
+        popuopInvent(allTechArray[currentIndex - 1]);
+    }
+}
 
-  function preventBodyToScroll(){
-    $('body').on('wheel.modal mousewheel.modal', function () {return false;});
-  }
+function preventBodyToScroll() {
+    $('body').on('wheel.modal mousewheel.modal', function () { return false; });
+}
 
-  function bodyReturnScroll(){
-      $('body').off('wheel.modal mousewheel.modal');
-  }
+function bodyReturnScroll() {
+    $('body').off('wheel.modal mousewheel.modal');
+}

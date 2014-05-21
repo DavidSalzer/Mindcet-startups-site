@@ -16,16 +16,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'mindset_wp');
+define('DB_NAME', 'mindEd');
 
 /** MySQL database username */
-define('DB_USER', 'mindcetTest');
+define('DB_USER', 'mindcet');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'mindcetTest');
+define('DB_PASSWORD', 'mindcetEd');
 
 /** MySQL hostname */
-define('DB_HOST', 'mindcettest.co.il.tigris.nethost.co.il');
+define('DB_HOST', 'mindcet.co.il.tigris.nethost.co.il');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');

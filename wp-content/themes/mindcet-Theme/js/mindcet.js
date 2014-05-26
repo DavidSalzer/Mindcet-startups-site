@@ -133,15 +133,70 @@ $(document).ready(function (e) {
     //    checkInventScroll();   
     //});
 
+    //$('#judgesR').on('click', this, function () {
+    //    scrollVal = $('.judgesContenar').scrollLeft() + 300;
+    //    $('.judgesContenar').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
+    //});
+
+    //$('#judgesL').on('click', this, function () {
+    //    scrollVal = $('.judgesContenar').scrollLeft() - 300;
+    //    $('.judgesContenar').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
+    //});
+
     $('#judgesR').on('click', this, function () {
         scrollVal = $('.judgesContenar').scrollLeft() + 300;
         $('.judgesContenar').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
+        
+        jcon=$('.judgesContenar .placholderSlide').length;
+        conw=$('.judgesContenar .placholderSlide').width();
+        av=$('.judgesContenar .judgesAvantar').length;
+        avw=$('.judgesContenar .judgesAvantar').width();//border and margin
+
+
+
+        allw=(jcon*conw)+(av*avw)-$('#judgesCon').width();
+
+        console.log(scrollVal+' '+allw);
+        if(scrollVal<=0){
+            $('#judgesL .leftScroll-arrow').hide();
+        }else{
+            $('#judgesL .leftScroll-arrow').show();
+        }
+
+        if(scrollVal>allw){
+            $('#judgesR .rightScroll-arrow').hide();
+        }else{
+            $('#judgesR .rightScroll-arrow').show();
+        }
+        
     });
 
     $('#judgesL').on('click', this, function () {
         scrollVal = $('.judgesContenar').scrollLeft() - 300;
         $('.judgesContenar').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
+        
+        jcon=$('.judgesContenar .placholderSlide').length;
+        conw=$('.judgesContenar .placholderSlide').width();
+        av=$('.judgesContenar .judgesAvantar').length;
+        avw=$('.judgesContenar .judgesAvantar').width();//border and margin
+
+
+
+        allw=(jcon*conw)+(av*avw)-$('#judgesCon').width();
+     console.log(scrollVal+' '+allw);
+
+        $('#judgesR .rightScroll-arrow').show();
+
+        if(scrollVal<=0){
+            $('#judgesL .leftScroll-arrow').hide();
+        }else{
+            $('#judgesL .leftScroll-arrow').show();
+        }
+
+
+
     });
+
 
     //-------form------
 
@@ -1221,7 +1276,7 @@ function showArrowsStartups() {
 function showArrowsJudges() {
     if ($(".judgesContenar .judgesAvantar").length > 5) {
         $("#judgesR .rightScroll-arrow").show();
-        $("#judgesL .leftScroll-arrow").show();
+        //$("#judgesL .leftScroll-arrow").show();
     }
 }
 

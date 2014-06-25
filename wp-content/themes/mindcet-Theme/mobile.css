@@ -9,6 +9,10 @@
         overflow-x: scroll;
         overflow-y: hidden;
     }
+
+.winner,.finalList{    
+    width: 110px;
+}
  .leftScroll-arrow, .rightScroll-arrow {
         
         display: none !important;
@@ -658,7 +662,7 @@ text-indent: 0;
         width: 100%;
     }
 
-    select#categoryNav, select#tagsNav {
+    select#categoryNav, select#tagsNav, select#yearNav {
         width: 50%;
         font-size: 11px;
         height: 23px;
@@ -670,7 +674,10 @@ text-indent: 0;
     .page-wrap.inventors, .rightScroll, .leftScroll, .inventList {
         height: 229px;
     }
-
+.winner,.finalList{
+    right: 2px;  
+     width: 90px;  
+}
     #scrollInventorCon {
         height: 100%;
         overflow-x: scroll;

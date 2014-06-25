@@ -11,8 +11,6 @@ $(document).ready(function (e) {
 
     $(".invent-next").on("swipe", function () { alert("You swiped ") });
 
-
-
     $("#newsletter-btn").on("click", openNewsletter);
     $("#newsletter-popup-sign-btn").on("click", signToNewsletter);
     $(".tagLogo").on("click", openSubMenu);
@@ -101,95 +99,54 @@ $(document).ready(function (e) {
         }
 
     });
-    //$('#inventScrollR').on('click', this, function () {
-    //    var offsetToScroll = $(".inventList").width() * 2;
-    //    if (isMobile) {
-    //        offsetToScroll = $(".inventList").width();
-    //    }
-    //    scrollVal = $('#scrollInventorCon').scrollLeft() + offsetToScroll;
-
-    //    $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
-
-    //    //checkInventScrollR(scrollVal);
-
-
-    //});
-
-    //$('#inventScrollL').on('click', this, function () {
-    //    var offsetToScroll = $(".inventList").width() * 2;
-    //    if (isMobile) {
-    //        offsetToScroll = $(".inventList").width();
-    //    }
-    //    scrollVal = $('#scrollInventorCon').scrollLeft() - offsetToScroll;
-    //    $('#scrollInventorCon').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
-    //    //checkInventScrollL(scrollVal);
-
-
-    //});
-
-    //$("#scrollInventorCon").on("scroll", function () {       
-    //    checkInventScroll();    
-    //}).finish(function () {
-    //    checkInventScroll();   
-    //});
-
-    //$('#judgesR').on('click', this, function () {
-    //    scrollVal = $('.judgesContenar').scrollLeft() + 300;
-    //    $('.judgesContenar').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
-    //});
-
-    //$('#judgesL').on('click', this, function () {
-    //    scrollVal = $('.judgesContenar').scrollLeft() - 300;
-    //    $('.judgesContenar').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
-    //});
 
     $('#judgesR').on('click', this, function () {
         scrollVal = $('.judgesContenar').scrollLeft() + 300;
         $('.judgesContenar').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
-        
-        jcon=$('.judgesContenar .placholderSlide').length;
-        conw=$('.judgesContenar .placholderSlide').width();
-        av=$('.judgesContenar .judgesAvantar').length;
-        avw=$('.judgesContenar .judgesAvantar').width();//border and margin
+
+        jcon = $('.judgesContenar .placholderSlide').length;
+        conw = $('.judgesContenar .placholderSlide').width();
+        av = $('.judgesContenar .judgesAvantar').length;
+        avw = $('.judgesContenar .judgesAvantar').width(); //border and margin
 
 
 
-        allw=(jcon*conw)+(av*avw)-$('#judgesCon').width();
+        allw = (jcon * conw) + (av * avw) - $('#judgesCon').width();
 
-        console.log(scrollVal+' '+allw);
-        if(scrollVal<=0){
+        console.log(scrollVal + ' ' + allw);
+        if (scrollVal <= 0) {
             $('#judgesL .leftScroll-arrow').hide();
-        }else{
+        } else {
             $('#judgesL .leftScroll-arrow').show();
         }
 
-        if(scrollVal>allw){
+        if (scrollVal > allw) {
             $('#judgesR .rightScroll-arrow').hide();
-        }else{
+        } else {
             $('#judgesR .rightScroll-arrow').show();
         }
-        
+
     });
 
     $('#judgesL').on('click', this, function () {
         scrollVal = $('.judgesContenar').scrollLeft() - 300;
         $('.judgesContenar').animate({ scrollLeft: scrollVal }, 500, 'easeOutBack');
-        
-        jcon=$('.judgesContenar .placholderSlide').length;
-        conw=$('.judgesContenar .placholderSlide').width();
-        av=$('.judgesContenar .judgesAvantar').length;
-        avw=$('.judgesContenar .judgesAvantar').width();//border and margin
+
+        jcon = $('.judgesContenar .placholderSlide').length;
+        conw = $('.judgesContenar .placholderSlide').width();
+        av = $('.judgesContenar .judgesAvantar').length;
+        avw = $('.judgesContenar .judgesAvantar').width(); //border and margin
 
 
 
-        allw=(jcon*conw)+(av*avw)-$('#judgesCon').width();
-     console.log(scrollVal+' '+allw);
+        allw = (jcon * conw) + (av * avw) - $('#judgesCon').width();
+        console.log(scrollVal + ' ' + allw);
 
         $('#judgesR .rightScroll-arrow').show();
 
-        if(scrollVal<=0){
+        if (scrollVal <= 0) {
             $('#judgesL .leftScroll-arrow').hide();
-        }else{
+        } else {
             $('#judgesL .leftScroll-arrow').show();
         }
 
@@ -507,7 +464,6 @@ $(document).ready(function (e) {
     $(document).on('scroll', this, function () {
         //display of mobile
         if (!isMobile) {
-            console.log($(document).scrollTop());
             setTimeout(function () {
                 if ($(document).scrollTop() > 550) {
                     $('#offer-zone').fadeOut("slow");
@@ -523,37 +479,18 @@ $(document).ready(function (e) {
         //setIframe();
     });
     $('#best-logo-frame').on('click', this, function () {
-        //tid = $(this).attr('idtec');
-        popuopInvent(allTech["fev"]);
+        //if there is not startup favorite
+        if (allTech["fev"].H1) {
+            window.open(allTech["fev"].link, '_blank');
+        }
+        else {
+            popuopInvent(allTech["fev"]);
+        }
         //setIframe();
     });
 
     $('.inventHome li a').on('click', this, function () {
         e.preventDefault();
-
-        //var category= $('.inventHome li a').attr('href').split('?cat=');
-        //category=category[1];
-        //
-        //document.getElementById("scrollInventorCon").remove();
-        //
-        //var html= '<div id="scrollInventorCon"><span class="placholderSlide"></span><ul class="inventList">';
-        //for (var prop in allTech){
-        //    tid = $('.inventList li').attr('idtec');
-        //    if(allTech.hasOwnProperty(tid))
-
-        //    for (var j=0;j<3;j++){
-        //            
-        //    }
-        //}
-        //
-
-        //    if (allTech[i].category.indexOf("category") != -1){
-        //        html +='';
-        //    }
-        //    else{
-        //        
-        //    }
-
     });
 
     $(window).on('resize', function () {
@@ -658,6 +595,10 @@ $(document).ready(function (e) {
         $('.mask').fadeOut(800, 'easeInOutBack');
         $('body').css('overflow', 'auto');
         return false;
+    });
+
+    $('#yearNav').on('change', function () {
+        changeStartupByYear(this.value);
     });
 
     showHighlight();
@@ -1247,31 +1188,6 @@ function showArrowsStartups() {
     }
 }
 
-//function checkInventScroll() {
-//     var offsetToScroll = $(".inventList").width() * 2;
-//        if (isMobile) {
-//            offsetToScroll = $(".inventList").width();
-//        }
-//        var scrollVal = $('#scrollInventorCon').scrollLeft() + offsetToScroll;
-
-//    allLi = $('.inventList').length;
-//    liW = $('.inventList').width();
-//    plcW = $('.placholderSlide').width();
-//    allW = (allLi * liW) + (2 * plcW) - $('#scrollInventorCon').width();
-//    console.log(scrollVal + 'allw: ' + allW);
-
-//    if ($('#scrollInventorCon').scrollLeft() <= 0) {
-//        $('#inventScrollL .leftScroll-arrow').hide();
-//    } else {
-//        $('#inventScrollL .leftScroll-arrow').show();
-//    }
-
-//    if (scrollVal > allW) {
-//        $('#inventScrollR .rightScroll-arrow').hide();
-//    } else {
-//        $('#inventScrollR .rightScroll-arrow').show();
-//    }
-//}
 
 function showArrowsJudges() {
     if ($(".judgesContenar .judgesAvantar").length > 5) {
@@ -1584,14 +1500,16 @@ function buildMarkerPopupHTML(key) {
     for (var favorite in saveVotesData[key].favId) {
         console.log(allTech[saveVotesData[key].favId[favorite]]);
         html += '<div class="startups-gallery-item">';
+        //if this year
+        if (allTech[saveVotesData[key].favId[favorite]]) {
+            if (allTech[saveVotesData[key].favId[favorite]].logo[0]) {
+                html += '<div class="startups-gallery-item-frame">';
+                html += '<a href="#"  class="mapOpenInvent" date-id="' + allTech[saveVotesData[key].favId[favorite]].techId + '">';
+                html += '<img class="gallery-img" src="' + allTech[saveVotesData[key].favId[favorite]].logo[0] + '" alt="Class Messenger">';
+                html += '</a>';
+                html += '   </div>';
 
-        if (allTech[saveVotesData[key].favId[favorite]].logo[0]) {
-            html += '<div class="startups-gallery-item-frame">';
-            html += '<a href="#"  class="mapOpenInvent" date-id="' + allTech[saveVotesData[key].favId[favorite]].techId + '">';
-            html += '<img class="gallery-img" src="' + allTech[saveVotesData[key].favId[favorite]].logo[0] + '" alt="Class Messenger">';
-            html += '</a>';
-            html += '   </div>';
-
+            }
         }
         html += '<div class="leftSide"><span class="gallery-description title"><a href="#" class="mapOpenInvent" date-id="' + allTech[saveVotesData[key].favId[favorite]].techId + '">' + allTech[saveVotesData[key].favId[favorite]].title + '</a></span>';
         html += '<span class="gallery-description">' + allTech[saveVotesData[key].favId[favorite]].slogen + '</span>';
@@ -1717,11 +1635,13 @@ function setStartupUl() {
 
     var html = '<ul class="inventList">  ';
     $(".inventList li").each(function (i) {
+
         //if insert to exist ul or create new 
         if (i % numOfLiInUl == 0) {
             html += '</ul><ul class="inventList">';
         }
         html += $(this).get(0).outerHTML;
+
 
     });
     html += '</ul>';
@@ -1730,6 +1650,33 @@ function setStartupUl() {
 
     $("#scrollInventorCon .placholderSlide:first").after(html);
     $(".inventList:first").remove();
+
+    //check who is the winner
+    var isWinner;
+    var isFinalList;
+    $(".inventList li").each(function (i) {
+        $this = $(this);
+
+        if (allTech[$this.attr("idtec")].winner != "") {
+            isWinner = allTech[$this.attr("idtec")].winner[Object.keys(allTech[$this.attr("idtec")].winner)[0]];
+
+            //is winner
+            if (isWinner == "1") {
+                $this.find(".winner").show();
+            }
+        }
+
+        if (allTech[$this.attr("idtec")].finalList != "") {
+            isFinalList = allTech[$this.attr("idtec")].finalList[Object.keys(allTech[$this.attr("idtec")].finalList)[0]];
+            if ((isFinalList == "1") && (isWinner != "1")) {
+                $this.find(".finalList").show();
+            }
+        }
+
+
+    });
+
+
 }
 
 //update if in mobile design or pc.  
@@ -1787,3 +1734,88 @@ function preventBodyToScroll() {
 function bodyReturnScroll() {
     $('body').off('wheel.modal mousewheel.modal');
 }
+
+
+function changeStartupByYear(year) {
+    allTech = allYearsTech[year];
+    //console.log("+++++++++++++++++++++++++++");
+    //console.log(allTech);
+    tempArr = [];
+
+    //to reverse array
+    for (var key in allTech) {
+        if (key != "fev") {
+            tempArr.push(allTech[key]);
+        }
+    }
+    allTech = tempArr;
+
+    //to ul stracture
+    var counter = 0;
+    var html = '<ul class="inventList">';
+
+    //reverse loop
+    var len = allTech.length;
+    var isWinner = "0";
+    var isFinalList = "0";
+    while (len--) {
+        //for (var key in allTech) {
+        var startup = allTech[len];
+        if (counter == 3) {
+            html += '</ul><ul class="inventList">';
+            counter = 0;
+        }
+        html += '  <li idtec="' + startup.techId + '">';
+
+        if (startup.winner != "") {
+            isWinner = startup.winner[Object.keys(startup.winner)[0]];
+        }
+        if (startup.finalList != "") {
+            isFinalList = startup.finalList[Object.keys(startup.finalList)[0]];
+        }
+        
+        //is finalList
+        if (isFinalList == "1") {
+            html += '   <div class="finalList" style="display:block"></div>';
+            isFinalList = "0"; //reset
+        }
+        else {
+            html += '   <div class="finalList"></div>';
+        }
+
+        //is winner
+        if (isWinner == "1") {
+            html += '   <div class="winner" style="display:block"></div>';
+            isWinner = "0"; //reset
+        }
+        else {
+            html += '   <div class="winner"></div>';
+        }
+
+        html += '      <div class="img-wrap">';
+        if (startup.logo) {
+            html += '          <img src="' + startup.logo[0] + '"alt="logo">';
+        }
+        html += '      </div>';
+        html += '      <h2>';
+        html += '          <a href="' + startup.permalink + '" idtech="' + startup.techId + '">';
+        html += startup.title;
+        html += '          </a>';
+        html += '      </h2>';
+        html += '  </li>';
+
+        counter++;
+    }
+    html += '</ul>';
+
+    //add to dom
+    $(".inventList").remove();
+    $("#scrollInventorCon .placholderSlide:first").after(html);
+
+}
+
+  
+          
+       
+    
+     

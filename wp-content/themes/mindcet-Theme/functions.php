@@ -246,12 +246,14 @@
     
             /////////////////////////////////end ajax///////////////////////////////////
             function getAllVotes(){
+                $current_year = date('Y');
                  $args = array(
                 'posts_per_page'   => -1,
                 'orderby'          => 'post_date',
                 'order'            => 'DESC',
                 'post_type'        => 'votes',
                 'post_status'      => 'publish',
+                'year'             => $current_year
                 );
     
             $allVotes=array();
@@ -676,7 +678,35 @@
                 'priority' => 10, //Determines the order this control appears in for the specified section
              ) 
            );
-         //set a img for link at the top
+
+           
+          $wp_customize->add_section( 'defult_year', 
+             array(
+                'title' =>'שנה דיפולטיבית', //Visible title of section
+                'description' => 'יציג את רשימת הסטארטפים מהשנה הזאת.', //Descriptive tooltip
+             ) 
+          );
+
+           $wp_customize->add_setting( 'default_year_text', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+             array(
+                'default' => '', //Default setting/value to save
+                 ) 
+          );  	  
+    
+    
+          ////  //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+          $wp_customize->add_control( 
+             'default_year_text_input', //Set a unique ID for the control
+             array(
+                'label' => 'שנה', //Admin-visible name of the control
+                'section' => 'defult_year', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                'settings' => 'default_year_text', //Which setting to load and manipulate (serialized is okay)
+                'priority' => 10, //Determines the order this control appears in for the specified section
+             ) 
+           );
+    
+
+  //       //set a img for link at the top
           $wp_customize->add_section( 'fev_defult', 
              array(
                 'title' =>'מועדף defult', //Visible title of section
@@ -866,6 +896,15 @@
       krsort($years);
     
       return $years;
+    }
+
+    function get_defauly_year(){
+       $defaultYear=get_theme_mod('default_year_text');
+       
+       if($defaultYear!=""){
+           return $defaultYear;
+       }
+       return date('Y');
     }
     
     

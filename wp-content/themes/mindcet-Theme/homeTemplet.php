@@ -365,7 +365,7 @@
 </div>
 
 <?php   
-  $currentyear= '2014';
+  $currentyear= get_defauly_year();
     $yearArray= array();
     
     foreach(posts_by_year() as $year => $posts) :
@@ -378,7 +378,7 @@
         <select name="year" id="yearNav">
             <option value="none">Select Year</option>
             <?php foreach(posts_by_year() as $year => $yearArray) :?>
-            <option <?php if ($year == $currentyear ) echo 'selected'; ?> value="<?php echo $year; ?>" chec><?php echo $year; ?></option>
+            <option <?php if ($year == $currentyear ) echo 'selected'; ?> value="<?php echo $year; ?>"><?php echo $year; ?></option>
             <?php endforeach; ?>
         </select>
     </h2>

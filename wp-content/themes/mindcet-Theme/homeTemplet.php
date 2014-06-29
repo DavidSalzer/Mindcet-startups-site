@@ -580,6 +580,9 @@
     
     });
 </script>
+<!--<iframe src="http://localhost/Mindcet-startups-site/?page_id=639" style="width: 687px;height: 514px;"></iframe>-->
+<!--<iframe src="http://mindcet.co.il.tigris.nethost.co.il/?page_id=639" style="width: 687px;height: 514px;"></iframe>-->
+
 <?php get_footer(); ?>
 
 

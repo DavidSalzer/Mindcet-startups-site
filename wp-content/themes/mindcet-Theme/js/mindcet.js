@@ -1200,10 +1200,12 @@ function showHighlight() {
     //if homepage
     if (window.location.search.length == 0) {
         var best = allTech["fev"];
-        var html = '<img class="best-logo" src="' + allTech[best].logo[0] + '" alt="' + allTech[best].title + ' logo">';
-        $('#best-logo-frame').empty().append(html);
-        var html = '<div class="best-description">' + allTech[best].descript + '</div>';
-        $('#best-invent-description').empty().append(html);
+        if(allTech[best]){
+            var html = '<img class="best-logo" src="' + allTech[best].logo[0] + '" alt="' + allTech[best].title + ' logo">';
+            $('#best-logo-frame').empty().append(html);
+            var html = '<div class="best-description">' + allTech[best].descript + '</div>';
+            $('#best-invent-description').empty().append(html);
+        }
     }
 }
 
@@ -1438,7 +1440,7 @@ function addMarker(location) {
 
     google.maps.event.addListener(marker, 'click', function () {
         var key = savePlaceInVotesData[marker.__gm_id];
-        buildMarkerPopupHTML(key);
+        buildMarkerPopupHTML(saveVotesData[key].markerId);
     });
 }
 
@@ -1457,8 +1459,13 @@ function setMarkers(allMarkers) {
     }
 }
 
-function buildMarkerPopupHTML(key) {
-
+function buildMarkerPopupHTML(id) {
+    var key;
+    for(i=0;i<saveVotesData.length;i++){
+        if(saveVotesData[i].markerId==id){
+            key=i;
+        }
+    }    
     ga('send', 'pageview', saveVotesData[key].title);
     console.log(saveVotesData[key].logo[0]);
     console.log(saveVotesData[key].descript);
@@ -1498,10 +1505,11 @@ function buildMarkerPopupHTML(key) {
     html += '</div>';
 
     for (var favorite in saveVotesData[key].favId) {
-        console.log(allTech[saveVotesData[key].favId[favorite]]);
-        html += '<div class="startups-gallery-item">';
         //if this year
         if (allTech[saveVotesData[key].favId[favorite]]) {
+            console.log(allTech[saveVotesData[key].favId[favorite]]);
+            html += '<div class="startups-gallery-item">';
+
             if (allTech[saveVotesData[key].favId[favorite]].logo[0]) {
                 html += '<div class="startups-gallery-item-frame">';
                 html += '<a href="#"  class="mapOpenInvent" date-id="' + allTech[saveVotesData[key].favId[favorite]].techId + '">';
@@ -1510,12 +1518,13 @@ function buildMarkerPopupHTML(key) {
                 html += '   </div>';
 
             }
+
+            html += '<div class="leftSide"><span class="gallery-description title"><a href="#" class="mapOpenInvent" date-id="' + allTech[saveVotesData[key].favId[favorite]].techId + '">' + allTech[saveVotesData[key].favId[favorite]].title + '</a></span>';
+            html += '<span class="gallery-description">' + allTech[saveVotesData[key].favId[favorite]].slogen + '</span>';
+            if (allTech[saveVotesData[key].favId[favorite]].founder)
+                html += '<span class="gallery-description"><b>Founder: </b>' + allTech[saveVotesData[key].favId[favorite]].founder + '</span>';
+            html += ' </div>  </div>';
         }
-        html += '<div class="leftSide"><span class="gallery-description title"><a href="#" class="mapOpenInvent" date-id="' + allTech[saveVotesData[key].favId[favorite]].techId + '">' + allTech[saveVotesData[key].favId[favorite]].title + '</a></span>';
-        html += '<span class="gallery-description">' + allTech[saveVotesData[key].favId[favorite]].slogen + '</span>';
-        if (allTech[saveVotesData[key].favId[favorite]].founder)
-            html += '<span class="gallery-description"><b>Founder: </b>' + allTech[saveVotesData[key].favId[favorite]].founder + '</span>';
-        html += ' </div>  </div>';
     }
     html += '   </div>';
     html += '</div>';
@@ -1530,28 +1539,20 @@ function buildMarkerPopupHTML(key) {
     $('.popupDescription-append').empty().append($inventDescription);
 
     //add key-id to marker section
-    $("#marker-popup").attr("marker-id", key);
+    $("#marker-popup").attr("marker-id", saveVotesData[key].markerId);
 
     h = $(window).height();
     $('body').css('overflow', 'hidden');
 
-    $('.mask').fadeIn(200, 'easeInOutBack'); //.css('height',h+'px');;
+    $('.mask').fadeIn(200, 'easeInOutBack');
     $('#marker-popup').fadeIn(100, 'easeInOutBack');
-    //$('.mask').addClass('mask-invent');
     $('html, body').animate({
         scrollTop: $("#invent-close").offset().top - 25
     }, 1);
 
+      window.location.hash = "exelerator/" + saveVotesData[key].markerId;
 
 
-
-    //$('body').on('click','.mapOpenInvent',function(e){
-    //    tid=$(this).attr('date-id');
-    //    $('#marker-popup').fadeOut(300, 'easeInOutBack');
-    //    popuopInvent(tid);
-    //    e.preventDefault()
-    //    return false;
-    // });
 }
 
 //////////////////////////////end google map///////////////////////////////////////////
@@ -1773,7 +1774,7 @@ function changeStartupByYear(year) {
         if (startup.finalList != "") {
             isFinalList = startup.finalList[Object.keys(startup.finalList)[0]];
         }
-        
+
         //is finalList
         if (isFinalList == "1") {
             html += '   <div class="finalList" style="display:block"></div>';

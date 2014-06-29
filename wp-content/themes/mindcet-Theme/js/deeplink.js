@@ -3,8 +3,17 @@ $(document).ready(function(e) {
     
 	deep=window.location.hash;
 	if(deep.length>0 && deep.indexOf('#')>-1){
-		tid=deep.split('#')
-		popuopInvent(tid[1]);
+		//exelerator
+        if(deep.indexOf('exelerator')>-1){
+		    tid=deep.split('/');
+            buildMarkerPopupHTML(tid[1]);
+		}
+        //startup
+        else{
+            tid=deep.split('#');
+		    popuopInvent(tid[1]);
+        }
+        
 	}
 	
 	
@@ -103,7 +112,7 @@ function addStartUp(){
 function setStar(){
 	jQuery.post('wp-admin/admin-ajax.php', {
 				postId:pid,
-				action: 'addLike',
+				action: 'addLike'
 			}
 			, function(data) {
 					if(data=='fail'){

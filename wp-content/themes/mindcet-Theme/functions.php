@@ -34,12 +34,12 @@
               wp_register_script('hammer.min', get_template_directory_uri()."/js/hammer.min.js", false);
            wp_enqueue_script('hammer.min');
     
-           // wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
-           //wp_enqueue_script('mindcetjs');
-    
+    //        wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
+    //       wp_enqueue_script('mindcetjs');
     //
-            wp_register_script('deep', (get_template_directory_uri()."/js/deeplink.js"), false);
-           wp_enqueue_script('deep');
+    ////
+    //        wp_register_script('deep', (get_template_directory_uri()."/js/deeplink.js"), false);
+    //       wp_enqueue_script('deep');
     
             //if(is_front_page()){
                 wp_register_script('selection', (get_template_directory_uri()."/js/selection.js"), false);
@@ -184,7 +184,7 @@
             $caunter=0;
             echo "<span class='placholderSlide'></span><ul class='inventList'>";
              while ( $the_query->have_posts() ) : $the_query->the_post(); 
-
+    
                 //endforeach;
                 endwhile;
                 endif;
@@ -277,6 +277,7 @@
                       $vote['favId'][$caunter]=$fav->ID;
                        $caunter++;	
                     }
+                $vote['markerId']=$post->ID;
                 $vote['title']=$title;
                 $vote['logo']=$logo;
                 $vote['descript']=$descript;
@@ -577,222 +578,222 @@
     <textarea rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
 </label>
 <?php
-        }
-    }
+          }
+      }
     
-    }
-    
-    
-    function mytheme_customize_register( $wp_customize ) {
-       //All our sections, settings, and controls will be added here
-       //1. Define a new section (if desired) to the Theme Customizer
-       $wp_customize->add_section( 'my_options', 
-             array(
-                'title' =>'midedcet Addon', //Visible title of section
-              //  'priority' => 35, //Determines what order this appears in
-              //  'capability' => 'edit_theme_options', //Capability needed to tweak
-                'description' => 'Top Link Color setting.', //Descriptive tooltip
-             ) 
-          );
-    
-         //2. Register new settings to the WP database...
-        $wp_customize->add_setting( 'link_textcolor', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
-             array(
-                'default' => '#6a6a6a', //Default setting/value to save
-           //     'type' => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
-           //     'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
-            //    'transport' => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
-             ) 
-          );  	  
-    
-           //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
-          $wp_customize->add_control( new WP_Customize_Color_Control( //Instantiate the color control class
-             $wp_customize, //Pass the $wp_customize object (required)
-             'link_textcolor', //Set a unique ID for the control
-             array(
-                'label' => 'link color', //Admin-visible name of the control
-                'section' => 'my_options', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
-                'settings' => 'link_textcolor', //Which setting to load and manipulate (serialized is okay)
-                'priority' => 10, //Determines the order this control appears in for the specified section
-             ) 
-          ) );
-    
-          //set a img for link at the top
-          $wp_customize->add_section( 'Img_link', 
-             array(
-                'title' =>'בחירת תמונה', //Visible title of section
-                'description' => 'בחירת תמונה עבור לינק ליד לוגו מינדסט', //Descriptive tooltip
-             ) 
-          );
-    
-         //2. Register new settings to the WP database...
-        $wp_customize->add_setting( 'link_ImgBg', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
-             array(
-                'default' => '', //Default setting/value to save
-                 ) 
-          );  	  
-    
-           //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
-          $wp_customize->add_control( new WP_Customize_Image_Control( //Instantiate the color control class
-             $wp_customize, //Pass the $wp_customize object (required)
-             'top_link_ImgBg', //Set a unique ID for the control
-             array(
-                'label' => 'תמונת לינק', //Admin-visible name of the control
-                'section' => 'Img_link', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
-                'settings' => 'link_ImgBg', //Which setting to load and manipulate (serialized is okay)
-                'priority' => 10, //Determines the order this control appears in for the specified section
-             ) 
-          ) );
-    
-          $wp_customize->add_setting( 'link_ImgBg_text', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
-             array(
-                'default' => '', //Default setting/value to save
-                 ) 
-          );  	  
-    
-           //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
-          $wp_customize->add_control( 
-             'link_ImgBg_text', //Set a unique ID for the control
-             array(
-                'label' => 'טקסט תמונת לינק', //Admin-visible name of the control
-                'section' => 'Img_link', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
-                'settings' => 'link_ImgBg_text', //Which setting to load and manipulate (serialized is okay)
-                'priority' => 10, //Determines the order this control appears in for the specified section
-             ) 
-           );
+      }
     
     
-        $wp_customize->add_setting( 'link_ImgBg_link', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
-             array(
-                'default' => 'http://www.mindcet.org/', //Default setting/value to save
-                 ) 
-          );  	  
+      function mytheme_customize_register( $wp_customize ) {
+         //All our sections, settings, and controls will be added here
+         //1. Define a new section (if desired) to the Theme Customizer
+         $wp_customize->add_section( 'my_options', 
+               array(
+                  'title' =>'midedcet Addon', //Visible title of section
+                //  'priority' => 35, //Determines what order this appears in
+                //  'capability' => 'edit_theme_options', //Capability needed to tweak
+                  'description' => 'Top Link Color setting.', //Descriptive tooltip
+               ) 
+            );
     
-           //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
-          $wp_customize->add_control( 
-             'link_ImgBg_link', //Set a unique ID for the control
-             array(
-                'label' =>'הכנס לינק', //Admin-visible name of the control
-                'section' => 'Img_link', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
-                'settings' => 'link_ImgBg_link', //Which setting to load and manipulate (serialized is okay)
-                'priority' => 10, //Determines the order this control appears in for the specified section
-             ) 
-           );
-
-           
-          $wp_customize->add_section( 'defult_year', 
-             array(
-                'title' =>'שנה דיפולטיבית', //Visible title of section
-                'description' => 'יציג את רשימת הסטארטפים מהשנה הזאת.', //Descriptive tooltip
-             ) 
-          );
-
-           $wp_customize->add_setting( 'default_year_text', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
-             array(
-                'default' => '', //Default setting/value to save
-                 ) 
-          );  	  
+           //2. Register new settings to the WP database...
+          $wp_customize->add_setting( 'link_textcolor', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+               array(
+                  'default' => '#6a6a6a', //Default setting/value to save
+             //     'type' => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+             //     'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+              //    'transport' => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+               ) 
+            );  	  
     
+             //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+            $wp_customize->add_control( new WP_Customize_Color_Control( //Instantiate the color control class
+               $wp_customize, //Pass the $wp_customize object (required)
+               'link_textcolor', //Set a unique ID for the control
+               array(
+                  'label' => 'link color', //Admin-visible name of the control
+                  'section' => 'my_options', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                  'settings' => 'link_textcolor', //Which setting to load and manipulate (serialized is okay)
+                  'priority' => 10, //Determines the order this control appears in for the specified section
+               ) 
+            ) );
     
-          ////  //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
-          $wp_customize->add_control( 
-             'default_year_text_input', //Set a unique ID for the control
-             array(
-                'label' => 'שנה', //Admin-visible name of the control
-                'section' => 'defult_year', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
-                'settings' => 'default_year_text', //Which setting to load and manipulate (serialized is okay)
-                'priority' => 10, //Determines the order this control appears in for the specified section
-             ) 
-           );
+            //set a img for link at the top
+            $wp_customize->add_section( 'Img_link', 
+               array(
+                  'title' =>'בחירת תמונה', //Visible title of section
+                  'description' => 'בחירת תמונה עבור לינק ליד לוגו מינדסט', //Descriptive tooltip
+               ) 
+            );
     
-
-  //       //set a img for link at the top
-          $wp_customize->add_section( 'fev_defult', 
-             array(
-                'title' =>'מועדף defult', //Visible title of section
-                'description' => 'פבוריט בריירת מחדל אם לא נבחר אחר', //Descriptive tooltip
-             ) 
-          );
+           //2. Register new settings to the WP database...
+          $wp_customize->add_setting( 'link_ImgBg', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+               array(
+                  'default' => '', //Default setting/value to save
+                   ) 
+            );  	  
     
-         //2. Register new settings to the WP database...
-        $wp_customize->add_setting( 'fev_img', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
-             array(
-                'default' => '', //Default setting/value to save
-                 ) 
-          );  	  
+             //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+            $wp_customize->add_control( new WP_Customize_Image_Control( //Instantiate the color control class
+               $wp_customize, //Pass the $wp_customize object (required)
+               'top_link_ImgBg', //Set a unique ID for the control
+               array(
+                  'label' => 'תמונת לינק', //Admin-visible name of the control
+                  'section' => 'Img_link', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                  'settings' => 'link_ImgBg', //Which setting to load and manipulate (serialized is okay)
+                  'priority' => 10, //Determines the order this control appears in for the specified section
+               ) 
+            ) );
     
-           //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
-          $wp_customize->add_control( new WP_Customize_Image_Control( //Instantiate the color control class
-             $wp_customize, //Pass the $wp_customize object (required)
-             'fev_Bg', //Set a unique ID for the control
-             array(
-                'label' => 'תמונת לינק', //Admin-visible name of the control
-                'section' => 'fev_defult', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
-                'settings' => 'fev_img', //Which setting to load and manipulate (serialized is okay)
-                'priority' => 10, //Determines the order this control appears in for the specified section
-             ) 
-          ) );
+            $wp_customize->add_setting( 'link_ImgBg_text', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+               array(
+                  'default' => '', //Default setting/value to save
+                   ) 
+            );  	  
     
-              $wp_customize->add_setting( 'fev_link', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
-             array(
-                'default' => '', //Default setting/value to save
-                 ) 
-          );  	  
-    
-    
-            //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
-          $wp_customize->add_control( 
-             'fev_link_area', //Set a unique ID for the control
-             array(
-                'label' => 'לינק', //Admin-visible name of the control
-                'section' => 'fev_defult', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
-                'settings' => 'fev_link', //Which setting to load and manipulate (serialized is okay)
-                'priority' => 10, //Determines the order this control appears in for the specified section
-             ) 
-           );
+             //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+            $wp_customize->add_control( 
+               'link_ImgBg_text', //Set a unique ID for the control
+               array(
+                  'label' => 'טקסט תמונת לינק', //Admin-visible name of the control
+                  'section' => 'Img_link', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                  'settings' => 'link_ImgBg_text', //Which setting to load and manipulate (serialized is okay)
+                  'priority' => 10, //Determines the order this control appears in for the specified section
+               ) 
+             );
     
     
-          $wp_customize->add_setting( 'fev_h1', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
-             array(
-                'default' => '', //Default setting/value to save
-                 ) 
-          );  	  
+          $wp_customize->add_setting( 'link_ImgBg_link', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+               array(
+                  'default' => 'http://www.mindcet.org/', //Default setting/value to save
+                   ) 
+            );  	  
+    
+             //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+            $wp_customize->add_control( 
+               'link_ImgBg_link', //Set a unique ID for the control
+               array(
+                  'label' =>'הכנס לינק', //Admin-visible name of the control
+                  'section' => 'Img_link', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                  'settings' => 'link_ImgBg_link', //Which setting to load and manipulate (serialized is okay)
+                  'priority' => 10, //Determines the order this control appears in for the specified section
+               ) 
+             );
     
     
-           //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
-          $wp_customize->add_control( 
-             'fev_title', //Set a unique ID for the control
-             array(
-                'label' => 'כותרת', //Admin-visible name of the control
-                'section' => 'fev_defult', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
-                'settings' => 'fev_h1', //Which setting to load and manipulate (serialized is okay)
-                'priority' => 10, //Determines the order this control appears in for the specified section
-             ) 
-           );
+            $wp_customize->add_section( 'defult_year', 
+               array(
+                  'title' =>'שנה דיפולטיבית', //Visible title of section
+                  'description' => 'יציג את רשימת הסטארטפים מהשנה הזאת.', //Descriptive tooltip
+               ) 
+            );
     
-            $wp_customize->add_setting( 'fev_text', 
-             array(
-                'default' => 'Some default text', 
-                 ) 
-          );  	  
+             $wp_customize->add_setting( 'default_year_text', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+               array(
+                  'default' => '', //Default setting/value to save
+                   ) 
+            );  	  
     
     
-          $wp_customize->add_control( new Example_Customize_Textarea_Control( $wp_customize, 'textarea_setting', array(
-            'label'   => 'Textarea Setting',
-            'section' => 'fev_defult',
-            'settings'   => 'fev_text',
-        ) ) );
+            ////  //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+            $wp_customize->add_control( 
+               'default_year_text_input', //Set a unique ID for the control
+               array(
+                  'label' => 'שנה', //Admin-visible name of the control
+                  'section' => 'defult_year', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                  'settings' => 'default_year_text', //Which setting to load and manipulate (serialized is okay)
+                  'priority' => 10, //Determines the order this control appears in for the specified section
+               ) 
+             );
+    
+    
+    //       //set a img for link at the top
+            $wp_customize->add_section( 'fev_defult', 
+               array(
+                  'title' =>'מועדף defult', //Visible title of section
+                  'description' => 'פבוריט בריירת מחדל אם לא נבחר אחר', //Descriptive tooltip
+               ) 
+            );
+    
+           //2. Register new settings to the WP database...
+          $wp_customize->add_setting( 'fev_img', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+               array(
+                  'default' => '', //Default setting/value to save
+                   ) 
+            );  	  
+    
+             //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+            $wp_customize->add_control( new WP_Customize_Image_Control( //Instantiate the color control class
+               $wp_customize, //Pass the $wp_customize object (required)
+               'fev_Bg', //Set a unique ID for the control
+               array(
+                  'label' => 'תמונת לינק', //Admin-visible name of the control
+                  'section' => 'fev_defult', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                  'settings' => 'fev_img', //Which setting to load and manipulate (serialized is okay)
+                  'priority' => 10, //Determines the order this control appears in for the specified section
+               ) 
+            ) );
+    
+                $wp_customize->add_setting( 'fev_link', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+               array(
+                  'default' => '', //Default setting/value to save
+                   ) 
+            );  	  
+    
+    
+              //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+            $wp_customize->add_control( 
+               'fev_link_area', //Set a unique ID for the control
+               array(
+                  'label' => 'לינק', //Admin-visible name of the control
+                  'section' => 'fev_defult', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                  'settings' => 'fev_link', //Which setting to load and manipulate (serialized is okay)
+                  'priority' => 10, //Determines the order this control appears in for the specified section
+               ) 
+             );
+    
+    
+            $wp_customize->add_setting( 'fev_h1', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+               array(
+                  'default' => '', //Default setting/value to save
+                   ) 
+            );  	  
+    
+    
+             //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+            $wp_customize->add_control( 
+               'fev_title', //Set a unique ID for the control
+               array(
+                  'label' => 'כותרת', //Admin-visible name of the control
+                  'section' => 'fev_defult', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                  'settings' => 'fev_h1', //Which setting to load and manipulate (serialized is okay)
+                  'priority' => 10, //Determines the order this control appears in for the specified section
+               ) 
+             );
+    
+              $wp_customize->add_setting( 'fev_text', 
+               array(
+                  'default' => 'Some default text', 
+                   ) 
+            );  	  
+    
+    
+            $wp_customize->add_control( new Example_Customize_Textarea_Control( $wp_customize, 'textarea_setting', array(
+              'label'   => 'Textarea Setting',
+              'section' => 'fev_defult',
+              'settings'   => 'fev_text',
+          ) ) );
     
     
     
     
-    }
-    add_action('wp_head','getCssForLink');
+      }
+      add_action('wp_head','getCssForLink');
     
-    add_action( 'customize_register', 'mytheme_customize_register' );
+      add_action( 'customize_register', 'mytheme_customize_register' );
     
-    //function to get the theam setting
-    function getCssForLink(){
+      //function to get the theam setting
+      function getCssForLink(){
 ?>
 <style>
     .topMenu ul li a{
@@ -897,10 +898,10 @@
     
       return $years;
     }
-
+    
     function get_defauly_year(){
        $defaultYear=get_theme_mod('default_year_text');
-       
+    
        if($defaultYear!=""){
            return $defaultYear;
        }

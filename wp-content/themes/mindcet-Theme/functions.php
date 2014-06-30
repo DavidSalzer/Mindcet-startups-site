@@ -34,12 +34,12 @@
               wp_register_script('hammer.min', get_template_directory_uri()."/js/hammer.min.js", false);
            wp_enqueue_script('hammer.min');
     
-    //        wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
-    //       wp_enqueue_script('mindcetjs');
+            wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
+           wp_enqueue_script('mindcetjs');
+    
     //
-    ////
-    //        wp_register_script('deep', (get_template_directory_uri()."/js/deeplink.js"), false);
-    //       wp_enqueue_script('deep');
+            wp_register_script('deep', (get_template_directory_uri()."/js/deeplink.js"), false);
+           wp_enqueue_script('deep');
     
             //if(is_front_page()){
                 wp_register_script('selection', (get_template_directory_uri()."/js/selection.js"), false);
@@ -166,30 +166,53 @@
     
     
         function catGallery(){
-            $catId=$_REQUEST['catId'];
-            $tagName=$_REQUEST['tagName'];
-    
-            if($tagName){
-                $tag = get_term_by('name', $tagName, 'post_tag');
-                $tagId=$tag->term_id;
-                //echo "tag id is: ".$tagId;
-            }
-    
-            $args = array( 'posts_per_page' =>-1,'post_type'=>'initiator','post_status'=>'publish','cat' => $catId,'tag_id'=>$tagId);
-            //$myposts = get_posts( $args );
-    
-            $the_query = new WP_Query( $args );
-            if ( $the_query->have_posts() ) :
-            //foreach ( $myposts as $post ) : setup_postdata( $post ); 
-            $caunter=0;
-            echo "<span class='placholderSlide'></span><ul class='inventList'>";
-             while ( $the_query->have_posts() ) : $the_query->the_post(); 
-    
-                //endforeach;
-                endwhile;
-                endif;
-                wp_reset_postdata();
-                die();
+          $catId=$_REQUEST['catId'];
+		$tagName=$_REQUEST['tagName'];
+		$currentYear=$_REQUEST['currentYear'];
+		if($tagName){
+			$tag = get_term_by('name', $tagName, 'post_tag');
+			$tagId=$tag->term_id;
+			//echo "tag id is: ".$tagId;
+		}
+		
+		$args = array( 'posts_per_page' =>-1,'post_type'=>'initiator','year'=>$currentYear,'post_status'=>'publish','cat' => $catId,'tag_id'=>$tagId);
+		//$myposts = get_posts( $args );
+		
+		$the_query = new WP_Query( $args );
+		if ( $the_query->have_posts() ) :
+		//foreach ( $myposts as $post ) : setup_postdata( $post ); 
+		$caunter=0;
+		echo "<span class='placholderSlide'></span><ul class='inventList'>";
+		 while ( $the_query->have_posts() ) : $the_query->the_post(); 
+			?>
+    	<?php	
+			if($caunter==3){
+                    echo "</ul><ul class='inventList'>";
+                }else{
+                }
+        ?>
+           <li idtec="<?php echo the_ID();?>">
+                <div class="winner"></div>
+                <div class="finalList"></div>
+                    <div class="img-wrap">
+                    <?php echo get_the_post_thumbnail($post->ID, 'medium'); ?>
+                    </div>
+                <h2><a href="<?php echo get_permalink($post->ID); ?>" idtech="<?php echo the_ID(); ?>">
+               <?php echo get_the_title($post->ID);?>    </a> </h2>
+            </li>
+    <?php	if($caunter==3){
+                $caunter=0;
+               }
+     $caunter++;
+        
+		//endforeach;
+		endwhile;
+		endif;
+		wp_reset_postdata();
+        echo "</ul><span class='placholderSlide'></span>";
+               
+   
+	    die(); 
             } 
     
     
@@ -907,6 +930,8 @@
        }
        return date('Y');
     }
+
+   
     
     
     

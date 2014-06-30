@@ -435,7 +435,7 @@
             'order'            => 'DESC',
             'post_type'        => 'initiator',
             'year'             => $currentyear,
-            'post_status'      => 'publish',
+            'post_status'      => 'publish'
             );
         
         $myposts = get_posts( $args );

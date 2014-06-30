@@ -1200,7 +1200,7 @@ function showHighlight() {
     //if homepage
     if (window.location.search.length == 0) {
         var best = allTech["fev"];
-        if(allTech[best]){
+        if (allTech[best]) {
             var html = '<img class="best-logo" src="' + allTech[best].logo[0] + '" alt="' + allTech[best].title + ' logo">';
             $('#best-logo-frame').empty().append(html);
             var html = '<div class="best-description">' + allTech[best].descript + '</div>';
@@ -1461,11 +1461,11 @@ function setMarkers(allMarkers) {
 
 function buildMarkerPopupHTML(id) {
     var key;
-    for(i=0;i<saveVotesData.length;i++){
-        if(saveVotesData[i].markerId==id){
-            key=i;
+    for (i = 0; i < saveVotesData.length; i++) {
+        if (saveVotesData[i].markerId == id) {
+            key = i;
         }
-    }    
+    }
     ga('send', 'pageview', saveVotesData[key].title);
     console.log(saveVotesData[key].logo[0]);
     console.log(saveVotesData[key].descript);
@@ -1550,7 +1550,7 @@ function buildMarkerPopupHTML(id) {
         scrollTop: $("#invent-close").offset().top - 25
     }, 1);
 
-      window.location.hash = "map/" + saveVotesData[key].markerId;
+    window.location.hash = "map/" + saveVotesData[key].markerId;
 
 
 }
@@ -1658,21 +1658,21 @@ function setStartupUl() {
     $(".inventList li").each(function (i) {
         $this = $(this);
 
-        if (allTech[$this.attr("idtec")].winner != "") {
-            isWinner = allTech[$this.attr("idtec")].winner[Object.keys(allTech[$this.attr("idtec")].winner)[0]];
+        //if (allTech[$this.attr("idtec")].winner != "") {
+        //    isWinner = allTech[$this.attr("idtec")].winner[Object.keys(allTech[$this.attr("idtec")].winner)[0]];
 
-            //is winner
-            if (isWinner == "1") {
-                $this.find(".winner").show();
-            }
+        //is winner
+        if (allTech[$this.attr("idtec")].winner == "1") {
+            $this.find(".winner").show();
         }
+        // }
 
-        if (allTech[$this.attr("idtec")].finalList != "") {
-            isFinalList = allTech[$this.attr("idtec")].finalList[Object.keys(allTech[$this.attr("idtec")].finalList)[0]];
-            if ((isFinalList == "1") && (isWinner != "1")) {
-                $this.find(".finalList").show();
-            }
+        //if (allTech[$this.attr("idtec")].finalList != "") {
+        //    isFinalList = allTech[$this.attr("idtec")].finalList[Object.keys(allTech[$this.attr("idtec")].finalList)[0]];
+        if ((allTech[$this.attr("idtec")].finalList == "1") && (allTech[$this.attr("idtec")].winner != "1")) {
+            $this.find(".finalList").show();
         }
+        // }
 
 
     });
@@ -1738,9 +1738,13 @@ function bodyReturnScroll() {
 
 
 function changeStartupByYear(year) {
+    //reset list display
+    stopAjax();
+    $('#categoryNav,#tagsNav').val("none");
+    $('#scrollInventorCon').animate({ scrollLeft: 0 });
+   
+
     allTech = allYearsTech[year];
-    //console.log("+++++++++++++++++++++++++++");
-    //console.log(allTech);
     tempArr = [];
 
     //to reverse array
@@ -1768,26 +1772,26 @@ function changeStartupByYear(year) {
         }
         html += '  <li idtec="' + startup.techId + '">';
 
-        if (startup.winner != "") {
-            isWinner = startup.winner[Object.keys(startup.winner)[0]];
-        }
-        if (startup.finalList != "") {
-            isFinalList = startup.finalList[Object.keys(startup.finalList)[0]];
-        }
+        //if (startup.winner != "") {
+        //    isWinner = startup.winner[Object.keys(startup.winner)[0]];
+        //}
+        //if (startup.finalList != "") {
+        //    isFinalList = startup.finalList[Object.keys(startup.finalList)[0]];
+        //}
 
         //is finalList
-        if (isFinalList == "1") {
+        if (startup.finalList == "1") {
             html += '   <div class="finalList" style="display:block"></div>';
-            isFinalList = "0"; //reset
+            //isFinalList = "0"; //reset
         }
         else {
             html += '   <div class="finalList"></div>';
         }
 
         //is winner
-        if (isWinner == "1") {
+        if (startup.winner == "1") {
             html += '   <div class="winner" style="display:block"></div>';
-            isWinner = "0"; //reset
+            //isWinner = "0"; //reset
         }
         else {
             html += '   <div class="winner"></div>';
@@ -1812,6 +1816,8 @@ function changeStartupByYear(year) {
     //add to dom
     $(".inventList").remove();
     $("#scrollInventorCon .placholderSlide:first").after(html);
+
+     showArrowsStartups();
 
 }
 

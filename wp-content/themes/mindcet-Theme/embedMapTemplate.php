@@ -195,7 +195,7 @@
                 google.maps.event.addListener(marker, 'click', function () {
                     var key = savePlaceInVotesData[marker.__gm_id];
            // window.open("https://www.toggl.com/app/timer", "_parent ");
-            window.open(window.location.href.split("?")[0]+"#exelerator/"+saveVotesData[key].markerId, "_parent ");
+            window.open(window.location.href.split("?")[0]+"#map/"+saveVotesData[key].markerId, "_parent ");
                     //buildMarkerPopupHTML(key);
                 });
             }

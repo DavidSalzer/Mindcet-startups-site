@@ -1550,7 +1550,7 @@ function buildMarkerPopupHTML(id) {
         scrollTop: $("#invent-close").offset().top - 25
     }, 1);
 
-      window.location.hash = "exelerator/" + saveVotesData[key].markerId;
+      window.location.hash = "map/" + saveVotesData[key].markerId;
 
 
 }

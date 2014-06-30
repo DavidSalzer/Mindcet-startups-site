@@ -4,7 +4,7 @@ $(document).ready(function(e) {
 	deep=window.location.hash;
 	if(deep.length>0 && deep.indexOf('#')>-1){
 		//exelerator
-        if(deep.indexOf('exelerator')>-1){
+        if(deep.indexOf('map')>-1){
 		    tid=deep.split('/');
             buildMarkerPopupHTML(tid[1]);
 		}

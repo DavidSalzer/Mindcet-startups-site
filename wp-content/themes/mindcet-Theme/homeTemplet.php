@@ -137,7 +137,7 @@
                         if(isset($_POST['ads']) && $_POST['ads']=='yes')
                          mailChimp( $email, $name);
             
-                        do_action('post_mindeset_uplode');
+                        do_action('post_mindeset_uplode',$pid);
             
                         //REDIRECT TO THE NEW POST ON SAVE
                     //	$link = get_permalink( $pid );

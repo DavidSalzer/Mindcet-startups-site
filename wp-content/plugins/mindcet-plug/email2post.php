@@ -32,9 +32,12 @@ class Mail {
 
 
 function emailSend($subject,$message){
-		
-	   $adminEmail=get_option( 'admin_email' );
-	  	
+		//if($email==null){
+	        $adminEmail=get_option( 'admin_email' );
+        //}
+        //else{
+	  	    //$adminEmail=$email;
+        //}
 	   $mail = new PHPMailer;
 	   $mail->CharSet = 'UTF-8';
 		$mail->IsSMTP();  // telling the class to use SMTP
@@ -61,11 +64,14 @@ function emailSend($subject,$message){
 }
 
 
-function email2post(){
+function email2post($id){
 		
 	   $adminEmail=get_option( 'admin_email' );
+       
 	   $subject='הועלה פוסט לאתר מינדסט';
-	   $message='הועלה פוסט לאתר מיננדסט... לידיעתך';
+	    $message='הועלה פוסט לאתר מיננדסט... לידיעתך';
+        $message .= "\n לצפיה בפרטים ולאישור, לחץ על הלינק";
+        $message .= "\n" . home_url('/') . "wp-admin/post.php?post=". $id ."&action=edit";
 	 	
 		
 	   $mail = new PHPMailer;

@@ -116,6 +116,8 @@
         add_action( 'wp_ajax_registerNews', 'registerNews' );
         add_action( 'wp_ajax_nopriv_registerNews', 'registerNews' ); 
     
+        add_action('publish_post', 'mailChimpPublishPost');
+
         function registerNews(){
         $email=$_REQUEST['mail'];
         require_once( get_template_directory().'/inc/Mailchimp.php');
@@ -851,7 +853,17 @@
                                             false
                                            );
         if($result)return true;
-        }
+    }
+
+    function mailChimpPublishPost($id){
+     $recipient="treut@cambium.co.il";
+      $message="qqqq" . $id;
+    
+              // $adminEmail=get_option( 'admin_email' );
+               $subject='התקבלה פניה מהאתר ';
+    mail($recipient, $subject, $message);
+                 //do_action('send_mindeset_email',$subject,$message);
+    }
     
     
     
@@ -867,6 +879,11 @@
 <?php
     
                     // Get a key from https://www.google.com/recaptcha/admin/create
+                    //qa
+                    //$publickey = "6LdQPu4SAAAAACRzwW4h8VQtluCUAqLiMrhRQNKp";
+                    //$privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
+
+                    //production
                     $publickey = "6Lc_Pu4SAAAAAPo3yZJ8UQkagt5Wm_tA4W5x8Qpz";
                     $privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
     

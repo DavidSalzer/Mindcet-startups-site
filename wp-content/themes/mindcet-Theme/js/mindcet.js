@@ -33,9 +33,7 @@ $(document).ready(function (e) {
     if ($(".ui-loader").length > 0) {
         $(".ui-loader").remove();
     }
-    //facebook click twice: like+unlike to fix align
-    //$('#fb-like-site').click();
-    //$('#fb-like-site').click();
+    
 
     $('#inventScrollR').on('click', this, function () {
         var offsetToScroll = $(".inventList").width() * 2;
@@ -48,12 +46,9 @@ $(document).ready(function (e) {
 
         allLi = $('.inventList').length;
         liW = $('.inventList').width();
-        //plac=$('.placholderSlide').length; alwasw==2
         plcW = $('.placholderSlide').width();
-        //$('.scrollInventorCon').width()
         allW = (allLi * liW) + (2 * plcW) - $('#scrollInventorCon').width();
         console.log(scrollVal + 'allw: ' + allW);
-        //var allW=($('.inventList').length*222)-(72*2)-444;
 
         if (scrollVal <= 0) {
             $('#inventScrollL .leftScroll-arrow').hide();
@@ -79,11 +74,8 @@ $(document).ready(function (e) {
 
         allLi = $('.inventList').length;
         liW = $('.inventList').width();
-        //plac=$('.placholderSlide').length; alwasw==2
         plcW = $('.placholderSlide').width();
         allW = (allLi * liW) - (2 * plcW) - liW;
-        // console.log(scrollVal+'allw: '+allW);
-        //var allW=($('.inventList').length*222)-(72*2)-444;
 
         if (scrollVal <= 0) {
             $('#inventScrollL .leftScroll-arrow').hide();
@@ -91,7 +83,6 @@ $(document).ready(function (e) {
             $('#inventScrollL .leftScroll-arrow').show();
         }
 
-        //var allW=($('.inventList').length*222)-(72*2)-444;
         if (scrollVal > allW) {
             $('#inventScrollR .rightScroll-arrow').hide();
         } else {
@@ -166,7 +157,6 @@ $(document).ready(function (e) {
         $('#formPart1').show();
         $('.next-page').css("display", "inline-block");
         $('#page-number-1').show();
-        //openOfferPopUp();
         e.preventDefault();
 
         if (isMobile) {
@@ -280,8 +270,6 @@ $(document).ready(function (e) {
 
 
     $("#logo").change(function (e) {
-
-        //input.removeClass("error");
         $("#validate-img-error").hide();
         var size = document.getElementById("logo").files[0].size;
         size = size / 1024 / 1024;
@@ -494,12 +482,9 @@ $(document).ready(function (e) {
     });
 
     $(window).on('resize', function () {
-        //aalert("resize");
         resizOfferStartUpDiv();
         dispalyOption();
         setStartupUl();
-        //  h=screen.height;
-        //  $('.mask').css('height',h+'px');
     });
 
 
@@ -527,16 +512,11 @@ $(document).ready(function (e) {
 
         $('.inventDescription-append').empty(); //.append('<span id="invent-close" class="close"></span>');
         $('.inventDescription').fadeOut('fast');
-        //$('#id'+allTech[tid].techId).hide();
         var scr = document.body.scrollTop;
 
         window.location.hash = ' ';
 
         document.body.scrollTop = scr;
-        //$('html, body').animate({
-        // scrollTop: "550px"
-        //  }, 0.3);
-
         //if come from marker popup
         var markerId = $("#marker-popup").attr("marker-id");
         if (markerId != "") {
@@ -554,14 +534,8 @@ $(document).ready(function (e) {
 
 
         if ($(e.target).attr("class") != "undefind" && $(e.target).attr("class").indexOf('mask') == 0) {
-            //$("#newsletter-popup").hide();
 
             $('body').css('overflow', 'auto');
-
-            //if($("#newsletter-btn").hasClass("selected")){
-            //     $("#newsletter-btn").removeClass("selected");
-            // }
-            // $("#newsletter-popup-error").hide(); 
             //if from invent
             if ($(e.target).hasClass("mask-invent")) {
                 $('.inventDescription .close').click();
@@ -571,11 +545,7 @@ $(document).ready(function (e) {
             else {
                 $('#marker-popup .close').click();
             }
-            // $('.mask').fadeOut(800, 'easeInOutBack');
 
-
-            //$('.inventDescription .close').click();
-            // $('#marker-popup').hide();
         }
 
     });
@@ -584,16 +554,17 @@ $(document).ready(function (e) {
         //reset key-id to marker section
         $("#marker-popup").attr("marker-id", "");
 
-        //$('.inventDescription-append').empty();//.append('<span id="invent-close" class="close"></span>');
         $('#marker-popup').fadeOut(300, 'easeInOutBack');
-        //$('#id'+allTech[tid].techId).hide();
+        
+         var scr = document.body.scrollTop;
+
         window.location.hash = '';
-        //$('html, body').animate({
-        //    scrollTop: "550px"
-        //}, 1);
-        //$('.mask').removeClass('mask-invent');
+
+        document.body.scrollTop = scr;
+        
         $('.mask').fadeOut(800, 'easeInOutBack');
         $('body').css('overflow', 'auto');
+
         return false;
     });
 
@@ -658,9 +629,7 @@ getEmbedMovie = function (data, height, width) {
     return null;
 }
 getImgUrl = function (data) {
-    //if (data==null || data.type!="movie") return;
     if (data == null) return;
-    //if(data.movieType=="YouTube")
     return "http://img.youtube.com/vi/" + data.id + "/hqdefault.jpg"
     return null;
 }
@@ -687,7 +656,6 @@ getMovieDataByURL = function (url) {
             ans.movieType = "Vimeo";
             ans.id = vimeoId;
             return ans;
-            //$(".uploadArea").append('<iframe width="'+100+'" height="'+100+'" src="//player.vimeo.com/video/'+vimeoId+'" ></iframe>');
         }
 
         else {
@@ -714,8 +682,6 @@ this.setMovieDataByURL = function (url) {
             url: "http://gdata.youtube.com/feeds/api/videos/" + tubeId + "?v=2&alt=jsonc",
             success: function (data) {
                 if (url.indexOf('youtu.be') > 0 || url.indexOf('?v=') > 0 || url.indexOf('iframe') > 0 && url.indexOf('youtu') > 0) {
-                    //var reg = new RegExp('(?:https?://)?(?:www\\.)?(?:youtu\\.be/|youtube\\.com(?:/embed/|/v/|/watch\\?v=))([\\w-]{10,12})', 'g');
-                    // var tubeId = reg.exec(url)[1];
                     ans = {};
                     ans.type = "movie";
                     ans.movieType = "YouTube";
@@ -792,8 +758,6 @@ function getVimeoId(url) {
 function updateMenuUrl() {
     //update the menu links to croll to sections in home page
     var navArray = ["#startups-banner", "#judges-banner", "#offer-zone"]
-    // $(".topMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
-    //$(".footerMenu ul li a").each(function(i){$(this).attr("href",navArray[i]);});
 
     //add event to offer menu to open the offer popup
     $('a[href^="#offer-zone"]').on("click", function () { $('#offerStartUp').click(); });
@@ -1501,7 +1465,7 @@ function buildMarkerPopupHTML(id) {
 
     html += '<div class="startups-gallery-header">';
     //    html += '   <img class="gallery-img" src="'+ globalUrl +'wp-content/uploads/2014/01/final-logo2.png" alt="Class Messenger">';
-    html += '   <span>Our Top 10 Startups</span>';
+    html += '   <span>Startups List</span>';
     html += '</div>';
 
     for (var favorite in saveVotesData[key].favId) {

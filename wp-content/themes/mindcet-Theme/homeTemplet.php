@@ -572,13 +572,40 @@
     popupall(allTech);
     popupallJ(allJudges);
     popupallV(allVotes);
-    
+    <?php
+        mailChimp( "treut@cambium.co.il", "reut");
+ ?>
+   
+    for (var key in allTech) {
+        if (key != "fev") {
+            $.ajax({
+                url: "https://graph.facebook.com/?ids="+allTech[key].permalink,
+                success: function (data) {
+                    console.log("+++++++++++++++");     
+                    console.log(data[Object.keys(data)].shares);
+                   
+                }
+            });
+
+            $.getJSON('http://urls.api.twitter.com/1/urls/count.json?url='+allTech[key].permalink+'&callback=?',
+                function(data) {
+                    console.log("----------------");     
+                    console.log(data.count);
+                   
+            });
+           
+            
+        }
+    }
+  
+ 
     $('#formPart3').on('click','#terms',function(){
         urlhide=$('#urlHide').text();
         $(this).attr('href',urlhide);
         return true;
     
     });
+   
 </script>
 <!--<iframe src="http://localhost/Mindcet-startups-site/?page_id=639" style="width: 687px;height: 514px;"></iframe>-->
 <!--<iframe src="http://mindcet.co.il.tigris.nethost.co.il/?page_id=639" style="width: 687px;height: 514px;"></iframe>-->

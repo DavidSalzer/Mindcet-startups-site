@@ -116,7 +116,7 @@
         add_action( 'wp_ajax_registerNews', 'registerNews' );
         add_action( 'wp_ajax_nopriv_registerNews', 'registerNews' ); 
     
-        add_action('publish_post', 'mailChimpPublishPost');
+        add_action('save_post', 'mailChimpPublishPost');
 
         function registerNews(){
         $email=$_REQUEST['mail'];
@@ -856,13 +856,40 @@
     }
 
     function mailChimpPublishPost($id){
-     $recipient="treut@cambium.co.il";
-      $message="qqqq" . $id;
-    
-              // $adminEmail=get_option( 'admin_email' );
-               $subject='התקבלה פניה מהאתר ';
-    mail($recipient, $subject, $message);
-                 //do_action('send_mindeset_email',$subject,$message);
+        if( ( $_POST['post_status'] == 'publish' ) && ( $_POST['original_post_status'] != 'publish' ) ){
+           
+            $post = get_post($id);
+            setup_postdata($post);
+            $title=get_the_title($post->ID); 
+            $email=get_post_meta($post->ID,'wpcf-email_up',true);
+    // $recipient="treut@cambium.co.il";
+    //  $message="qqqq" .$email;
+    //
+    //          
+    //           $subject='התקבלה פניה מהאתר ';
+    //mail($email, $subject, $message);
+
+        //require_once( get_template_directory().'/inc/Mailchimp.php');
+        // $listId='8366e2458d';
+        // $merge_vars=array(
+        //     'FNAME' => $name,
+        //     'STATUS'=> 'published'
+        //);
+        // $apiKey='129c1db8a40f40aa3417c7d277581b9f-us6';
+        //$mailChimp=new Mailchimp($apiKey);
+        ////$mailChimp->lists->su
+        //$result=$mailChimp->lists->updateMember($listId, array('email'=>$email),
+        //                                    $merge_vars,
+        //                                    false,
+        //                                    true,
+        //                                    true,
+        //                                    false
+        //                                   );
+        //if($result)return true;
+        
+        
+        }
+               
     }
     
     

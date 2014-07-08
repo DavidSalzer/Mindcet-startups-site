@@ -1669,7 +1669,7 @@ display: none;
     display: none;
     top: -125px;
     width: 590px;
-    height: 666px;
+    height: 710px;
     background: #fff;
     left: 405px;
     z-index: 51;
@@ -1687,7 +1687,7 @@ display: none;
 
 .inventorPopUp .triangle {
     left: -32px;
-    bottom: 138px;
+    bottom: 170px;
 }
 
 

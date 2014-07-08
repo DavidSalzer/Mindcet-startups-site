@@ -954,6 +954,9 @@ function generalValidate() {
     validateEmptyInput($("#invetName"));
 
     //Invet Name
+    validateEmptyInput($("#city"));
+
+    //Invet Name
     validateEmptyInput($("#slogen"));
 
     //email
@@ -982,6 +985,9 @@ function form1Validate() {
     //Invet Name
     var invetName = validateEmptyInput($("#invetName"));
 
+    //Invet city
+    var invetCity = validateEmptyInput($("#city"));
+
     //slogen
     //var slogen = validateEmptyInput($("#slogen"));
 
@@ -1000,7 +1006,7 @@ function form1Validate() {
     //logo
     //var logo = validateLogo($(".title-logo.logoimg"));
 
-    if (selectOne == true & title & invetName & emailNotEmpty & (email == undefined || email) & (emailFounder == undefined || emailFounder) & slogen8)
+    if (selectOne == true & title & invetName & invetCity & emailNotEmpty & (email == undefined || email) & (emailFounder == undefined || emailFounder) & slogen8)
         return true;
     return false;
 }
@@ -1208,6 +1214,7 @@ function showPreviewForm() {
     var slogen = document.getElementById("slogen").value;
     var youtubeUrl = document.getElementById("youtubeUrl").value;
     var invetName = document.getElementById("invetName").value;
+    var invetCity = document.getElementById("city").value;
     var description = document.getElementById("description").value;
     //var img1 = document.getElementById("img-1").addEventListener('change', handleFileSelect, false);
     var founderShow = document.getElementById("founder").value;

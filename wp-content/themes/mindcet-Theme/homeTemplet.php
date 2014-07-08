@@ -81,6 +81,11 @@
                 }else{
                   $email= $_POST['email'];
                 }
+                if (isset ($_POST['city'])) {
+                    $city =  $_POST['city'];
+                } else {
+                    echo 'Please enter the city';
+                }
                 if(!filter_var($_POST['founderMail'], FILTER_VALIDATE_EMAIL)){
                  // $error['email']= "E-mail Founder is not valid";
             
@@ -116,6 +121,7 @@
                        //SET OUR CASTUOM FIELDS
             
                         update_post_meta($pid, 'wpcf-full_name', $name);
+                        update_post_meta($pid, 'wpcf-city', $city);
                         update_post_meta($pid, 'wpcf-email_up', $email);
                         update_post_meta($pid, 'wpcf-site-url', $site);
                         update_post_meta($pid, 'wpcf-founder', $founder);
@@ -176,6 +182,8 @@
                         <fieldset class="formfield">
                             <input type="email" id="email" value="" tabindex="11" name="email" placeholder="Your E-Mail" /> *
                         </fieldset>
+
+                        <input type="text" id="city" value="" tabindex="11" name="city" placeholder="Your City" /> *
 
                         <!-- post name -->
                         <input type="text" id="title" value="" tabindex="12" name="title" placeholder="StartUp name" /> *
@@ -572,9 +580,7 @@
     popupall(allTech);
     popupallJ(allJudges);
     popupallV(allVotes);
-    <?php
-        mailChimp( "treut@cambium.co.il", "reut");
- ?>
+   
    
     for (var key in allTech) {
         if (key != "fev") {

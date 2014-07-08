@@ -1,5 +1,5 @@
 <?php
-    
+    $test=0;
         add_filter('locale', 'wpse27056_setLocale');
         function wpse27056_setLocale($locale) {
             if (!is_admin() ) {
@@ -13,7 +13,7 @@
         automatic_feed_links();
     
         add_action('init', 'myStartSession', 1);
-        function myStartSession() {
+        function myStartSession() {                        
             if(!session_id()) {
                 session_start();
             }
@@ -41,10 +41,10 @@
             wp_register_script('deep', (get_template_directory_uri()."/js/deeplink.js"), false);
            wp_enqueue_script('deep');
     
-            //if(is_front_page()){
+            if(is_front_page()){
                 wp_register_script('selection', (get_template_directory_uri()."/js/selection.js"), false);
                 wp_enqueue_script('selection');
-            //}
+            }
         }
     
         // Clean up the <head>
@@ -115,7 +115,10 @@
     
         add_action( 'wp_ajax_registerNews', 'registerNews' );
         add_action( 'wp_ajax_nopriv_registerNews', 'registerNews' ); 
-    
+        
+        add_action( 'wp_ajax_updateLikeTwittStartupSingle', 'updateLikeTwittStartupSingle' );
+        add_action( 'wp_ajax_nopriv_updateLikeTwittStartupSingle', 'updateLikeTwittStartupSingle' ); 
+
         add_action('save_post', 'mailChimpPublishPost');
 
         function registerNews(){
@@ -862,6 +865,7 @@
             setup_postdata($post);
             $title=get_the_title($post->ID); 
             $email=get_post_meta($post->ID,'wpcf-email_up',true);
+            $link=get_permalink($post->ID);
     // $recipient="treut@cambium.co.il";
     //  $message="qqqq" .$email;
     //
@@ -869,23 +873,23 @@
     //           $subject='התקבלה פניה מהאתר ';
     //mail($email, $subject, $message);
 
-        //require_once( get_template_directory().'/inc/Mailchimp.php');
-        // $listId='8366e2458d';
-        // $merge_vars=array(
-        //     'FNAME' => $name,
-        //     'STATUS'=> 'published'
-        //);
-        // $apiKey='129c1db8a40f40aa3417c7d277581b9f-us6';
-        //$mailChimp=new Mailchimp($apiKey);
-        ////$mailChimp->lists->su
-        //$result=$mailChimp->lists->updateMember($listId, array('email'=>$email),
-        //                                    $merge_vars,
-        //                                    false,
-        //                                    true,
-        //                                    true,
-        //                                    false
-        //                                   );
-        //if($result)return true;
+        require_once( get_template_directory().'/inc/Mailchimp.php');
+         $listId='8366e2458d';
+         $merge_vars=array(
+             'FNAME' => $name,
+             'STATUS'=> 'published',
+             'LINK' => $link
+        );
+         $apiKey='129c1db8a40f40aa3417c7d277581b9f-us6';
+        $mailChimp=new Mailchimp($apiKey);        
+        $result=$mailChimp->lists->updateMember($listId, array('email'=>$email),
+                                            $merge_vars,
+                                            false,
+                                            true,
+                                            true,
+                                            false
+                                           );
+        if($result)return true;
         
         
         }
@@ -974,6 +978,50 @@
        }
        return date('Y');
     }
+
+   function updateLikeTwittStartupSingle(){
+        $id=$_REQUEST['id'];
+        $post = get_post($id);
+        setup_postdata($post);
+        $data=(array)json_decode(file_get_contents("https://graph.facebook.com/?ids=".str_replace("?p=","?initiator=",get_permalink($post->ID))));
+        $data=$data[key($data)];               
+        update_post_meta( $post->ID, 'wpcf-likes', $data->shares );
+
+        $twitt=json_decode(file_get_contents("http://urls.api.twitter.com/1/urls/count.json?url=".str_replace("?p=","?initiator=",get_permalink($post->ID))));               
+        update_post_meta( $post->ID, 'wpcf-twitts', $twitt->count );
+        echo 1;
+   }
+
+    //function updateLikeTwittStartup(){
+    //    $args = array(
+    //        'posts_per_page'   => -1,
+    //        'orderby'          => 'post_date',
+    //        'order'            => 'DESC',
+    //        'post_type'        => 'initiator',
+    //        'post_status'      => 'publish',
+    //    );
+    //       
+    //    
+    //    //loop all startup and update likes and twiits
+    //    foreach(posts_by_year($args) as $year => $posts) : 
+    //        foreach($posts as $post) : setup_postdata($post);             
+    //            $data=(array)json_decode(file_get_contents("https://graph.facebook.com/?ids=".str_replace("?p=","?initiator=",get_permalink($post->ID))));
+    //            $data=$data[key($data)];
+    //            //echo "https://graph.facebook.com/?ids=".get_permalink($post->ID);
+    //            //echo "shares: ". $data->shares ."<br/>\n";
+    //            
+    //           update_post_meta( $post->ID, 'wpcf-likes', $data->shares );
+
+    //           $twitt=json_decode(file_get_contents("http://urls.api.twitter.com/1/urls/count.json?url=".str_replace("?p=","?initiator=",get_permalink($post->ID))));
+    //            //$twitt=$twitt->count;
+    //            //echo $twitt;
+    //            update_post_meta( $post->ID, 'wpcf-twitts', $twitt->count );
+    //           
+    //        endforeach;
+    //    endforeach; 
+    //
+    //            
+    //}
 
    
     

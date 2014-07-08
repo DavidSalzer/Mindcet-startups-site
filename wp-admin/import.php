@@ -15,7 +15,64 @@ if ( !current_user_can('import') )
 	wp_die(__('You do not have sufficient permissions to import content in this site.'));
 
 $title = __('Import');
+function export_add_js() {
+?>
+<style>
+    #succesCounter{
+        position: absolute;
+        right: 50px;
+        z-index: 100;
+        width: 200px;
+        height: 100px;
+        line-height: 32px;
+        text-align: center;
+        background-color: cyan;
+        font-weight: bold;
+        font-size: 23px;
+        top: 78px;
+    }
+</style>
 
+<script type="text/javascript">
+  function uplaodSocial(e){
+        e.stopPropagation();
+        var succesCounter=0;
+        var startupsCount=0;
+        allYearsTech=<?php echo getAllStartup(); ?>;    
+        for (var year in allYearsTech) {
+            for(var key in allYearsTech[year]){
+                startupsCount++;
+                if (key != "fev") {                
+                    jQuery.post('admin-ajax.php', {
+                        id: allYearsTech[year][key].techId,
+                        action: 'updateLikeTwittStartupSingle'
+                    },
+				    function (data) {
+                        //if succes
+                        //if(data=='1'){
+                            if(jQuery('#succesCounter').length==0){
+                                jQuery('body').append('<div id="succesCounter"><div id="succesCounterText">Import Social media ranks</div><div>'+succesCounter+'/'+startupsCount+' </div></div>');
+                            }
+                            else{
+                                jQuery('#succesCounter').html('<div>Import Social media ranks</div>'+succesCounter+'/'+startupsCount);
+                            }
+                            succesCounter++;
+                            //if all startup succes
+                            if(startupsCount-3<=succesCounter){
+                                jQuery('#succesCounter').remove();
+                            
+                            }
+                        //}
+                    });
+                }
+            }
+        }
+        return false;
+    }
+</script>
+<?php
+}
+add_action( 'admin_head', 'export_add_js' );
 get_current_screen()->add_help_tab( array(
 	'id'      => 'overview',
 	'title'   => __('Overview'),
@@ -116,6 +173,11 @@ if ( empty( $importers ) ) {
 				<td class='desc'>{$data[1]}</td>
 			</tr>";
 	}
+    echo "
+        <tr>
+		    <td class='import-system row-title' onclick='uplaodSocial(event);return false;'><a href=''>Import Social media ranks</a></td>
+		    <td class='desc'>upload social fields</td>
+	    </tr>";
 ?>
 
 </table>

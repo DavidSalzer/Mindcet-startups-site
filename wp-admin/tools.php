@@ -10,7 +10,12 @@
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 $title = __('Tools');
+?>
 
+<script type="text/javascript">
+ alert(0);
+</script>
+<?php
 get_current_screen()->add_help_tab( array(
 	'id'      => 'press-this',
 	'title'   => __('Press This'),

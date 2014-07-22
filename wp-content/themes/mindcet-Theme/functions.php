@@ -37,14 +37,14 @@
             wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
            wp_enqueue_script('mindcetjs');
     
-    //
-            wp_register_script('deep', (get_template_directory_uri()."/js/deeplink.js"), false);
+
+          wp_register_script('deep', (get_template_directory_uri()."/js/deeplink.js"), false);
            wp_enqueue_script('deep');
     
-            if(is_front_page()){
-                wp_register_script('selection', (get_template_directory_uri()."/js/selection.js"), false);
+         
+            wp_register_script('selection', (get_template_directory_uri()."/js/selection.js"), false);
                 wp_enqueue_script('selection');
-            }
+         
         }
     
         // Clean up the <head>
@@ -734,6 +734,34 @@
                ) 
              );
     
+
+              $wp_customize->add_section( 'competition_status', 
+               array(
+                  'title' =>'סטטוס התחרות', //Visible title of section
+                  'description' => 'האם אפשר להעלות עוד סטארטפים?', //Descriptive tooltip
+               ) 
+            );
+    
+             $wp_customize->add_setting( 'competition_status_check_box', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+               array(
+                  //'default' => '', //Default setting/value to save
+                   'default'    =>  'true',
+                   ) 
+            );  	  
+    
+    
+            ////  //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
+            $wp_customize->add_control( 
+               'competition_status_check_box_input', //Set a unique ID for the control
+               array(
+                  'label' => 'מעלים סטארטפים', //Admin-visible name of the control
+                  'section' => 'competition_status', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                  'settings' => 'competition_status_check_box', //Which setting to load and manipulate (serialized is okay)
+                  'type'       => 'checkbox',
+                  'priority' => 10, //Determines the order this control appears in for the specified section
+               ) 
+             );
+
     
     //       //set a img for link at the top
             $wp_customize->add_section( 'fev_defult', 
@@ -992,36 +1020,9 @@
         echo 1;
    }
 
-    //function updateLikeTwittStartup(){
-    //    $args = array(
-    //        'posts_per_page'   => -1,
-    //        'orderby'          => 'post_date',
-    //        'order'            => 'DESC',
-    //        'post_type'        => 'initiator',
-    //        'post_status'      => 'publish',
-    //    );
-    //       
-    //    
-    //    //loop all startup and update likes and twiits
-    //    foreach(posts_by_year($args) as $year => $posts) : 
-    //        foreach($posts as $post) : setup_postdata($post);             
-    //            $data=(array)json_decode(file_get_contents("https://graph.facebook.com/?ids=".str_replace("?p=","?initiator=",get_permalink($post->ID))));
-    //            $data=$data[key($data)];
-    //            //echo "https://graph.facebook.com/?ids=".get_permalink($post->ID);
-    //            //echo "shares: ". $data->shares ."<br/>\n";
-    //            
-    //           update_post_meta( $post->ID, 'wpcf-likes', $data->shares );
-
-    //           $twitt=json_decode(file_get_contents("http://urls.api.twitter.com/1/urls/count.json?url=".str_replace("?p=","?initiator=",get_permalink($post->ID))));
-    //            //$twitt=$twitt->count;
-    //            //echo $twitt;
-    //            update_post_meta( $post->ID, 'wpcf-twitts', $twitt->count );
-    //           
-    //        endforeach;
-    //    endforeach; 
-    //
-    //            
-    //}
+   function canAddStartup(){
+       return get_theme_mod('competition_status_check_box');
+   }
 
    
     

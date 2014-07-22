@@ -529,6 +529,12 @@ height: 28px;
 margin-top: 90px;
 font-size: 16px;
 }
+
+#stop-up-startup:first-line {
+    font-size: 16px;
+}
+
+
 .form-end-message .fb, .form-end-message .twitter{
     position: relative;
 float: none;
@@ -538,7 +544,7 @@ margin: 0;
 .form-end-message .linkedin{
     position: relative;
 }
-#form-end-social{
+.form-end-social{
     
 }
 .form-end-message .twitter,.form-end-message .linkedin{
@@ -548,6 +554,8 @@ background-size: 160px;
 }
 .form-end-message .fb{
     background-position-x: 15px;
+ background-size: 160px;   
+    
 }
 .form-end-message .twitter{
     background-position-x: 51%;

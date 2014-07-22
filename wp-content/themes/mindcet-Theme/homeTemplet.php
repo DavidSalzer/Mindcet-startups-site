@@ -12,8 +12,8 @@
 ?>
 <?
     set_post_thumbnail( 165, 176177178179 );
-
-   
+    
+    
 ?>
 
 
@@ -40,10 +40,10 @@
 
                 <!-- AddThis Button BEGIN -->
                                     <!--<div class="addthis_toolbox addthis_default_style">
-                                                                                                                <a class="addthis_button_tweet"></a>
-                                                                                                                </div>
-                                                                                                                <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-                                                                                                                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52d6681e180b98e3"></script>-->
+                                                                                                                                                                                                                                                            <a class="addthis_button_tweet"></a>
+                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+                                                                                                                                                                                                                                                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52d6681e180b98e3"></script>-->
                 <!-- AddThis Button END -->
             </div>
         </div>
@@ -176,6 +176,11 @@
                 <form id="new_post" name="new_post" class="popInvent" method="post" action="" class="wpcf7-form" enctype="multipart/form-data">
 
                     <div id="formPart1">
+                        <?php
+                            //echo get_theme_mod('competition_status_check_box');
+                            if(1 == get_theme_mod('competition_status_check_box')){
+                            
+                        ?>
                         <!-- post Category -->
                         <input type="text" id="invetName" value="" tabindex="10" name="invetName" placeholder="Your name" />*
                         <!-- post Category -->
@@ -184,7 +189,6 @@
                         </fieldset>
 
                         <input type="text" id="city" value="" tabindex="11" name="city" placeholder="Your City" /> *
-
                         <!-- post name -->
                         <input type="text" id="title" value="" tabindex="12" name="title" placeholder="StartUp name" /> *
                         <!-- post Category -->
@@ -244,113 +248,120 @@
                             </select>
 
 
-                            <?php
-                                /*?><label class="styleCheckbox"></label>					
-                                                               <input type="checkbox" id="<?php echo $category->slug;?>" name="<?php echo $category->slug;?>" value="<?php echo $category->term_id;?>">
-                                                               <span></span><?php echo $category->name ;?>
-                                                           </label><?php */?>
-                                
-                                
-                                                 </fieldset>            
-                                               </div>
-                                
-                                               <div id="formPart2">    
-                                
-                                
-                                                   <!-- post Category -->
-                                
-                                                   <!-- post Content -->
-                                                   <!--<fieldset class="formfield">-->
-                                                  <textarea id="description" tabindex="20" name="description" cols="30" rows="1" placeholder="About the startup"></textarea>*
-                                                   <!--</fieldset>-->
-                                
-                                                   <!-- post Category -->
-                                                   <!--<fieldset class="formfield">-->
-                                                       <input type="url" id="site" value="" tabindex="21" name="site" placeholder="Link to website"/>*
-                                                   <!--</fieldset>-->
-                                
-                                                   <!-- post Category -->
-                                                   <fieldset class="formfield">
-                                                       <input type="url" id="youtubeUrl" value="" tabindex="22" name="youtubeUrl" placeholder="Link to video (YouTube/Vimeo)"/>
-                                                   </fieldset>
-                                
-                                                   <fieldset class="formfield input-border">
-                                                       <span class="title-logo logoimg">Logo</span>
-                                                       <div class="upload" onclick="getFile('#logo')">Select file</div>
-                                                       <div class="input-outer">
-                                                           <input type="file" id="logo" value="Upload" name="logo" tabindex="23" name="logo" placeholder="" onchange="sub(this)"/>
-                                                       </div>
-                                                   </fieldset>
-                                
-                                                   <!-- post Category -->
-                                
-                                                   <fieldset class="formfield input-border">
-                                                       <span class="title-logo img1">Add a photo</span>
-                                                       <div class="upload" onclick="getFile('#img-1')">Select file</div>
-                                                       <div class="input-outer">
-                                                           <input type="file" id="img-1" value="" tabindex="24" name="img-1" placeholder="" onchange="sub(this)" />
-                                                       </div>
-                                                   </fieldset>
-                                
-                                                   <!-- post Category -->
-                                
-                                                   <fieldset class="formfield input-border">
-                                                       <span class="title-logo img2">Add a photo</span>
-                                                       <div class="upload" onclick="getFile('#img-2')">Select file</div>
-                                                       <div class="input-outer">
-                                                           <input type="file" id="img-2" value="" tabindex="25" name="img-2" placeholder="" onchange="sub(this)"/>
-                                                       </div>
-                                                   </fieldset>
-                                
-                                                   <!-- post Category -->
-                                
-                                                   <fieldset class="formfield input-border">
-                                                       <span class="title-logo img3">Add a photo</span>
-                                                       <div class="upload" onclick="getFile('#img-3')">Select file</div>
-                                                       <div class="input-outer">
-                                                           <input type="file" id="img-3" value="" tabindex="26" name="img-3" placeholder="" />
-                                                       </div>
-                                                   </fieldset>
-                                
-                                               </div>
-                                
-                                               <div id="formPart3">
-                                
-                                               </div>
-                                               <?php  $res=(empty($fileEr))?'good':'bad';
-                            ?>
-                            <div id="formPart4" class="<?php echo $res;if(isset($_POST['submit']))echo ' show'?>">
-                                <?php if(!empty($error['initiator'])){echo $error['initiator'];}else{?>
 
-                                <div class="form-end-message">
+
+
+                        </fieldset>
+                        <?php
+                            }
+                            else{
+                        ?>
+                        <div id="stop-up-startup" class="form-end-message">
+                        The Applications stage is over.<br> We invite you to apply to the next year competition.
+                            <div class="planes"></div>
+                            <div class="form-end-social">
+                                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url();?>&p[images][0]=&p[title]=&p[summary]" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
+
+                                <a href="http://twitter.com/intent/tweet?text=<?php echo site_url();?>" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>
+
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url();?>" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
+
+                            </div>
+                        </div>
+                        <?php
+                            }
+                            
+                            
+                        ?>
+
+                    </div>
+                    <?php
+                        if(1 == get_theme_mod('competition_status_check_box')){
+                    ?>
+                    <div id="formPart2">
+                        <textarea id="description" tabindex="20" name="description" cols="30" rows="1" placeholder="About the startup"></textarea>*
+                        <input type="url" id="site" value="" tabindex="21" name="site" placeholder="Link to website" />*
+                        <fieldset class="formfield">
+                            <input type="url" id="youtubeUrl" value="" tabindex="22" name="youtubeUrl" placeholder="Link to video (YouTube/Vimeo)" />
+                        </fieldset>
+
+                        <fieldset class="formfield input-border">
+                            <span class="title-logo logoimg">Logo</span>
+                            <div class="upload" onclick="getFile('#logo')">Select file</div>
+                            <div class="input-outer">
+                                <input type="file" id="logo" value="Upload" name="logo" tabindex="23" name="logo" placeholder="" onchange="sub(this)" />
+                            </div>
+                        </fieldset>
+                        <fieldset class="formfield input-border">
+                            <span class="title-logo img1">Add a photo</span>
+                            <div class="upload" onclick="getFile('#img-1')">Select file</div>
+                            <div class="input-outer">
+                                <input type="file" id="img-1" value="" tabindex="24" name="img-1" placeholder="" onchange="sub(this)" />
+                            </div>
+                        </fieldset>
+                        <fieldset class="formfield input-border">
+                            <span class="title-logo img2">Add a photo</span>
+                            <div class="upload" onclick="getFile('#img-2')">Select file</div>
+                            <div class="input-outer">
+                                <input type="file" id="img-2" value="" tabindex="25" name="img-2" placeholder="" onchange="sub(this)" />
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="formfield input-border">
+                            <span class="title-logo img3">Add a photo</span>
+                            <div class="upload" onclick="getFile('#img-3')">Select file</div>
+                            <div class="input-outer">
+                                <input type="file" id="img-3" value="" tabindex="26" name="img-3" placeholder="" />
+                            </div>
+                        </fieldset>
+
+                    </div>
+
+                    <div id="formPart3">
+
+                    </div>
+                    <?php
+                        $res=(empty($fileEr))?'good':'bad';
+                    ?>
+                    <div id="formPart4" class="<?php echo $res;if(isset($_POST['submit']))echo ' show'?>">
+                        <?php if(!empty($error['initiator'])){echo $error['initiator'];}else{?>
+
+                        <div class="form-end-message">
                         Yippee! <br><br>The startup you added submitted for approval and will be uploaded in a few minutes.
                         You're more than welcome to share the competition with your friends! <br>
-                                    <div class="planes"></div>
-                                    <div id="form-end-social">
-                                        <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url();?>&p[images][0]=&p[title]=&p[summary]" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
+                            <div class="planes"></div>
+                            <div class="form-end-social">
+                                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url();?>&p[images][0]=&p[title]=&p[summary]" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
 
-                                        <a href="http://twitter.com/intent/tweet?text=<?php echo site_url();?>" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>
+                                <a href="http://twitter.com/intent/tweet?text=<?php echo site_url();?>" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>
 
-                                        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url();?>" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url();?>" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
 
-                                    </div>
-                                </div>
-
-
-                                <?php }?>
                             </div>
-                            <div class="capchArea">
-                                <?php myCapch() ?>
-                            </div>
+                        </div>
 
-                            <fieldset class="submit">
-                                <input type="submit" value="Submit" tabindex="40" id="submit" name="submit" />
-                            </fieldset>
 
-                            <input type="hidden" name="action" value="new_post" />
-                            <?php wp_nonce_field( 'new-post' ); ?>
+                        <?php }?>
+                    </div>
+                    <div class="capchArea">
+                        <?php myCapch() ?>
+                    </div>
+
+                    <fieldset class="submit">
+                        <input type="submit" value="Submit" tabindex="40" id="submit" name="submit" />
+                    </fieldset>
+
+                    <input type="hidden" name="action" value="new_post" />
+                    <?php
+                        wp_nonce_field( 'new-post' );
+                                            }
+                    ?>
 
                 </form>
+                <?php
+                    
+                    if(1 == get_theme_mod('competition_status_check_box')){
+                ?>
                 <div id="nav-area">
                     <span id="page-number-1" class="page-number">1/3</span>
                     <span id="page-number-2" class="page-number">2/3</span>
@@ -358,6 +369,9 @@
                     <div class="last-page"><div class="nav-page-img">Back</div></div>
                     <div class="next-page"><div class="nav-page-img">Next</div></div>
                 </div>
+                <?php
+                    }
+                ?>
             </div>
         </div>
 
@@ -372,13 +386,14 @@
 
 </div>
 
-<?php   
-  $currentyear= get_defauly_year();
-    $yearArray= array();
+<?php
     
-    foreach(posts_by_year() as $year => $posts) :
-        array_push($yearArray, $year);
-    endforeach;
+    $currentyear= get_defauly_year();
+      $yearArray= array();
+    
+      foreach(posts_by_year() as $year => $posts) :
+          array_push($yearArray, $year);
+      endforeach;
 ?>
 
 <div id="startups-banner" class="middelBanner">
@@ -436,7 +451,7 @@
     <div class="leftScroll" id="inventScrollL"><div class="leftScroll-arrow"></div></div>
     <?php
         
-       
+        
             $args = array(
             'posts_per_page'   => -1,
             'orderby'          => 'post_date',
@@ -580,8 +595,8 @@
     popupall(allTech);
     popupallJ(allJudges);
     popupallV(allVotes);
-   
-   
+    
+    
     for (var key in allTech) {
         if (key != "fev") {
             $.ajax({
@@ -589,33 +604,32 @@
                 success: function (data) {
                     console.log("+++++++++++++++");     
                     console.log(data[Object.keys(data)].shares);
-                   
+    
                 }
             });
-
+    
             $.getJSON('http://urls.api.twitter.com/1/urls/count.json?url='+allTech[key].permalink+'&callback=?',
                 function(data) {
                     console.log("----------------");     
                     console.log(data.count);
-                   
+    
             });
-           
-            
+    
+    
         }
     }
-  
- 
+    
+    
     $('#formPart3').on('click','#terms',function(){
         urlhide=$('#urlHide').text();
         $(this).attr('href',urlhide);
         return true;
     
     });
-   
+    
 </script>
 <!--<iframe src="http://localhost/Mindcet-startups-site/?page_id=639" style="width: 687px;height: 514px;"></iframe>-->
 <!--<iframe src="http://mindcet.co.il.tigris.nethost.co.il/?page_id=639" style="width: 687px;height: 514px;"></iframe>-->
-
 <?php get_footer(); ?>
 
 

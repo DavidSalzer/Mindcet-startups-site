@@ -2018,6 +2018,11 @@ font-family: sans-serif;*/
     font-family: sansbold;
 }
 
+#stop-up-startup:first-line {
+    font-size: 23px;
+    font-family: sans;
+}
+
 .bad .form-end-message:first-line {
     color: #21cb89;
 }

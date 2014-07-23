@@ -1399,19 +1399,21 @@ function checkBounds(map) {
 var placeInsaveVotesData = 0;
 var savePlaceInVotesData = [];
 // Add a marker to the map and push to the array.
-function addMarker(location) {
+function addMarker(location,markerId) {
     var marker = new google.maps.Marker({
         position: location,
         map: map
     });
+
+    marker.markerId=markerId
     markers.push(marker);
 
     //save favorites linked to the marker
-    savePlaceInVotesData[marker.__gm_id] = placeInsaveVotesData++;
+    savePlaceInVotesData[marker.markerId] = placeInsaveVotesData++;
 
     google.maps.event.addListener(marker, 'click', function () {
-        var key = savePlaceInVotesData[marker.__gm_id];
-        buildMarkerPopupHTML(saveVotesData[key].markerId);
+       // var key = savePlaceInVotesData[marker.markerId];
+        buildMarkerPopupHTML(marker.markerId);
     });
 }
 
@@ -1421,7 +1423,7 @@ function setMarkers(allMarkers) {
         //convert to latLng
         var myLatlng = new google.maps.LatLng(parseFloat(allMarkers[marker].lat), parseFloat(allMarkers[marker].lon));
         //create marker push marker to array
-        addMarker(myLatlng);
+        addMarker(myLatlng,allMarkers[marker].markerId);
     }
     //show markers on map
     for (var i = 0; i < markers.length; i++) {

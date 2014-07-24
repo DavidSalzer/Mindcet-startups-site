@@ -260,11 +260,13 @@
                         The Applications stage is over.<br> We invite you to apply to the next year competition.
                             <div class="planes"></div>
                             <div class="form-end-social">
-                                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url();?>&p[images][0]=&p[title]=&p[summary]" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
+                                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2014&p[summary]=What's your favorite EdTech startup?" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
 
-                                <a href="http://twitter.com/intent/tweet?text=<?php echo site_url();?>" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>
+                                <!--<a href="http://twitter.com/intent/tweet?text=What's your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>-->
 
-                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url();?>" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
+                                <span class="social twitter" onClick="openInNewWindow('http://twitter.com/intent/tweet?text=What\'s your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education' , 100, 100)">Share on <span class="letter-space">Twitter</span></span>
+
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2014&summary=What's your favorite EdTech startup?" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
 
                             </div>
                         </div>
@@ -331,11 +333,14 @@
                         You're more than welcome to share the competition with your friends! <br>
                             <div class="planes"></div>
                             <div class="form-end-social">
-                                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url();?>&p[images][0]=&p[title]=&p[summary]" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
+                                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2014&p[summary]=What's your favorite EdTech startup?" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
 
-                                <a href="http://twitter.com/intent/tweet?text=<?php echo site_url();?>" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>
+                                <!--<a href="http://twitter.com/intent/tweet?text=What's your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>-->
 
-                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url();?>" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
+                                <span class="social twitter" onClick="openInNewWindow('http://twitter.com/intent/tweet?text=What\'s your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education' , 100, 100)">Share on <span class="letter-space">Twitter</span></span>
+
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2014&summary=What's your favorite EdTech startup?" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
+
 
                             </div>
                         </div>

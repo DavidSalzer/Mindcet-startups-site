@@ -3347,6 +3347,7 @@ select#tagsNav {
     float: left;
     margin-top: 20px;
     width: 480px;
+    min-height: 390px;
 }
 
 #marker-popup .startups-gallery-item {

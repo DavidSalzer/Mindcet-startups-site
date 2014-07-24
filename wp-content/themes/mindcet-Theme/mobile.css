@@ -1631,6 +1631,7 @@ right: 0px;
         margin-top: 25px;
         width: 85%;
         margin-left: 7.5%;
+        min-height: 100%;
     }
 
     #marker-popup .startups-gallery .startups-gallery-header {

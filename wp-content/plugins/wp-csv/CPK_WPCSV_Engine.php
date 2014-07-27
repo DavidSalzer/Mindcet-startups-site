@@ -25,8 +25,11 @@ if ( !class_exists( 'CPK_WPCSV_Engine' ) ) {
 			$this->export_model->empty_table( );
 			$export_file = $this->settings['csv_path'] . '/' . self::EXPORT_FILE_NAME . '.csv';
 			if ( file_exists( $export_file ) ) unlink( $export_file );
-			$post_ids = $this->posts_model->get_post_ids( $this->settings['post_type'] );
-			$this->export_model->add_post_ids( $post_ids );
+			$post_ids = $this->posts_model->get_post_ids( $this->settings['post_type'], $this->settings['post_status'] );
+			
+			if ( $post_ids ) {
+				$this->export_model->add_post_ids( $post_ids );
+			}
 		}
 
 		public function get_total( ) {
@@ -39,7 +42,7 @@ if ( !class_exists( 'CPK_WPCSV_Engine' ) ) {
 
 			$post_ids = $this->export_model->get_post_id_list( $this->settings['limit'] );
 
-			$posts = $this->posts_model->get_posts( $this->settings['post_fields'], $this->settings['post_type'], $post_ids );
+			$posts = $this->posts_model->get_posts( $this->settings['post_fields'], $this->settings['post_type'], $this->settings['post_status'], $post_ids );
 			
 			if ( !is_array( $posts ) || empty( $posts ) ) return 0;
 
@@ -101,6 +104,17 @@ if ( !class_exists( 'CPK_WPCSV_Engine' ) ) {
 			}
 
 			if ( !$include_headings ) unset( $post_array[0] );
+
+            //add permalink to all startups
+            for($i=0;$i<count($post_array);$i++){
+                if($i==0){
+                    $post_array[$i][]="permalink";
+                }
+                else{
+                    $post_array[$i][]= site_url()."/#".$post_array[$i][0];
+                }
+            }
+           
 
 			$result = $this->save_export( $post_array );
 
@@ -424,7 +438,7 @@ if ( !class_exists( 'CPK_WPCSV_Engine' ) ) {
 					$text = $parent->slug . '~' . $text;
 				}
 
-				$output[] = $text;
+				$output[] = urldecode( $text );
 			}
 
 			return implode( ',', $output );
@@ -434,6 +448,7 @@ if ( !class_exists( 'CPK_WPCSV_Engine' ) ) {
 			$term_ids = Array( );
 			foreach( $items as $i ) {
 				if ( empty( $i ) ) continue;
+				$i = urldecode( $i );
 				$split = preg_split( '/(~|:)/', trim( $i ) );
 				# Prevent "one, two, " causing problems (last item is a space)
 				if ( empty( $split[0] ) ) continue;

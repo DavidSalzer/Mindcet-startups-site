@@ -1,21 +1,22 @@
 // JavaScript Document
 $(document).ready(function(e) {
     
-	deep=window.location.hash;
-	if(deep.length>0 && deep.indexOf('#')>-1){
-		//exelerator
-        if(deep.indexOf('map')>-1){
-		    tid=deep.split('/');
-            buildMarkerPopupHTML(tid[1]);
-		}
-        //startup
-        else{
-            tid=deep.split('#');
-		    popuopInvent(tid[1]);
-        }
-        
-	}
-	
+    checkUrl();
+	//deep=window.location.hash;
+	//if(deep.length>0 && deep.indexOf('#')>-1){
+	//	//exelerator
+ //       if(deep.indexOf('map')>-1){
+	//	    tid=deep.split('/');
+ //           buildMarkerPopupHTML(tid[1]);
+	//	}
+ //       //startup
+ //       else{
+ //           tid=deep.split('#');
+	//	    popuopInvent(tid[1]);
+ //       }
+ //       
+	//}
+	//
 	
 $('.inventDescription').on('click','img.wp-post-image',function(){
 		pid=$(this).attr('postid');
@@ -147,4 +148,21 @@ function sendMessage(){
 					
 			});
 
+}
+window.onhashchange = checkUrl;
+function checkUrl(){
+    deep=window.location.hash;
+	if(deep.length>0 && deep.indexOf('#')>-1){
+		//exelerator
+        if(deep.indexOf('map')>-1){
+		    tid=deep.split('/');
+            buildMarkerPopupHTML(tid[1]);
+		}
+        //startup
+        else{
+            tid=deep.split('#');
+		    popuopInvent(tid[1]);
+        }
+        
+	}
 }

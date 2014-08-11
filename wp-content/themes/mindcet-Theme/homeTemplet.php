@@ -608,27 +608,7 @@
     popupallV(allVotes);
     
     
-    for (var key in allTech) {
-        if (key != "fev") {
-            $.ajax({
-                url: "https://graph.facebook.com/?ids="+allTech[key].permalink,
-                success: function (data) {
-                    console.log("+++++++++++++++");     
-                    console.log(data[Object.keys(data)].shares);
     
-                }
-            });
-    
-            $.getJSON('http://urls.api.twitter.com/1/urls/count.json?url='+allTech[key].permalink+'&callback=?',
-                function(data) {
-                    console.log("----------------");     
-                    console.log(data.count);
-    
-            });
-    
-    
-        }
-    }
     
     
     $('#formPart3').on('click','#terms',function(){

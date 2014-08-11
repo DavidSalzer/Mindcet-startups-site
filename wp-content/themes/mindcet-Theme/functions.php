@@ -910,7 +910,7 @@
         );
          $apiKey='129c1db8a40f40aa3417c7d277581b9f-us6';
         $mailChimp=new Mailchimp($apiKey);        
-        $result=$mailChimp->lists->updateMember($listId, array('email'=>$email),
+        $result=$mailChimp->lists->subscribe($listId, array('email'=>$email),
                                             $merge_vars,
                                             false,
                                             true,

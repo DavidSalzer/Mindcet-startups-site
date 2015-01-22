@@ -37,14 +37,14 @@
             wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
            wp_enqueue_script('mindcetjs');
     
-
+    
           wp_register_script('deep', (get_template_directory_uri()."/js/deeplink.js"), false);
            wp_enqueue_script('deep');
     
-         
+    
             wp_register_script('selection', (get_template_directory_uri()."/js/selection.js"), false);
                 wp_enqueue_script('selection');
-         
+    
         }
     
         // Clean up the <head>
@@ -115,12 +115,12 @@
     
         add_action( 'wp_ajax_registerNews', 'registerNews' );
         add_action( 'wp_ajax_nopriv_registerNews', 'registerNews' ); 
-        
+    
         add_action( 'wp_ajax_updateLikeTwittStartupSingle', 'updateLikeTwittStartupSingle' );
         add_action( 'wp_ajax_nopriv_updateLikeTwittStartupSingle', 'updateLikeTwittStartupSingle' ); 
-
+    
         add_action('save_post', 'mailChimpPublishPost');
-
+    
         function registerNews(){
         $email=$_REQUEST['mail'];
         require_once( get_template_directory().'/inc/Mailchimp.php');
@@ -172,52 +172,54 @@
     
         function catGallery(){
           $catId=$_REQUEST['catId'];
-		$tagName=$_REQUEST['tagName'];
-		$currentYear=$_REQUEST['currentYear'];
-		if($tagName){
-			$tag = get_term_by('name', $tagName, 'post_tag');
-			$tagId=$tag->term_id;
-			//echo "tag id is: ".$tagId;
-		}
-		
-		$args = array( 'posts_per_page' =>-1,'post_type'=>'initiator','year'=>$currentYear,'post_status'=>'publish','cat' => $catId,'tag_id'=>$tagId);
-		//$myposts = get_posts( $args );
-		
-		$the_query = new WP_Query( $args );
-		if ( $the_query->have_posts() ) :
-		//foreach ( $myposts as $post ) : setup_postdata( $post ); 
-		$caunter=0;
-		echo "<span class='placholderSlide'></span><ul class='inventList'>";
-		 while ( $the_query->have_posts() ) : $the_query->the_post(); 
-			?>
-    	<?php	
-			if($caunter==3){
-                    echo "</ul><ul class='inventList'>";
-                }else{
-                }
-        ?>
-           <li idtec="<?php echo the_ID();?>">
-                <div class="winner"></div>
-                <div class="finalList"></div>
-                    <div class="img-wrap">
-                    <?php echo get_the_post_thumbnail($post->ID, 'medium'); ?>
-                    </div>
-                <h2><a href="<?php echo get_permalink($post->ID); ?>" idtech="<?php echo the_ID(); ?>">
-               <?php echo get_the_title($post->ID);?>    </a> </h2>
-            </li>
-    <?php	if($caunter==3){
+        $tagName=$_REQUEST['tagName'];
+        $currentYear=$_REQUEST['currentYear'];
+        if($tagName){
+            $tag = get_term_by('name', $tagName, 'post_tag');
+            $tagId=$tag->term_id;
+            //echo "tag id is: ".$tagId;
+        }
+    
+        $args = array( 'posts_per_page' =>-1,'post_type'=>'initiator','year'=>$currentYear,'post_status'=>'publish','cat' => $catId,'tag_id'=>$tagId);
+        //$myposts = get_posts( $args );
+    
+        $the_query = new WP_Query( $args );
+        if ( $the_query->have_posts() ) :
+        //foreach ( $myposts as $post ) : setup_postdata( $post ); 
+        $caunter=0;
+        echo "<span class='placholderSlide'></span><ul class='inventList'>";
+         while ( $the_query->have_posts() ) : $the_query->the_post(); 
+?>
+<?php
+    
+    if($caunter==3){
+            echo "</ul><ul class='inventList'>";
+        }else{
+        }
+?>
+<li idtec="<?php echo the_ID();?>">
+    <div class="winner"></div>
+    <div class="finalList"></div>
+    <div class="img-wrap">
+        <?php echo get_the_post_thumbnail($post->ID, 'medium'); ?>
+    </div>
+    <h2><a href="<?php echo get_permalink($post->ID); ?>" idtech="<?php echo the_ID(); ?>">
+            <?php echo get_the_title($post->ID);?>    </a> </h2>
+</li>
+<?php
+    if($caunter==3){
                 $caunter=0;
                }
      $caunter++;
-        
-		//endforeach;
-		endwhile;
-		endif;
-		wp_reset_postdata();
+    
+        //endforeach;
+        endwhile;
+        endif;
+        wp_reset_postdata();
         echo "</ul><span class='placholderSlide'></span>";
-               
-   
-	    die(); 
+    
+    
+        die(); 
             } 
     
     
@@ -734,7 +736,7 @@
                ) 
              );
     
-
+    
               $wp_customize->add_section( 'competition_status', 
                array(
                   'title' =>'סטטוס התחרות', //Visible title of section
@@ -761,8 +763,113 @@
                   'priority' => 10, //Determines the order this control appears in for the specified section
                ) 
              );
-
     
+    
+             /*************************** for order the elements in site**************************/
+             $wp_customize->add_section( 'elements_order', 
+               array(
+                  'title' =>'סידור האלמנטים על המסך', //Visible title of section
+                  'description' => 'עבור כל אלמנט תבחר את המיקום שלו על המסך. שים לב שאתה לא נותן מיקום כפול', //Descriptive tooltip
+               ) 
+            );
+    
+            //for first area
+            $wp_customize->add_setting( 'first_order',
+               array(
+                    'default'        => 'value1',
+                    'type'           => 'option',
+                   ) 
+            );  	                      
+    
+            $wp_customize->add_control( 
+               'first_order_input', //Set a unique ID for the control
+               array(
+                    'label' => 'במקום הראשון', //Admin-visible name of the control
+                    'section' => 'elements_order', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                    'settings' => 'first_order', //Which setting to load and manipulate (serialized is okay)
+                    'type'    => 'select',
+                    'choices'    => array(
+                        'value1' => 'startups',
+                        'value2' => 'map',
+                        'value3' => 'judges',
+                        'value4' => 'description',
+                    ),
+               ) 
+             );
+    
+            //for second area
+             $wp_customize->add_setting( 'second_order',
+               array(
+                    'default'        => 'value2',
+                    'type'           => 'option',
+                   ) 
+            );  	         
+    
+            $wp_customize->add_control( 
+               'second_order_input', //Set a unique ID for the control
+               array(
+                    'label' => 'במקום השני', //Admin-visible name of the control
+                    'section' => 'elements_order', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                    'settings' => 'second_order', //Which setting to load and manipulate (serialized is okay)
+                    'type'    => 'select',
+                    'choices'    => array(
+                         'value1' => 'startups',
+                        'value2' => 'map',
+                        'value3' => 'judges',
+                        'value4' => 'description',
+                    ),
+               ) 
+             );
+
+             //for third area
+             $wp_customize->add_setting( 'third_order',
+               array(
+                    'default'        => 'value3',
+                    'type'           => 'option',
+                   ) 
+            );  	         
+    
+            $wp_customize->add_control( 
+               'third_order_input', //Set a unique ID for the control
+               array(
+                    'label' => 'במקום השלישי', //Admin-visible name of the control
+                    'section' => 'elements_order', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                    'settings' => 'third_order', //Which setting to load and manipulate (serialized is okay)
+                    'type'    => 'select',
+                    'choices'    => array(
+                        'value1' => 'startups',
+                        'value2' => 'map',
+                        'value3' => 'judges',
+                        'value4' => 'description',
+                    ),
+               ) 
+             );
+
+              //for fourth area
+             $wp_customize->add_setting( 'fourth_order',
+               array(
+                    'default'        => 'value4',
+                    'type'           => 'option',
+                   ) 
+            );  	         
+    
+            $wp_customize->add_control( 
+               'fourth_order_input', //Set a unique ID for the control
+               array(
+                    'label' => 'במקום הרביעי', //Admin-visible name of the control
+                    'section' => 'elements_order', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+                    'settings' => 'fourth_order', //Which setting to load and manipulate (serialized is okay)
+                    'type'    => 'select',
+                    'choices'    => array(
+                        'value1' => 'startups',
+                        'value2' => 'map',
+                        'value3' => 'judges',
+                        'value4' => 'description',
+                    ),
+               ) 
+             );
+
+             /*************************** end order the elements in site**************************/
     //       //set a img for link at the top
             $wp_customize->add_section( 'fev_defult', 
                array(
@@ -885,10 +992,10 @@
                                            );
         if($result)return true;
     }
-
+    
     function mailChimpPublishPost($id){
         if( ( $_POST['post_status'] == 'publish' ) && ( $_POST['original_post_status'] != 'publish' ) ){
-           
+    
             $post = get_post($id);
             setup_postdata($post);
             $title=get_the_title($post->ID); 
@@ -900,7 +1007,7 @@
     //          
     //           $subject='התקבלה פניה מהאתר ';
     //mail($email, $subject, $message);
-
+    
         require_once( get_template_directory().'/inc/Mailchimp.php');
          $listId='8366e2458d';
          $merge_vars=array(
@@ -918,10 +1025,10 @@
                                             false
                                            );
         if($result)return true;
-        
-        
+    
+    
         }
-               
+    
     }
     
     
@@ -937,94 +1044,99 @@
 </script>
 <?php
     
-                    // Get a key from https://www.google.com/recaptcha/admin/create
-                    //qa
-                    //$publickey = "6LdQPu4SAAAAACRzwW4h8VQtluCUAqLiMrhRQNKp";
-                    //$privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
-
-                    //production
-                    $publickey = "6Lc_Pu4SAAAAAPo3yZJ8UQkagt5Wm_tA4W5x8Qpz";
-                    $privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
+                     // Get a key from https://www.google.com/recaptcha/admin/create
+                     //qa
+                     //$publickey = "6LdQPu4SAAAAACRzwW4h8VQtluCUAqLiMrhRQNKp";
+                     //$privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
     
-                    # the response from reCAPTCHA
-                    $resp = null;
-                    # the error code from reCAPTCHA, if any
-                    $error = null;
+                     //production
+                     $publickey = "6Lc_Pu4SAAAAAPo3yZJ8UQkagt5Wm_tA4W5x8Qpz";
+                     $privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
     
-                    # was there a reCAPTCHA response?
-                    echo recaptcha_get_html($publickey,$error);
+                     # the response from reCAPTCHA
+                     $resp = null;
+                     # the error code from reCAPTCHA, if any
+                     $error = null;
     
-        }
+                     # was there a reCAPTCHA response?
+                     echo recaptcha_get_html($publickey,$error);
     
-        function myCapchIsValid(){
-          $privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
-          $resp = recaptcha_check_answer ($privatekey,
-                                        $_SERVER["REMOTE_ADDR"],
-                                        $_POST["recaptcha_challenge_field"],
-                                        $_POST["recaptcha_response_field"]);
+         }
     
-          if (!$resp->is_valid) {
-            // What happens when the CAPTCHA was entered incorrectly
-            die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
-                 "(reCAPTCHA said: " . $resp->error . ")");
-          } else {
-            // Your code here to handle a successful verification
-          }
+         function myCapchIsValid(){
+           $privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
+           $resp = recaptcha_check_answer ($privatekey,
+                                         $_SERVER["REMOTE_ADDR"],
+                                         $_POST["recaptcha_challenge_field"],
+                                         $_POST["recaptcha_response_field"]);
     
-        }
+           if (!$resp->is_valid) {
+             // What happens when the CAPTCHA was entered incorrectly
+             die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
+                  "(reCAPTCHA said: " . $resp->error . ")");
+           } else {
+             // Your code here to handle a successful verification
+           }
+    
+         }
     
     
-        function posts_by_year() {
-      // array to use for results
-      $years = array();
+         function posts_by_year() {
+       // array to use for results
+       $years = array();
     
-      // get posts from WP
-      $posts = get_posts(array(
-        'numberposts' => -1,
-        'orderby' => 'post_date',
-        'order' => 'ASC',
-        'post_type' => 'initiator',
-        'post_status' => 'publish'
-      ));
+       // get posts from WP
+       $posts = get_posts(array(
+         'numberposts' => -1,
+         'orderby' => 'post_date',
+         'order' => 'ASC',
+         'post_type' => 'initiator',
+         'post_status' => 'publish'
+       ));
     
-      // loop through posts, populating $years arrays
-      foreach($posts as $post) {
-        $years[date('Y', strtotime($post->post_date))][] = $post;
-      }
-    
-      // reverse sort by year
-      krsort($years);
-    
-      return $years;
-    }
-    
-    function get_defauly_year(){
-       $defaultYear=get_theme_mod('default_year_text');
-    
-       if($defaultYear!=""){
-           return $defaultYear;
+       // loop through posts, populating $years arrays
+       foreach($posts as $post) {
+         $years[date('Y', strtotime($post->post_date))][] = $post;
        }
-       return date('Y');
+    
+       // reverse sort by year
+       krsort($years);
+    
+       return $years;
+     }
+    
+     function get_defauly_year(){
+        $defaultYear=get_theme_mod('default_year_text');
+    
+        if($defaultYear!=""){
+            return $defaultYear;
+        }
+        return date('Y');
+     }
+    
+    function updateLikeTwittStartupSingle(){
+         $id=$_REQUEST['id'];
+         $post = get_post($id);
+         setup_postdata($post);
+         $data=(array)json_decode(file_get_contents("https://graph.facebook.com/?ids=".str_replace("?p=","?initiator=",get_permalink($post->ID))));
+         $data=$data[key($data)];               
+         update_post_meta( $post->ID, 'wpcf-likes', $data->shares );
+    
+         $twitt=json_decode(file_get_contents("http://urls.api.twitter.com/1/urls/count.json?url=".str_replace("?p=","?initiator=",get_permalink($post->ID))));               
+         update_post_meta( $post->ID, 'wpcf-twitts', $twitt->count );
+         echo 1;
     }
-
-   function updateLikeTwittStartupSingle(){
-        $id=$_REQUEST['id'];
-        $post = get_post($id);
-        setup_postdata($post);
-        $data=(array)json_decode(file_get_contents("https://graph.facebook.com/?ids=".str_replace("?p=","?initiator=",get_permalink($post->ID))));
-        $data=$data[key($data)];               
-        update_post_meta( $post->ID, 'wpcf-likes', $data->shares );
-
-        $twitt=json_decode(file_get_contents("http://urls.api.twitter.com/1/urls/count.json?url=".str_replace("?p=","?initiator=",get_permalink($post->ID))));               
-        update_post_meta( $post->ID, 'wpcf-twitts', $twitt->count );
-        echo 1;
-   }
-
-   function canAddStartup(){
-       return get_theme_mod('competition_status_check_box');
-   }
-
-   
+    
+    function canAddStartup(){
+        return get_theme_mod('competition_status_check_box');
+    }
+    
+     function test(){
+         $test=get_option('first_order')."  ".get_option('second_order')."  ".get_option('third_order')."  ".get_option('fourth_order');
+       // mail(  "treut@cambium.co.il", "test",$test) ;  
+        return $test;
+    }
+    test();
     
     
     

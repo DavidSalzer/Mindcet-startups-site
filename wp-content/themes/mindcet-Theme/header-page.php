@@ -3,7 +3,7 @@
 	<meta charset="<?php bloginfo('charset'); ?>" />
     <!--<meta property="og:image" content="<?php //echo site_url();?>/wp-content/uploads/2014/01/final-logo1.png"/>-->
     <meta property="og:image" content="<?php echo get_theme_mod('link_ImgBg');?>"/>
-    <meta property="og:title" content="Global EdTech Startup Awards 2014" />
+    <meta property="og:title" content="Global EdTech Startup Awards 2015" />
     <meta property="og:description" content="What's your favorite EdTech startup?"/>
     <meta property="og:updated_time" content="1391001033173" />    <!--<meta property="og:image" content="http://mindcet.co.il.tigris.nethost.co.il/wp-content/uploads/2014/01/final-logo1.png"/>-->
     <meta name="viewport" content="width=device-width">
@@ -135,9 +135,9 @@
                 <?php get_sidebar('countdown');?>
                 </div>
                 <div class="socialTabs cf">
-                    <div class="socialTab" onClick="openInNewWindow('http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2014&summary=What\'s your favorite EdTech startup?', 100, 100)"><span class="linkin"></span></div>
-                    <div class="socialTab" onClick="openInNewWindow('http://twitter.com/intent/tweet?text=What\'s your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education' , 100, 100)"><span class="twitter"></span></div>
-                    <div class="socialTab" onClick="openInNewWindow('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2014&p[summary]=What\'s your favorite EdTech startup?' , 100, 100)"><span class="facebook"></span></div>
+                    <div class="socialTab" onClick="openInNewWindow('http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2015&summary=What\'s your favorite EdTech startup?', 100, 100)"><span class="linkin"></span></div>
+                    <div class="socialTab" onClick="openInNewWindow('http://twitter.com/intent/tweet?text=What\'s your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2015. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education' , 100, 100)"><span class="twitter"></span></div>
+                    <div class="socialTab" onClick="openInNewWindow('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2015&p[summary]=What\'s your favorite EdTech startup?' , 100, 100)"><span class="facebook"></span></div>
                 </div>
 			</div>
           </div>

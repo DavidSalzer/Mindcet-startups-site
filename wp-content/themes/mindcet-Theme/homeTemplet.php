@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="small" data-count="horizontal" data-url="<?php echo site_url(); ?>" data-text="What's your favorite EdTech startup? Global EdTech Startup Awards 2014. &#35;Edtech #Startups #Education">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="small" data-count="horizontal" data-url="<?php echo site_url(); ?>" data-text="What's your favorite EdTech startup? Global EdTech Startup Awards 2015. &#35;Edtech #Startups #Education">Tweet</a>
 
         <div class="entry">
             <div class="entry-design">
@@ -40,10 +40,10 @@
 
                 <!-- AddThis Button BEGIN -->
                                     <!--<div class="addthis_toolbox addthis_default_style">
-                                                                                                                                                                                                                                                                                                                        <a class="addthis_button_tweet"></a>
-                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                        <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-                                                                                                                                                                                                                                                                                                                        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52d6681e180b98e3"></script>-->
+                                                                                                                                                                                                                                                                                                                                                                                    <a class="addthis_button_tweet"></a>
+                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                    <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+                                                                                                                                                                                                                                                                                                                                                                                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52d6681e180b98e3"></script>-->
                 <!-- AddThis Button END -->
             </div>
         </div>
@@ -260,13 +260,12 @@
                         The Applications stage is over.<br> We invite you to apply to the next year competition.
                             <div class="planes"></div>
                             <div class="form-end-social">
-                                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2014&p[summary]=What's your favorite EdTech startup?" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
+                                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2015&p[summary]=What's your favorite EdTech startup?" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
 
-                                <!--<a href="http://twitter.com/intent/tweet?text=What's your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>-->
+                                <!--<a href="http://twitter.com/intent/tweet?text=What's your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a<?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>-->
+                                <span class="social twitter" onclick="openInNewWindow('http://twitter.com/intent/tweet?text=What\'s your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2015. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education' , 100, 100)">Share on <span class="letter-space">Twitter</span></span>
 
-                                <span class="social twitter" onClick="openInNewWindow('http://twitter.com/intent/tweet?text=What\'s your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education' , 100, 100)">Share on <span class="letter-space">Twitter</span></span>
-
-                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2014&summary=What's your favorite EdTech startup?" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2015&summary=What's your favorite EdTech startup?" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
 
                             </div>
                         </div>
@@ -333,13 +332,12 @@
                         You're more than welcome to share the competition with your friends! <br>
                             <div class="planes"></div>
                             <div class="form-end-social">
-                                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2014&p[summary]=What's your favorite EdTech startup?" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
+                                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2015&p[summary]=What's your favorite EdTech startup?" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
 
-                                <!--<a href="http://twitter.com/intent/tweet?text=What's your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>-->
+                                <!--<a href="http://twitter.com/intent/tweet?text=What's your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>-->
+                                <span class="social twitter" onclick="openInNewWindow('http://twitter.com/intent/tweet?text=What\'s your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2015. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education' , 100, 100)">Share on <span class="letter-space">Twitter</span></span>
 
-                                <span class="social twitter" onClick="openInNewWindow('http://twitter.com/intent/tweet?text=What\'s your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education' , 100, 100)">Share on <span class="letter-space">Twitter</span></span>
-
-                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2014&summary=What's your favorite EdTech startup?" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2015&summary=What's your favorite EdTech startup?" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
 
 
                             </div>
@@ -401,196 +399,71 @@
       endforeach;
 ?>
 
-<div id="startups-banner" class="middelBanner">
-    <h2>The Startups
-        <select name="year" id="yearNav">
-            <option value="none">Select Year</option>
-            <?php foreach(posts_by_year() as $year => $yearArray) :?>
-            <option <?php if ($year == $currentyear ) echo 'selected'; ?> value="<?php echo $year; ?>"><?php echo $year; ?></option>
-            <?php endforeach; ?>
-        </select>
-    </h2>
-</div>
+<?php
+    
+    //."  ".get_option('')."  ".get_option('')."  ".get_option('');
+    switch (get_option('first_order')) {
+        case 'value1':
+            include(locate_template('areasTemplates/startups.php'));
+            break;
+        case 'value2':
+            include(locate_template('areasTemplates/map.php'));
+            break;
+        case 'value3':
+            include(locate_template('areasTemplates/judges.php'));
+            break;
+            case 'value4':
+            include(locate_template('areasTemplates/description.php'));
+            break;
+    }
 
-<?php //if ( has_nav_menu( 'startupMenu') ):?>
+     switch (get_option('second_order')) {
+        case 'value1':
+            include(locate_template('areasTemplates/startups.php'));
+            break;
+        case 'value2':
+            include(locate_template('areasTemplates/map.php'));
+            break;
+        case 'value3':
+            include(locate_template('areasTemplates/judges.php'));
+            break;
+            case 'value4':
+            include(locate_template('areasTemplates/description.php'));
+            break;
+    }
 
-<nav class="inventorNav">
+     switch (get_option('third_order')) {
+        case 'value1':
+            include(locate_template('areasTemplates/startups.php'));
+            break;
+        case 'value2':
+            include(locate_template('areasTemplates/map.php'));
+            break;
+        case 'value3':
+            include(locate_template('areasTemplates/judges.php'));
+            break;
+            case 'value4':
+            include(locate_template('areasTemplates/description.php'));
+            break;
+    }
 
-    <select name="category" id="categoryNav">
+     switch (get_option('fourth_order')) {
+        case 'value1':
+            include(locate_template('areasTemplates/startups.php'));
+            break;
+        case 'value2':
+            include(locate_template('areasTemplates/map.php'));
+            break;
+        case 'value3':
+            include(locate_template('areasTemplates/judges.php'));
+            break;
+            case 'value4':
+            include(locate_template('areasTemplates/description.php'));
+            break;
+    }
+    
+?>
 
-        <option value="none"> Select Sector</option>
-        <?php
-            
-            $args = array('orderby' => 'name','order' => 'ASC','hide_empty'=>0);
-            $categories = get_categories($args);
-            
-            foreach($categories as $category) {
-        ?>
-        <option value="<?php echo $category->term_id;?>"><?php echo $category->name ;?></option>
-        <?php } ?>
-    </select>
-
-    <select name="tags" id="tagsNav">
-        <option value="none">Select product category</option>
-        <?php
-            
-            $arg=array('hide_empty'=>false,'orderby'=>'name','order' => 'ASC');
-            $tags = get_tags($arg);
-            foreach ( $tags as $tag ) {
-                $tag_link = get_tag_link( $tag->term_id );
-        ?>
-        <?php
-            
-                $nameTag=$tag->name;
-            if(strtolower($nameTag)=='other'){ 
-                $last= '<option value="'.$tag->name.'">'.$tag->name.'</option>';
-                }else{
-        ?>
-        <option value="<?php echo $tag->name;?>"><?php echo $tag->name ;?></option>
-        <?php }?>
-
-        <?php
-            } 
-                               echo $last;
-        ?>
-    </select>
-
-</nav>
-<?php //endif;?>
-<div class="page-wrap inventors">
-    <div class="rightScroll" id="inventScrollR"><div class="rightScroll-arrow"></div></div>
-    <div class="leftScroll" id="inventScrollL"><div class="leftScroll-arrow"></div></div>
-    <?php
-        
-        
-            $args = array(
-            'posts_per_page'   => -1,
-            'orderby'          => 'post_date',
-            'order'            => 'DESC',
-            'post_type'        => 'initiator',
-            'year'             => $currentyear,
-            'post_status'      => 'publish'
-            );
-        
-        $myposts = get_posts( $args );
-            $caunter=0;
-          echo "<div id='scrollInventorCon'><span class='placholderSlide'></span><ul class='inventList'>";
-            foreach ( $myposts as $post ) : setup_postdata( $post );
-    ?>
-    <?php
-        if($caunter==3){
-                        echo "</ul><ul class='inventList'>";
-                    }else{
-                    }
-    ?>
-    <li idtec="<?php echo $post->ID;?>">
-        <div class="winner"></div>
-        <div class="finalList"></div>
-        <div class="img-wrap">
-            <?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?>
-        </div>
-        <h2> <a href="<?php the_permalink(); ?>" idtech="<?php echo $post->ID;?>">
-                <?php the_title(); ?>
-            </a> </h2>
-    </li>
-    <?php
-        if($caunter==3){
-                    $caunter=0;
-                   }
-    ?>
-    <?php
-        $caunter++; endforeach; 
-               wp_reset_postdata();
-    ?>
-    <?php
-        {
-                echo "</ul><span class='placholderSlide'></span></div>";
-                }
-    ?>
-
-</div>
-<div id="map-banner" class="middelBanner">
-    <h2>EdTech Mapping</h2>
-</div>
-
-<!--marker popup-->
-<div class="page-wrap mapping">
-    <div class="google-map">
-        <div id="map"></div>
-
-    </div>
-    <div class="best-invent">
-        <div id="best-invent-title">
-            <?php echo get_theme_mod('fev_h1');?>
-        </div>
-
-        <div id="best-invent-logo">
-            <div id="best-logo-frame">
-                <img class="best-logo" src="<?php echo get_theme_mod('fev_img');?>" alt="TextmyBrain logo">
-            </div>
-        </div>
-        <div id="best-invent-description">
-            <?php echo get_theme_mod('fev_text');?>
-        </div>
-    </div>
-</div>
-<div class="middelBanner">
-    <h2> The Judges</h2>
-</div>
-<div class="page-wrap judges">
-    <div id="judgeDescription-bg">
-        <div class="judgeDescription">
-            <span class="close"></span>
-
-
-        </div>
-    </div>
-
-    <div class="rightScroll" id="judgesR"><div class="rightScroll-arrow"></div></div>
-    <div class="leftScroll" id="judgesL"><div class="leftScroll-arrow"></div></div>
-    <div class="judgesContenar" id="judgesCon">
-        <span class="placholderSlide"></span>
-        <?php
-                $args = array(
-                'posts_per_page'   => -1,
-                'orderby'          => 'post_date',
-                'order'            => 'DESC',
-                'post_type'        => 'judges',
-                'post_status'      => 'publish',
-                );
-            
-            $myposts = get_posts( $args );
-                $caunter=0;
-                foreach ( $myposts as $post ) : setup_postdata( $post );
-        ?>
-
-
-        <div class="judgesAvantar" judgeid="<?php echo $post->ID;?>">
-            <div class="judge-pic">
-                <?php echo get_the_post_thumbnail( $post->ID,array(220,155), $attr ); ?>
-            </div>
-            <h2> <?php the_title(); ?></h2>
-            <div class="judgestext">
-                <?php  echo get_post_meta($post->ID,'wpcf-judges_role',true);?>
-            </div>
-        </div>
-
-        <?php
-            endforeach; 
-                   wp_reset_postdata();
-        ?>
-        <!--<div class="judgesAvantar hide"> </div>-->
-    </div>
-</div>
-<div id="judges-banner" class="middelBanner">
-    <h2> The Competition</h2>
-</div>
-
-<div class="page-wrap contect">
-    <article class="unreset">
-        <?php the_content();?>
-    </article>
-</div>
 <div id="urlHide">
     <?php $term=get_page_by_title('Competition terms and condition');echo $term->guid;?>
 </div>

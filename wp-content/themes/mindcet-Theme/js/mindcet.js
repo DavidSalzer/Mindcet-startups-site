@@ -33,7 +33,7 @@ $(document).ready(function (e) {
     if ($(".ui-loader").length > 0) {
         $(".ui-loader").remove();
     }
-    
+
 
     $('#inventScrollR').on('click', this, function () {
         var offsetToScroll = $(".inventList").width() * 2;
@@ -555,13 +555,13 @@ $(document).ready(function (e) {
         $("#marker-popup").attr("marker-id", "");
 
         $('#marker-popup').fadeOut(300, 'easeInOutBack');
-        
-         var scr = document.body.scrollTop;
+
+        var scr = document.body.scrollTop;
 
         window.location.hash = '';
 
         document.body.scrollTop = scr;
-        
+
         $('.mask').fadeOut(800, 'easeInOutBack');
         $('body').css('overflow', 'auto');
 
@@ -1399,20 +1399,20 @@ function checkBounds(map) {
 var placeInsaveVotesData = 0;
 var savePlaceInVotesData = [];
 // Add a marker to the map and push to the array.
-function addMarker(location,markerId) {
+function addMarker(location, markerId) {
     var marker = new google.maps.Marker({
         position: location,
         map: map
     });
 
-    marker.markerId=markerId
+    marker.markerId = markerId
     markers.push(marker);
 
     //save favorites linked to the marker
     savePlaceInVotesData[marker.markerId] = placeInsaveVotesData++;
 
     google.maps.event.addListener(marker, 'click', function () {
-       // var key = savePlaceInVotesData[marker.markerId];
+        // var key = savePlaceInVotesData[marker.markerId];
         buildMarkerPopupHTML(marker.markerId);
     });
 }
@@ -1423,7 +1423,7 @@ function setMarkers(allMarkers) {
         //convert to latLng
         var myLatlng = new google.maps.LatLng(parseFloat(allMarkers[marker].lat), parseFloat(allMarkers[marker].lon));
         //create marker push marker to array
-        addMarker(myLatlng,allMarkers[marker].markerId);
+        addMarker(myLatlng, allMarkers[marker].markerId);
     }
     //show markers on map
     for (var i = 0; i < markers.length; i++) {
@@ -1715,83 +1715,88 @@ function changeStartupByYear(year) {
     stopAjax();
     $('#categoryNav,#tagsNav').val("none");
     $('#scrollInventorCon').animate({ scrollLeft: 0 });
-   
 
-    allTech = allYearsTech[year];
-    tempArr = [];
 
-    //to reverse array
-    for (var key in allTech) {
-        if (key != "fev") {
-            tempArr.push(allTech[key]);
+    allTech = allYearsTechByOrder[year];
+     //if user dose'nt choose "select year"
+    if (allTech) {
+        tempArr = []; //to save the startups by their id
+
+
+        //to ul stracture
+        var counter = 0;
+        var html = '<ul class="inventList">';
+
+        //reverse loop
+        var len = allTech.length;
+        var isWinner = "0";
+        var isFinalList = "0";
+        while (len--) {
+            //for (var key in allTech) {
+            var startup = allTech[len];
+            tempArr[startup.techId] = startup; //to save the startups by their id
+
+            if (counter == 3) {
+                html += '</ul><ul class="inventList">';
+                counter = 0;
+            }
+            html += '  <li idtec="' + startup.techId + '">';
+
+            //if (startup.winner != "") {
+            //    isWinner = startup.winner[Object.keys(startup.winner)[0]];
+            //}
+            //if (startup.finalList != "") {
+            //    isFinalList = startup.finalList[Object.keys(startup.finalList)[0]];
+            //}
+
+            //is finalList
+            if (startup.finalList == "1") {
+                html += '   <div class="finalList" style="display:block"></div>';
+                //isFinalList = "0"; //reset
+            }
+            else {
+                html += '   <div class="finalList"></div>';
+            }
+
+            //is winner
+            if (startup.winner == "1") {
+                html += '   <div class="winner" style="display:block"></div>';
+                //isWinner = "0"; //reset
+            }
+            else {
+                html += '   <div class="winner"></div>';
+            }
+
+            html += '      <div class="img-wrap">';
+            if (startup.logo) {
+                html += '          <img src="' + startup.logo[0] + '"alt="logo">';
+            }
+            html += '      </div>';
+            html += '      <h2>';
+            html += '          <a href="' + startup.permalink + '" idtech="' + startup.techId + '">';
+            html += startup.title;
+            html += '          </a>';
+            html += '      </h2>';
+            html += '  </li>';
+
+            counter++;
         }
+        html += '</ul>';
+
+        //add to dom
+        $(".inventList").remove();
+        $("#scrollInventorCon .placholderSlide:first").after(html);
+
+
+
+        allTech = tempArr; //change allTech to array thar it's order is by startups id
+
+        showArrowsStartups();
+
     }
-    allTech = tempArr;
-
-    //to ul stracture
-    var counter = 0;
-    var html = '<ul class="inventList">';
-
-    //reverse loop
-    var len = allTech.length;
-    var isWinner = "0";
-    var isFinalList = "0";
-    while (len--) {
-        //for (var key in allTech) {
-        var startup = allTech[len];
-        if (counter == 3) {
-            html += '</ul><ul class="inventList">';
-            counter = 0;
-        }
-        html += '  <li idtec="' + startup.techId + '">';
-
-        //if (startup.winner != "") {
-        //    isWinner = startup.winner[Object.keys(startup.winner)[0]];
-        //}
-        //if (startup.finalList != "") {
-        //    isFinalList = startup.finalList[Object.keys(startup.finalList)[0]];
-        //}
-
-        //is finalList
-        if (startup.finalList == "1") {
-            html += '   <div class="finalList" style="display:block"></div>';
-            //isFinalList = "0"; //reset
-        }
-        else {
-            html += '   <div class="finalList"></div>';
-        }
-
-        //is winner
-        if (startup.winner == "1") {
-            html += '   <div class="winner" style="display:block"></div>';
-            //isWinner = "0"; //reset
-        }
-        else {
-            html += '   <div class="winner"></div>';
-        }
-
-        html += '      <div class="img-wrap">';
-        if (startup.logo) {
-            html += '          <img src="' + startup.logo[0] + '"alt="logo">';
-        }
-        html += '      </div>';
-        html += '      <h2>';
-        html += '          <a href="' + startup.permalink + '" idtech="' + startup.techId + '">';
-        html += startup.title;
-        html += '          </a>';
-        html += '      </h2>';
-        html += '  </li>';
-
-        counter++;
+    else{
+        $(".inventList").remove();
     }
-    html += '</ul>';
-
-    //add to dom
-    $(".inventList").remove();
-    $("#scrollInventorCon .placholderSlide:first").after(html);
-
-     showArrowsStartups();
-
 }
 
   

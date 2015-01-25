@@ -17,7 +17,7 @@
 	}
    
    ?>
-   <meta property="og:title" content="Global EdTech Startup Awards 2014"/>
+   <meta property="og:title" content="Global EdTech Startup Awards 2015"/>
    <meta property="og:description" content="<?php echo $name;?> is my favorite EdTech startup. What's yours?"/>
    <meta property="og:image" content="<?php echo $img;?>">
    <meta property="og:url" content="<?php echo $url;?>">

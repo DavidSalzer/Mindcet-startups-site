@@ -468,11 +468,13 @@
     <?php $term=get_page_by_title('Competition terms and condition');echo $term->guid;?>
 </div>
 <script>
-    allYearsTech=<?php echo getAllStartup(); ?>;
+    result=<?php echo getAllStartup(); ?>;
+    allYearsTech=result[0];
+    allYearsTechByOrder=result[1];
     allTech=allYearsTech[<?php echo $currentyear?>];
     console.log(allYearsTech);
     console.log("***********************************");
-    console.log(allTech);
+    console.log(allTech);   
     allTechArray=Object.keys(allTech);
     allJudges=<?php echo getAllJudges(); ?>;
     allVotes=<?php echo getAllVotes(); ?>;

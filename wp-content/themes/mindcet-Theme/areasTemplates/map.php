@@ -1,4 +1,4 @@
-<div id="map-area">
+<div id="map-area" style="display: none;">
     <div id="map-banner" class="middelBanner">
         <h2>EdTech Mapping</h2>
     </div>

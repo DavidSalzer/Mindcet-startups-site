@@ -4,7 +4,10 @@ $(document).ready(function (e) {
             catId = $('#categoryNav').val();
             tagName = $('#tagsNav').val();
             year = $('#yearNav').val();
-            buildCatGallery(catId, tagName, year);
+            //if user dose'nt choose "select year"
+            if (year != "none") {
+                buildCatGallery(catId, tagName, year);
+            }
         }, 500);
     });
 

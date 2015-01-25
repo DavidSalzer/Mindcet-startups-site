@@ -336,10 +336,12 @@
     
     
         $allYearsTech = array();
+        $allYearsTechByOrder = array();
     
         foreach(posts_by_year($args) as $year => $posts) :
     
             $allYearsTech[$year] =array() ;
+            $allYearsTechByOrder[$year] =array() ;
     
     
      foreach($posts as $post) : setup_postdata($post); 
@@ -385,14 +387,16 @@
                 $tempArry=array('techId'=>$techId,'title'=>$title,'slogen'=>$slogen,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
           ,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImgArry,'category'=>$category,'like'=>$likes,'winner'=>$winner,'finalList'=>$finalList,'permalink'=>$parmalink);
                 $allYearsTech[$year][$techId]=$tempArry;
+                array_push($allYearsTechByOrder[$year],$tempArry);
                 $allYearsTech[$year]['fev']=$ye_fev;
     
                endforeach;
     endforeach; 
-    
-                return json_encode($allYearsTech);
+                $result=array($allYearsTech,$allYearsTechByOrder);//return both veration - by order and by id
+                return json_encode($result);
             }
     
+          
             function getAllJudges(){
                  $args = array(
                 'posts_per_page'   => -1,
@@ -1131,12 +1135,12 @@
         return get_theme_mod('competition_status_check_box');
     }
     
-     function test(){
-         $test=get_option('first_order')."  ".get_option('second_order')."  ".get_option('third_order')."  ".get_option('fourth_order');
-       // mail(  "treut@cambium.co.il", "test",$test) ;  
-        return $test;
-    }
-    test();
+    // function test(){
+    //     $test=get_option('first_order')."  ".get_option('second_order')."  ".get_option('third_order')."  ".get_option('fourth_order');
+    //   // mail(  "treut@cambium.co.il", "test",$test) ;  
+    //    return $test;
+    //}
+    //test();
     
     
     

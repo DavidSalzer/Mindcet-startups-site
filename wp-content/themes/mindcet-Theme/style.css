@@ -1392,7 +1392,8 @@ display: none;
     -webkit-transition: all ease-in-out 1s;
     transition: all ease-in-out 1s;
     height: 100%;
-    padding: 4% 0;
+    /*padding: 4% 0;*/
+    padding: 4% 0 0 0;
 }
 
 .judgeDescriptionLeft {

@@ -51,10 +51,10 @@ function emailSend($subject,$message){
 		$mail->WordWrap = 50;
 
 		if($mail->Send()) {
-			echo ' Thank you for contacting us, we will get back to you shortly.';
+			echo ' <div class="contact-text-server">Thank you for contacting us, we will get back to you shortly.</div>';
 		  return true;
 		} else {
-				echo 'message send failed, please try again';
+				echo '<div class="contact-text-server">message send failed, please try again</div>';
 			//echo 'Mailer error: ' . $mail->ErrorInfo;
 		  return false;
 		} 

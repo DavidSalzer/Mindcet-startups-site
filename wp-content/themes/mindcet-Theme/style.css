@@ -1245,26 +1245,26 @@ background-repeat: no-repeat;*/
 
 .winner {
     background-image: url(img/winner.png);
-width: 58%;
-height: 77px;
-position: absolute;
-z-index: 2;
-background-repeat: no-repeat;
-background-size: 100%;
-right: 0;
-display: none;
+    width: 58%;
+    height: 77px;
+    position: absolute;
+    z-index: 2;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    right: 0;
+    display: none;
 }
 
 .finalList {
     background-image: url(img/audience-favorite.png);
-   width: 58%;
-   height: 77px;
-position: absolute;
-z-index: 2;
-background-repeat: no-repeat;
-background-size: 100%;
-right: 0;
-display: none;
+    width: 58%;
+    height: 77px;
+    position: absolute;
+    z-index: 2;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    right: 0;
+    display: none;
 }
 
 .leftScroll {
@@ -1742,6 +1742,7 @@ display: none;
     border-radius: 3px;
 }
 
+
 .popInvent textarea {
     width: 496px;
     max-width: 496px;
@@ -1752,17 +1753,25 @@ display: none;
     text-indent: 15px;
 }
 
+
 .categories-input {
     font-size: 21px;
     font-family: sans;
     color: #a9a9a9;
+    margin-bottom: 20px;
+
 }
 
+.categories-input label{
+    margin: 5px 0;
+    display: block;
+}
 .categories {
     margin: 5px 0 0 0;
     font-size: 21px;
-    text-indent: 18PX;
+    /*text-indent: 18PX;*/
     position: relative;
+    color: #6A6A6A;
 }
 
 input[type="checkbox"] {
@@ -1822,12 +1831,17 @@ input[type=checkbox]:checked + span {
 
 /***************************** error input **************************************/
 
+/*#formPart1 {
+    display: none !important;
+}
+#formPart1-2 {
+    display: block !important;
+}*/
 
-#formPart1 {
+#formPart1{
     display: block;
 }
-
-#formPart2, #formPart3, #formPart4 {
+#formPart1-2, #formPart2, #formPart3, #formPart4 {
     display: none;
 }
 
@@ -2115,7 +2129,7 @@ font-family: sans-serif;*/
     left: 55px;
 }
 
-#page-number-3, #page-number-2 {
+#page-number-3, #page-number-2,#page-number-1-2 {
     display: none;
 }
 
@@ -2917,6 +2931,13 @@ body {
     -ms-transform: rotateZ(-90deg);
 }
 
+.contact-text-server{
+    display: none;
+}
+
+#contactUsForm .contact-text-server {
+    display: block;
+}
 .loading {
     position: relative;
     top: 50px;
@@ -3295,8 +3316,8 @@ select#category, select#tags {
     line-height: 43PX;
 }
 
-select#yearNav{
-     width: 130px;
+select#yearNav {
+    width: 130px;
     height: 100%;
     position: absolute;
     margin-left: 25px;

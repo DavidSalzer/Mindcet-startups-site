@@ -393,6 +393,7 @@
                endforeach;
     endforeach; 
                 $result=array($allYearsTech,$allYearsTechByOrder);//return both veration - by order and by id
+
                 return json_encode($result);
             }
     
@@ -1142,5 +1143,5 @@
     //}
     //test();
     
-    
+      
     

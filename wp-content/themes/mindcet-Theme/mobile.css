@@ -522,7 +522,8 @@ height: 28px;
 
 #formPart1, #formPart2, #formPart3, #formPart4{
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
+    height: auto;
 }
 .form-end-message{
     width: 100%;
@@ -964,7 +965,7 @@ text-indent: 0;
         overflow-y: scroll;
     }
 
-    #formPart2 {
+    #formPart2,#formPart1-2{
         display: block;
     }
 

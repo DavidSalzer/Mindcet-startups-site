@@ -164,7 +164,7 @@ $(document).ready(function (e) {
             $("#page-number-1").html("1/2");
         }
         else {
-            $("#page-number-1").html("1/3");
+            $("#page-number-1").html("1/4");
         }
         return false;
 
@@ -172,7 +172,7 @@ $(document).ready(function (e) {
 
     $('.inventorPopUp .close').on('click', this, function () {
         $('.inventorPopUp').fadeOut(300, 'easeInOutBack');
-        $('#formPart11,#formPart2,#formPart3,#page-number-1,#page-number-2,#page-number-3').hide();
+        $('#formPart11,#formPart1-2,#formPart2,#formPart3,.page-number').hide();
 
         //display of mobile
         if (isMobile) {
@@ -191,7 +191,7 @@ $(document).ready(function (e) {
         if ($('#formPart1').is(":visible")) {
             if (form1Validate()) {
                 if (isMobile) {
-                    if (form2Validate()) {
+                    if (form1_2Validate() && form2Validate()) {
                         showPreviewForm();
                     }
                     else {
@@ -201,7 +201,8 @@ $(document).ready(function (e) {
                     }
                 }
                 else {
-                    showForm2();
+                    showForm1_2();
+
                 }
 
             }
@@ -212,7 +213,16 @@ $(document).ready(function (e) {
             }
             return true;
         }
-
+        else if ($('#formPart1-2').is(":visible")) {
+            if ((form1_2Validate())) {
+                showForm2();
+            }
+            else {
+                $('#offer-zone-inner').animate({
+                    scrollTop: 0
+                }, 1000);
+            }
+        }
         else if ($('#formPart2').is(":visible")) {
             if (form2Validate()) {
                 showPreviewForm();
@@ -223,20 +233,27 @@ $(document).ready(function (e) {
                 }, 1000);
             }
         }
-
-
         return true;
     });
 
     $('.last-page').on('click', this, function () {
         $(".validate-error").hide();
-        if ($('#formPart2').is(":visible")) {
-            $('#formPart2').hide();
-            $('#page-number-2').hide();
+        if ($('#formPart1-2').is(":visible")) {
+            $('#formPart1-2').hide();
+            $('#page-number-1-2').hide();
             $('.last-page').css("display", "none");
             $('.next-page').css("display", "inline-block");
             $('#formPart1').show();
             $('#page-number-1').show();
+
+            return;
+        }
+        if ($('#formPart2').is(":visible")) {
+            $('#formPart2').hide();
+            $('#page-number-2').hide();
+            $('.next-page').css("display", "inline-block");
+            $('#formPart1-2').show();
+            $('#page-number-1-2').show();
 
             return;
         }
@@ -994,7 +1011,7 @@ function form1Validate() {
     //slogen's length
     var slogen8 = slogenValidate($("#slogen"));
 
-    var selectOne = dropSelect();
+    // var selectOne = dropSelect();
 
     //emails
     var email = emailValidate($("#email"));
@@ -1006,8 +1023,16 @@ function form1Validate() {
     //logo
     //var logo = validateLogo($(".title-logo.logoimg"));
 
-    if (selectOne == true & title & invetName & invetCity & emailNotEmpty & (email == undefined || email) & (emailFounder == undefined || emailFounder) & slogen8)
+    //if (selectOne == true & title & invetName & invetCity & emailNotEmpty & (email == undefined || email) & (emailFounder == undefined || emailFounder) & slogen8)
+    if (title & invetName & invetCity & emailNotEmpty & (email == undefined || email) & (emailFounder == undefined || emailFounder) & slogen8)
         return true;
+    return false;
+}
+function form1_2Validate() {
+    var selectOne = dropSelect();
+    if (selectOne == true) {
+        return true;
+    }
     return false;
 }
 
@@ -1111,15 +1136,30 @@ function slogenValidate(input) {
 function dropSelect() {
     catVal = $('#category').val();
     tagVal = $('#tags').val();
-    if (catVal == 'none' && tagVal == 'none') {
-        $('select#category, select#tags').addClass('needSelect');
+    var result = true;
+    if (catVal == 'none') {
+        $('select#category').addClass('needSelect');
         $('#validate-select-error').show();
-        return false;
-    } else {
+        result = false;
+    }
+    else{
+        $('select#category').removeClass('needSelect');
+    }
+    if (tagVal == 'none') {
+        $('select#tags').addClass('needSelect');
+        $('#validate-select-error').show();
+        result = false;
+    }
+    else{
+        $('select#tags').removeClass('needSelect');
+    }
+    if (result) {
         $('select#category, select#tags').removeClass('needSelect');
         $('#validate-select-error').hide();
-        return true;
+
     }
+    return result;
+
 
 }
 //validate webSite field
@@ -1179,12 +1219,23 @@ function showHighlight() {
     }
 }
 
+function showForm1_2() {
+    ga('send', 'event', 'button', 'click', 'add invent - 1_2');
+    $('#formPart1').hide();
+    $('#formPart1-2').show();
+    $('.last-page').css("display", "inline-block");
+    $('#page-number-1').hide();
+    $('#page-number-1-2').show();
+}
+
 function showForm2() {
     ga('send', 'event', 'button', 'click', 'add invent - 2');
     $('#formPart1').hide();
+    $('#formPart1-2').hide();
     $('#formPart2').show();
     $('.last-page').css("display", "inline-block");
     $('#page-number-1').hide();
+    $('#page-number-1-2').hide();
     $('#page-number-2').show();
 }
 function showPreviewForm() {
@@ -1200,6 +1251,7 @@ function showPreviewForm() {
     }
     ga('send', 'event', 'button', 'click', 'add invent - 3');
     $('#formPart1').hide();
+    $('#formPart1-2').hide();
     $('#formPart2').hide();
     $('#page-number-1').hide();
     $('#page-number-2').hide();
@@ -1273,6 +1325,8 @@ function showForm4() {
         $('.submit input').css("display", "none");
         $('.last-page').css("display", "none");
         $('#formPart1').hide();
+        $('#formPart1-2').hide();
+        $('#formPart2').hide();
         $('#page-number-1').hide();
         $('#formPart4').show();
         //$('#formPart4').css("display", "inline-block");
@@ -1718,7 +1772,7 @@ function changeStartupByYear(year) {
 
 
     allTech = allYearsTechByOrder[year];
-     //if user dose'nt choose "select year"
+    //if user dose'nt choose "select year"
     if (allTech) {
         tempArr = []; //to save the startups by their id
 
@@ -1794,7 +1848,7 @@ function changeStartupByYear(year) {
         showArrowsStartups();
 
     }
-    else{
+    else {
         $(".inventList").remove();
     }
 }

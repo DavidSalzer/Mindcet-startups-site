@@ -40,10 +40,10 @@
 
                 <!-- AddThis Button BEGIN -->
                                     <!--<div class="addthis_toolbox addthis_default_style">
-                                                                                                                                                                                                                                                                                                                                                                                    <a class="addthis_button_tweet"></a>
-                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                    <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-                                                                                                                                                                                                                                                                                                                                                                                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52d6681e180b98e3"></script>-->
+                                                                                                                                                                                                                                                                                                                                                                                                                            <a class="addthis_button_tweet"></a>
+                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+                                                                                                                                                                                                                                                                                                                                                                                                                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52d6681e180b98e3"></script>-->
                 <!-- AddThis Button END -->
             </div>
         </div>
@@ -63,7 +63,15 @@
                    if($_POST['category']!='none'){$selectCat=$_POST['category'];}
             
                   if($_POST['tags']!='none'){$tag=$_POST['tags'];}
+
+                  $selectChannel=array();
+
+                  if(isset($_POST['making-education'])){array_push($selectChannel,'making-education');}
+                  if(isset($_POST['iot-in-education'])){array_push($selectChannel,'iot-in-education');}
+                  if(isset($_POST['safety-net'])){array_push($selectChannel,'safety-net');}
             
+                 
+
                 // Do some minor form validation to make sure there is content
                 if (isset ($_POST['title'])) {
                     $title =  $_POST['title'];
@@ -117,7 +125,9 @@
             
                         //SAVE THE POST
                         $pid = wp_insert_post($new_post);
-            
+                        
+                       wp_set_object_terms( $pid,$selectChannel, 'channel' );
+                       
                        //SET OUR CASTUOM FIELDS
             
                         update_post_meta($pid, 'wpcf-full_name', $name);
@@ -199,6 +209,35 @@
 
                         <!-- post slogen -->
                         <input type="text" id="slogen" value="" tabindex="15" name="slogen" placeholder="Startup mission up to 140 characters" />*
+                        <?php
+                            }
+                            else{
+                        ?>
+                        <div id="stop-up-startup" class="form-end-message">
+                        The Applications stage is over.<br> We invite you to apply to the next year competition.
+                            <div class="planes"></div>
+                            <div class="form-end-social">
+                                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2015&p[summary]=What's your favorite EdTech startup?" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
+
+                                <!--<a href="http://twitter.com/intent/tweet?text=What's your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a<?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a<?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a<?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>-->
+                                <span class="social twitter" onclick="openInNewWindow('http://twitter.com/intent/tweet?text=What\'s your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2015. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education' , 100, 100)">Share on <span class="letter-space">Twitter</span></span>
+
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2015&summary=What's your favorite EdTech startup?" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
+
+                            </div>
+                        </div>
+                        <?php
+                            }
+                            
+                            
+                        ?>
+
+                    </div>
+                    <?php
+                        if(1 == get_theme_mod('competition_status_check_box')){
+                    ?>
+
+                    <div id="formPart1-2">
                         <fieldset class="categories-input">
                             <div class="categories">Startup's categories <span class="astro">*</span>
                                 <div id="validate-select-error" class="validate-error">* Please select at least one
@@ -252,33 +291,43 @@
 
 
                         </fieldset>
-                        <?php
-                            }
-                            else{
-                        ?>
-                        <div id="stop-up-startup" class="form-end-message">
-                        The Applications stage is over.<br> We invite you to apply to the next year competition.
-                            <div class="planes"></div>
-                            <div class="form-end-social">
-                                <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2015&p[summary]=What's your favorite EdTech startup?" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
 
-                                <!--<a href="http://twitter.com/intent/tweet?text=What's your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a<?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>-->
-                                <span class="social twitter" onclick="openInNewWindow('http://twitter.com/intent/tweet?text=What\'s your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2015. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education' , 100, 100)">Share on <span class="letter-space">Twitter</span></span>
-
-                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2015&summary=What's your favorite EdTech startup?" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
-
+                        <fieldset class="categories-input">
+                            <div class="categories">Startup's channels 
+                                <!--<div id="validate-chanels-error" class="validate-error">* Please select at least one-->
                             </div>
-                        </div>
-                        <?php
-                            }
-                            
-                            
-                        ?>
+                           
 
+                            <?php
+                                
+                                //$args = array(
+                                //  'name' => 'Channels'
+                                //
+                                //  );
+                                //$channels = get_terms("Channels");
+                            ?>
+
+                            <label for="making-education"><input type="checkbox" id="making-education" name="making-education" value="17"><span></span>Making Education<br></label>
+                            <label for="iot-in-education"><input type="checkbox" id="iot-in-education" name="iot-in-education" value="19"><span></span>IoT in Education<br></label>
+                            <label for="safety-net"> <input type="checkbox" id="safety-net" name="safety-net" value="20"><span></span>Safety Net<br>   </label>
+                           
+                            <!--<fieldset class="categories-input">
+                                <select name="chanels" id="tags">
+
+                                    <?php  foreach($channels as $channel) { ?>
+                                    <option value="<?php echo $channel->term_id;?>"><?php echo $channel ;?></option>
+                                    <?php } ?>
+                                </select>
+                            </fieldset>-->
+
+
+
+
+
+
+
+                        </fieldset>
                     </div>
-                    <?php
-                        if(1 == get_theme_mod('competition_status_check_box')){
-                    ?>
                     <div id="formPart2">
                         <textarea id="description" tabindex="20" name="description" cols="30" rows="1" placeholder="About the startup"></textarea>*
                         <input type="url" id="site" value="" tabindex="21" name="site" placeholder="Link to website" />*
@@ -334,7 +383,7 @@
                             <div class="form-end-social">
                                 <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2015&p[summary]=What's your favorite EdTech startup?" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
 
-                                <!--<a href="http://twitter.com/intent/tweet?text=What's your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>-->
+                                <!--<a href="http://twitter.com/intent/tweet?text=What's your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2014. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a><?php echo site_url(); ?> &hashtags=Edtech,Startups,Education" class="social twitter" title="(Tweet This Link)" target="_blank">Share on <span class="letter-space">Twitter</span></a>-->
                                 <span class="social twitter" onclick="openInNewWindow('http://twitter.com/intent/tweet?text=What\'s your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2015. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education' , 100, 100)">Share on <span class="letter-space">Twitter</span></span>
 
                                 <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2015&summary=What's your favorite EdTech startup?" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
@@ -366,9 +415,10 @@
                     if(1 == get_theme_mod('competition_status_check_box')){
                 ?>
                 <div id="nav-area">
-                    <span id="page-number-1" class="page-number">1/3</span>
-                    <span id="page-number-2" class="page-number">2/3</span>
-                    <span id="page-number-3" class="page-number">3/3</span>
+                    <span id="page-number-1" class="page-number">1/4</span>
+                    <span id="page-number-1-2" class="page-number">2/4</span>
+                    <span id="page-number-2" class="page-number">3/4</span>
+                    <span id="page-number-3" class="page-number">4/4</span>
                     <div class="last-page"><div class="nav-page-img">Back</div></div>
                     <div class="next-page"><div class="nav-page-img">Next</div></div>
                 </div>
@@ -388,7 +438,6 @@
 
 
 </div>
-
 <?php
     
     $currentyear= get_defauly_year();
@@ -416,7 +465,7 @@
             include(locate_template('areasTemplates/description.php'));
             break;
     }
-
+    
      switch (get_option('second_order')) {
         case 'value1':
             include(locate_template('areasTemplates/startups.php'));
@@ -431,7 +480,7 @@
             include(locate_template('areasTemplates/description.php'));
             break;
     }
-
+    
      switch (get_option('third_order')) {
         case 'value1':
             include(locate_template('areasTemplates/startups.php'));
@@ -446,7 +495,7 @@
             include(locate_template('areasTemplates/description.php'));
             break;
     }
-
+    
      switch (get_option('fourth_order')) {
         case 'value1':
             include(locate_template('areasTemplates/startups.php'));

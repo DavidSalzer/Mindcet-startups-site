@@ -53,10 +53,10 @@
             
               if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post"&& isset($_POST['submit'])) {
                  //get the category
-            
+            do_action('sendEmail_for_qa',"treut@cambium.co.il","test1","there is post");
                  if($_SESSION['capch']!='capch'){
                              $error['initiator']= "<div class='form-end-message'>Oops!<br><br> Something got wrong, please try again</div><div class='planes'></div>";	
-            
+            do_action('sendEmail_for_qa',"treut@cambium.co.il","test2","error captcha");
                 }
             
             
@@ -107,8 +107,10 @@
                 }
                 if( $my_post=get_page_by_title( $title, 'OBJECT', 'initiator' )){
                      $error['initiator']= "<div class='form-end-message'>Oops!<br><br> Something got wrong, please try again</div><div class='planes'></div>";	
+                      do_action('sendEmail_for_qa',"treut@cambium.co.il","error","title". $title."my post".$my_post);
                 }else{
                     if(empty($error['initiator'])){
+                         do_action('sendEmail_for_qa',"treut@cambium.co.il","test3","not empty");
                         $name=filter_input(INPUT_POST,'invetName',FILTER_SANITIZE_STRING);
                         $founder=filter_input(INPUT_POST,'founder',FILTER_SANITIZE_STRING);
                         $youtubeUrl=filter_input(INPUT_POST,'youtubeUrl',FILTER_SANITIZE_STRING);
@@ -126,6 +128,7 @@
                         //SAVE THE POST
                         $pid = wp_insert_post($new_post);
                         
+                         do_action('sendEmail_for_qa',"treut@cambium.co.il","test4","post id"+$pid);
                        wp_set_object_terms( $pid,$selectChannel, 'channel' );
                        
                        //SET OUR CASTUOM FIELDS
@@ -293,7 +296,7 @@
                         </fieldset>
 
                         <fieldset class="categories-input">
-                            <div class="categories">Startup's channels 
+                            <div class="categories">Check here if you want to participate in the special tracks of the competition
                                 <!--<div id="validate-chanels-error" class="validate-error">* Please select at least one-->
                             </div>
                            

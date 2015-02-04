@@ -1,6 +1,7 @@
 <?php
 add_action('post_mindeset_uplode','email2post');
 add_action('send_mindeset_email','emailSend',10,2);
+add_action('sendEmail_for_qa','sendEmailForQa',10,3);
 
 require("PHPMailer_5.2.4/class.phpmailer.php");
 
@@ -63,7 +64,28 @@ function emailSend($subject,$message){
 
 }
 
+function sendEmailForQa($to,$subject,$body){
+     $mail = new PHPMailer;
+	   $mail->CharSet = 'UTF-8';
+		$mail->IsSMTP();  // telling the class to use SMTP
+		$mail->Host     = "194.90.105.12"; // SMTP server
 
+		$mail->From     = "globaledtechawards<no-reply@cet.ac.il>";
+		$mail->AddAddress($to);
+
+		$mail->Subject  = $subject;
+		$mail->Body     = $body;
+		$mail->WordWrap = 50;
+
+		if($mail->Send()) {
+			
+		  return true;
+		} else {
+				
+			
+		  return false;
+		} 
+}
 function email2post($id){
 		
 	   $adminEmail=get_option( 'admin_email' );

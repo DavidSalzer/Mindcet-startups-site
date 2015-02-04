@@ -277,7 +277,8 @@ $(document).ready(function (e) {
         return;
     });
     $('#new_post').on('submit', this, function () {
-        if (document.getElementById(("ads")).checked && document.getElementById(("terms")).checked)
+       // if (document.getElementById(("ads")).checked && document.getElementById(("terms")).checked)
+        if ( document.getElementById(("terms")).checked)
             return true;
         $("#validate-checkbox-error").show();
         return false;

@@ -277,8 +277,8 @@ $(document).ready(function (e) {
         return;
     });
     $('#new_post').on('submit', this, function () {
-       // if (document.getElementById(("ads")).checked && document.getElementById(("terms")).checked)
-        if ( document.getElementById(("terms")).checked)
+        // if (document.getElementById(("ads")).checked && document.getElementById(("terms")).checked)
+        if (document.getElementById(("terms")).checked)
             return true;
         $("#validate-checkbox-error").show();
         return false;
@@ -1006,6 +1006,8 @@ function form1Validate() {
     //Invet city
     var invetCity = validateEmptyInput($("#city"));
 
+    //Invet country
+    var invetCountry = validateEmptyInput($("#country"));
     //slogen
     //var slogen = validateEmptyInput($("#slogen"));
 
@@ -1025,7 +1027,7 @@ function form1Validate() {
     //var logo = validateLogo($(".title-logo.logoimg"));
 
     //if (selectOne == true & title & invetName & invetCity & emailNotEmpty & (email == undefined || email) & (emailFounder == undefined || emailFounder) & slogen8)
-    if (title & invetName & invetCity & emailNotEmpty & (email == undefined || email) & (emailFounder == undefined || emailFounder) & slogen8)
+    if (title & invetName & invetCity & invetCountry & emailNotEmpty & (email == undefined || email) & (emailFounder == undefined || emailFounder) & slogen8)
         return true;
     return false;
 }
@@ -1135,31 +1137,55 @@ function slogenValidate(input) {
 
 //validate selected
 function dropSelect() {
-    catVal = $('#category').val();
-    tagVal = $('#tags').val();
-    var result = true;
-    if (catVal == 'none') {
-        $('select#category').addClass('needSelect');
-        $('#validate-select-error').show();
-        result = false;
+    var catVal = false;
+    var tagVal=false;
+    $("#category input").each(
+    function (i) {
+        if (this.checked) {
+            console.log(i);
+            catVal = true;
+        }
+    });
+    $("#tags input").each(
+    function (i) {
+        if (this.checked) {
+            console.log(i);
+            tagVal = true;
+        }
+    });
+    if(catVal&& tagVal){
+         $('#validate-select-error').hide();
+        return true;
     }
     else{
-        $('select#category').removeClass('needSelect');
-    }
-    if (tagVal == 'none') {
-        $('select#tags').addClass('needSelect');
         $('#validate-select-error').show();
-        result = false;
+        return false;
     }
-    else{
-        $('select#tags').removeClass('needSelect');
-    }
-    if (result) {
-        $('select#category, select#tags').removeClass('needSelect');
-        $('#validate-select-error').hide();
+    //catVal = $('#category').val();
+    //tagVal = $('#tags').val();
+    //var result = true;
+    //if (catVal == 'none') {
+    //    $('select#category').addClass('needSelect');
+    //    $('#validate-select-error').show();
+    //    result = false;
+    //}
+    //else{
+    //    $('select#category').removeClass('needSelect');
+    //}
+    //if (tagVal == 'none') {
+    //    $('select#tags').addClass('needSelect');
+    //    $('#validate-select-error').show();
+    //    result = false;
+    //}
+    //else{
+    //    $('select#tags').removeClass('needSelect');
+    //}
+    //if (result) {
+    //    $('select#category, select#tags').removeClass('needSelect');
+    //    $('#validate-select-error').hide();
 
-    }
-    return result;
+    //}
+    //return result;
 
 
 }

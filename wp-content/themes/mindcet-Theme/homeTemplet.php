@@ -53,16 +53,37 @@
             
               if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post"&& isset($_POST['submit'])) {
                  //get the category
-            do_action('sendEmail_for_qa',"treut@cambium.co.il","test1","there is post");
+           // do_action('sendEmail_for_qa',"treut@cambium.co.il","test1","there is post");
                  if($_SESSION['capch']!='capch'){
                              $error['initiator']= "<div class='form-end-message'>Oops!<br><br> Something got wrong, please try again</div><div class='planes'></div>";	
-            do_action('sendEmail_for_qa',"treut@cambium.co.il","test2","error captcha");
+           // do_action('sendEmail_for_qa',"treut@cambium.co.il","test2","error captcha");
                 }
             
-            
-                   if($_POST['category']!='none'){$selectCat=$_POST['category'];}
-            
-                  if($_POST['tags']!='none'){$tag=$_POST['tags'];}
+                    //check wich categories choose
+                    $args = array(
+                        'orderby' => 'name',
+                        'order' => 'ASC',
+                        'hide_empty'=>0
+                    );
+                    $categories = get_categories($args);
+                    $selectCat=array();
+                    
+                    foreach($categories as $category) { 
+                        if(isset($_POST[ $category->term_id])){array_push($selectCat,$category->term_id);}
+                    }
+                 
+                   // if($_POST['category']!='none'){$selectCat=$_POST['category'];}
+
+                    //check wich tags choose
+                    $arg=array('hide_empty'=>false,'orderby'=>'name','order' => 'ASC');
+                    $tags = get_tags($arg);
+                    $selectTag=array();
+                    foreach ( $tags as $tag ) {                        
+                        if(isset($_POST[ "tag".$tag->term_id])){array_push($selectTag,$tag->name);}
+                    }
+                               
+                    //array_push($selectTag,"test tag");
+                  //if($_POST['tags']!='none'){$tag=$_POST['tags'];}
 
                   $selectChannel=array();
 
@@ -94,6 +115,13 @@
                 } else {
                     echo 'Please enter the city';
                 }
+                if (isset ($_POST['country'])) {
+                    $country =  $_POST['country'];
+                } else {
+                    echo 'Please enter the country';
+                }
+
+                
                 if(!filter_var($_POST['founderMail'], FILTER_VALIDATE_EMAIL)){
                  // $error['email']= "E-mail Founder is not valid";
             
@@ -105,12 +133,12 @@
                 }else{
                   $site=$_POST['site'];
                 }
-                if( $my_post=get_page_by_title( $title, 'OBJECT', 'initiator' )){
-                     $error['initiator']= "<div class='form-end-message'>Oops!<br><br> Something got wrong, please try again</div><div class='planes'></div>";	
-                      do_action('sendEmail_for_qa',"treut@cambium.co.il","error","title". $title."my post".$my_post);
-                }else{
+                //if( $my_post=get_page_by_title( $title, 'OBJECT', 'initiator' )){
+                //     $error['initiator']= "<div class='form-end-message'>Oops!<br><br> Something got wrong, please try again</div><div class='planes'></div>";	
+                //   //   
+                //}else{
                     if(empty($error['initiator'])){
-                         do_action('sendEmail_for_qa',"treut@cambium.co.il","test3","not empty");
+                        // do_action('sendEmail_for_qa',"treut@cambium.co.il","test3","not empty");
                         $name=filter_input(INPUT_POST,'invetName',FILTER_SANITIZE_STRING);
                         $founder=filter_input(INPUT_POST,'founder',FILTER_SANITIZE_STRING);
                         $youtubeUrl=filter_input(INPUT_POST,'youtubeUrl',FILTER_SANITIZE_STRING);
@@ -121,20 +149,21 @@
                         'post_content'	=>	$description,
                         'post_status'	=>	'pending',           // Choose: publish, preview, future, draft, etc.
                         'post_type'	=>	'initiator',  //'post',page' or use a custom post type if you want to
-                        'post_category' => array($selectCat),
-                        'tags_input'=>array($tag)
+                        'post_category' => $selectCat,
+                        'tags_input'=>$selectTag
                         );
             
                         //SAVE THE POST
                         $pid = wp_insert_post($new_post);
                         
-                         do_action('sendEmail_for_qa',"treut@cambium.co.il","test4","post id"+$pid);
+                       //  do_action('sendEmail_for_qa',"treut@cambium.co.il","test4","post id"+$pid);
                        wp_set_object_terms( $pid,$selectChannel, 'channel' );
                        
                        //SET OUR CASTUOM FIELDS
             
                         update_post_meta($pid, 'wpcf-full_name', $name);
                         update_post_meta($pid, 'wpcf-city', $city);
+                        update_post_meta($pid, 'wpcf-country', $country);
                         update_post_meta($pid, 'wpcf-email_up', $email);
                         update_post_meta($pid, 'wpcf-site-url', $site);
                         update_post_meta($pid, 'wpcf-founder', $founder);
@@ -161,7 +190,7 @@
                         //REDIRECT TO THE NEW POST ON SAVE
                     //	$link = get_permalink( $pid );
                     }//if empty eprrr
-                }//if post is not there...
+              //  }//if post is not there...
             
             } // END THE IF STATEMENT THAT STARTED THE WHOLE FORM
             
@@ -202,6 +231,8 @@
                         </fieldset>
 
                         <input type="text" id="city" value="" tabindex="11" name="city" placeholder="Your City" /> *
+
+                        <input type="text" id="country" value="" tabindex="11" name="country" placeholder="Your Country" /> *
                         <!-- post name -->
                         <input type="text" id="title" value="" tabindex="12" name="title" placeholder="StartUp name" /> *
                         <!-- post Category -->
@@ -211,7 +242,7 @@
                         <input type="email" id="founderMail" value="" tabindex="14" name="founderMail" placeholder="Founder E-Mail" />
 
                         <!-- post slogen -->
-                        <input type="text" id="slogen" value="" tabindex="15" name="slogen" placeholder="Startup mission up to 140 characters" />*
+                        <input type="text" id="slogen" value="" tabindex="15" name="slogen" placeholder="Startup's tagline in 140 characters or less" />*
                         <?php
                             }
                             else{
@@ -241,95 +272,56 @@
                     ?>
 
                     <div id="formPart1-2">
-                        <fieldset class="categories-input">
-                            <div class="categories">Startup's categories <span class="astro">*</span>
-                                <div id="validate-select-error" class="validate-error">* Please select at least one
-                                </div>
-                                <br>
+                       
+                        <div class="categories">Startup's categories <span class="astro">*</span>
+                            <div id="validate-select-error" class="validate-error">* Please select at least one
                             </div>
+                            <br>
+                        </div>                          
+                        <fieldset class="categories-input" id="category">
+                            <div class="categories">Select Sector</div>                         
                             <?php
-                                
                                 $args = array(
                                   'orderby' => 'name',
                                   'order' => 'ASC',
                                   'hide_empty'=>0
                                   );
                                 $categories = get_categories($args);
-                            ?>
-                            <select name="category" id="category">
-
-                                <option value="none">Select Sector</option>
-                                <?php  foreach($categories as $category) { ?>
-                                <option value="<?php echo $category->term_id;?>"><?php echo $category->name ;?></option>
-                                <?php } ?>
-                            </select>
-
-                            <select name="tags" id="tags">
-                                <option value="none">Select product category</option>
-                                <?php
-                                    
-                                    $arg=array('hide_empty'=>false,'orderby'=>'name','order' => 'ASC');
-                                    $tags = get_tags($arg);
-                                    foreach ( $tags as $tag ) {
-                                        $tag_link = get_tag_link( $tag->term_id );
-                                ?>
-                                <?php
-                                    
-                                        $nameTag=$tag->name;
-                                    if(strtolower($nameTag)=='other'){ 
-                                        $last= '<option value="'.$tag->name.'">'.$tag->name.'</option>';
-                                        }else{
-                                ?>
-                                <option value="<?php echo $tag->name;?>"><?php echo $tag->name ;?></option>
-                                <?php }?>
-                                <?php
-                                    }
-                                                                   echo $last;
-                                ?>
-
-                            </select>
-
-
-
-
-
+                                foreach($categories as $category) { ?>
+                                    <label for="<?php echo $category->term_id;?>"><input type="checkbox" id="<?php echo $category->term_id;?>" name="<?php echo $category->term_id;?>" value="<?php echo $category->term_id;?>"><span></span><?php echo $category->name ;?><br></label>
+                               
+                            <?php } ?>
+                        
                         </fieldset>
+                        
+                        <fieldset class="categories-input" id="tags">
+                            <div class="categories">Select product category</div>
+                            <?php
+                                    
+                                $arg=array('hide_empty'=>false,'orderby'=>'name','order' => 'ASC');
+                                $tags = get_tags($arg);
+                                foreach ( $tags as $tag ) {
+                                    $tag_link = get_tag_link( $tag->term_id );
+                                    $nameTag=$tag->name;
+                                    if(strtolower($nameTag)=='other'){ 
+                                        $last='<label for="tag'.$tag->term_id.'"><input type="checkbox" id="tag'.$tag->term_id.'" name="tag'.$tag->term_id.'" value="'.$tag->term_id.'"><span></span>'.$tag->name.'<br></label>';
+                                    }else{
+                            ?>                               
+                                        <label for="tag<?php echo $tag->term_id;?>"><input type="checkbox" id="tag<?php echo $tag->term_id;?>" name="tag<?php echo $tag->term_id;?>" value="<?php echo $tag->term_id;?>"><span></span><?php echo $tag->name;?><br></label>
+                                    <?php }?>
+                            <?php
+                                }//end foreach
+                                echo $last;
+                                ?>
+                        </fieldset>                                               
 
                         <fieldset class="categories-input">
-                            <div class="categories">Check here if you want to participate in the special tracks of the competition
-                                <!--<div id="validate-chanels-error" class="validate-error">* Please select at least one-->
-                            </div>
-                           
-
-                            <?php
-                                
-                                //$args = array(
-                                //  'name' => 'Channels'
-                                //
-                                //  );
-                                //$channels = get_terms("Channels");
-                            ?>
-
+                            <div class="categories">Check here if you want to participate in the special tracks of the competition</div>                           
                             <label for="making-education"><input type="checkbox" id="making-education" name="making-education" value="17"><span></span>Making Education<br></label>
                             <label for="iot-in-education"><input type="checkbox" id="iot-in-education" name="iot-in-education" value="19"><span></span>IoT in Education<br></label>
-                            <label for="safety-net"> <input type="checkbox" id="safety-net" name="safety-net" value="20"><span></span>Safety Net<br>   </label>
-                           
-                            <!--<fieldset class="categories-input">
-                                <select name="chanels" id="tags">
-
-                                    <?php  foreach($channels as $channel) { ?>
-                                    <option value="<?php echo $channel->term_id;?>"><?php echo $channel ;?></option>
-                                    <?php } ?>
-                                </select>
-                            </fieldset>-->
-
-
-
-
-
-
-
+                            <label for="safety-net"> <input type="checkbox" id="safety-net" name="safety-net" value="20"><span></span>Safety Net<br></label>                           
                         </fieldset>
+
                     </div>
                     <div id="formPart2">
                         <textarea id="description" tabindex="20" name="description" cols="30" rows="1" placeholder="About the startup"></textarea>*

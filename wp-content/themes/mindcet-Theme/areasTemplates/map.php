@@ -26,3 +26,9 @@
     </div>
 </div>
 
+ <script>
+    allVotes=<?php echo getAllVotes(); ?>;
+   
+   
+    popupallV(allVotes);
+    </script>

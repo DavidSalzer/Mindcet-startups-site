@@ -37,6 +37,9 @@
             wp_register_script('mindcetjs', get_template_directory_uri()."/js/mindcet.js", false);
            wp_enqueue_script('mindcetjs');
     
+            wp_register_script('addStartupjs', get_template_directory_uri()."/js/addStartup.js", false);
+           wp_enqueue_script('addStartupjs');
+    
     
           wp_register_script('deep', (get_template_directory_uri()."/js/deeplink.js"), false);
            wp_enqueue_script('deep');
@@ -110,8 +113,8 @@
         add_action( 'wp_ajax_catGallery', 'catGallery' );
         add_action( 'wp_ajax_nopriv_catGallery', 'catGallery' ); 
     
-        add_action( 'wp_ajax_addStartUp', 'addStartUp' );
-        add_action( 'wp_ajax_nopriv_addStartUp', 'addStartUp' ); 
+        add_action( 'wp_ajax_checkCaptcha', 'checkCaptcha' );
+        add_action( 'wp_ajax_nopriv_checkCaptcha', 'checkCaptcha' ); 
     
         add_action( 'wp_ajax_registerNews', 'registerNews' );
         add_action( 'wp_ajax_nopriv_registerNews', 'registerNews' ); 
@@ -149,14 +152,15 @@
         }
     
     
-        function addStartUp(){
-            $privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
+        function checkCaptcha(){
+            //$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
+              $privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
               $resp = recaptcha_check_answer ($privatekey,
                                             $_SERVER["REMOTE_ADDR"],
                                             $_POST["recaptcha_challenge_field"],
                                             $_POST["recaptcha_response_field"]);
     
-              if (!$resp->is_valid) {
+             if (!$resp->is_valid) {
                 // What happens when the CAPTCHA was entered incorrectly
                     echo '0';
                   }else{
@@ -168,6 +172,11 @@
             die();
         }
     
+        function addStartUp(){
+            //fileUp($pid);
+          echo '1';
+        //$fileEr=fileUp($pid);	
+        }
     
     
         function catGallery(){
@@ -426,76 +435,6 @@
                 return json_encode($allJudges);
             }
     
-    
-            ///upload file from frontEnd
-                //Upload Images
-        function uploadFile($postId){
-    
-            $okfile=array('image/gif','image/jpeg','image/jpg','image/pjpeg','image/png','image/x-png');
-    
-           require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-           require_once(ABSPATH . "wp-admin" . '/includes/file.php');
-           require_once(ABSPATH . "wp-admin" . '/includes/media.php');
-            foreach($_FILES as $field => $file){
-    
-                if(in_array($_FILES[$file]["type"],$okfile)):
-    
-    
-                $allowedExts = array("gif", "jpeg", "jpg", "png");
-                $temp = explode(".", $_FILES[$file]["name"]);
-                $extension = end($temp);
-    
-                      $filename=basename($_FILES[$file]["name"]);
-                      $uploadedfile = $_FILES[$file];
-                          $upload_overrides = array( 'test_form' => false );
-                          $uploaded_file  = wp_handle_upload( $uploadedfile, $upload_overrides );
-                              if ( $uploaded_file ) {
-                                // echo "filetype:". $uploaded_file['url'];
-                                // var_dump($uploaded_file);
-    
-                                  $attachment = array(
-                                  'post_title' => $filename,
-                                  'post_content' => '',
-                                  'post_type' => 'attachment',
-                                  'post_parent' => $postId,
-                                  'post_mime_type' => $_FILES[$file]['type'],
-                                  'guid' => $uploaded_file['url']
-                                  );
-    
-    
-                                $id = wp_insert_attachment( $attachment,$uploaded_file['url'], $postid );
-    
-                                if($file=='logo'){
-                                    $metadata = wp_generate_attachment_metadata( $id, $uploaded_file['file']);
-                                    wp_update_attachment_metadata( $id, $metadata );
-    
-                                    // Finally! set our post thumbnail
-                                    update_post_meta( $postId, '_thumbnail_id', $id );
-                                }
-                                if($file=='img-1'){
-                                    update_post_meta($postId,'wpcf-startup-img',$uploaded_file['url']);
-                                }
-                                if($file=='img-2'){
-                                    update_post_meta($postId,'wpcf-startup-img-2',$uploaded_file['url']);
-                                }
-                                if($file=='img-3'){
-                                    update_post_meta($postId,'wpcf-startup-img-3',$uploaded_file['url']);
-                                }
-    
-                        //		echo 'inputName id:'+$inputName;
-                                //	set_post_thumbnail( $postid, $id );	
-                                    //add_post_meta($postid,'wpcf-user_img', $uploaded_file['url']);
-                                      //Remove it from the array to avoid duplicating during autosave/revisions.
-                        //			  unset($_FILES[$field]);
-    
-                             // }else{
-                                //  $fileEroor='file upload eroor';
-                                //return $fileEroor; 	 
-                            }
-                        endif;	
-                  }//end foreach
-        }
-    
         function fileUp($postid){
                 if ($_FILES) { //if there is any file
     
@@ -567,7 +506,8 @@
                         //	echo "file ok<br>";
     
                         }
-                     }else{
+                     }
+                     else{
                             switch ($_FILES[$file]["error"]) {
                             case 0:
                                 //is ok ...
@@ -981,13 +921,14 @@
     
     function mailChimp($email,$name){
          require_once( get_template_directory().'/inc/Mailchimp.php');
-         $listId='8366e2458d';
+         $listId='aa6c8afabe';
          $merge_vars=array(
              'FNAME' => $name
         );
          $apiKey='129c1db8a40f40aa3417c7d277581b9f-us6';
         $mailChimp=new Mailchimp($apiKey);
-        //$mailChimp->lists->su
+       
+        
         $result=$mailChimp->lists->subscribe($listId, array('email'=>$email),
                                             $merge_vars,
                                             false,
@@ -995,6 +936,8 @@
                                             true,
                                             false
                                            );
+                                            $test=$email.print_r($result,true);
+                                           mail("treut@cambium.co.il","result",$test);         
         if($result)return true;
     }
     
@@ -1014,7 +957,7 @@
     //mail($email, $subject, $message);
     
         require_once( get_template_directory().'/inc/Mailchimp.php');
-         $listId='8366e2458d';
+         $listId='aa6c8afabe';
          $merge_vars=array(
              'FNAME' => $name,
              'STATUS'=> 'published',
@@ -1051,12 +994,12 @@
     
                      // Get a key from https://www.google.com/recaptcha/admin/create
                      //qa
-                     //$publickey = "6LdQPu4SAAAAACRzwW4h8VQtluCUAqLiMrhRQNKp";
-                     //$privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
+                     $publickey = "6LdQPu4SAAAAACRzwW4h8VQtluCUAqLiMrhRQNKp";
+                     $privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
     
                      //production
-                     $publickey = "6Lc_Pu4SAAAAAPo3yZJ8UQkagt5Wm_tA4W5x8Qpz";
-                     $privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
+                     //$publickey = "6Lc_Pu4SAAAAAPo3yZJ8UQkagt5Wm_tA4W5x8Qpz";
+                     //$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
     
                      # the response from reCAPTCHA
                      $resp = null;

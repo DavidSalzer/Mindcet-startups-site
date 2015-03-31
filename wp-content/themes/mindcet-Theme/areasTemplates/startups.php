@@ -109,3 +109,21 @@
 
     </div>
 </div>
+<script>
+    <?php
+    $currentyear= get_defauly_year();
+      $yearArray= array();
+    
+      foreach(posts_by_year() as $year => $posts) :
+          array_push($yearArray, $year);
+      endforeach;
+?>
+    result=<?php echo getAllStartup(); ?>;
+    allYearsTech=result[0];
+    allYearsTechByOrder=result[1];
+    allTech=allYearsTech[<?php echo $currentyear?>];
+    
+    allTechArray=Object.keys(allTech);
+    
+    popupall(allTech);
+</script>

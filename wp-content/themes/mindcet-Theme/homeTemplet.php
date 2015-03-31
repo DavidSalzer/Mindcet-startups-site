@@ -36,7 +36,7 @@
 
         <div class="entry">
             <div class="entry-design">
-                <a href="<?php echo $pageUrl->guid;?>" id="offerStartUp">Add a Startup</a>
+                <a href="/?page_id=8" id="offerStartUp">Add a Startup</a>
 
                 <!-- AddThis Button BEGIN -->
                                     <!--<div class="addthis_toolbox addthis_default_style">
@@ -58,8 +58,7 @@
                              $error['initiator']= "<div class='form-end-message'>Oops!<br><br> Something got wrong, please try again</div><div class='planes'></div>";	
            // do_action('sendEmail_for_qa',"treut@cambium.co.il","test2","error captcha");
                 }
-            
-                    //check wich categories choose
+                   //check wich categories choose
                     $args = array(
                         'orderby' => 'name',
                         'order' => 'ASC',
@@ -315,7 +314,7 @@
                                 ?>
                         </fieldset>                                               
 
-                        <fieldset class="categories-input">
+                        <fieldset class="categories-input" id="tracks">
                             <div class="categories">Check here if you want to participate in the special tracks of the competition</div>                           
                             <label for="making-education"><input type="checkbox" id="making-education" name="making-education" value="17"><span></span>Making Education<br></label>
                             <label for="iot-in-education"><input type="checkbox" id="iot-in-education" name="iot-in-education" value="19"><span></span>IoT in Education<br></label>
@@ -435,12 +434,7 @@
 </div>
 <?php
     
-    $currentyear= get_defauly_year();
-      $yearArray= array();
     
-      foreach(posts_by_year() as $year => $posts) :
-          array_push($yearArray, $year);
-      endforeach;
 ?>
 
 <?php
@@ -512,24 +506,6 @@
     <?php $term=get_page_by_title('Competition terms and condition');echo $term->guid;?>
 </div>
 <script>
-    result=<?php echo getAllStartup(); ?>;
-    allYearsTech=result[0];
-    allYearsTechByOrder=result[1];
-    allTech=allYearsTech[<?php echo $currentyear?>];
-    console.log(allYearsTech);
-    console.log("***********************************");
-    console.log(allTech);   
-    allTechArray=Object.keys(allTech);
-    allJudges=<?php echo getAllJudges(); ?>;
-    allVotes=<?php echo getAllVotes(); ?>;
-    popupall(allTech);
-    popupallJ(allJudges);
-    popupallV(allVotes);
-    
-    
-    
-    
-    
     $('#formPart3').on('click','#terms',function(){
         urlhide=$('#urlHide').text();
         $(this).attr('href',urlhide);

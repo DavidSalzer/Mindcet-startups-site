@@ -49,3 +49,7 @@
         </div>
     </div>
 </div>
+<script>
+ allJudges=<?php echo getAllJudges(); ?>;
+ //popupallJ(allJudges);
+</script>

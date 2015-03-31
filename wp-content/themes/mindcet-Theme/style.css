@@ -1989,14 +1989,14 @@ input[type="checkbox"]:checked + span{
 }
 
 .submit {
-    float: right;
-    position: absolute;
+    /*float: right;
+    position: absolute;*/
     right: 41px;
     width: 175px;
     height: 75px;
     margin: 0;
     padding: 0;
-    bottom: -30px;
+    /*bottom: -30px;*/
 }
 
 .submit input {
@@ -2158,6 +2158,11 @@ font-size: 25px;
 font-family: sans-serif;*/
     position: absolute;
     bottom: 32px;
+    position: relative;
+  display: block;
+  bottom: auto;
+  float: none;
+  right: auto;
 }
 /*----------------footer----*/
 #footer {
@@ -3619,7 +3624,7 @@ select#category.needSelect, select#tags.needSelect {
 }
 
 .capchArea {
-    display: none;
+    /*display: none;*/
 }
 
 iframe[src="about:blank"] {

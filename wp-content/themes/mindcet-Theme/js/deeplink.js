@@ -74,40 +74,40 @@ $('#cbtm').on('click',this,function(){
 	});	
 //capchSeccess=false;
 $('#new_post').attr("capchSeccess",'false');
-$('#new_post').submit(function(e){
-	if($('#new_post').attr("capchSeccess")=='false'){
-		addStartUp();
-		e.preventDefault();
-	}
-});
+//$('#new_post').submit(function(e){
+//	if($('#new_post').attr("capchSeccess")=='false'){
+//		addStartUp();
+//		e.preventDefault();
+//	}
+//});
 
 });//dom ready
 
-function addStartUp(){
-	
-	recaptcha_challenge=$("input#recaptcha_challenge_field").val();
-	recaptcha_response=$("input#recaptcha_response_field").val();
-	
-	jQuery.post('wp-admin/admin-ajax.php', {
-				action: 'addStartUp',
-				recaptcha_challenge_field:recaptcha_challenge,
-				recaptcha_response_field:recaptcha_response
-				
-			}
-			, function(data) {
-				console.log(data);
-					if(data==1){
-						$('#new_post').attr("capchSeccess",'true');
-						$('#submit').click();
-						return true;
-					}else{
-						alert('captcha is not valid');
-						$('#new_post').attr("capchSeccess",'false');
-						return false;	
-					}	
-			});
-		
-}
+//function addStartUp(){
+//	
+//	recaptcha_challenge=$("input#recaptcha_challenge_field").val();
+//	recaptcha_response=$("input#recaptcha_response_field").val();
+//	
+//	jQuery.post('wp-admin/admin-ajax.php', {
+//				action: 'addStartUp',
+//				recaptcha_challenge_field:recaptcha_challenge,
+//				recaptcha_response_field:recaptcha_response
+//				
+//			}
+//			, function(data) {
+//				console.log(data);
+//					if(data==1){
+//						$('#new_post').attr("capchSeccess",'true');
+//						$('#submit').click();
+//						return true;
+//					}else{
+//						alert('captcha is not valid');
+//						$('#new_post').attr("capchSeccess",'false');
+//						return false;	
+//					}	
+//			});
+//		
+//}
 
 
 function setStar(){

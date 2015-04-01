@@ -4,58 +4,59 @@
         overflow-x: scroll;
         overflow-y: hidden;
     }
+
     .judgesContenar {
         height: 100%;
         overflow-x: scroll;
         overflow-y: hidden;
     }
 
-.winner,.finalList{    
-    width: 110px;
-}
- .leftScroll-arrow, .rightScroll-arrow {
-        
-        display: none !important;
+    .winner, .finalList {
+        width: 110px;
     }
 
+    .leftScroll-arrow, .rightScroll-arrow {
+        display: none !important;
+    }
 }
 
-@media all and (max-width: 767px) {
+@media (max-width: 768px) {
     /*add to index!!!! <link rel="stylesheet" media="all and (max-width: 1023px)"  href="css/mobile.css" type="text/css" />*/
 
-/*@viewport{
+    /*@viewport{
     user-zoom:fixed;
      zoom:1.0;
      max-zoom:1.0;
      min-zoom:1.0;
-    }*/    
-/*------------------header and general-------------------------*/
+    }*/
+    /*------------------header and general-------------------------*/
     body.freeze {
         overflow: hidden;
     }
+
     .header {
         height: 58px;
     }
 
     .timer {
-       height: 32px;
-line-height: 32px;
-width: 100%;
+        height: 32px;
+        line-height: 32px;
+        width: 100%;
     }
 
     .countdown-area h3 {
-       top: 0;
-display: inline;
-font-size: 13px;
-content: "";
-margin-left: 3px;
+        top: 0;
+        display: inline;
+        font-size: 13px;
+        content: "";
+        margin-left: 3px;
     }
 
     .daysRemind {
-       position: relative;
-top: 0;
-display: inline;
-font-size: 13px;
+        position: relative;
+        top: 0;
+        display: inline;
+        font-size: 13px;
     }
 
 
@@ -166,15 +167,13 @@ font-size: 13px;
         width: 78%;
     }
 
-	#sum-menu-mobile .triangle {
-
-
-		width: 25px;
-		height: 37px;
-		margin-top: -18px;
-		margin-left: 11px;
-		-webkit-transform: rotateZ(270deg);
-	}
+    #sum-menu-mobile .triangle {
+        width: 25px;
+        height: 37px;
+        margin-top: -18px;
+        margin-left: 11px;
+        -webkit-transform: rotateZ(270deg);
+    }
 
 
 
@@ -232,27 +231,21 @@ font-size: 13px;
 
 
     /*--------------------logo menu-----------------------*/
-	.logo_menu{
-	
-		width: 75%;
-		margin-left: 60px;
-	}
-	
-	.footerLogos {
+    .logo_menu {
+        width: 75%;
+        margin-left: 60px;
+    }
 
-   
-		width: 95%;
+    .footerLogos {
+        width: 95%;
         line-height: 13px;
-    
-	}
-	
-	.footerLogos p {
-		
-		font-size: 12px;
-		margin-top: 13px;
-	
-	}
-	
+    }
+
+    .footerLogos p {
+        font-size: 12px;
+        margin-top: 13px;
+    }
+
     /*--------------------single startup-----------------------*/
     .inventDescription .topArea, .mapDescription .topArea {
         width: 100%;
@@ -440,13 +433,15 @@ font-size: 13px;
         line-height: 26px;
     }
 
-#newsletter-popup-error{
-    left: 30px;
-}
-#newsletter-success{
-    font-size: 20px;
-margin-top: 50px;
-}
+    #newsletter-popup-error {
+        left: 30px;
+    }
+
+    #newsletter-success {
+        font-size: 20px;
+        margin-top: 50px;
+    }
+
     #marker-popup .facebook-comments {
         width: 100% !important;
     }
@@ -472,106 +467,119 @@ margin-top: 50px;
     #sign-header-mobile {
     }
 
-.recaptchatable #recaptcha_image{
-    width: 95% !important;
-}
-.recaptchatable #recaptcha_response_field{
-    width: 100% !important;
-}
-.recaptchatable #recaptcha_image #recaptcha_challenge_image{
-     width: 100% !important;
-}
-#recaptcha_area, #recaptcha_table{
-    width: 100% !important;
-    margin: auto;
-}
-.capchArea{
-    position: relative;
-left: 0;
-right: 0;
-margin-left: auto;
-margin-right: auto;
-}
-.last-page, .next-page, .submit input{
-    width: 89px;
-height: 27px;
-line-height: 27;
-font-size: 14px;
-right: 0;
-text-indent: 0;
-}
-.submit{
-   position: relative;
-right: 0;
-float: none;
-width: auto;
-height: auto;
-z-index: 1;
-}
-.popInvent input[type="submit"]{
-    float: none;
-position: absolute;
-bottom: 0;
-margin-bottom: 0;
-width: 89px;
-height: 28px;
-}
-.bottomArea{
-    font-size: 11px;
-}
+    .recaptchatable #recaptcha_image {
+        width: 95% !important;
+    }
 
-#formPart1, #formPart2, #formPart3, #formPart4{
-    width: 100%;
-    /*height: 100%;*/
-    height: auto;
-}
-.form-end-message{
-    width: 100%;
-margin-top: 90px;
-font-size: 16px;
-}
+    .recaptchatable #recaptcha_response_field {
+        width: 100% !important;
+    }
 
-#stop-up-startup:first-line {
-    font-size: 16px;
-}
+    .recaptchatable #recaptcha_image #recaptcha_challenge_image {
+        width: 100% !important;
+    }
+
+    #recaptcha_area, #recaptcha_table {
+        width: 100% !important;
+        margin: auto;
+    }
+
+    .capchArea {
+        position: relative;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .last-page, .next-page, .submit input {
+        width: 89px;
+        height: 27px;
+        line-height: 27;
+        font-size: 14px;
+        right: 0;
+        text-indent: 0;
+    }
+
+    .submit {
+        position: relative;
+        right: 0;
+        float: none;
+        width: auto;
+        height: auto;
+        z-index: 1;
+    }
+
+    .popInvent input[type="submit"] {
+        float: none;
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 0;
+        width: 89px;
+        height: 28px;
+    }
+
+    .bottomArea {
+        font-size: 11px;
+    }
+
+    #formPart1, #formPart2, #formPart3, #formPart4 {
+        width: 100%;
+        /*height: 100%;*/
+        height: auto;
+    }
+
+    .form-end-message {
+        width: 100%;
+        margin-top: 90px;
+        font-size: 16px;
+    }
+
+    #stop-up-startup:first-line {
+        font-size: 16px;
+    }
 
 
-.form-end-message .fb, .form-end-message .twitter{
-    position: relative;
-float: none;
-display: inline-block;
-margin: 0;
-}
-.form-end-message .linkedin{
-    position: relative;
-}
-.form-end-social{
-    
-}
-.form-end-message .twitter,.form-end-message .linkedin{
-   display: inline-block;
-float: none;
-background-size: 160px;
-}
-.form-end-message .fb{
-    background-position-x: 15px;
- background-size: 160px;   
-    
-}
-.form-end-message .twitter{
-    background-position-x: 51%;
-padding-left: 10px;
-padding-right: 10px;
+    .form-end-message .fb, .form-end-message .twitter {
+        position: relative;
+        float: none;
+        display: inline-block;
+        margin: 0;
+    }
 
-}
-.form-end-message .linkedin{
-    background-position-x: 116%;
-padding-left: 10px;
-}
-#formPart3 .slogen,#formPart3 .name {
-    text-align: left;
-text-indent: 0;
-}
+    .form-end-message .linkedin {
+        position: relative;
+    }
+
+    .form-end-social {
+    }
+
+    .form-end-message .twitter, .form-end-message .linkedin {
+        display: inline-block;
+        float: none;
+        background-size: 160px;
+    }
+
+    .form-end-message .fb {
+        background-position-x: 15px;
+        background-size: 160px;
+    }
+
+    .form-end-message .twitter {
+        background-position-x: 51%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .form-end-message .linkedin {
+        background-position-x: 116%;
+        padding-left: 10px;
+    }
+
+    #formPart3 .slogen, #formPart3 .name {
+        text-align: left;
+        text-indent: 0;
+    }
     /*-----------------------home page------------------*/
 
     #page-wrap, .page-wrap {
@@ -580,7 +588,7 @@ text-indent: 0;
     }
 
 
- 
+
 
 
 
@@ -683,10 +691,12 @@ text-indent: 0;
     .page-wrap.inventors, .rightScroll, .leftScroll, .inventList {
         height: 229px;
     }
-.winner,.finalList{
-    right: 2px;  
-     width: 90px;  
-}
+
+    .winner, .finalList {
+        right: 2px;
+        width: 90px;
+    }
+
     #scrollInventorCon {
         height: 100%;
         overflow-x: scroll;
@@ -726,9 +736,8 @@ text-indent: 0;
     }
 
     .inventList li {
-	
-		width: 100%;
-		height: 50%;
+        width: 100%;
+        height: 50%;
     }
 
     .inventList li h2 {
@@ -746,27 +755,25 @@ text-indent: 0;
         line-height: 22px;
     }
 
-	.inventList li img{
-	
-		max-width: 90%;
-		max-height: 90%;
-		width: auto;
-		height: auto;
-		position: absolute;
-		right: 0;
-		left: 0;
-		top: 0;
-		bottom: 0;
-		margin: auto;
-
-	}
-
-   
+    .inventList li img {
+        max-width: 90%;
+        max-height: 90%;
+        width: auto;
+        height: auto;
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
 
 
-.img-wrap{
-    height: 81%;
-}
+
+
+    .img-wrap {
+        height: 81%;
+    }
 
 
 
@@ -965,7 +972,7 @@ text-indent: 0;
         overflow-y: scroll;
     }
 
-    #formPart2,#formPart1-2{
+    #formPart2, #formPart1-2 {
         display: block;
     }
 
@@ -1062,11 +1069,11 @@ text-indent: 0;
     }
 
     #offer-zone-inner .next-page {
-       position: absolute;
-right: 32px;
-margin-bottom: 16px;
-margin-right: 0;
-left: auto;
+        position: absolute;
+        right: 32px;
+        margin-bottom: 16px;
+        margin-right: 0;
+        left: auto;
     }
 
     #nav-area {
@@ -1075,11 +1082,11 @@ left: auto;
 
     .next-page .nav-page-img {
         background-size: 58px;
-background-position: 100% 47%;
-width: 35px;
-text-indent: -33%;
-font-size: 15px;
-line-height: 27px;
+        background-position: 100% 47%;
+        width: 35px;
+        text-indent: -33%;
+        font-size: 15px;
+        line-height: 27px;
     }
 
 
@@ -1088,7 +1095,6 @@ line-height: 27px;
     .next-page {
         right: 0;
         left: 205px;
-        
         position: relative;
         font-size: 18px;
         bottom: 0;
@@ -1113,6 +1119,7 @@ line-height: 27px;
         height: 26px;
         line-height: 26px;
         font-size: 15px;
+        float: left;
     }
 
 
@@ -1120,7 +1127,7 @@ line-height: 27px;
 
 
     .popInvent .upload {
-        background-size: 20% 80%;
+        background-size: 14px 15px;
         background-position-x: 3px;
         line-height: 26px;
         font-size: 15px;
@@ -1138,96 +1145,90 @@ line-height: 27px;
     .popInvent input[type="file"] {
         height: 26px !important;
         width: 93px !important;
-		
-	}	
-		/* from here - page 2/2 "preview"  form num 3 in the html code*/
-		
-		
-	#formPart3 {
-		width: 100%;
-	}
+    }
+    /* from here - page 2/2 "preview"  form num 3 in the html code*/
+
+
+    #formPart3 {
+        width: 100%;
+    }
 
     #formPart3 .topArea {
-		width: 100%;
-		position: relative;
-		height: auto;
-		/* margin: 0;
+        width: 100%;
+        position: relative;
+        height: auto;
+        /* margin: 0;
 		
 		display: block; */
-		text-align: center;
-	}
-	
-	#formPart3 .topArea .title {
-		padding-top: 80px;
-		font-size: 24px;
-		/* display: block;
+        text-align: center;
+    }
+
+    #formPart3 .topArea .title {
+        padding-top: 80px;
+        font-size: 24px;
+        /* display: block;
 		*/
-		width: 100%;
-		height: auto;
-		position: relative;
-	}
-	
-	#formPart3 .name {
-		position: relative;
-		float: none;
-		/* 
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    #formPart3 .name {
+        position: relative;
+        float: none;
+        /* 
 		
 		
 		display: block;
 		height: auto; */
-		width: 100%;
-		padding-top: 12px;
-	}
-	
-	#formPart3 .startup-logo-form {
-		/* height: auto; */
-		position: absolute;
-		right: 0;
-		top: 0;
-		/* overflow: hidden;
+        width: 100%;
+        padding-top: 12px;
+    }
+
+    #formPart3 .startup-logo-form {
+        /* height: auto; */
+        position: absolute;
+        right: 0;
+        top: 0;
+        /* overflow: hidden;
 		text-align: center;
 		line-height: 55px;
 		display: block;
 		margin-bottom: 0; */
-		margin-top: 10px;
-		/* margin-right: 25px; */
-		width: 100%;
-	}
-	
-	#formPart3 .mainArea {
-		width: 100%;
-		height: auto;
-	
-		text-align: -webkit-left;
-	}
-	
-	#formPart3 .mainArea .description {
-		/*  */
-		
-		/* margin-bottom: 10px; */
-		/*  */
-		text-align: left;
-		float: none;
-		width: 100%;
-		margin-top: 12px;
-		height: auto;
-		/* margin-right: 0; */
-		position: relative;
-		/* display: block; */
-		margin-left: 0;
-	}
-	
-	#formPart3 .mainArea .gallery {
-		margin: 0;
-		
-		right: 0;
-		position: relative;
-	
-		margin-top: 20px;
-		left: 76px;
-		float: none;
-	
-}
+        margin-top: 10px;
+        /* margin-right: 25px; */
+        width: 100%;
+    }
+
+    #formPart3 .mainArea {
+        width: 100%;
+        height: auto;
+        text-align: -webkit-left;
+    }
+
+    #formPart3 .mainArea .description {
+        /*  */
+        /* margin-bottom: 10px; */
+        /*  */
+        text-align: left;
+        float: none;
+        width: 100%;
+        margin-top: 12px;
+        height: auto;
+        /* margin-right: 0; */
+        position: relative;
+        /* display: block; */
+        margin-left: 0;
+    }
+
+    #formPart3 .mainArea .gallery {
+        margin: 0;
+        right: 0;
+        position: relative;
+        margin-top: 20px;
+        left: 76px;
+        float: none;
+    }
     /*-------------------------footer--------------------------*/
     #footer {
         height: auto;
@@ -1286,7 +1287,7 @@ line-height: 27px;
         display: inline-block;
         top: 5px;
         position: relative;
-		padding-bottom: 9px;
+        padding-bottom: 9px;
     }
 
 
@@ -1304,25 +1305,22 @@ line-height: 27px;
     }
 
     #my-logo {
-		
-		width: 100%;
-		height: auto;
-		background-color: hsl(0, 0%, 19%);
-		line-height: 18px;
-		text-indent: 0;
-		text-align: center;
-		position: initial;
-		left: 0px;
-		font-size: 12px;
-		background-position: 50% center;
-		background-size: 65px;
-		
+        width: 100%;
+        height: auto;
+        background-color: hsl(0, 0%, 19%);
+        line-height: 18px;
+        text-indent: 0;
+        text-align: center;
+        position: initial;
+        left: 0px;
+        font-size: 12px;
+        background-position: 50% center;
+        background-size: 65px;
     }
-	
-	#my-logo p{
-		
-		margin-right: 133px;
-	}
+
+    #my-logo p {
+        margin-right: 133px;
+    }
     /*----------------------Invent----------------*/
 
     .inventDescription, .mapDescription {
@@ -1360,38 +1358,34 @@ line-height: 27px;
 
 
     /*--------------------logo menu-----------------------*/
-	
+
     /*--------------------single startup-----------------------*/
-	.inventDescription .invent-next{
-	
-		position: fixed;
-		width: 100%;
-		height: auto;
-		display: -webkit-box;
-		top: 50%;
-	
-	}
+    .inventDescription .invent-next {
+        position: fixed;
+        width: 100%;
+        height: auto;
+        display: -webkit-box;
+        top: 50%;
+    }
 
-	 .inventDescription .nextImage{
-	
-		background-image: url(img/startup_page_arrows.png);
-		background-repeat: no-repeat;
-		height: 90px;
-		width: 14%;	
-		position: fixed;
-		top: 182px;
+    .inventDescription .nextImage {
+        background-image: url(img/startup_page_arrows.png);
+        background-repeat: no-repeat;
+        height: 90px;
+        width: 14%;
+        position: fixed;
+        top: 182px;
         z-index: 1;
-	}
+    }
 
-	.inventDescription  #nextImageR{
-	
-		background-position-x: -54px;
-right: 0px;
-	}
+    .inventDescription #nextImageR {
+        background-position-x: -54px;
+        right: 0px;
+    }
 
     .inventDescription .startup-popup-logo, .mapDescription .startup-popup-logo {
         width: 40%;
-		left: 30%;
+        left: 30%;
         height: 60px;
         position: relative;
         margin: 0px;
@@ -1478,7 +1472,7 @@ right: 0px;
         display: none;
     }
 
-    .socialArea .linkedin{
+    .socialArea .linkedin {
         display: none;
     }
 
@@ -1497,7 +1491,7 @@ right: 0px;
 
 
 
-    .socialArea .twitter{
+    .socialArea .twitter {
         display: none;
     }
 
@@ -1537,7 +1531,7 @@ right: 0px;
         width: 100%;
         position: relative;
         top: 40px;
-		white-space: initial;
+        white-space: initial;
     }
 
 
@@ -1719,13 +1713,14 @@ right: 0px;
 
     #validate-area {
         position: relative;
-        top: 45px;
+        top: 0px;
+        line-height: 18px;
         width: 100%;
     }
 
     #validate-select-error {
-        top: 15px;
-        left: -18px;
+        top: 17px;
+        left: 0px;
         font-size: 11px;
     }
 
@@ -1848,12 +1843,12 @@ right: 0px;
 
     #contactUsForm {
         position: fixed;
-width: 100%;
-height: 100%;
-left: 0;
-z-index: 50;
-box-shadow: none;
-top: 0;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        z-index: 50;
+        box-shadow: none;
+        top: 0;
     }
 
     #contactUsForm form {
@@ -1891,48 +1886,165 @@ top: 0;
         text-indent: -13px;
     }
 
-/********************about us**********************/
-#aboutUs{
-    width: 100%;
-overflow-y: scroll;
-position: absolute;
-height: 100%;
-margin: 0;
-overflow-x: hidden;
-}
-#aboutUs article {
-margin: 15px 20px 15px 20px;
-}
-#aboutUs .gallery img:hover{
-    -webkit-transform: scale(1.5,1.5);
--moz-transform: scale(1.5,1.5);
--ms-transform:scale(1.5,1.5);
-transform: scale(1.5,1.5);
-}
-#aboutUs .gallery{
-    display: block;
-}
-#aboutUs .gallery img{
-    margin: auto;
-display: block;
-margin-top: 12px;
-}
+    /********************about us**********************/
+    #aboutUs {
+        width: 100%;
+        overflow-y: scroll;
+        position: absolute;
+        height: 100%;
+        margin: 0;
+        overflow-x: hidden;
+    }
 
+    #aboutUs article {
+        margin: 15px 20px 15px 20px;
+    }
 
+    #aboutUs .gallery img:hover {
+        -webkit-transform: scale(1.5,1.5);
+        -moz-transform: scale(1.5,1.5);
+        -ms-transform: scale(1.5,1.5);
+        transform: scale(1.5,1.5);
+    }
 
+    #aboutUs .gallery {
+        display: block;
+    }
 
+    #aboutUs .gallery img {
+        margin: auto;
+        display: block;
+        margin-top: 12px;
+    }
 
+    #aboutUs .media iframe {
+        width: 100%;
+    }
 
-#aboutUs .media iframe{
-    width: 100%;
-}
+    /*****************************terms & conditions page  *****/
 
-/*****************************terms & conditions page  *****/
+    .post.pageTemplet {
+        padding: 5%;
+        width: 90%;
+        font-size: 13px;
+    }
 
-	.post.pageTemplet{
+    /*yishai changes*/
+    .new-stat-title {
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+        padding: 9px;
+        font-weight: bold;
+        font-size: 20px;
+    }
 
-		padding: 5%;
-		width: 90%;
-		font-size: 13px;
-	}
+    #formPart1 {
+        padding: 10px 15px;
+    }
+
+    #addStartupForm {
+        margin: 0px;
+    }
+
+    #recaptcha_table {
+        position: relative;
+        left: 0px;
+    }
+
+    .basic-info-start {
+        font-size: 20px;
+        margin: 5px 0px 9px 0px;
+    }
+
+    #addStartupForm input {
+        font-size: 15px;
+        line-height: 29px;
+        height: 29px;
+    }
+
+    #addStartupForm fieldset {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0px 17px;
+    }
+
+    .categories.categories-start {
+        text-indent: 17px;
+    }
+
+    #formPart1 .label-form {
+        position: relative;
+        padding-left: 26px;
+        height: auto;
+        margin: 0px 0px 0px 0px;
+    }
+
+    #formPart1 .label-form span {
+        position: absolute;
+        top: 7px;
+        left: -5px;
+    }
+
+    #description {
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    #addStartupForm fieldset.no-pad-form {
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 100%;
+    }
+
+    #formPart1 .submit {
+        margin: 18px 0px 10px 0px;
+        padding: 0px;
+    }
+
+    #formPart1 .submit input {
+        margin: 0px;
+        line-height: normal;
+        position: relative;
+    }
+
+    #formPart1 .bottomArea label {
+        height: auto;
+        line-height: normal;
+        position: relative;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding-left: 28px;
+        padding-top: 1px;
+    }
+
+    #formPart4 {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0px 20px;
+    }
+
+    #formPart1 .bottomArea label span {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    .recaptchatable #recaptcha_response_field {
+        margin-bottom: 0px;
+    }
+
+    .dot {
+        position: absolute;
+        color: #21cb89;
+        font-size: 17px;
+        top: 8px;
+        right: -10px;
+        margin: 0px;
+    }
 }

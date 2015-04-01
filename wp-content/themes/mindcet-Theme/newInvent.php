@@ -8,7 +8,7 @@
 
 <div class="" id="post-<?php the_ID(); ?>">
 
-    <h2><?php the_title(); ?></h2>
+    <h2 class="new-stat-title"><?php the_title(); ?></h2>
 
     <?php
         
@@ -162,31 +162,45 @@
     <div class="entry">
 
         <div id="validate-area">
-            <div id="validate-general-error" class="validate-error">* please insert a valid text
-            </div>
-            <div id="validate-checkbox-error" class="validate-error">* please check it out...
-            </div>
-            <div id="validate-description-error" class="validate-error">* please insert less than 200 words to description field
-            </div>
-            <div id="validate-img-error" class="validate-error">* file is too big, Please ensure that file size is less than 2Mb
-            </div>
-            <div id="validate-slogen-error" class="validate-error">* please insert text with maximum 140 characters mission field
-            </div>
-        </div>
+                    <div id="validate-general-error" class="validate-error">* please insert a valid text
+                    </div>
+                    <div id="validate-checkbox-error" class="validate-error">* please check it out...
+                    </div>
+                    <div id="validate-description-error" class="validate-error">* please insert less than 200 words to description field
+                    </div>
+                    <div id="validate-img-error" class="validate-error">* file is too big, Please ensure that file size is less than 2Mb
+                    </div>
+                    <div id="validate-slogen-error" class="validate-error">* please insert text with maximum 140 characters mission field
+                    </div>
+                </div>
 
         <form class="popInvent" id="addStartupForm" method="post" action="" name="addStartupForm" enctype="multipart/form-data">
             <div id="formPart1">
-                <!-- post Category -->
-                <input type="text" id="invetName" value="" tabindex="10" name="invetName" placeholder="Your name" />*
-                <!-- post Category -->
-                <fieldset class="formfield">
-                    <input type="email" id="email" value="" tabindex="11" name="email" placeholder="Your E-Mail" /> *
-                </fieldset>
+                <div class="basic-info-start">Basic information</div>
+                
 
-                <input type="text" id="city" value="" tabindex="11" name="city" placeholder="Your City" /> *
-                <input type="text" id="country" value="" tabindex="11" name="country" placeholder="Your Country" /> *
+
+                <!-- post Category -->
+                <div class="dot-wrap" style="position: relative">
+                    <input type="text" id="invetName" value="" tabindex="10" name="invetName" placeholder="Your name" /><span class="dot">*</span>
+                </div>
+                <!-- post Category -->
+                <fieldset class="formfield no-pad-form">
+                    <div class="dot-wrap" style="position: relative">
+                        <input type="email" id="email" value="" tabindex="11" name="email" placeholder="Your E-Mail" /><span class="dot">*</span>
+                    </div>
+                </fieldset>
+                <div class="dot-wrap" style="position: relative">
+                    <input type="text" id="city" value="" tabindex="11" name="city" placeholder="Your City" /> <span class="dot">*</span>
+                </div>
+
+                <div class="dot-wrap" style="position: relative">
+                    <input type="text" id="country" value="" tabindex="11" name="country" placeholder="Your Country" /><span class="dot">*</span>
+                </div>
                 <!-- post name -->
-                <input type="text" id="title" value="" tabindex="12" name="title" placeholder="StartUp name" /> *
+                <div class="dot-wrap" style="position: relative">
+                    <input type="text" id="title" value="" tabindex="12" name="title" placeholder="StartUp name" /><span class="dot">*</span>
+                </div>
                 <!-- post Category -->
                 <input type="text" id="founder" value="" tabindex="13" name="founder" placeholder="Founder" />
 
@@ -194,8 +208,10 @@
                 <input type="email" id="founderMail" value="" tabindex="14" name="founderMail" placeholder="Founder E-Mail" />
 
                 <!-- post slogen -->
-                <input type="text" id="slogen" value="" tabindex="15" name="slogen" placeholder="Startup's tagline in 140 characters or less" />*
-                <div class="categories">Startup's categories <span class="astro">*</span>
+                <div class="dot-wrap" style="position: relative">
+                    <input type="text" id="slogen" value="" tabindex="15" name="slogen" placeholder="Startup's tagline in 140 characters or less" /><span class="dot">*</span>
+                </div>
+                <div class="categories categories-start">Startup's categories <span class="astro"></span>
                     <div id="validate-select-error" class="validate-error">* Please select at least one
                     </div>
                     <br>
@@ -211,7 +227,7 @@
                         $categories = get_categories($args);
                         foreach($categories as $category) {
                     ?>
-                    <label for="<?php echo $category->term_id;?>"><input type="checkbox" id="<?php echo $category->term_id;?>" name="<?php echo $category->term_id;?>" value="<?php echo $category->term_id;?>"><span></span><?php echo $category->name ;?><br></label>
+                    <label class="label-form" for="<?php echo $category->term_id;?>"><input type="checkbox" id="<?php echo $category->term_id;?>" name="<?php echo $category->term_id;?>" value="<?php echo $category->term_id;?>"><span class="checkbox-form"></span><?php echo $category->name ;?><br></label>
 
                     <?php } ?>
 
@@ -227,10 +243,10 @@
                             $tag_link = get_tag_link( $tag->term_id );
                             $nameTag=$tag->name;
                             if(strtolower($nameTag)=='other'){ 
-                                $last='<label for="tag'.$tag->term_id.'"><input type="checkbox" id="tag'.$tag->term_id.'" name="tag'.$tag->term_id.'" value="'.$tag->term_id.'"><span></span>'.$tag->name.'<br></label>';
+                                $last='<label class="label-form" for="tag'.$tag->term_id.'"><input type="checkbox" id="tag'.$tag->term_id.'" name="tag'.$tag->term_id.'" value="'.$tag->term_id.'"><span class="checkbox-form"></span>'.$tag->name.'<br></label>';
                             }else{
                     ?>
-                    <label for="tag<?php echo $tag->term_id;?>"><input type="checkbox" id="tag<?php echo $tag->term_id;?>" name="tag<?php echo $tag->term_id;?>" value="<?php echo $tag->term_id;?>"><span></span><?php echo $tag->name;?><br></label>
+                    <label class="label-form" for="tag<?php echo $tag->term_id;?>"><input type="checkbox" id="tag<?php echo $tag->term_id;?>" name="tag<?php echo $tag->term_id;?>" value="<?php echo $tag->term_id;?>"><span class="checkbox-form"></span><?php echo $tag->name;?><br></label>
                     <?php }?>
                     <?php
                         }//end foreach
@@ -240,34 +256,38 @@
 
                 <fieldset class="categories-input">
                     <div class="categories">Check here if you want to participate in the special tracks of the competition</div>
-                    <label for="making-education"><input type="checkbox" id="making-education" name="making-education" value="17"><span></span>Making Education<br></label>
-                    <label for="iot-in-education"><input type="checkbox" id="iot-in-education" name="iot-in-education" value="19"><span></span>IoT in Education<br></label>
-                    <label for="safety-net"> <input type="checkbox" id="safety-net" name="safety-net" value="20"><span></span>Safety Net<br></label>
+                    <label class="label-form" for="making-education"><input type="checkbox" id="making-education" name="making-education" value="17"><span class="checkbox-form"></span>Making Education<br></label>
+                    <label class="label-form" for="iot-in-education"><input type="checkbox" id="iot-in-education" name="iot-in-education" value="19"><span class="checkbox-form"></span>IoT in Education<br></label>
+                    <label class="label-form" for="safety-net"> <input type="checkbox" id="safety-net" name="safety-net" value="20"><span class="checkbox-form"></span>Safety Net<br></label>
                 </fieldset>
 
 
-
-                <textarea id="description" tabindex="20" name="description" cols="30" rows="1" placeholder="About the startup"></textarea>*
-                <input type="url" id="site" value="" tabindex="21" name="site" placeholder="Link to website" />*
-                <fieldset class="formfield">
+                <div class="basic-info-start">About the startup</div>
+                <div class="dot-wrap" style="position: relative">
+                    <textarea id="description" tabindex="20" name="description" cols="30" rows="1" placeholder="About the startup"></textarea><span class="dot">*</span>
+                </div>
+                <div class="dot-wrap" style="position: relative">
+                    <input type="url" id="site" value="" tabindex="21" name="site" placeholder="Link to website" /><span class="dot">*</span>
+                </div>
+                <fieldset class="formfield no-pad-form">
                     <input type="url" id="youtubeUrl" value="" tabindex="22" name="youtubeUrl" placeholder="Link to video (YouTube/Vimeo)" />
                 </fieldset>
 
-                <fieldset class="formfield input-border">
+                <fieldset class="formfield input-border no-pad-form">
                     <span class="title-logo logoimg">Logo</span>
                     <div class="upload" onclick="getFile('#logo')">Select file</div>
                     <div class="input-outer">
                         <input type="file" id="logo" value="Upload" name="logo" tabindex="23" name="logo" placeholder="" />
                     </div>
                 </fieldset>
-                <fieldset class="formfield input-border">
+                <fieldset class="formfield input-border no-pad-form">
                     <span class="title-logo img1">Add a photo</span>
                     <div class="upload" onclick="getFile('#img-1')">Select file</div>
                     <div class="input-outer">
                         <input type="file" id="img-1" value="" tabindex="24" name="img-1" placeholder="" />
                     </div>
                 </fieldset>
-                <fieldset class="formfield input-border">
+                <fieldset class="formfield input-border no-pad-form">
                     <span class="title-logo img2">Add a photo</span>
                     <div class="upload" onclick="getFile('#img-2')">Select file</div>
                     <div class="input-outer">
@@ -275,7 +295,7 @@
                     </div>
                 </fieldset>
 
-                <fieldset class="formfield input-border">
+                <fieldset class="formfield input-border no-pad-form">
                     <span class="title-logo img3">Add a photo</span>
                     <div class="upload" onclick="getFile('#img-3')">Select file</div>
                     <div class="input-outer">
@@ -293,7 +313,7 @@
                         <input type="checkbox" id="ads" name="ads" value="yes" checked>
                         <span></span>I wish to receive interesting information about new EdTech startups.<br><br>
                     </label>
-                    <label for="terms">
+                    <label for="terms" class="form-terms">
                         <input type="checkbox" id="terms" name="terms" checked>
                         <span></span> I accept the <a href="#" id="terms" target="_blank">terms</a> of the Global EdTech Startups Awards.<br>
                     </label>
@@ -308,32 +328,32 @@
             <?php
                 $res=(empty($fileEr))?'good':'bad';
             ?>
-            
+
 
         </form>
 
         <div id="formPart4" class="<?php echo $res;if(isset($_POST['submit']))echo ' show'?>">
-                <?php if(!empty($error['initiator'])){echo $error['initiator'];}else{?>
+            <?php if(!empty($error['initiator'])){echo $error['initiator'];}else{?>
 
-                <div class="form-end-message">
+            <div class="form-end-message">
                         Yippee! <br><br>The startup you added submitted for approval and will be uploaded in a few minutes.
                         You're more than welcome to share the competition with your friends! <br>
-                    <div class="planes"></div>
-                    <div class="form-end-social">
-                        <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2015&p[summary]=What's your favorite EdTech startup?" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
-
-                      
-                        <span class="social twitter" onclick="openInNewWindow('http://twitter.com/intent/tweet?text=What\'s your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2015. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education' , 100, 100)">Share on <span class="letter-space">Twitter</span></span>
-
-                        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2015&summary=What's your favorite EdTech startup?" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
+                <div class="planes"></div>
+                <div class="form-end-social">
+                    <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo site_url(); ?>&p[images][0]=<?php echo get_theme_mod('link_ImgBg');?>&p[title]=Global EdTech Startup Awards 2015&p[summary]=What's your favorite EdTech startup?" class="social fb" title="(Share on Facebook)" target="_blank">Share on <span class="letter-space">Facbook</span></a>
 
 
-                    </div>
+                    <span class="social twitter" onclick="openInNewWindow('http://twitter.com/intent/tweet?text=What\'s your favorite EdTech startup? %0D%0AGlobal EdTech Startup Awards 2015. <?php echo site_url(); ?> &hashtags=Edtech,Startups,Education' , 100, 100)">Share on <span class="letter-space">Twitter</span></span>
+
+                    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo site_url(); ?>&amp;title=Global EdTech Startup Awards 2015&summary=What's your favorite EdTech startup?" class="social linkedin" title="(Share on LinkedIn)" target="_blank">Share on <span class="letter-space">LinkedIn</span></a>
+
+
                 </div>
-
-
-                <?php }?>
             </div>
+
+
+            <?php }?>
+        </div>
 
     </div>
 </div>

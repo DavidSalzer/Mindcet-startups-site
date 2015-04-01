@@ -165,10 +165,14 @@ function addStartupValidate() {
             checkCaptcha();
         }
         else{
+          
             $("#validate-checkbox-error").show();
         }
       
        
+    }
+    else{
+          $("body").animate({scrollTop: 0}, 1000);
     }
     //return true;
     //return false;

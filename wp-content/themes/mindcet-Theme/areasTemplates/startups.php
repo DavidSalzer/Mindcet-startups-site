@@ -125,5 +125,5 @@
     
     allTechArray=Object.keys(allTech);
     
-    popupall(allTech);
+    
 </script>

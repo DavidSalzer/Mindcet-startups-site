@@ -145,151 +145,13 @@ $(document).ready(function (e) {
 
     });
 
-
-    //-------form------
-
-    //$('#offerStartUp').on('click',function (e) {
-    //    window.location.search="?page_id=8";
-    //     return false;
-    //});
-
-    //$('#offerStartUp').on('click', this, function (e) {
-    //    openOfferPopUp();
-    //    $('#formPart4').removeClass('show');
-    //    $('#formPart4').hide();
-    //    $('.popInvent input[type="submit"]').hide();
-    //    $(".capchArea").hide();
-    //    $('#formPart1').show();
-    //    $('.next-page').css("display", "inline-block");
-    //    $('#page-number-1').show();
-    //    e.preventDefault();
-
-    //    if (isMobile) {
-    //        $("body").addClass("freeze");
-    //        $("#page-number-1").html("1/2");
-    //    }
-    //    else {
-    //        $("#page-number-1").html("1/4");
-    //    }
-    //    return false;
-
-    //});
-
-    //$('.inventorPopUp .close').on('click', this, function () {
-    //    $('.inventorPopUp').fadeOut(300, 'easeInOutBack');
-    //    $('#formPart11,#formPart1-2,#formPart2,#formPart3,.page-number').hide();
-
-    //    //display of mobile
-    //    if (isMobile) {
-    //        $(".header").show();
-    //        $(".topNav").show();
-    //        $(".page-wrap").removeClass("mobile");
-    //        $("#sign-header-mobile").hide();
-    //        $("body").removeClass("freeze");
-    //    }
-    //    //  return false;
-    //});
-
-
-
-    //$('.next-page').on('click', this, function () {
-    //    if ($('#formPart1').is(":visible")) {
-    //        if (form1Validate()) {
-    //            if (isMobile) {
-    //                if (form1_2Validate() && form2Validate()) {
-    //                    showPreviewForm();
-    //                }
-    //                else {
-    //                    $('#offer-zone-inner').animate({
-    //                        scrollTop: 0
-    //                    }, 1000);
-    //                }
-    //            }
-    //            else {
-    //                showForm1_2();
-
-    //            }
-
-    //        }
-    //        else {
-    //            $('#offer-zone-inner').animate({
-    //                scrollTop: 0
-    //            }, 1000);
-    //        }
-    //        return true;
-    //    }
-    //    else if ($('#formPart1-2').is(":visible")) {
-    //        if ((form1_2Validate())) {
-    //            showForm2();
-    //        }
-    //        else {
-    //            $('#offer-zone-inner').animate({
-    //                scrollTop: 0
-    //            }, 1000);
-    //        }
-    //    }
-    //    else if ($('#formPart2').is(":visible")) {
-    //        if (form2Validate()) {
-    //            showPreviewForm();
-    //        }
-    //        else {
-    //            $('#offer-zone-inner').animate({
-    //                scrollTop: 0
-    //            }, 1000);
-    //        }
-    //    }
-    //    return true;
-    //});
-
-    //$('.last-page').on('click', this, function () {
-    //    $(".validate-error").hide();
-    //    if ($('#formPart1-2').is(":visible")) {
-    //        $('#formPart1-2').hide();
-    //        $('#page-number-1-2').hide();
-    //        $('.last-page').css("display", "none");
-    //        $('.next-page').css("display", "inline-block");
-    //        $('#formPart1').show();
-    //        $('#page-number-1').show();
-
-    //        return;
-    //    }
-    //    if ($('#formPart2').is(":visible")) {
-    //        $('#formPart2').hide();
-    //        $('#page-number-2').hide();
-    //        $('.next-page').css("display", "inline-block");
-    //        $('#formPart1-2').show();
-    //        $('#page-number-1-2').show();
-
-    //        return;
-    //    }
-
-    //    else if ($('#formPart3').is(":visible")) {
-    //        $('.capchArea').hide();
-    //        $('.inventorPopUp').css('height', '666px');
-    //        if (!isMobile) {
-    //            $('.triangle').css('bottom', '138px');
-    //        }
-    //        $('#formPart3').hide();
-    //        $('#page-number-3').hide();
-    //        $('#page-number-2').show();
-    //        $('.submit input').css("display", "none");
-    //        $('#formPart2').show();
-    //        $('.next-page').show();
-    //        $('.next-page').css("display", "inline-block");
-
-    //    }
-
-    //    return;
-    //});
-    //$('#new_post').on('submit', this, function () {
-    //    // if (document.getElementById(("ads")).checked && document.getElementById(("terms")).checked)
-    //    if (document.getElementById(("terms")).checked)
-    //        return true;
-    //    $("#validate-checkbox-error").show();
-    //    return false;
-    //});
-
-
+    //scroll smooth
+    $('a[href^="#"]').click(function () {    // Change to needed selector
+        $("html, body").animate({    // Need both for full browser support
+            scrollTop: $($(this).attr("href")).offset().top - 154 // Extra 100px
+        }, 500);    // Change to desired scroll time in ms
+        return false;    // Prevents the dreaded jump/flash
+    });
     /************************ images preview *******************************/
 
     $("#logo").change(function (e) {
@@ -603,7 +465,7 @@ $(document).ready(function (e) {
 
 
 function openOfferPopUp() {
-    ga('send', 'event', 'button', 'click', 'add invent - 1');   
+    ga('send', 'event', 'button', 'click', 'add invent - 1');
 
 }
 
@@ -1419,17 +1281,18 @@ function setStartupUl() {
 
         //if (allTech[$this.attr("idtec")].winner != "") {
         //    isWinner = allTech[$this.attr("idtec")].winner[Object.keys(allTech[$this.attr("idtec")].winner)[0]];
+        if (allTech[$this.attr("idtec")]) {
+            //is winner
+            if (allTech[$this.attr("idtec")].winner == "1") {
+                $this.find(".winner").show();
+            }
+            // }
 
-        //is winner
-        if (allTech[$this.attr("idtec")].winner == "1") {
-            $this.find(".winner").show();
-        }
-        // }
-
-        //if (allTech[$this.attr("idtec")].finalList != "") {
-        //    isFinalList = allTech[$this.attr("idtec")].finalList[Object.keys(allTech[$this.attr("idtec")].finalList)[0]];
-        if ((allTech[$this.attr("idtec")].finalList == "1") && (allTech[$this.attr("idtec")].winner != "1")) {
-            $this.find(".finalList").show();
+            //if (allTech[$this.attr("idtec")].finalList != "") {
+            //    isFinalList = allTech[$this.attr("idtec")].finalList[Object.keys(allTech[$this.attr("idtec")].finalList)[0]];
+            if ((allTech[$this.attr("idtec")].finalList == "1") && (allTech[$this.attr("idtec")].winner != "1")) {
+                $this.find(".finalList").show();
+            }
         }
         // }
 

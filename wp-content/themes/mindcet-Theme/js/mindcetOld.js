@@ -778,7 +778,10 @@ function updateMenuUrl() {
     var navArray = ["#startups-banner", "#judges-banner", "#offer-zone"]
 
     //add event to offer menu to open the offer popup
-    $('a[href^="#offer-zone"]').on("click", function () { $('#offerStartUp').click(); });
+    $('a[href^="#offer-zone"]').on("click", function () { 
+        //$('#offerStartUp').click(); 
+        window.location
+    });
 
     //scroll smooth
     $('a[href^="#"]').click(function () {    // Change to needed selector

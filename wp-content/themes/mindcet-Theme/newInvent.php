@@ -315,7 +315,7 @@
                     </label>
                     <label for="terms" class="form-terms">
                         <input type="checkbox" id="terms" name="terms" checked>
-                        <span></span> I accept the <a href="#" id="terms" target="_blank">terms</a> of the Global EdTech Startups Awards.<br>
+                        <span></span> I accept the <a href="/?page_id=567" id="terms" target="_blank">terms</a> of the Global EdTech Startups Awards.<br>
                     </label>
                     <fieldset class="submit">
                         <input type="submit" value="Submit" tabindex="40" id="submit" name="submit" />

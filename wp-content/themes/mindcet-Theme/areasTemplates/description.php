@@ -22,13 +22,14 @@
 
     <div class="page-wrap contect">
         <article class="unreset">
-            <?php echo $about?>
+             <?php the_content();?>
+            <!--<?php echo $about?>
             <?php echo $whoCanApply?>
             <?php echo $tracks?>
             <?php echo $theProccess?>
             <?php echo $judges?>
             <?php echo $partners?>
-            <?php echo $apply?>
+            <?php echo $apply?>-->
         </article>
     </div>    
 </div>

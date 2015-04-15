@@ -143,8 +143,11 @@
         
                         // subscrib to mailchimp
                         //if(isset($_POST['ads']) && $_POST['ads']=='yes')
-                         mailChimp( $email, $name);
+                         mailChimp( $email, $name,$title);
         
+                         if($founderMail){
+                              mailChimp( $founderMail, $founder,$title);
+                         }
                         do_action('post_mindeset_uplode',$pid);
         
                         //REDIRECT TO THE NEW POST ON SAVE

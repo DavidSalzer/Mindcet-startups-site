@@ -890,7 +890,7 @@ footer .tagLogo {
     background-color: #f2f2f3;
     height: 42px;
     position: relative;
-    margin-top: -38px;
+    /*margin-top: -38px;*/
     box-shadow: 1px 1px 2px #000;
 }
 

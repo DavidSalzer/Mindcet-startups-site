@@ -153,8 +153,10 @@
     
     
         function checkCaptcha(){
-            $privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
-             // $privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
+             //production
+            //$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
+              //qa
+              $privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
               $resp = recaptcha_check_answer ($privatekey,
                                             $_SERVER["REMOTE_ADDR"],
                                             $_POST["recaptcha_challenge_field"],
@@ -402,11 +404,11 @@
                endforeach;
     endforeach; 
                 $result=array($allYearsTech,$allYearsTechByOrder);//return both veration - by order and by id
-
+    
                 return json_encode($result);
             }
     
-          
+    
             function getAllJudges(){
                  $args = array(
                 'posts_per_page'   => -1,
@@ -765,7 +767,7 @@
                     ),
                ) 
              );
-
+    
              //for third area
              $wp_customize->add_setting( 'third_order',
                array(
@@ -789,7 +791,7 @@
                     ),
                ) 
              );
-
+    
               //for fourth area
              $wp_customize->add_setting( 'fourth_order',
                array(
@@ -813,7 +815,7 @@
                     ),
                ) 
              );
-
+    
              /*************************** end order the elements in site**************************/
     //       //set a img for link at the top
             $wp_customize->add_section( 'fev_defult', 
@@ -919,25 +921,27 @@
     
     
     
-    function mailChimp($email,$name){
+    function mailChimp($email,$name,$startupName){
          require_once( get_template_directory().'/inc/Mailchimp.php');
          $listId='aa6c8afabe';
          $merge_vars=array(
-             'FNAME' => $name
+             'FNAME' => $name,
+             'SNAME'=>$startupName
+    
         );
          $apiKey='129c1db8a40f40aa3417c7d277581b9f-us6';
         $mailChimp=new Mailchimp($apiKey);
-       
-        
+    
+    
         $result=$mailChimp->lists->subscribe($listId, array('email'=>$email),
                                             $merge_vars,
                                             false,
-                                            true,
+                                            false,
                                             true,
                                             false
                                            );
-                                            $test=$email.print_r($result,true);
-                                           mail("treut@cambium.co.il","result",$test);         
+                                           // $test=$email.print_r($result,true);
+                                           //mail("treut@cambium.co.il","result",$test);         
         if($result)return true;
     }
     
@@ -968,7 +972,7 @@
         $result=$mailChimp->lists->subscribe($listId, array('email'=>$email),
                                             $merge_vars,
                                             false,
-                                            true,
+                                            false,
                                             true,
                                             false
                                            );
@@ -994,12 +998,12 @@
     
                      // Get a key from https://www.google.com/recaptcha/admin/create
                      //qa
-                    // $publickey = "6LdQPu4SAAAAACRzwW4h8VQtluCUAqLiMrhRQNKp";
-                   //  $privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
+                     $publickey = "6LdQPu4SAAAAACRzwW4h8VQtluCUAqLiMrhRQNKp";
+                     $privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
     
                      //production
-                     $publickey = "6Lc_Pu4SAAAAAPo3yZJ8UQkagt5Wm_tA4W5x8Qpz";
-                     $privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
+                     //$publickey = "6Lc_Pu4SAAAAAPo3yZJ8UQkagt5Wm_tA4W5x8Qpz";
+                     //$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
     
                      # the response from reCAPTCHA
                      $resp = null;
@@ -1012,8 +1016,8 @@
          }
     
          function myCapchIsValid(){
-           //$privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
-           $privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
+           $privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
+           //$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
            $resp = recaptcha_check_answer ($privatekey,
                                          $_SERVER["REMOTE_ADDR"],
                                          $_POST["recaptcha_challenge_field"],
@@ -1087,5 +1091,5 @@
     //}
     //test();
     
-      
+    
     

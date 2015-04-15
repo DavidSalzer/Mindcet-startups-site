@@ -144,8 +144,8 @@
 		<nav class="topNav">
            <?php
 		$defaults = array(
-          'theme_location'  =>'topMenuPage',
-			'menu'            => 'topMenuPage',
+          'theme_location'  =>'topMenu',
+			'menu'            => 'topMenu',
 			'container'       => 'div',
 			'container_class' => 'topMenu',
 			'menu_class'      => 'menu',

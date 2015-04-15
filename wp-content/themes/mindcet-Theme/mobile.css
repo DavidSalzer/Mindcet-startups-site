@@ -65,7 +65,7 @@
 
     .topNav {
         margin-top: 1px;
-        height: 42px;
+        height: 25px;
     }
 
 
@@ -93,7 +93,7 @@
         height: 37px;
         border-radius: 50px;
         background-image: none;
-        background-color: #fff;
+        /* background-color: #fff; */
         top: 38px;
         float: left;
         position: absolute;
@@ -164,7 +164,7 @@
         height: 100%;
         margin: 0 auto;
         text-align: center;
-        width: 78%;
+        width: 258px;
     }
 
     #sum-menu-mobile .triangle {
@@ -179,9 +179,7 @@
 
 
     .topMenu {
-        width: 100%;
-        bottom: 6px;
-        position: absolute;
+        display: none;
     }
 
 
@@ -260,12 +258,18 @@
         position: absolute;
         z-index: 1;
         border: 1px solid #ebebeb;
-        right: -18px;
+        left: -18px;
         text-align: left;
         text-indent: 4px;
         color: #000000;
+        top: 83px;
     }
 
+    #sum-menu-mobile ul li {
+        white-space: nowrap;
+        width: auto;
+        padding: 0px 4px;
+    }
 
 
 
@@ -327,7 +331,7 @@
     #sum-menu-mobile li {
         width: 70px;
         font-size: 11px;
-        height: 24px;
+        height: auto;
         line-height: 24px;
     }
 
@@ -584,7 +588,7 @@
 
     #page-wrap, .page-wrap {
         width: 100%;
-        margin-top: 105px;
+        margin-top: 85px;
     }
 
 
@@ -1925,14 +1929,14 @@
 
     .post.pageTemplet {
         padding: 0px 0px 5% 0px;
-        width: 90%;
+        width: 100%;
         font-size: 13px;
     }
 
 
     .post.pageTemplet.startap-pageTemplet {
         /*padding: 5%;*/
-        width: 90%;
+        width: 100%;
     }
 
     /*yishai changes*/
@@ -2101,5 +2105,9 @@
 
     .img-wrap.img-rand img {
         position: relative;
+    }
+
+    #startups-area .middelBanner h2 {
+        line-height: 27px;
     }
 }

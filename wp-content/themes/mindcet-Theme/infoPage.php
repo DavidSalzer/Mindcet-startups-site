@@ -16,7 +16,7 @@
 
     <?php //include (TEMPLATEPATH . '/inc/meta.php' ); ?>
 
-    <div class="entry">
+    <div class="entry info-entry">
 
        <?php the_content(); ?>
 

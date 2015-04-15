@@ -10,9 +10,9 @@
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 <div id="newsletter-btn"></div>
-<div class="post pageTemplet" id="post-<?php the_ID(); ?>">
+<div class="post pageTemplet startap-pageTemplet" id="post-<?php the_ID(); ?>">
 
-    <h2><?php the_title(); ?></h2>
+    <!--<h2><php the_title();?></h2>-->
 
     <?php //include (TEMPLATEPATH . '/inc/meta.php' ); ?>
 

@@ -584,7 +584,7 @@
 
     #page-wrap, .page-wrap {
         width: 100%;
-        margin-top: 103px;
+        margin-top: 105px;
     }
 
 
@@ -1924,15 +1924,22 @@
     /*****************************terms & conditions page  *****/
 
     .post.pageTemplet {
-        padding: 5%;
+        padding: 0px 0px 5% 0px;
         width: 90%;
         font-size: 13px;
+    }
+
+
+    .post.pageTemplet.startap-pageTemplet {
+        /*padding: 5%;*/
+        width: 90%;
     }
 
     /*yishai changes*/
     .new-stat-title {
         width: 100%;
-        margin-top: 20px;
+        margin-top: 0px;
+        margin-bottom: 0;
         text-align: center;
         padding: 9px;
         font-weight: bold;

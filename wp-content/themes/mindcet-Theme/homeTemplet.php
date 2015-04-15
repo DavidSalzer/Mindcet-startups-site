@@ -55,66 +55,68 @@
 
 <?php
     
+    include(locate_template('areasTemplates/judges.php'));
+    include(locate_template('areasTemplates/randomStartup.php'));
     //."  ".get_option('')."  ".get_option('')."  ".get_option('');
-    switch (get_option('first_order')) {
-        //case 'value1':
-        //    include(locate_template('areasTemplates/startups.php'));
-        //    break;
-        //case 'value2':
-        //    include(locate_template('areasTemplates/map.php'));
-        //    break;
-        case 'value3':
-            include(locate_template('areasTemplates/judges.php'));
-            break;
-            case 'value4':
-            include(locate_template('areasTemplates/description.php'));
-            break;
-    }
-    
-     switch (get_option('second_order')) {
-        //case 'value1':
-        //    include(locate_template('areasTemplates/startups.php'));
-        //    break;
-        //case 'value2':
-        //    include(locate_template('areasTemplates/map.php'));
-        //    break;
-        case 'value3':
-            include(locate_template('areasTemplates/judges.php'));
-            break;
-            case 'value4':
-            include(locate_template('areasTemplates/description.php'));
-            break;
-    }
-    
-     switch (get_option('third_order')) {
-        //case 'value1':
-        //    include(locate_template('areasTemplates/startups.php'));
-        //    break;
-        //case 'value2':
-        //    include(locate_template('areasTemplates/map.php'));
-        //    break;
-        case 'value3':
-            include(locate_template('areasTemplates/judges.php'));
-            break;
-            case 'value4':
-            include(locate_template('areasTemplates/description.php'));
-            break;
-    }
-    
-     switch (get_option('fourth_order')) {
-        //case 'value1':
-        //    include(locate_template('areasTemplates/startups.php'));
-        //    break;
-        //case 'value2':
-        //    include(locate_template('areasTemplates/map.php'));
-        //    break;
-        case 'value3':
-            include(locate_template('areasTemplates/judges.php'));
-            break;
-            case 'value4':
-            include(locate_template('areasTemplates/description.php'));
-            break;
-    }
+    //switch (get_option('first_order')) {
+    //    //case 'value1':
+    //    //    include(locate_template('areasTemplates/startups.php'));
+    //    //    break;
+    //    //case 'value2':
+    //    //    include(locate_template('areasTemplates/map.php'));
+    //    //    break;
+    //    case 'value3':
+    //        include(locate_template('areasTemplates/judges.php'));
+    //        break;
+    //        case 'value4':
+    //        include(locate_template('areasTemplates/description.php'));
+    //        break;
+    //}
+    //
+    // switch (get_option('second_order')) {
+    //    //case 'value1':
+    //    //    include(locate_template('areasTemplates/startups.php'));
+    //    //    break;
+    //    //case 'value2':
+    //    //    include(locate_template('areasTemplates/map.php'));
+    //    //    break;
+    //    case 'value3':
+    //        include(locate_template('areasTemplates/judges.php'));
+    //        break;
+    //        case 'value4':
+    //        include(locate_template('areasTemplates/description.php'));
+    //        break;
+    //}
+    //
+    // switch (get_option('third_order')) {
+    //    //case 'value1':
+    //    //    include(locate_template('areasTemplates/startups.php'));
+    //    //    break;
+    //    //case 'value2':
+    //    //    include(locate_template('areasTemplates/map.php'));
+    //    //    break;
+    //    case 'value3':
+    //        include(locate_template('areasTemplates/judges.php'));
+    //        break;
+    //        case 'value4':
+    //        include(locate_template('areasTemplates/description.php'));
+    //        break;
+    //}
+    //
+    // switch (get_option('fourth_order')) {
+    //    //case 'value1':
+    //    //    include(locate_template('areasTemplates/startups.php'));
+    //    //    break;
+    //    //case 'value2':
+    //    //    include(locate_template('areasTemplates/map.php'));
+    //    //    break;
+    //    case 'value3':
+    //        include(locate_template('areasTemplates/judges.php'));
+    //        break;
+    //        case 'value4':
+    //        include(locate_template('areasTemplates/description.php'));
+    //        break;
+    //}
     
 ?>
 

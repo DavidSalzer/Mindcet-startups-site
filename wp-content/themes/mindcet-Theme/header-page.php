@@ -124,12 +124,25 @@
                 	<span class="logoCet">
                     	<img src="<?php echo get_theme_mod('link_ImgBg'); ?>" title="<?php echo get_theme_mod('link_ImgBg_text');?>" class="topImgLink">
                     </span>
-
-                    <ul id="sum-menu-mobile"> <span class="triangle"></span>
+                    <?php
+	                    $defaults = array(
+                            'theme_location'  =>'topMenu',
+		                    'menu'            => 'topMenu',
+		                    'container'       => 'div',
+		                    'container_id' => 'sum-menu-mobile',
+		                    'menu_class'      => 'menu',
+		                    'echo'            => true,
+		                    'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+	                    );
+		
+	                    wp_nav_menu( $defaults );
+		
+	                ?>
+                    <!--<ul id="sum-menu-mobile"> <span class="triangle"></span>
                         <li ><span onclick="window.location='<?php echo site_url();?>'">Home Page</span></li>
                         <li class="aboutUs">About Us</li>
                         <li class="contactUs">Contact Us</li>
-                    </ul>
+                    </ul>-->
                 </a>
                 <div class="timer">
                 <?php get_sidebar('countdown');?>

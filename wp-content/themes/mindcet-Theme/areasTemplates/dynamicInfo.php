@@ -21,7 +21,7 @@
 	        foreach ( $recent_posts as $post ){
          ?>
             <li>
-                <a href="<?php echo get_permalink($recent["ID"])?>" class="rand-title"><?php echo  $post["post_title"];?></a>
+                <a href="<?php echo get_permalink($post["ID"])?>" class="rand-title"><?php echo  $post["post_title"];?></a>
                 <div class="rand-content"><?php echo apply_filters ("the_content", $post["post_content"]);?></div>
                 <div class="img-wrap img-rand rand-box">
                     <?php echo get_the_post_thumbnail( $post["ID"],array(220,155), $attr ); ?>

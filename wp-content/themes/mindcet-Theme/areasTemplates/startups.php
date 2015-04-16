@@ -1,10 +1,19 @@
+ <?php
+    //get current year
+    $currentyear= get_defauly_year();
+    $yearTechArray= array();
+    
+    foreach(posts_by_year() as $year => $posts) :
+        array_push($yearTechArray, $year);
+    endforeach;
+?>
 
 <div id="startups-area">
     <div id="startups-banner" class="middelBanner">
         <h2>The Startups
             <select name="year" id="yearNav">
                 <option value="none">Select Year</option>
-                <?php foreach(posts_by_year() as $year => $yearArray) :?>
+                <?php foreach(posts_by_year() as $year => $yearTechArray) :?>
                 <option <?php if ($year == $currentyear ) echo 'selected'; ?> value="<?php echo $year; ?>"><?php echo $year; ?></option>
                 <?php endforeach; ?>
             </select>
@@ -60,20 +69,18 @@
         <div class="rightScroll" id="inventScrollR"><div class="rightScroll-arrow"></div></div>
         <div class="leftScroll" id="inventScrollL"><div class="leftScroll-arrow"></div></div>
         <?php
-            
-            
                 $args = array(
-                'posts_per_page'   => -1,
-                'orderby'          => 'post_date',
-                'order'            => 'DESC',
-                'post_type'        => 'initiator',
-                'year'             => $currentyear,
-                'post_status'      => 'publish'
+                    'posts_per_page'   => -1,
+                    'orderby'          => 'post_date',
+                    'order'            => 'DESC',
+                    'post_type'        => 'initiator',
+                    'year'             => $currentyear,
+                    'post_status'      => 'publish'
                 );
             
-            $myposts = get_posts( $args );
+                $myposts = get_posts( $args );
                 $caunter=0;
-              echo "<div id='scrollInventorCon'><span class='placholderSlide'></span><ul class='inventList'>";
+                echo "<div id='scrollInventorCon'><span class='placholderSlide'></span><ul class='inventList'>";
                 foreach ( $myposts as $post ) : setup_postdata( $post );
         ?>
         <?php
@@ -110,19 +117,13 @@
     </div>
 </div>
 <script>
-    <?php
-    $currentyear= get_defauly_year();
-      $yearArray= array();
     
-      foreach(posts_by_year() as $year => $posts) :
-          array_push($yearArray, $year);
-      endforeach;
-?>
     result=<?php echo getAllStartup(); ?>;
     allYearsTech=result[0];
     allYearsTechByOrder=result[1];
     allTech=allYearsTech[<?php echo $currentyear?>];
     
+    //for prev and next startups
     allTechArray=Object.keys(allTech);
     
     

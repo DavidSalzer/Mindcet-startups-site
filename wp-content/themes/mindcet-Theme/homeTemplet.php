@@ -54,7 +54,7 @@
 ?>
 
 <?php
-    
+    include(locate_template('areasTemplates/dynamicInfo.php'));
     include(locate_template('areasTemplates/judges.php'));
     include(locate_template('areasTemplates/randomStartup.php'));
     //."  ".get_option('')."  ".get_option('')."  ".get_option('');

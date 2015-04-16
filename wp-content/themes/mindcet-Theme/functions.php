@@ -336,73 +336,73 @@
     
             function getAllStartup(){
                  $args = array(
-                'posts_per_page'   => -1,
-                'orderby'          => 'post_date',
-                'order'            => 'DESC',
-                'post_type'        => 'initiator',
-                'post_status'      => 'publish',
+                    'posts_per_page'   => -1,
+                    'orderby'          => 'post_date',
+                    'order'            => 'DESC',
+                    'post_type'        => 'initiator',
+                    'post_status'      => 'publish',
                 );
     
-                $allTech=array();
+                $allTech=array();    
+    
+                $allYearsTech = array();
+                $allYearsTechByOrder = array();
+    
+                foreach(posts_by_year($args) as $year => $posts) :
+    
+                    $allYearsTech[$year] =array() ;
+                    $allYearsTechByOrder[$year] =array() ;
     
     
-        $allYearsTech = array();
-        $allYearsTechByOrder = array();
-    
-        foreach(posts_by_year($args) as $year => $posts) :
-    
-            $allYearsTech[$year] =array() ;
-            $allYearsTechByOrder[$year] =array() ;
-    
-    
-     foreach($posts as $post) : setup_postdata($post); 
+                    foreach($posts as $post) : setup_postdata($post); 
             //the_permalink();  the_title(); 
     
                 //$myposts = get_posts( $args );
-                $caunter=0;
-                //foreach ( $myposts as $post ) : setup_postdata( $post ); 
-                $techId=$post->ID;
-                $title=get_the_title($post->ID);            
-                $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array(220,155), false, '' );
-                $logo= $src;
-                $descript=apply_filters ("the_content", $post->post_content);//get_the_content($post->ID);
-                $name=get_post_meta($post->ID,'wpcf-full_name',true);
-                $email=get_post_meta($post->ID,'wpcf-invet_email',true);
-                $siteUrl=get_post_meta($post->ID,'wpcf-site-url',true);
-                $founder=get_post_meta($post->ID,'wpcf-founder',true);
-                $founderEmail=get_post_meta($post->ID,'wpcf-founder-email',true);
-                $youtube=get_post_meta($post->ID,'wpcf-youtube-url',true);
-                $startupImg=get_post_meta($post->ID,'wpcf-startup-img',true);
-                $startupImg1=get_post_meta($post->ID,'wpcf-startup-img-2',true);
-                $startupImg2=get_post_meta($post->ID,'wpcf-startup-img-3',true);
-                $category=wp_get_post_categories($post->ID);
-                $likes=get_post_meta($post->ID,'wpcf-likes',true);
-                $slogen= get_post_meta($post->ID, 'wpcf-slogen', true);
-                $winner=get_post_meta($post->ID,'wpcf-winner',true);
-                $finalList=get_post_meta($post->ID,'wpcf-final-list',true);
-                $parmalink=get_permalink($post->ID);
+                        $caunter=0;
+                        //foreach ( $myposts as $post ) : setup_postdata( $post ); 
+                        $techId=$post->ID;
+                        $title=get_the_title($post->ID);            
+                        $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array(220,155), false, '' );
+                        $logo= $src;
+                        $descript=apply_filters ("the_content", $post->post_content);//get_the_content($post->ID);
+                        $name=get_post_meta($post->ID,'wpcf-full_name',true);
+                        $email=get_post_meta($post->ID,'wpcf-invet_email',true);
+                        $siteUrl=get_post_meta($post->ID,'wpcf-site-url',true);
+                        $founder=get_post_meta($post->ID,'wpcf-founder',true);
+                        $founderEmail=get_post_meta($post->ID,'wpcf-founder-email',true);
+                        $youtube=get_post_meta($post->ID,'wpcf-youtube-url',true);
+                        $startupImg=get_post_meta($post->ID,'wpcf-startup-img',true);
+                        $startupImg1=get_post_meta($post->ID,'wpcf-startup-img-2',true);
+                        $startupImg2=get_post_meta($post->ID,'wpcf-startup-img-3',true);
+                        $category=wp_get_post_categories($post->ID);
+                        $likes=get_post_meta($post->ID,'wpcf-likes',true);
+                        $slogen= get_post_meta($post->ID, 'wpcf-slogen', true);
+                        $winner=get_post_meta($post->ID,'wpcf-winner',true);
+                        $finalList=get_post_meta($post->ID,'wpcf-final-list',true);
+                        $parmalink=get_permalink($post->ID);
     
-                $mach=get_option('ye_plugin_options');
-                if($mach['ye_fev']){
-                    $ye_fev=$mach['ye_fev'];
-                }else{
-                    $ye_fev=array();
-                    $ye_fev['Img']=get_theme_mod('fev_img');
-                    $ye_fev['link']=get_theme_mod('fev_link');
-                    $ye_fev['H1']=get_theme_mod('fev_h1');
-                    $ye_fev['text']=get_theme_mod('fev_text');
-                }
+                        $mach=get_option('ye_plugin_options');
+                        if($mach['ye_fev']){
+                            $ye_fev=$mach['ye_fev'];
+                        }else{
+                            $ye_fev=array();
+                            $ye_fev['Img']=get_theme_mod('fev_img');
+                            $ye_fev['link']=get_theme_mod('fev_link');
+                            $ye_fev['H1']=get_theme_mod('fev_h1');
+                            $ye_fev['text']=get_theme_mod('fev_text');
+                        }
     
-                $startupImgArry=array('0'=>$startupImg,'1'=>$startupImg1,'2'=>$startupImg2);
+                        $startupImgArry=array('0'=>$startupImg,'1'=>$startupImg1,'2'=>$startupImg2);
     
-                $tempArry=array('techId'=>$techId,'title'=>$title,'slogen'=>$slogen,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
-          ,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImgArry,'category'=>$category,'like'=>$likes,'winner'=>$winner,'finalList'=>$finalList,'permalink'=>$parmalink);
-                $allYearsTech[$year][$techId]=$tempArry;
-                array_push($allYearsTechByOrder[$year],$tempArry);
-                $allYearsTech[$year]['fev']=$ye_fev;
+                        $tempArry=array('techId'=>$techId,'title'=>$title,'slogen'=>$slogen,'logo'=>$logo,'descript'=>$descript,'name'=>$name,'email'=>$email
+                  ,'siteUrl'=>$siteUrl,'founder'=>$founder,'founderEmail'=>$founderEmail,'youtube'=>$youtube,'startupImg'=>$startupImgArry,'category'=>$category,'like'=>$likes,'winner'=>$winner,'finalList'=>$finalList,'permalink'=>$parmalink);
+                        
+                        $allYearsTech[$year][$techId]=$tempArry;
+                        array_push($allYearsTechByOrder[$year],$tempArry);
+                        $allYearsTech[$year]['fev']=$ye_fev;
     
-               endforeach;
-    endforeach; 
+                    endforeach;
+                endforeach; 
                 $result=array($allYearsTech,$allYearsTechByOrder);//return both veration - by order and by id
     
                 return json_encode($result);

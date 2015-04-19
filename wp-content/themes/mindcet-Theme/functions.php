@@ -946,37 +946,43 @@
     }
     
     function mailChimpPublishPost($id){
-        if( ( $_POST['post_status'] == 'publish' ) && ( $_POST['original_post_status'] != 'publish' ) ){
+        if(  ( $_POST['post_type'] == 'initiator' ) && ( $_POST['post_status'] == 'publish' ) && ( $_POST['original_post_status'] != 'publish' ) ){
     
             $post = get_post($id);
             setup_postdata($post);
             $title=get_the_title($post->ID); 
             $email=get_post_meta($post->ID,'wpcf-email_up',true);
-            $link=get_permalink($post->ID);
-    // $recipient="treut@cambium.co.il";
-    //  $message="qqqq" .$email;
-    //
-    //          
-    //           $subject='התקבלה פניה מהאתר ';
-    //mail($email, $subject, $message);
+            $founderMail=get_post_meta($post->ID,'wpcf-founder-email',true);
+            $link=get_permalink($post->ID);   
     
-        require_once( get_template_directory().'/inc/Mailchimp.php');
-         $listId='aa6c8afabe';
-         $merge_vars=array(
-             'FNAME' => $name,
-             'STATUS'=> 'published',
-             'LINK' => $link
-        );
-         $apiKey='129c1db8a40f40aa3417c7d277581b9f-us6';
-        $mailChimp=new Mailchimp($apiKey);        
-        $result=$mailChimp->lists->subscribe($listId, array('email'=>$email),
-                                            $merge_vars,
-                                            false,
-                                            false,
-                                            true,
-                                            false
-                                           );
-        if($result)return true;
+            require_once( get_template_directory().'/inc/Mailchimp.php');
+             $listId='aa6c8afabe';
+             $merge_vars=array(
+                 //'FNAME' => $name,
+                 'STATUS'=> 'published',
+                 'LINK' => $link
+            );
+            $apiKey='129c1db8a40f40aa3417c7d277581b9f-us6';
+            $mailChimp=new Mailchimp($apiKey);        
+            $result=$mailChimp->lists->subscribe($listId, array('email'=>$email),
+                                                $merge_vars,
+                                                false,
+                                                false,
+                                                true,
+                                                false
+                                                 );
+            //if there is founder Mail                                
+            if($founderMail){
+                $result=$mailChimp->lists->subscribe($listId, array('email'=>$founderMail),
+                                                    $merge_vars,
+                                                    false,
+                                                    false,
+                                                    true,
+                                                    false
+                                                   );
+            }
+
+            if($result)return true;
     
     
         }

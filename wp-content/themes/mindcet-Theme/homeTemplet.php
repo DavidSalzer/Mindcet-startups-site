@@ -17,7 +17,7 @@
 ?>
 
 
-<div id="newsletter-btn"></div>
+<!--<div id="newsletter-btn"></div>-->
 
 
 <div class="page-wrap">

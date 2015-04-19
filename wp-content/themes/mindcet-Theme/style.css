@@ -1099,7 +1099,7 @@ background-repeat: no-repeat;*/
 }
 
 .middelBanner h2 {
-    width: 84%;
+    width: 100%;
     margin: 0 auto;
     height: 45px;
     text-align: left;
@@ -1107,6 +1107,7 @@ background-repeat: no-repeat;*/
     color: #3b3b3b;
     font-size: 2em;
     position: relative;
+    padding-left: 25px;
 }
 
 .page-wrap.inventors {
@@ -3987,5 +3988,93 @@ iframe[src="about:blank"] {
     display: inline-block;
     vertical-align: top;
 }
+
+
+/**********************home***********************/
+
+section.home-blog {
+    margin: 0px 0px 35px 0px;
+    padding: 0px 40px 20px 40px;
+    border-bottom: 2px solid gray;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 220px;
+}
+
+.home-title {
+}
+
+.home-title a {
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+    margin: 0px 0px 10px 0px;
+    display: block;
+}
+
+.home-date {
+    margin-bottom: 35px;
+}
+
+.home-content {
+    height: 118px;
+    overflow: hidden;
+}
+
+.home-content table {
+    display: none;
+}
+
+#page-wrap .home-content p, #page-wrap .home-content h4, #page-wrap .home-content h2, #page-wrap .home-content h3 {
+    margin: 0px;
+    line-height: 23px;
+    font-size: 100%;
+}
+
+.home-content img {
+}
+
+.home-content p img {
+}
+
+.page-wrap.contect.home-blog-wrapper {
+    position: relative;
+    -webkit-box-sizing: border-box; /* Safari 3.0 - 5.0, Chrome 1 - 9, Android 2.1 - 3.x */
+    -moz-box-sizing: border-box; /* Firefox 1 - 28 */
+    box-sizing: border-box;
+    padding: 35px 15px 10px 15px;
+}
+
+.home-half{
+    width: 48%;
+    
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+} 
+
+.home-half.home-half-left{
+    
+}
+
+.home-content-img{
+    height: 100%;
+    
+    min-height: 100%;
+    vertical-align: top;
+    position: relative;
+    font-size: 0px;
+}
+
+.home-content-img img{
+    max-height: 100%;
+  
+    max-width: 100%;
+    display: block;
+    margin: auto;
+}
+
 /*@import("mobile.css")*/
 

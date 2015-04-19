@@ -6,7 +6,7 @@
     <div class="page-wrap blog-twit-wrapper">
         <div class="ul-media-wrapper">
             <div class="blog-title">blog</div>
-            <ul>
+            <ul id="inner-ul-media">
                 <?php
                     $args = array(
                         'numberposts' => 3,

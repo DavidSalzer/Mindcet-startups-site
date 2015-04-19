@@ -4070,10 +4070,14 @@ section.home-blog {
 
 .home-content-img img{
     max-height: 100%;
-  
     max-width: 100%;
     display: block;
     margin: auto;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
 }
 
 /*@import("mobile.css")*/

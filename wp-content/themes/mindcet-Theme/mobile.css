@@ -145,12 +145,6 @@
     }
 
 
-
-
-
-
-
-
     .socialTabs {
         top: 38px;
         position: relative;
@@ -176,30 +170,9 @@
     }
 
 
-
-
     .topMenu {
         display: none;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     .topMenu ul {
@@ -218,14 +191,6 @@
     .topMenu ul li:last-child {
         left: 0px;
     }
-
-
-
-
-
-
-
-
 
 
     /*--------------------logo menu-----------------------*/
@@ -365,13 +330,6 @@
         width: 260px;
         position: static;
     }
-
-
-
-
-
-
-
 
 
     #newsletter-btn {
@@ -593,17 +551,9 @@
 
 
 
-
-
-
-
-
     .page-wrap.mobile {
         margin-top: 0;
     }
-
-
-
 
 
     .page-wrap .home {
@@ -611,14 +561,6 @@
         margin-top: 0;
         height: auto;
     }
-
-
-
-
-
-
-
-
 
 
     .mainPageBg {
@@ -659,11 +601,6 @@
         font-size: 9px;
         height: 100%;
     }
-
-
-
-
-
 
 
 
@@ -734,7 +671,6 @@
 
 
 
-
     .inventList {
         width: 50%;
     }
@@ -748,8 +684,6 @@
         height: 22px;
         font-size: 15px;
     }
-
-
 
 
 
@@ -773,14 +707,9 @@
     }
 
 
-
-
     .img-wrap {
         height: 81%;
     }
-
-
-
 
 
 
@@ -876,10 +805,6 @@
 
 
 
-
-
-
-
     .judgesAvantar {
         width: 79px;
         height: 114px;
@@ -896,8 +821,6 @@
         margin-left: 31px;
         font-size: 14px;
     }
-
-
 
 
     .page-wrap.contect p {
@@ -947,10 +870,6 @@
         line-height: 10px;
         font-size: 11px;
     }
-
-
-
-
 
     .judgestext {
         height: 19px;
@@ -1011,27 +930,15 @@
 
 
 
-
-
-
-
-
-
-
     .categories-input .categories span.astro {
         display: none;
     }
 
 
 
-
-
-
     .categories-input {
         font-size: 15px;
     }
-
-
 
 
 
@@ -1466,12 +1373,6 @@
 
 
 
-
-
-
-
-
-
     .inventDescription .socialArea .fb, .inventDescription .form-end-message .fb {
         display: none;
     }
@@ -1479,12 +1380,6 @@
     .socialArea .linkedin {
         display: none;
     }
-
-
-
-
-
-
 
 
 
@@ -1588,21 +1483,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     #comments-frame {
         width: 100% !important;
         min-height: 60px;
@@ -1614,15 +1494,7 @@
 
 
 
-
     /*****************marker popup**********************/
-
-
-
-
-
-
-
 
     #marker-popup .startups-gallery {
         float: none;
@@ -1646,32 +1518,15 @@
 
 
 
-
-
-
     #marker-popup .startups-gallery-item {
         min-height: 62px;
     }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     #marker-popup .popup-title {
         margin-top: 10px;
     }
-
-
-
 
 
     .mapDescription .mainArea .description {
@@ -2109,5 +1964,44 @@
 
     #startups-area .middelBanner h2 {
         line-height: 27px;
+    }
+
+    .ifream-media-wrapper {
+        position: relative;
+        width: auto;
+    }
+
+    .ifream-media-wrapper iframe {
+        display: block !important;
+        margin: 10px auto 10px auto !important;
+    }
+
+    .ul-media-wrapper {
+        position: relative;
+        padding: 10px 8% 0px 8%;
+    }
+
+    .blog-title {
+    }
+
+    #inner-ul-media {
+        font-size: 12px;
+    }
+
+    .media-li-content p, .media-li-content h4, .media-li-content h3 {
+        line-height: 14px;
+        font-size: 100%;
+    }
+
+    .media-li-title {
+        line-height: 14px;
+    }
+
+    .li-with-img .media-li-content, .li-with-img .media-li-img {
+        width: 100%;
+        display: block;
+    }
+    .li-with-img .media-li-img {
+        margin-top:15px;
     }
 }

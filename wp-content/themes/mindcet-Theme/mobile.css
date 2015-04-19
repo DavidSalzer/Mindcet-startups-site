@@ -58,19 +58,10 @@
         display: inline;
         font-size: 13px;
     }
-
-
-
-
-
-    .topNav {
+ .topNav {
         margin-top: 1px;
         height: 25px;
     }
-
-
-
-
 
 
 
@@ -81,11 +72,6 @@
         background-image: none;
         background-color: #fff;
     }
-
-
-
-
-
 
 
     .tagLogo:first-child {
@@ -104,11 +90,6 @@
     }
 
 
-
-
-
-
-
     .topImgLink {
         width: 80%;
         height: auto;
@@ -118,9 +99,6 @@
     }
 
 
-
-
-
     .socialTab span {
         background-image: url(img/social_icons.png);
         background-position: -1px 3px;
@@ -128,16 +106,9 @@
     }
 
 
-
-
-
     .socialTab span.twitter {
         background-position: -40px 3px;
     }
-
-
-
-
 
 
     .socialTab span.linkin {
@@ -568,10 +539,9 @@
         height: auto;
         z-index: 0;
         position: relative;
-    }
-
-
-
+    
+        margin-bottom: -3px;
+}
 
     .home .entry {
         line-height: 0;
@@ -582,8 +552,6 @@
         position: absolute;
         margin-top: -16%;
     }
-
-
 
 
     .entry-design {
@@ -601,8 +569,6 @@
         font-size: 9px;
         height: 100%;
     }
-
-
 
 
     #fb-like-site {
@@ -751,9 +717,6 @@
         display: inline-block;
     }
 
-
-
-
     #best-logo-frame {
         height: 70px;
         width: 70px;
@@ -767,43 +730,26 @@
         max-height: 70px;
     }
 
-
-
-
-
-
     .best-description {
         padding: 10px 10px;
     }
 
-
-
-
     .middelBanner {
         position: relative;
-        height: 22px;
-        margin-top: -3px;
+        height: 25px;
+        margin-top: 0px;
     }
-
-
-
-
 
     .middelBanner h2 {
-        height: 22px;
+        height: 25px;
         font-size: 1em;
-        line-height: 22px;
+        line-height: 25px;
     }
-
-
-
 
 
     .inventorNav {
         height: 23px;
     }
-
-
 
     .judgesAvantar {
         width: 79px;
@@ -843,14 +789,9 @@
     }
 
 
-
-
-
     .judges .leftScroll-arrow, .judges .rightScroll-arrow {
         margin-top: 62px;
     }
-
-
 
     .judge-pic {
         height: 78px;
@@ -861,9 +802,6 @@
         height: auto;
         max-height: 100%;
     }
-
-
-
 
     .judgesAvantar h2 {
         height: 10px;
@@ -904,22 +842,14 @@
         display: none;
     }
 
-
-
-
     .inventorPopUp .close {
         right: 7px;
         top: 6px;
     }
 
-
-
-
     .popInvent {
         margin: 62px 21px 0 23px;
     }
-
-
 
     .popInvent input, .popInvent textarea {
         height: 26px;
@@ -928,26 +858,18 @@
         width: 91%; /*  pini   -need space for the *       */
     }
 
-
-
     .categories-input .categories span.astro {
         display: none;
     }
-
-
 
     .categories-input {
         font-size: 15px;
     }
 
-
-
     .categories {
         font-size: 15px;
         margin: 5px 0 10px 0;
     }
-
-
 
     select#category, select#tags {
         font-size: 15px;
@@ -963,15 +885,9 @@
         font-size: 15px;
     }
 
-
-
-
     .popInvent input, .popInvent textarea {
         width: 94%;
     }
-
-
-
 
     .page-number {
         bottom: 6px;
@@ -1000,9 +916,6 @@
         line-height: 27px;
     }
 
-
-
-
     .next-page {
         right: 0;
         left: 205px;
@@ -1020,11 +933,6 @@
         position: relative;
     }
 
-
-
-
-
-
     .title-logo {
         width: 63%;
         height: 26px;
@@ -1032,10 +940,6 @@
         font-size: 15px;
         float: left;
     }
-
-
-
-
 
     .popInvent .upload {
         background-size: 14px 15px;
@@ -1048,9 +952,6 @@
         right: 0;
         padding-left: 0;
     }
-
-
-
 
 
     .popInvent input[type="file"] {
@@ -1147,17 +1048,9 @@
     }
 
 
-
-
-
-
     .footerMenu {
         display: none;
     }
-
-
-
-
 
     .unitedNav {
         width: 100%;
@@ -1173,9 +1066,6 @@
         padding: 0;
     }
 
-
-
-
     .copyr {
         width: 100%;
         height: 100%;
@@ -1183,31 +1073,12 @@
         text-align: center;
     }
 
-
-
-
-
-
-
-
-
-
-
-
     .copyr div {
         display: inline-block;
         top: 5px;
         position: relative;
         padding-bottom: 9px;
     }
-
-
-
-
-
-
-
-
 
 
     #all-rights-reserved-cambium {
@@ -1244,29 +1115,6 @@
         -webkit-transform: scale(1.5,1.5);
         transform: scale(1.5,1.5);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*--------------------logo menu-----------------------*/
 
@@ -1307,7 +1155,6 @@
         text-align: center;
     }
 
-
     .inventDescription .title.ellipsis, .mapDescription .title.ellipsis {
         width: 100%;
         left: 0px;
@@ -1319,18 +1166,6 @@
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     .inventDescription .socialArea {
         height: auto;
         top: 0px;
@@ -1339,8 +1174,6 @@
         /* background-color: brown; */
         text-align: center;
     }
-
-
 
     #twittCount {
         width: 56px;
@@ -1355,9 +1188,6 @@
         border-left: 1px solid gray;
         border-bottom: none;
     }
-
-
-
 
     #fbCount {
         width: 56px !important;
@@ -1387,9 +1217,6 @@
     }
 
 
-
-
-
     .socialArea .twitter {
         display: none;
     }
@@ -1410,10 +1237,6 @@
     }
 
 
-
-
-
-
     .inventDescription .mainArea .movie iframe {
         height: 160px;
         width: 260px;
@@ -1432,8 +1255,6 @@
         top: 40px;
         white-space: initial;
     }
-
-
 
 
     .inventDescription .mainArea .description, .mapDescription .mainArea .description {
@@ -1474,13 +1295,10 @@
     }
 
 
-
-
     .mainArea .gallery-img {
         width: 95%;
         height: 95%;
     }
-
 
 
     #comments-frame {
@@ -1488,12 +1306,6 @@
         min-height: 60px;
         margin-left: 0;
     }
-
-
-
-
-
-
     /*****************marker popup**********************/
 
     #marker-popup .startups-gallery {
@@ -2014,5 +1826,94 @@
 
     .li-with-img .media-li-img {
         margin-top: 15px;
+    }
+
+
+    /*home*/
+    section.home-blog {
+        padding: 0px;
+        height: auto;
+    
+        margin-bottom: 20px;
+}
+
+    .home-content-img-mobile {
+        display: block;
+        font-size: 0px;
+    }
+
+    .home-content-img-mobile img {
+        display: block;
+        margin: 0px auto 20px auto;
+    }
+
+    .home-title {
+        font-size: 14px;
+    }
+
+    .home-title a {
+    }
+
+    .home-date {
+    }
+
+    .home-post-wrapper .home-content {
+    }
+
+    .home-post-wrapper .home-content img {
+    }
+
+    .home-content {
+    }
+
+    .home-post-wrapper table {
+        display: block;
+    }
+
+    .home-content table {
+    }
+
+    #page-wrap .home-content p, #page-wrap .home-content h4, #page-wrap .home-content h2, #page-wrap .home-content h3 {
+    }
+
+    .home-content img {
+    }
+
+    .home-content p img {
+    }
+
+    .page-wrap.contect.home-blog-wrapper {
+        padding: 14px 25px 0px 25px;
+        font-size: 13px;
+    }
+
+    .home-half {
+    }
+
+    .home-half.home-half-left {
+        display: block;
+        width: 100%;
+    }
+
+    .home-content-img {
+    }
+
+    .home-content-img img {
+    }
+
+    .home-half.home-half-right {
+        display: none;
+    }
+    /*single*/
+    .page-wrap.contect.home-post-wrapper {
+        padding: 20px 25px 25px 25px;
+    }
+
+    .post-img {
+    }
+
+    .post-img img {
+        display: block;
+        margin: auto;
     }
 }

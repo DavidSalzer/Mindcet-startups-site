@@ -4004,18 +4004,30 @@ section.home-blog {
 }
 
 .home-title {
+    color: #444;
+    font-weight: bold;
+    margin: 0px 0px 10px 0px;
+    font-size: 19px;
 }
 
 .home-title a {
     text-decoration: none;
     color: #444;
     font-weight: bold;
-    margin: 0px 0px 10px 0px;
     display: block;
 }
 
 .home-date {
     margin-bottom: 35px;
+}
+
+.home-post-wrapper .home-content{
+    height:auto
+}
+
+.home-post-wrapper .home-content img{
+    display:block;
+    margin:15px 0;
 }
 
 .home-content {
@@ -4047,28 +4059,25 @@ section.home-blog {
     padding: 35px 15px 10px 15px;
 }
 
-.home-half{
+.home-half {
     width: 48%;
-    
     display: inline-block;
     height: 100%;
     vertical-align: top;
-} 
-
-.home-half.home-half-left{
-    
 }
 
-.home-content-img{
+.home-half.home-half-left {
+}
+
+.home-content-img {
     height: 100%;
-    
     min-height: 100%;
     vertical-align: top;
     position: relative;
     font-size: 0px;
 }
 
-.home-content-img img{
+.home-content-img img {
     max-height: 100%;
     max-width: 100%;
     display: block;
@@ -4078,6 +4087,28 @@ section.home-blog {
     bottom: 0px;
     right: 0px;
     left: 0px;
+}
+
+/*single*/
+.page-wrap.contect.home-post-wrapper {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 35px 40px 25px 40px;
+}
+
+.post-img {
+    font-size: 0px;
+   
+}
+
+.post-img img {
+    margin-bottom: 30px;
+}
+
+.home-content-img-mobile {
+    display: none;
 }
 
 /*@import("mobile.css")*/

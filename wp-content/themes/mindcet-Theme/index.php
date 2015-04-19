@@ -20,6 +20,10 @@
                 <em>by</em> <?php the_author() ?>
             </div>
 
+              <div class="home-content-img-mobile">
+                <?php echo get_the_post_thumbnail( the_ID(),array(220,155), $attr ); ?>
+            </div>
+
             <div class="home-content">
                 <?php the_content(); ?>
             </div>

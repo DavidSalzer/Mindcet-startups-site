@@ -1982,10 +1982,15 @@
     }
 
     .blog-title {
+        font-size: 100%;
     }
 
     #inner-ul-media {
         font-size: 12px;
+    }
+
+    .media-li-content {
+        height: 41px;
     }
 
     .media-li-content p, .media-li-content h4, .media-li-content h3 {
@@ -2001,7 +2006,13 @@
         width: 100%;
         display: block;
     }
+
+    .li-with-img .title-and-content-wrapper-li {
+        width: 100%;
+        display: block;
+    }
+
     .li-with-img .media-li-img {
-        margin-top:15px;
+        margin-top: 15px;
     }
 }

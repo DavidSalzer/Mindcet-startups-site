@@ -22,8 +22,10 @@
                     foreach ( $recent_posts as $post ){
                 ?>
                 <?php if(  get_the_post_thumbnail( $post["ID"],array(220,155), $attr ) != "" )echo '<li class="li-with-img">'; else echo '<li class="li-without-img">';  ?>
-                <a class="media-li-title" href="<?php echo get_permalink($post["ID"])?>" class="rand-title"><?php echo  $post["post_title"];?></a>
-                <div class="media-li-content"><?php echo apply_filters ("the_content", $post["post_content"]);?></div>
+                <div class="title-and-content-wrapper-li">
+                    <a class="media-li-title" href="<?php echo get_permalink($post["ID"])?>" class="rand-title"><?php echo  $post["post_title"];?></a>
+                    <div class="media-li-content"><?php echo apply_filters ("the_content", $post["post_content"]);?></div>
+                </div>
                 <div class="media-li-img">
                     <?php echo get_the_post_thumbnail( $post["ID"],array(220,155), $attr ); ?>
                 </div>

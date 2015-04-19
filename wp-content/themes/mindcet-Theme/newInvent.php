@@ -312,10 +312,10 @@
                 </div>
 
                 <div class="bottomArea">
-                    <label for="ads">
+                    <!--<label for="ads">
                         <input type="checkbox" id="ads" name="ads" value="yes" checked>
                         <span></span>I wish to receive interesting information about new EdTech startups.<br><br>
-                    </label>
+                    </label>-->
                     <label for="terms" class="form-terms">
                         <input type="checkbox" id="terms" name="terms" checked>
                         <span></span> I accept the <a href="/?page_id=567" id="terms" target="_blank">terms</a> of the Global EdTech Startups Awards.<br>

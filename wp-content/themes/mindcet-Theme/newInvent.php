@@ -1,6 +1,6 @@
 <?php
     /*
-        Template Name: New Inventor Form
+        Template Name: New Startup Form
     */
     
     get_header('page');

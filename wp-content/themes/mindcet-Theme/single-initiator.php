@@ -6,7 +6,7 @@
 	?>
 
 <?php
-	 $urlgo=site_url().'/#'.$post->ID;
+	 $urlgo=site_url().'?page_id=22/#'.$post->ID;
 //	wp_redirect($urlgo);
 ?>
 <?php endwhile;}else{

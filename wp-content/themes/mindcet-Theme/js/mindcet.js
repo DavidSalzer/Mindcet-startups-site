@@ -652,7 +652,7 @@ function popuopInvent(tid) {
         ga('send', 'pageview', allTech[tid].title);
     }
 
-    globalUrl = document.URL.split("#")[0];
+    globalUrl = document.URL.split("?")[0];
     domUrl = document.URL;
     domUrlTweet = domUrl.replace('#', '%23');
     domComments = ascii(domUrl);

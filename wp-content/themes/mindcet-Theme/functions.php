@@ -154,9 +154,9 @@
     
         function checkCaptcha(){
              //production
-            //$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
+            $privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
               //qa
-              $privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
+             // $privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
               $resp = recaptcha_check_answer ($privatekey,
                                             $_SERVER["REMOTE_ADDR"],
                                             $_POST["recaptcha_challenge_field"],
@@ -1004,12 +1004,12 @@
     
                      // Get a key from https://www.google.com/recaptcha/admin/create
                      //qa
-                     $publickey = "6LdQPu4SAAAAACRzwW4h8VQtluCUAqLiMrhRQNKp";
-                     $privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
+                     //$publickey = "6LdQPu4SAAAAACRzwW4h8VQtluCUAqLiMrhRQNKp";
+                     //$privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
     
                      //production
-                     //$publickey = "6Lc_Pu4SAAAAAPo3yZJ8UQkagt5Wm_tA4W5x8Qpz";
-                     //$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
+                     $publickey = "6Lc_Pu4SAAAAAPo3yZJ8UQkagt5Wm_tA4W5x8Qpz";
+                     $privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
     
                      # the response from reCAPTCHA
                      $resp = null;
@@ -1022,8 +1022,10 @@
          }
     
          function myCapchIsValid(){
-           $privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
-           //$privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
+             //qa
+           //$privatekey = "6LdQPu4SAAAAAPdPdicVgCnfxcw4N9xb0z_wKX1E";
+           //production
+           $privatekey = "6Lc_Pu4SAAAAAP4_SfbPOk9VHWyJnFhU-4HPSgX1";
            $resp = recaptcha_check_answer ($privatekey,
                                          $_SERVER["REMOTE_ADDR"],
                                          $_POST["recaptcha_challenge_field"],

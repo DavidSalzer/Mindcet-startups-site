@@ -6,21 +6,26 @@
     <div class="middelBanner">
         <h2> Blog</h2>
     </div>
-   
-        <?php echo get_the_post_thumbnail( the_ID(),array(220,155), $attr ); ?>
-   
-    <h2><?php the_title(); ?></h2>
+    <div class="page-wrap contect home-post-wrapper">
 
-    <div class="meta">
-        <em>Posted on:</em> <?php the_time('F jS, Y') ?>
-        <em>by</em> <?php the_author() ?>
+        <div class="post-img">
+            <?php echo get_the_post_thumbnail( the_ID(),array(220,155), $attr ); ?>
+        </div>
+        <div class="home-title">
+
+            <?php the_title(); ?>
+        </div>
+        <div class="home-date">
+            <em>Posted on:</em> <?php the_time('F jS, Y') ?>
+            <em>by</em> <?php the_author() ?>
+        </div>
+
+        <div class="home-content">
+
+            <?php the_content(); ?>
+
+        </div>
     </div>
-
-    <div class="entry">
-
-        <?php the_content(); ?>
-
-    </div>
+    <?php endwhile; endif; ?>
 </div>
-<?php endwhile; endif; ?>
 <?php get_footer(); ?>

@@ -915,7 +915,7 @@ footer .tagLogo {
 }
 
 .topMenu ul {
-    width: 578px;
+    width: 100%;
     margin: auto;
     position: relative;
     left: 11px;

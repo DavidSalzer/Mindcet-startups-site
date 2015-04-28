@@ -4025,25 +4025,25 @@ section.home-blog {
     height:auto
 }
 
-.home-post-wrapper .home-content img{
+/*.home-post-wrapper .home-content img{
     display:block;
     margin:15px 0;
-}
+}*/
 
 .home-content {
     height: 118px;
     overflow: hidden;
 }
 
-.home-content table {
+/*.home-content table {
     display: none;
-}
+}*/
 
-#page-wrap .home-content p, #page-wrap .home-content h4, #page-wrap .home-content h2, #page-wrap .home-content h3 {
+/*#page-wrap .home-content p, #page-wrap .home-content h4, #page-wrap .home-content h2, #page-wrap .home-content h3 {
     margin: 0px;
     line-height: 23px;
     font-size: 100%;
-}
+}*/
 
 .home-content img {
 }

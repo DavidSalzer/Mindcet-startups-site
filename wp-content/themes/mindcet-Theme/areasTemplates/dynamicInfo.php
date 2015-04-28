@@ -1,7 +1,7 @@
 
 <div id="media-area">
     <div class="middelBanner">
-        <h2> Media</h2>
+        <h2> </h2>
     </div>
     <div class="page-wrap blog-twit-wrapper">
         <div class="ul-media-wrapper">

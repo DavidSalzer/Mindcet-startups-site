@@ -5,7 +5,9 @@
     </div>
     <div class="page-wrap blog-twit-wrapper">
         <div class="ul-media-wrapper">
-            <div class="blog-title">blog</div>
+            <div class="blog-title">
+                <a class="blog-title-link" href="/?page_id=3431">Blog</a>
+            </div>
             <ul id="inner-ul-media">
                 <?php
                     $args = array(

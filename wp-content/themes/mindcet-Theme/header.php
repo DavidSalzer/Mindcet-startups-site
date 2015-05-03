@@ -40,7 +40,7 @@
 	</title>
 	
 	<link rel="shortcut icon"  type="image/x-icon" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.ico">
-	
+	<link rel="stylesheet" href="wp-content/themes/mindcet-Theme/wp-style.css" type="text/css" />
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
     <!--<link rel="stylesheet" href="http://localhost/Mindcet-startups-site/wp-content/themes/mindcet-Theme/style.css" type="text/css" />
     <link rel="stylesheet" media="all and (max-width: 1023px)"  href="http://localhost/Mindcet-startups-site/wp-content/themes/mindcet-Theme/mobile.css" type="text/css" />-->

@@ -396,6 +396,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     display: block;
 }
 
+html {
+    font-size: 100%;
+}
+
 body {
     line-height: 1;
     direction: ltr;
@@ -403,6 +407,17 @@ body {
 
 ol, ul {
     list-style: none;
+}
+
+
+.home-content ul {
+	list-style: disc;
+    margin-left: 24px;
+}
+
+.home-content ol {
+	list-style: decimal;
+    margin-left: 24px;
 }
 
 blockquote, q {
@@ -4058,9 +4073,7 @@ section.home-blog {
 }
 
 .home-content img.aligncenter {
-    text-align: center;
-    display: block;
-    margin: 0px auto 10px auto;
+  
 }
 
 .home-content img.alignright {

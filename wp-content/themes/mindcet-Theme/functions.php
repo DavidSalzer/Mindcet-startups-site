@@ -50,6 +50,26 @@
     
         }
     
+
+        /* Filter Tiny MCE Default Settings */
+add_filter( 'tiny_mce_before_init', 'my_switch_tinymce_p_br' );
+ 
+/**
+ * Switch Default Behaviour in TinyMCE to use "<br>"
+ * On Enter instead of "<p>"
+ * 
+ * @link https://shellcreeper.com/?p=1041
+ * @link http://codex.wordpress.org/Plugin_API/Filter_Reference/tiny_mce_before_init
+ * @link http://www.tinymce.com/wiki.php/Configuration:forced_root_block
+ */
+function my_switch_tinymce_p_br( $settings ) {
+    $settings['forced_root_block'] = false;
+    return $settings;
+}
+
+
+
+
         // Clean up the <head>
         function removeHeadLinks() {
             remove_action('wp_head', 'rsd_link');

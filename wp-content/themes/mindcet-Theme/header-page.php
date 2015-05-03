@@ -38,6 +38,7 @@
 	<link rel="shortcut icon" href="/favicon.ico">
 	
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
+    
 	<link rel="stylesheet" media="all and (max-width: 1023px)"  href="http://localhost/Mindcet-startups-site/wp-content/themes/mindcet-Theme/mobile.css" type="text/css" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
